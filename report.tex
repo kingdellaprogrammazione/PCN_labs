@@ -1,0 +1,48 @@
+\documentclass{report}
+
+\usepackage[utf8]{inputenc}   % UTF-8 support
+\usepackage{lipsum}           % dummy text (optional)
+
+\title{Minimal LaTeX Document}
+\author{Your Name}
+\date{}                       % empty = no date
+
+\begin{document}
+
+\maketitle
+\chapter{QKD}
+
+\chapter{Atomic Spectroscopy}
+\section{Introduction}
+
+\input{spectroscopy/chapters/intro.tex}
+
+\section{Laser characterization}
+
+\input{spectroscopy/chapters/characterization_intro.tex}
+
+\subsection{Current-power characteristic}
+
+\input{spectroscopy/chapters/characterization_currentpower.tex}
+
+\section{Atomic spectroscopy}
+
+\input{spectroscopy/chapters/atomic_spectroscopy_intro.tex}
+
+\subsection{Results and discussion}
+
+\subsubsection{Doppler and sub-Doppler spectroscopy}
+
+\input{spectroscopy/chapters/atomic_spectroscopy_coefficient.tex}
+
+\input{spectroscopy/chapters/atomic_spectroscopy_ramp.tex}
+
+\input{spectroscopy/chapters/atomic_spectroscopy_saturation.tex}
+
+\subsubsection{Calculation of the atomic density from the spectra}
+
+\input{spectroscopy/chapters/atomic_spectroscopy_density.tex}
+
+\chapter{Clean Room}
+
+\end{document}
