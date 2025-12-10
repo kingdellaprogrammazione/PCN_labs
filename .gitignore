@@ -16,3 +16,6 @@ wheels/
 *.log
 *.pdf
 *.synctex.gz
+*.bbl
+*.blg
+*.out
