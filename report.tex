@@ -2,6 +2,10 @@
 
 \usepackage[utf8]{inputenc}   % UTF-8 support
 \usepackage{lipsum}           % dummy text (optional)
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{comment}
 
 \title{Minimal LaTeX Document}
 \author{Your Name}
@@ -11,6 +15,24 @@
 
 \maketitle
 \chapter{QKD}
+
+\section{Introduction}
+\input{qkd/chapters/intro.tex}
+\section{Implementation of a BB84 demonstration device}
+
+\subsection{Objective}
+\input{qkd/chapters/implementation_bb84_objective.tex}
+
+\subsection{Experimental setup}
+\input{qkd/chapters/implementation_bb84_setup.tex}
+
+\subsection{Results}
+\input{qkd/chapters/implementation_bb84_results.tex}
+
+
+\section{Implementation of the OTP protocol}
+
+\section{Characterization of QKD components}
 
 \chapter{Atomic Spectroscopy}
 \section{Introduction}
@@ -44,5 +66,11 @@
 \input{spectroscopy/chapters/atomic_spectroscopy_density.tex}
 
 \chapter{Clean Room}
+
+
+
+
+\bibliographystyle{plain}   % choose style
+\bibliography{references}    % your .bib file (without .bib)
 
 \end{document}
