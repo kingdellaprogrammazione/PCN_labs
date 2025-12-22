@@ -1,0 +1,51 @@
+The techniques that now go under the name of \textit{encryption} have been present for a long time: the oldest attempt 
+known where someone tried to protect information is related to Mesopotamian clay tablets, 
+approximately around 1500 B.C. 
+
+Since then, mankind never abandoned these tools, but instead 
+tried more and more to refine them to allow for exclusively private communication. 
+
+Until 40 years ago (and for more than 3000 years), a common characteristic of encryption techniques was that 
+all the ways one could use to hide information were performed with the 
+help of only classical information. 
+That means that all the procedures exploited, like for example pen's ink or electromagnetic 
+waves, follow what we call now classical physics.
+People that wanted 
+to share messages between themselves had only the options to 
+handle macroscopic objects (that could carry information), 
+so objects that had all of their properties completely specified at all times, 
+that were pretty resistant to environmental interactions and that followed strictly 
+the locality principle.
+
+With the understanding of the microscopic world's quantum nature, a new type of 
+information emerged: a quantum one. This means that we are now able to encode 
+classical information in quantum states, that can be handled in specific ways exclusive 
+to quantum, both for what concerned the evolution of the information and its following 
+extraction. 
+
+In this chapter we try to enact the first scheme that exploited the new 
+peculiarities of quantum information to allow for eavesdropper detection during the synthesis of a symmetric encryption key: BB84 \cite{Bennett_2014}.
+This is a protocol that, in its original for, is based on 4 quantum states belonging to a 2-dimensional system: 2 of them are chosen in a way that their 
+inner product is equal to $ \sfrac{1}{\sqrt{2}}$, and the other two are their orthogonals. 
+A possible physical candidate for this protocol is the photon: it can move at the highest speed available both in free 
+air and in fibers, that moreover are already deployed, it can encode 
+quantum information in its polarization, a quantum property that lives in a 2 dimensional space (there are also other encoding possible). 
+The most important drawback is related to the need for single photons, and so 
+single photon sources, single photon detectors, and the attenuation that cannot be 
+compensated in classical ways by amplifiers because of the no-cloning theorem.
+
+TODO: describe the protocol better and its components, maybe with the scheme.
+
+\begin{figure}
+    \centering
+\includegraphics[width=0.4\textwidth]{./qkd/bb84/images/laser_polarization_calibration_ideal.pdf}
+\includegraphics[width=0.5\textwidth]{./qkd/bb84/images/laser_polarization_calibration_real.pdf}
+
+\end{figure}
+
+\begin{comment}
+In this section, students should briefly introduce the general context of quantum communication and QKD.
+They should then delve into the description of the BB84 protocol with polarization coding. Finally, they
+should list and briefly describe the essential elements of this protocol (sources, detectors, and polarization
+optics).
+\end{comment}
