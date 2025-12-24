@@ -3,3 +3,4 @@ numpy
 packaging
 Pillow
 scipy
+pandas
