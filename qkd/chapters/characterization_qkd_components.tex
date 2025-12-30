@@ -1,7 +1,39 @@
-List of things to do:
-- intro on Single-Photon Detector Detection Efficiency Estimation
-- setup description
-- sketch of the setup
-- calculations 
-- results
-- discussion
+% List of things to do:
+% - Objective on Single-Photon Detector Detection Efficiency Estimation
+% - setup description
+% - sketch of the setup
+% - calculations 
+% - Results
+\subsection{Objective of the experiment}
+Accurate photon detection is essential for ensuring the reliability and precision of a lot of quantum applications, thus the calibration of the detection efficiency of single-photon detectors is of paramount importance. Such an efficiency is defined as the probability of a SPD producing a measurable signal in response to one incident photon, depending on the wavelength and detection rate, with specific wavelength and count rate specifications.
+
+In order to estimate the detection efficiency we use the \textit{Substitution Method}. Which is a radiometric measurement principle used to determine the detection efficiency by comparing two distinct measurements of a light source. Specifically, the method involves measuring the effective number of photons per second registered by the DUT device under test (in our case SPD) and comparing it to the incident mean optical power determined by a reference analogue detector.
+
+
+\subsection{Setup description and list of components}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{qkd/spd_efficiency/spd_efficiency_setup.png}
+    \caption{Setup sketch for the estimation of the Single-Photon Detector Detection Efficiency.}
+    \label{fig:spd_efficiency_setup}
+\end{figure}
+The setup used for the estimation is given by creating two different paths for the light emitted by a laser diode (LD). The first path is used to measure the incident mean optical power using a reference power meter (PM) while the second path is used to measure the effective number of photons per second registered by the single-photon detector (SPD).
+
+\subsubsection{Components}
+First we start with a laser diode emitting at a wavelength of 1550 nm,
+%todo explain all the compoenents
+
+The difference in the attenuation of the two paths is calculated as:
+
+\begin{itemize}
+    \item \textbf{1:99 beam splitter:} 20 dB
+    \item \textbf{Fixed attenuator:} 25 dB
+    \item \textbf{Variable attenuation:} $[23, 26, 29, 32, 35, 38]$ dB
+    \item \textbf{FC/PC connectors (3x):} 3 $\times$ 0.5 = 1.5 dB
+    \item \textbf{Total attenuation difference ($\tau_{\text{dB}}$):} 46.5 + $A_{\text{var}}$ dB
+\end{itemize}
+
+
+\subsection{Results}
+
+\subsubsection{SPAD characterization}
