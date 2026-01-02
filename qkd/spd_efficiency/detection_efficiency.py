@@ -21,12 +21,9 @@ N_env = 94.6
 N_env_std = 10.21110507
 tau_fixed = 46.5  # dB
 
-#Defining the changable variables as dataframe arrays
-df = pd.DataFrame({
-    "attenuator_db": [38, 35, 32, 29, 26, 23],
-    "N": [493.1, 901.7, 1665.7, 3151.1, 5950.2, 11022.1],
-    "N_std": [25.31775837, 32.05221435, 42.84351371, 60.44179937, 72.6862359, 92.65881262],
-})
+# Load measurement data from the CSV file
+csv_path = "./qkd/spd_efficiency/measurement_data.csv"
+df = pd.read_csv(csv_path)
 
 df["tau_db"] = tau_fixed + df["attenuator_db"]
 df["tau"] = 10 ** (-df["tau_db"] / 10)
