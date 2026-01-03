@@ -7,7 +7,7 @@ from scipy.optimize import curve_fit
 #Defining Fixed constants when changing the attenuation
 h = 6.62607015e-34
 c = 299792458
-lambda_m = 1550e-9
+lambda_m = 1.55e-6
 lambda_m_std = 0.1e-9
 P = 4.4045e-6
 P_std = 0.001715938357e-6

@@ -2,7 +2,7 @@
 % - Objective on Single-Photon Detector Detection Efficiency Estimation
 % - setup description
 % - sketch of the setup
-% - calculations 
+% - calculations
 % - Results
 \subsection{Objective of the experiment}
 Accurate photon detection is essential for ensuring the reliability and precision of a lot of quantum applications, thus the calibration of the detection efficiency of single-photon detectors is of paramount importance. Such an efficiency is defined as the probability of a SPD producing a measurable signal in response to one incident photon, depending on the wavelength and detection rate, with specific wavelength and count rate specifications.
@@ -12,28 +12,156 @@ In order to estimate the detection efficiency we use the \textit{Substitution Me
 
 \subsection{Setup description and list of components}
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{qkd/spd_efficiency/spd_efficiency_setup.png}
-    \caption{Setup sketch for the estimation of the Single-Photon Detector Detection Efficiency.}
-    \label{fig:spd_efficiency_setup}
+	\centering
+	\includegraphics[width=1\textwidth]{qkd/spd_efficiency/spd_efficiency_setup.png}
+	\caption{Setup sketch for the estimation of the Single-Photon Detector Detection Efficiency.}
+	\label{fig:spd_efficiency_setup}
 \end{figure}
 The setup used for the estimation is given by creating two different paths for the light emitted by a laser diode (LD). The first path is used to measure the incident mean optical power using a reference power meter (PM) while the second path is used to measure the effective number of photons per second registered by the single-photon detector (SPD).
 
 \subsubsection{Components}
-First we start with a laser diode emitting at a wavelength of 1550 nm,
-%todo explain all the compoenents
+
+The experimental setup is a fiber-based optical system operating at a wavelength of \SI{1550}{\nano\meter}.
+
+A \textbf{laser diode} emits continuous-wave light at \SI{1550}{\nano\meter}. The laser output is delivered through an \textbf{APC connector} and is first attenuated using a \textbf{fixed optical attenuator (25 dB)} with \textbf{APC--APC interfaces}. The attenuated signal is then injected into a \textbf{1:99 fiber beam splitter}, whose input and output ports are also equipped with \textbf{APC connectors}.
+
+The beam splitter divides the optical signal into two paths:
+\begin{itemize}
+    \item \textbf{Reference arm (99\%):} the high-power output of the beam splitter is routed via an \textbf{APC fiber connection} to a \textbf{power meter (PM)}. Since the PM input uses a \textbf{PC connector}, an \textbf{APC--PC interface} is employed at this stage to allow optical power measurements.
+    \item \textbf{Detection arm (1\%):} the low-power output is connected via \textbf{APC fiber} to a \textbf{variable optical attenuator} with \textbf{APC--APC interfaces}. A \textbf{fixed attenuator (25 dB)} is connected directly to the output of the variable attenuator, also using \textbf{APC--APC connectors}, in order to further reduce the optical power while minimizing the number of fiber connections. The attenuated signal is finally delivered to the \textbf{single-photon detector (SPD)} through an \textbf{APC--PC interface}, matching the detector input connector.
+\end{itemize}
+
+The electrical output pulses from the SPD are sent to a \textbf{time tagger}, which records the arrival times of detected photons with high temporal resolution and enables the extraction of photon count rates and timing statistics, which is controlled and displayed using a software interface on a connected computer.
+
+Connector types (APC or PC) are selected according to the interface requirements of each device.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\hline
+\textbf{Component} & \textbf{Function} & \textbf{Connector Type} \\
+\hline
+Laser diode & Optical source at 1550 nm & APC (output) \\
+Fixed attenuator (25 dB) & Initial power attenuation & APC--APC \\
+1:99 beam splitter & Power splitting & APC--APC \\
+Power meter (PM) & Reference power measurement & PC (input) \\
+Variable attenuator & Fine power control & APC--APC \\
+Fixed attenuator (25 dB) & Additional attenuation & APC--APC \\
+Single-photon detector (SPD) & Photon counting & PC (input) \\
+Time tagger & Photon arrival time acquisition & Electrical (SPD output) \\
+\hline
+\end{tabular}
+\caption{Optical components and connector types used in the setup}
+\end{table}
+
+\subsection{Experimental Procedure}
+
+Fiber propagation losses (approximately 0.2~dB/km) are neglected in this experiment, as the setup is implemented on a compact fiber-based prototype where the total fiber length is sufficiently small.
+
+The first step consists in identifying the output ports of the 1:99 beam splitter. This is performed by connecting the attenuated laser output to one input port of the beam splitter and measuring the optical power at each output using the power meter. During this characterization step, the laser output power is fixed at 1.84~mW. The output corresponding to 99\% of the input power is identified by a measured power on the order of a few microwatts, while the remaining output corresponds to the 1\% port.
+
+Once the beam splitter outputs are identified, the complete optical circuit is assembled according to the setup described in the Components section.
+
+Before starting photon-counting measurements, the variable optical attenuator in the detection arm is set to its maximum attenuation value (60.02~dB) to prevent potential damage to the single-photon detector. The laser is then switched on, and the detector is connected to the time tagger, which is in turn interfaced with the control computer. During the initial phase of operation, the detector output signal is monitored while the device stabilizes and cools down. After this transient phase, the detector produces a stable digital output signal at 3.3~V.
+
+With the laser switched off, background measurements are performed to estimate the dark count rate of the detector. This measurement includes both intrinsic dark counts and environmental background contributions, resulting in an average background count rate of 94.6 counts per second. (measured 10 times and averaged)
+
+Subsequently, the laser is switched on and photon-counting measurements are performed for different values of the variable optical attenuation. The measurement procedure is repeated for attenuation settings of 38~dB, 35~dB, 32~dB, 29~dB, 26~dB, and 23~dB, recording the corresponding photon detection rates at each attenuation value.
 
 The difference in the attenuation of the two paths is calculated as:
 
 \begin{itemize}
-    \item \textbf{1:99 beam splitter:} 20 dB
-    \item \textbf{Fixed attenuator:} 25 dB
-    \item \textbf{Variable attenuation:} $[23, 26, 29, 32, 35, 38]$ dB
-    \item \textbf{FC/PC connectors (3x):} 3 $\times$ 0.5 = 1.5 dB
-    \item \textbf{Total attenuation difference ($\tau_{\text{dB}}$):} 46.5 + $A_{\text{var}}$ dB
+	\item \textbf{1:99 beam splitter:} 20 dB
+	\item \textbf{Fixed attenuator:} 25 dB
+	\item \textbf{Variable attenuation:} $[23, 26, 29, 32, 35, 38]$ dB
+	\item \textbf{FC/PC connectors (3x):} 3 $\times$ 0.5 = 1.5 dB
+	\item \textbf{Total attenuation difference ($\tau_{\text{dB}}$):} 46.5 + $A_{\text{var}}$ dB
 \end{itemize}
+
+Where $A_{\text{var}}$ is the variable attenuation value set during the measurement.
 
 
 \subsection{Results}
+
+This section summarizes the measured quantities and fixed experimental parameters used for the characterization of the single-photon detector.
+
+\subsubsection*{Fixed Parameters and Background Measurements}
+
+The optical wavelength was set to
+\[
+\lambda = 1.55~\mu\text{m},
+\]
+with an associated uncertainty of
+\[
+\sigma_{\lambda} = 0.1~\text{nm}.
+\]
+
+The optical power measured on the reference arm was
+\[
+P = 4.4045~\mu\text{W},
+\]
+with a standard uncertainty of
+\[
+\sigma_{P} = 1.72 \times 10^{-3}~\mu\text{W}.
+\]
+
+The environmental background optical power was measured as
+\[
+P_{\mathrm{env}} = 1.4 \times 10^{-11}~\text{W},
+\]
+with an uncertainty of
+\[
+\sigma_{P_{\mathrm{env}}} = 7.0 \times 10^{-12}~\text{W}.
+\]
+
+The coupling factor was assumed to be
+\[
+C = 1.0,
+\]
+with a relative uncertainty of 1.7\%, corresponding to
+\[
+\sigma_{C} = 0.017.
+\]
+
+The integration time for photon-counting measurements was set to
+\[
+t = 1.0~\text{s},
+\]
+with an uncertainty of
+\[
+\sigma_{t} = 1.0 \times 10^{-3}~\text{s}.
+\]
+
+With the laser switched off, the average background count rate was measured to be
+\[
+N_{\mathrm{env}} = 94.6~\text{counts/s},
+\]
+with a standard deviation of
+\[
+\sigma_{N_{\mathrm{env}}} = 10.21~\text{counts/s}.
+\]
+
+\subsubsection{Photon Count Measurements}
+
+Photon-counting measurements were performed for different values of the variable optical attenuation in the detection arm. For each attenuation setting, the mean photon count rate and its standard deviation were calculated by repeating the measurement 10 times. The results are summarized in Table~\ref{tab:count_results}.
+
+\begin{table}[h]
+\centering
+\label{tab:count_results}
+\begin{tabular}{ccc}
+\hline
+\textbf{Attenuation (dB)} & \textbf{Mean Count Rate (counts/s)} & \textbf{Std. Dev. (counts/s)} \\
+\hline
+38 & 493.1   & 25.32 \\
+35 & 901.7   & 32.05 \\
+32 & 1665.7  & 42.84 \\
+29 & 3151.1  & 60.44 \\
+26 & 5950.2  & 72.69 \\
+23 & 11022.1 & 92.66 \\
+\hline
+\end{tabular}
+\caption{Measured photon count rates for different attenuation values}
+\end{table}
+
 
 \subsubsection{SPAD characterization}
