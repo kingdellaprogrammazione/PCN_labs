@@ -165,3 +165,51 @@ Photon-counting measurements were performed for different values of the variable
 
 
 \subsubsection{SPAD characterization}
+
+The detection efficiency of the single-photon avalanche diode (SPAD) was characterized using the \emph{substitution method}. This method allows estimating the detection efficiency $\eta$ by comparing the optical power measured with a calibrated power meter to the photon detection rate measured by the SPAD, under identical optical conditions and for different attenuation settings.
+
+For each attenuation value, the detection efficiency is given by the substitution method \cite{bienfang2023spd,lopez2020ingaas}:
+\begin{equation}
+\eta\!\left(\lambda, \frac{N}{t}\right)
+=
+\frac{h c}{\lambda\, t}
+\,
+\frac{N - N_{\mathrm{env}}}
+{\tau\, C \, (P - P_{\mathrm{env}})} .
+\end{equation}
+where $h$ is Planck’s constant, $c$ is the speed of light in vacuum, $\lambda$ is the optical wavelength, $N$ is the number of detected counts in the acquisition time $t$, $N_{\mathrm{env}}$ represents dark and ambient counts, $\tau$ is the total optical transmissivity of the attenuation chain, $C$ is the calibration coefficient of the reference power meter, $P$ is the measured optical power, and $P_{\mathrm{env}}$ accounts for background optical power.
+
+The efficiency $\eta$ was evaluated for each attenuation setting, corresponding to different detected count rates $N/t$.
+
+\paragraph{Results.}
+The experimentally obtained detection efficiencies are reported here:
+
+\begin{center}
+\emph{[Results table to be inserted here]}
+\end{center}
+
+\paragraph{Efficiency versus count rate.}
+To analyze the detector behavior in the linear-response regime, the detection efficiency was plotted as a function of the detected count rate $N/t$. 
+In the linear-response regime, the efficiency can be expressed as \cite{migdall2002intercomparison}:
+\begin{equation}
+\eta\!\left(\lambda, \frac{N}{t}\right)
+=
+\eta^{\lambda}_{0}
+\left(1 - D\,\frac{N}{t}\right).
+\end{equation}
+where $\eta^{\lambda}_{0}$ is the zero-flux detection efficiency and $D$ is the detector dead time.
+
+A linear fit of $\eta$ versus $N/t$ was performed in order to extract both $\eta^{\lambda}_{0}$ and the dead time $D$.
+
+\begin{figure}[h]
+\centering
+\emph{[Insert plot of $\eta$ versus $N/t$ with linear fit]}
+\caption{Detection efficiency of the SPAD as a function of the detected count rate $N/t$. The solid line represents the linear fit used to estimate the zero-flux efficiency and the detector dead time.}
+\label{fig:spad_efficiency}
+\end{figure}
+
+The extracted values of the zero-flux efficiency and the dead time are reported below:
+
+\begin{center}
+\emph{[Extracted values of $\eta^{\lambda}_{0}$ and $D$]}
+\end{center}
