@@ -1,0 +1,42 @@
+
+\subsubsection{Interferometer Data Acquisition}
+
+The raw signal acquired from the Michelson interferometer photodiode (shown in Figure \ref{fig:raw_signal_inter}) consists of the interference fringes superimposed onto the triangular intensity modulation of the laser. To extract the pure interference pattern shown in Figure \ref{fig:cleaned_data_inter}, we performed a background subtraction. The background reference was obtained by summing the individual intensities of the two interferometer arms, measured separately to exclude interference effects.
+
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{interferometer_raw_signal.png}
+        \caption{Raw signal from the Michelson interferometer, showing interference fringes superimposed on the laser's triangular driving ramp.}
+        \label{fig:raw_signal_inter}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{interferometer_fringes.png}
+        \caption{Cleaned interference pattern obtained by subtracting the non-interfering background intensity from the raw signal.}
+        \label{fig:cleaned_data_inter}
+    \end{minipage}
+\end{figure}
+
+\subsubsection{Frequency Linearization}
+To calibrate the laser frequency scan, we analyzed the interference fringes produced by the Michelson interferometer.
+The spacing between two consecutive extrema in the interference pattern is constant and can be determined by the measured path difference $\Delta L = \SI{17.3}{\centi\meter}$:
+\begin{equation}
+    \Delta \nu = \frac{c}{4\Delta L} = \frac{3 \times 10^8}{\num{4} \times \num{0.187}} \approx \SI{401}{\mega\hertz}
+\end{equation}
+
+
+
+
+During the scan of the laser, we observed a non-linearity in the response. Specifically, an exponential growth in fringe spacing was observed as the frequency was lowered. To correct for this, we fitted the fringe positions with an exponential function and applied a correction to linearize the frequency axis for the spectroscopic data.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.48\textwidth]{peak_spacings.png}
+    \hfill
+    \includegraphics[width=0.48\textwidth]{peak_spacings_after_rescaling.png}
+    \caption{Plot of the spacing between consecutive extrema in the interference pattern before and after the linearization.}
+    \label{fig:peak_lin}
+\end{figure}

@@ -1,0 +1,57 @@
+\subsubsection{Experimental Results}
+
+\paragraph{Integrated Absorbance}
+To determine the total atomic density, we first calculated the integrated absorbance area ($\mathcal{A}_{total}$) by summing the areas of the four fitted Gaussian peaks. The area for each peak was calculated as $A_i \cdot \sigma_i \cdot \sqrt{2\pi}$.
+
+The contributions from the four observed hyperfine transitions are:
+\begin{itemize}
+    \item \textbf{Peak 1:} Area $\approx 4.0225218 \times 10^7 \, \text{Hz}$
+    \item \textbf{Peak 2:} Area $\approx 1.5838338 \times 10^7 \, \text{Hz}$
+    \item \textbf{Peak 3:} Area $\approx 2.5797161 \times 10^7 \, \text{Hz}$
+    \item \textbf{Peak 4:} Area $\approx 4.1252472 \times 10^7 \, \text{Hz}$
+\end{itemize}
+
+Summing these contributions yields the total integrated absorbance:
+\begin{equation}
+    \mathcal{A}_{total} = \sum_{i=1}^{4} (A_i \sigma_i \sqrt{2\pi}) \approx 1.231132 \times 10^8 \, \text{Hz}
+\end{equation}
+
+\paragraph{Calculation}
+Using the values from of the Cesium D1 line \cite{steck}:
+\begin{itemize}
+    \item Frequency $\omega_{ge} = 2\pi \times \SI{335.116 048 807(41)}{\tera\hertz}$.
+    \item natural linewidth $\Gamma = \SI{28.743}{\mega\hertz}$
+\end{itemize}
+
+The final result is:
+
+\begin{equation}
+    n \approx 1.345 \times 10^{16} \, \text{m}^{-3}
+\end{equation}
+
+\subsubsection{Theoretical Density Calculation}
+
+To provide a benchmark for our experimental results, we calculated the theoretical atomic density of the Cesium vapor at the measured laboratory temperature of $T = \SI{23}{\celsius}$ (\SI{296.15}{\kelvin}).
+
+According to the vapor pressure data for solid Cesium, the vapor pressure $P_v$ at this temperature is approximately:
+\begin{equation}
+    P_v \approx 1.4 \times 10^{-6} \, \text{Torr} \approx 1.87 \times 10^{-4} \, \text{Pa}
+\end{equation}
+
+
+
+The theoretical density $n_{th}$ is determined using the ideal gas law equation of state $P = n k_B T$, where $k_B$ is the Boltzmann constant:
+
+\begin{equation}
+    n_{th} = \frac{P_v}{k_B T} = \frac{1.87 \times 10^{-4}}{(1.38 \times 10^{-23}) (296.15)}
+\end{equation}
+
+This yields a theoretical atomic density of:
+\begin{equation}
+    n_{th} \approx 4.57 \times 10^{16} \, \text{m}^{-3}
+\end{equation}
+
+
+
+\paragraph{Comparison}
+Our experimental density ($n_{exp} \approx 1.30 \times 10^{16} \, \text{m}^{-3}$) is approximately a factor of $3.5$ lower than this theoretical prediction.

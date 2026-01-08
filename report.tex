@@ -7,6 +7,7 @@
 \usepackage{xfrac}
 \usepackage{comment}
 \usepackage{graphicx}
+\graphicspath{{spectroscopy/images/}{qkd/bb84/images/}{qkd/spd_efficiency/}}
 \usepackage{siunitx}
 
 \title{Minimal LaTeX Document}
@@ -45,29 +46,29 @@
 
 \section{Laser characterization}
 
-\input{spectroscopy/chapters/characterization_intro.tex}
-
-\subsection{Current-power characteristic}
-
-\input{spectroscopy/chapters/characterization_currentpower.tex}
+\input{spectroscopy/chapters/characterization.tex}
 
 \section{Atomic spectroscopy}
 
 \input{spectroscopy/chapters/atomic_spectroscopy_intro.tex}
 
+\subsection{Experimental setup}
+
+\input{spectroscopy/chapters/spectroscopy_setup.tex}
+
+\subsection{Experimental procedures and data analysis}
+
+\input{spectroscopy/chapters/spectroscopy_interferometer.tex}
+
+\input{spectroscopy/chapters/spectroscopy_calibration.tex}
+
+\input{spectroscopy/chapters/spectroscopy_data_processing.tex}
+
+\input{spectroscopy/chapters/spectroscopy_density.tex}
+
 \subsection{Results and discussion}
 
-\subsubsection{Doppler and sub-Doppler spectroscopy}
-
-\input{spectroscopy/chapters/atomic_spectroscopy_coefficient.tex}
-
-\input{spectroscopy/chapters/atomic_spectroscopy_ramp.tex}
-
-\input{spectroscopy/chapters/atomic_spectroscopy_saturation.tex}
-
-\subsubsection{Calculation of the atomic density from the spectra}
-
-\input{spectroscopy/chapters/atomic_spectroscopy_density.tex}
+\input{spectroscopy/chapters/spectroscopy_results.tex}
 
 \chapter{Clean Room}
 

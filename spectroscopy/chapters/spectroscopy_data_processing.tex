@@ -1,0 +1,38 @@
+\paragraph{Data Processing and Absorbance Calculation}
+The raw photodiode signal $I(\nu)$ is a convolution of the atomic absorption and the variation in laser intensity due to the current ramp. To isolate the atomic response, we first determined the baseline intensity $I_0(\nu)$ by fitting a polynomial function to the far-detuned wings of the spectrum where absorption is negligible.
+The transmission $T(\nu)$ was calculated by normalizing the signal to this baseline:
+\begin{equation}
+    T(\nu) = \frac{I(\nu)}{I_0(\nu)}
+\end{equation}
+
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{absorption_baseline_fit.png}
+        \caption{Fitting of the baseline intensity from the photodiode signal.}
+        \label{fig:baseline_fit}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{transmittance.png}
+        \caption{Calculated trsasmittance trough the cesium vapor cell.}
+        \label{fig:trasmittance}
+    \end{minipage}
+\end{figure}
+
+From the transmission data, we derived the frequency-dependent absorption coefficient $A(\nu)$, which relates to the optical density of the sample according to the Beer-Lambert law:
+\begin{equation}
+    A(\nu) = -\ln(T(\nu)) = -\ln\left(\frac{I(\nu)}{I_0(\nu)}\right)
+\end{equation}
+
+
+
+\paragraph{Gaussian Fitting}
+The resulting absorbance spectrum $A(\nu)$ was fitted with a Gaussian function to extract the parameters required for the density calculation:
+\begin{equation}
+    A(\nu) = A_{peak} \exp\left(-\frac{(\nu - \nu_0)^2}{2\sigma^2}\right)
+\end{equation}
+where $A_{peak}$ is the dimensionless peak absorbance and $\sigma$ is the standard deviation in frequency units (\si{\hertz}).\\
+The fitted peak absorbance amplitude $A_{peak}$ and standard deviation $\sigma$, which characterizes the Doppler width, were subsequently used to integrate the area under the absorption curve for the atomic density determination.

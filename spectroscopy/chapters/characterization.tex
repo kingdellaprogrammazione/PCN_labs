@@ -1,0 +1,33 @@
+
+
+The goal of this section is to determine the threshold current ($I_{th}$) of the DBR laser diode, characterizing its transition from spontaneous emission (LED mode) to stimulated emission (lasing mode).
+
+\subsection{Laser Current/Power Characteristic}
+
+We measured the optical output power of the laser as a function of the injection current. The current was increased in steps, and the corresponding power was recorded using a standard optical power meter.
+
+
+
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{spectroscopy/images/laser_power-current.png}
+        \caption{Output optical power versus injection current for the DBR laser diode.}
+        \label{fig:PI_laser}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{spectroscopy/images/laser_power-current_zoom.png}
+        \caption{Zoom on the threshold zone.}
+    \end{minipage}
+\end{figure}
+
+\subsubsection*{Results and Analysis}
+The $P-I$ curve (Figure \ref{fig:PI_laser}) exhibits a characteristic "knee" behavior. Below the threshold, the output power is negligible, governed by spontaneous emission. Above the threshold, the power increases linearly with the current due to stimulated emission.
+
+We determined the threshold current to be:
+\begin{equation}
+    I_{th} \approx \SI{56}{\milli\ampere}
+\end{equation}

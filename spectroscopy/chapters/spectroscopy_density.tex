@@ -1,0 +1,76 @@
+\subsubsection{Calculation of Atomic Density}
+
+To determine the atomic density $n$, we utilize the definition of the absorption coefficient $\kappa_{ge}(\omega_L)$, which explicitly accounts for the hyperfine structure and the degeneracy of the ground state:
+
+\begin{equation}
+    \kappa_{ge}(\omega_L) = \frac{\pi \omega_{ge} n}{\epsilon_0 \hbar c} \frac{S_{ge}}{2(2I + 1)} g_{\text{D}}(\omega_L, \omega_{ge})
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $2(2I+1) = 16$ is the total degeneracy of the Cesium ground state (nuclear spin: $I=7/2$).
+    \item $S_{ge}$ is the line strength for a specific hyperfine transition $|F_g\rangle \rightarrow |F_e\rangle$.
+    \item $\omega_{ge}$ is the resonant angular frequency of the transition.
+    \item $n$ is the atomic volume density.
+    \item $g(\omega_L, \omega_{ge})$ is the normalized lineshape function.
+\end{itemize}
+
+The line strength is related to the reduced matrix element by the coefficients $c_F^2$ given in Table \ref{tab:transition_strengths}:
+\begin{equation}
+    S_{ge} = c_F^2 |\langle L_g || e\vec{r} || L_e \rangle|^2
+\end{equation}
+
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases vertical row spacing
+    \setlength{\tabcolsep}{18pt}      % Increases horizontal column spacing (default is 6pt)
+    
+    \begin{tabular}{lc}
+        \hline
+        \textbf{Transition} & $\mathbf{c_F^2}$ \\
+        \hline
+        $|F_g = 4\rangle \rightarrow |F_e = 3\rangle$ & $7/12$ \\
+        $|F_g = 4\rangle \rightarrow |F_e = 4\rangle$ & $5/12$ \\
+        $|F_g = 3\rangle \rightarrow |F_e = 3\rangle$ & $7/36$ \\
+        $|F_g = 3\rangle \rightarrow |F_e = 4\rangle$ & $7/12$ \\
+        \hline
+    \end{tabular}
+    \caption{Transition strength factors  for the Cs D$_1$ line.}
+    \label{tab:transition_strengths}
+\end{table}
+
+The square of the reduced matrix element is derived from the natural linewidth $\Gamma$ \cite{steck}:
+
+\begin{equation}
+    \langle L_g || e\vec{r} || L_e \rangle = \sqrt{3} \sqrt{\frac{3 \pi \epsilon_0 \hbar c^3 \Gamma}{\omega_{ge}^3}} \quad \Rightarrow \quad |\langle L_g || e\vec{r} || L_e \rangle|^2 = \frac{9 \pi \epsilon_0 \hbar c^3 \Gamma}{\omega_{ge}^3}
+    \label{eq:reduced_matrix_element}
+\end{equation}
+
+\paragraph{Derivation of the Density Formula}
+
+
+The experimental signal covers the entire D1 manifold. Therefore, we integrate the absorption coefficient over the full frequency range. The integral of the normalized lineshape function is unity ($\int g_{\text{D}} d\omega = 1$).
+\begin{equation}
+    \int_{-\infty}^{+\infty} \kappa_{\text{total}}(\omega) d\omega = \frac{\pi \omega_{ge} n}{\epsilon_0 \hbar c} \frac{|\langle L_g || e\vec{r} || L_e \rangle|^2}{16} \sum_{F,F'} c_F^2
+\end{equation}
+
+Experimentally, this integral is related to the total area of the fitted Gaussian peaks $\mathcal{A}_{total}$. Converting the frequency units ($d\omega = 2\pi d\nu$) gives the relation $\int \kappa d\omega = \frac{2\pi \mathcal{A}_{total}}{L}$.
+
+Equating the theoretical and experimental integrals:
+\begin{equation}
+    \frac{2\pi \mathcal{A}_{total}}{L} = \left( \frac{\pi \omega_{ge} n}{\epsilon_0 \hbar c} \right) \left( \frac{|\langle L_g || e\vec{r} || L_e \rangle|^2}{16} \right) \sum c_F^2
+\end{equation}
+
+Rearranging to isolate the density $n$:
+\begin{equation}
+    n = \left( \frac{2\pi \mathcal{A}_{total}}{L} \right) \left( \frac{\epsilon_0 \hbar c}{\pi \omega_{ge}} \right) \left( \frac{16}{|\langle L_g || e\vec{r} || L_e \rangle|^2 \sum c_F^2} \right)
+\end{equation}
+
+
+Substituting everything we obtain a final expression for the atomic density that depends only on the cell length, the measured integrated area, and the fundamental transition constants ($\omega_{ge}, \Gamma$):
+
+\begin{equation}
+    n = \frac{2 \omega_{ge}^2 \mathcal{A}_{total}}{\pi L c^2 \Gamma}
+\end{equation}
+
+Using this simplified formula with our experimental values ($\mathcal{A}_{total} \approx 1.231132 \times 10^8 \, \text{Hz}$, $\Gamma =  28.743 \, \text{MHz}$, $\omega_{ge} = 2\pi \approx 335.116 \, \text{THz}$) yields the final result of $n \approx 1.345 \times 10^{16} \, \text{m}^{-3}$.
