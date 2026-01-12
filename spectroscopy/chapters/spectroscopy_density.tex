@@ -15,7 +15,7 @@ where:
     \item $g(\omega_L, \omega_{ge})$ is the normalized lineshape function.
 \end{itemize}
 
-The line strength is related to the reduced matrix element by the coefficients $c_F^2$ given in Table \ref{tab:transition_strengths}:
+The line strength is related to the reduced matrix element by the coefficients $c_F^2$ given in Table \ref{tab:transition_strengths} \cite{Steck_Quantum_Optics}:
 \begin{equation}
     S_{ge} = c_F^2 |\langle L_g || e\vec{r} || L_e \rangle|^2
 \end{equation}
@@ -39,7 +39,7 @@ The line strength is related to the reduced matrix element by the coefficients $
     \label{tab:transition_strengths}
 \end{table}
 
-The square of the reduced matrix element is derived from the natural linewidth $\Gamma$ \cite{steck}:
+The square of the reduced matrix element is derived from the natural linewidth $\Gamma$ \cite{Steck_Quantum_Optics}:
 
 \begin{equation}
     \langle L_g || e\vec{r} || L_e \rangle = \sqrt{3} \sqrt{\frac{3 \pi \epsilon_0 \hbar c^3 \Gamma}{\omega_{ge}^3}} \quad \Rightarrow \quad |\langle L_g || e\vec{r} || L_e \rangle|^2 = \frac{9 \pi \epsilon_0 \hbar c^3 \Gamma}{\omega_{ge}^3}
@@ -49,12 +49,34 @@ The square of the reduced matrix element is derived from the natural linewidth $
 \paragraph{Derivation of the Density Formula}
 
 
-The experimental signal covers the entire D1 manifold. Therefore, we integrate the absorption coefficient over the full frequency range. The integral of the normalized lineshape function is unity ($\int g_{\text{D}} d\omega = 1$).
+From the Beer-Lambert law, the measured absorbance signal $A(\nu)$ is related to the absorption coefficient by the cell length $L$:
 \begin{equation}
-    \int_{-\infty}^{+\infty} \kappa_{\text{total}}(\omega) d\omega = \frac{\pi \omega_{ge} n}{\epsilon_0 \hbar c} \frac{|\langle L_g || e\vec{r} || L_e \rangle|^2}{16} \sum_{F,F'} c_F^2
+    A(\nu) = \kappa(\nu) L 
 \end{equation}
 
-Experimentally, this integral is related to the total area of the fitted Gaussian peaks $\mathcal{A}_{total}$. Converting the frequency units ($d\omega = 2\pi d\nu$) gives the relation $\int \kappa d\omega = \frac{2\pi \mathcal{A}_{total}}{L}$.
+The experimental integrated area $\mathcal{A}_{total}$ is the integral of this absorbance signal over the linear frequency domain $\nu$ (in Hz):
+\begin{equation}
+    \mathcal{A}_{total} = \int_{-\infty}^{+\infty} A(\nu) d\nu
+\end{equation}
+
+
+The experimental signal covers the entire D1 manifold. Therefore, we integrate the absorption coefficient over the full frequency range. The integral of the normalized lineshape function is unity ($\int g_{\text{D}} d\omega = 1$).
+\begin{equation}
+    \int_{-\infty}^{+\infty} \kappa_{total}(\omega) d\omega = \frac{\pi \omega_{ge} n}{\epsilon_0 \hbar c} \frac{|\langle L_g || e\vec{r} || L_e \rangle|^2}{16} \sum_{F,F'} c_F^2
+\end{equation}
+
+This integral is related to the total area of the fitted Gaussian peaks $\mathcal{A}_{total}$. 
+
+
+\begin{equation}
+    \int_{-\infty}^{+\infty} \kappa_{total}(\omega) d\omega = \int_{-\infty}^{+\infty} \frac{A(\nu)}{L} (2\pi d\nu) = \frac{2\pi}{L} \int_{-\infty}^{+\infty} A(\nu) d\nu = \frac{2\pi \mathcal{A}_{total}}{L}
+\end{equation}
+
+Experimentally we can calculate ${A}_{total}$ using ${A}_{peak}$ and $\sigma$ of the fitted gaussian peaks.
+
+\begin{equation}
+    \mathcal{A}_{total} = \int_{-\infty}^{+\infty} \sum_{i=1}^{4} A_i \exp\left(-\frac{(\nu - \nu_{0,i})^2}{2\sigma_i^2}\right) d\nu = \sum_{i=1}^{4} A_i \sigma_i \sqrt{2\pi}
+\end{equation}
 
 Equating the theoretical and experimental integrals:
 \begin{equation}
@@ -72,5 +94,3 @@ Substituting everything we obtain a final expression for the atomic density that
 \begin{equation}
     n = \frac{2 \omega_{ge}^2 \mathcal{A}_{total}}{\pi L c^2 \Gamma}
 \end{equation}
-
-Using this simplified formula with our experimental values ($\mathcal{A}_{total} \approx 1.231132 \times 10^8 \, \text{Hz}$, $\Gamma =  28.743 \, \text{MHz}$, $\omega_{ge} = 2\pi \approx 335.116 \, \text{THz}$) yields the final result of $n \approx 1.345 \times 10^{16} \, \text{m}^{-3}$.

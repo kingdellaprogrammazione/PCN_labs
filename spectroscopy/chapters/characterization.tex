@@ -21,13 +21,31 @@ We measured the optical output power of the laser as a function of the injection
         \centering
         \includegraphics[width=\linewidth]{spectroscopy/images/laser_power-current_zoom.png}
         \caption{Zoom on the threshold zone.}
+        \label{fig:PI_laser_zoom}
     \end{minipage}
 \end{figure}
 
 \subsubsection*{Results and Analysis}
+
 The $P-I$ curve (Figure \ref{fig:PI_laser}) exhibits a characteristic "knee" behavior. Below the threshold, the output power is negligible, governed by spontaneous emission. Above the threshold, the power increases linearly with the current due to stimulated emission.
 
-We determined the threshold current to be:
+To estimate the lasing threshold ($I_{th}$), a linear regression was performed on the data in the high-current regime (approximately 75 mA to 200 mA), where the power-current relationship is expected to be linear. The fit yields a projected threshold current of:
+
 \begin{equation}
-    I_{th} \approx \SI{56}{\milli\ampere}
+    I_{th,fit} \approx \SI{51.7}{\milli\ampere}
 \end{equation}
+
+A detailed inspection of the threshold region (Figure \ref{fig:PI_laser_zoom}, zoom view) reveals a significant deviation from the ideal sharp-threshold model. While the linear extrapolation suggests a threshold near 51.7 mA, the measured optical power remains negligible until higher currents are reached.
+
+\begin{itemize}
+    \item Below 56.5 mA, the output power is negligible (dominated by spontaneous emission), indicating the laser has not yet achieved the gain necessary to overcome cavity losses.
+
+    \item between 56.5 mA and 60 mA the power rapidly and non linearly start rising
+    
+    \item over 60 mA the output power stabilize around the linear fit with a slope of $\SI{0.017}{\watt/\ampere}$
+
+\end{itemize}
+
+\subsubsection*{Conclusion}
+
+The discrepancy between the extrapolated threshold (51.7 mA) and the effective turn-on ($\approx$ 56.5 mA) suggests that non-linear efficiency factors are significant near the threshold. The linear fit accurately models the device's slope efficiency in the fully developed lasing regime but underestimates the current required to initiate lasing. For practical operation, the device should be driven above 60 mA to ensure stable lasing output consistent with the linear model.
