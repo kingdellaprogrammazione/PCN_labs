@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+from pathlib import Path
 
 
 #Defining Fixed constants when changing the attenuation
@@ -105,6 +106,27 @@ print(f"Strategy 2 (Type B of nearest x≈0 point): eta0 +/- {eta0_std_total_nea
 
 print("\n=== Per-point values ===")
 print(df[["attenuator_db", "x", "eta", "eta_std_A", "eta_std_B", "eta_std_total"]].to_string(index=False))
+
+# Save results to files (CSV + TXT)
+output_dir = Path(__file__).resolve().parent
+output_csv = output_dir / "detection_efficiency_output.csv"
+output_txt = output_dir / "detection_efficiency_output.txt"
+
+df_out = df[["attenuator_db", "x", "eta", "eta_std_A", "eta_std_B", "eta_std_total"]]
+df_out.to_csv(output_csv, index=False)
+
+with output_txt.open("w", encoding="utf-8") as f:
+    f.write("=== Fit results (Type A only in fit) ===\n")
+    f.write(f"eta0 = {eta0_fit:.10g}  +/- {eta0_std_A:.3g}   (Type A from fit)\n")
+    f.write(f"Dt   = {Dt_fit:.10g}  +/- {Dt_std_A:.3g}   (Type A from fit)\n")
+    f.write("\n=== eta0 after adding Type B in quadrature ===\n")
+    f.write(f"Strategy 1 (max Type B over 6 points): eta0 +/- {eta0_std_total_max:.3g}\n")
+    f.write(f"Strategy 2 (Type B of nearest x≈0 point): eta0 +/- {eta0_std_total_nearest:.3g}\n")
+    f.write("\n=== Per-point values ===\n")
+    f.write(df_out.to_string(index=False))
+
+print(f"\nSaved CSV to: {output_csv}")
+print(f"Saved TXT to: {output_txt}")
 
 # 7) Plot: data with total errorbars + fitted curve
 x_plot = np.logspace(np.log10(x.min()*0.8), np.log10(x.max()*1.2), 300)

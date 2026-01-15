@@ -1,0 +1,16 @@
+=== Fit results (Type A only in fit) ===
+eta0 = 0.003290300583  +/- 5.04e-05   (Type A from fit)
+Dt   = 1.265848824e-05  +/- 1.51e-06   (Type A from fit)
+
+=== eta0 after adding Type B in quadrature ===
+Strategy 1 (max Type B over 6 points): eta0 +/- 0.0001
+Strategy 2 (Type B of nearest x≈0 point): eta0 +/- 0.0001
+
+=== Per-point values ===
+ attenuator_db       x      eta  eta_std_A  eta_std_B  eta_std_total
+            38   493.1 0.003268   0.000224   0.000086       0.000240
+            35   901.7 0.003317   0.000138   0.000087       0.000163
+            32  1665.7 0.003236   0.000091   0.000085       0.000124
+            29  3151.1 0.003156   0.000063   0.000083       0.000104
+            26  5950.2 0.003030   0.000038   0.000080       0.000088
+            23 11022.1 0.002834   0.000024   0.000074       0.000078
