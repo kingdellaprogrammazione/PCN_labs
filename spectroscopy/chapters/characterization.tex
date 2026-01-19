@@ -32,10 +32,12 @@ The $P-I$ curve (Figure \ref{fig:PI_laser}) exhibits a characteristic "knee" beh
 To estimate the lasing threshold ($I_{th}$), a linear regression was performed on the data in the high-current regime (approximately 75 mA to 200 mA), where the power-current relationship is expected to be linear. The fit yields a projected threshold current of:
 
 \begin{equation}
-    I_{th,fit} \approx \SI{51.7}{\milli\ampere}
+    I_{th,fit} = \SI{51.72}{\milli\ampere} \pm \SI{0.01}{\milli\ampere}
 \end{equation}
 
-A detailed inspection of the threshold region (Figure \ref{fig:PI_laser_zoom}, zoom view) reveals a significant deviation from the ideal sharp-threshold model. While the linear extrapolation suggests a threshold near 51.7 mA, the measured optical power remains negligible until higher currents are reached.
+Where the reported uncertainty corresponds to the standard deviation ($1\sigma$) of the intercept derived from the covariance matrix of the linear fit parameters.
+
+A detailed inspection of the transition region (Figure \ref{fig:PI_laser_zoom}, zoom view) reveals a significant deviation from the ideal sharp-threshold model. While the linear extrapolation projects a threshold at \SI{51.72}{\milli\ampere}, the measured optical power remains negligible until higher currents are reached.
 
 \begin{itemize}
     \item Below 56.5 mA, the output power is negligible (dominated by spontaneous emission), indicating the laser has not yet achieved the gain necessary to overcome cavity losses.
