@@ -4,37 +4,40 @@
 To determine the total atomic density, we first calculated the integrated absorbance area ($\mathcal{A}_{total}$) by summing the areas of the four fitted Gaussian peaks. 
 The contributions from the four observed hyperfine transitions are:
 \begin{itemize}
-    \item \textbf{Peak 1:} Area $\approx 3.8303 \times 10^7 \, \text{Hz}$
-    \item \textbf{Peak 2:} Area $\approx 1.5576 \times 10^7 \, \text{Hz}$
-    \item \textbf{Peak 3:} Area $\approx 2.6074 \times 10^7 \, \text{Hz}$
-    \item \textbf{Peak 4:} Area $\approx 4.1681 \times 10^7 \, \text{Hz}$
+    \item \textbf{Peak 1:} Area $= 3.830 \pm 0.002 \times 10^7 \, \text{Hz}$ 
+    \item \textbf{Peak 2:} Area $= 1.558 \pm 0.002 \times 10^7 \, \text{Hz}$
+    \item \textbf{Peak 3:} Area $= 2.607 \pm 0.002 \times 10^7 \, \text{Hz}$
+    \item \textbf{Peak 4:} Area $= 4.168 \pm 0.002 \times 10^7 \, \text{Hz}$
 \end{itemize}
 
 Summing these contributions yields the total integrated absorbance:
 \begin{equation}
-    \mathcal{A}_{total} = \sum_{i=1}^{4} (A_i \sigma_i \sqrt{2\pi}) \approx 1.21634 \times 10^8 \, \text{Hz}
+    \mathcal{A}_{total} = \sum_{i=1}^{4} (A_i \sigma_i \sqrt{2\pi}) = 1.2163 \pm 0.0004 \times 10^8 \, \text{Hz}
 \end{equation}
 
 \paragraph{Calculation}
 Using the values from of the Cesium D1 line \cite{Steck_Quantum_Optics}:
 \begin{itemize}
-    \item Frequency $\omega_{ge} = 2\pi \times \SI{335.116 048 807(41)}{\tera\hertz}$.
+    \item Frequency $\omega_{ge} = 2\pi \times \SI{335.116 048 807}{\tera\hertz}$.
     \item natural linewidth $\Gamma = \SI{28.743}{\mega\hertz}$
 \end{itemize}
+
+and the cell length $L = \SI{0.01\pm0.001}{\meter}$ \\
+we calculated the atomic density $n$ using the Formula \ref{eq:density_formula}:
 
 The final result is:
 
 \begin{equation}
-    n \approx 1.33 (27) \times 10^{16} \, \text{m}^{-3}
+    n = 1.33 \pm 0.27 \times 10^{16} \, \text{m}^{-3}
 \end{equation}
 
 \subsubsection{Theoretical Density Calculation}
 
-To provide a benchmark for our experimental results, we calculated the theoretical atomic density of the Cesium vapor at the measured laboratory temperature of $T = \SI{23}{\celsius}$ (\SI{296.15}{\kelvin}).
+To provide a benchmark for our experimental results, we calculated the theoretical atomic density of the Cesium vapor at the measured laboratory temperature of $T = \SI{23\pm1}{\celsius}$ (\SI{296.15\pm1}{\kelvin}).
 
 According to the vapor pressure data for solid Cesium \cite{Steck_Quantum_Optics}, the vapor pressure $P_v$ at this temperature is approximately:
 \begin{equation}
-    P_v \approx 1.225 (45) \times 10^{-6} \, \text{Torr} \approx 1.633 (60) \times 10^{-4} \, \text{Pa}
+    P_v \approx 1.23 (18) \times 10^{-6} \, \text{Torr} \approx 1.63 (25) \times 10^{-4} \, \text{Pa}
 \end{equation}
 
 
@@ -47,7 +50,7 @@ The theoretical density $n_{th}$ is determined using the ideal gas law equation 
 
 This yields a theoretical atomic density of:
 \begin{equation}
-    n_{th} \approx 3.99 (52) \times 10^{16} \, \text{m}^{-3}
+    n_{th} = 3.99 \pm 0.52 \times 10^{16} \, \text{m}^{-3}
 \end{equation}
 
 

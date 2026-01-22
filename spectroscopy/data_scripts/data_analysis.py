@@ -868,11 +868,15 @@ def main():
     
     print( f"amp values: {amp_int}")
     
+    print( f"amp uncs: {amp_int_unc}")
+    
     amp_int = np.sum(amp_int)
     
     print(f"amp sum: {amp_int}")
     
     amp_int_unc = np.sqrt( np.sum(amp_int_unc**2) )
+    
+    print(f"amp sum unc: {amp_int_unc}")
     
     
     n = (2 * ( 2 * np.pi * CENTRAL_FREQ)**2 * amp_int) / (np.pi * SPEED_OF_LIGHT**2 * CELL_LENGTH * DECAY_RATE)

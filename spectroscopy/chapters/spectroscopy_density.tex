@@ -89,8 +89,27 @@ Rearranging to isolate the density $n$:
 \end{equation}
 
 
-Substituting everything we obtain a final expression for the atomic density that depends only on the cell length, the measured integrated area, and the fundamental transition constants ($\omega_{ge}, \Gamma$):
+Substituting equation \ref{eq:reduced_matrix_element} and summing the transition strength coefficients we obtain a final expression for the atomic density that depends only on the cell length, the measured integrated area, and the fundamental transition constants ($\omega_{ge}, \Gamma$):
 
 \begin{equation}
     n = \frac{2 \omega_{ge}^2 \mathcal{A}_{total}}{\pi L c^2 \Gamma}
+    \label{eq:density_formula}
 \end{equation}
+
+
+\paragraph{Uncertainty Propagation}
+The uncertainty in the calculated atomic density $n$ was determined by propagating the standard deviations of the experimental parameters. We consider the contribution of the transition frequency $\omega_{ge}$ and the natural linewidth $\Gamma$ to be negligible.
+
+The error budget is composed of:
+\begin{enumerate}
+    \item \textbf{Fit Uncertainty:} Prior to fitting, the measurement errors from the photodiode signal were propagated through the absorbance calculation (Eq. 2.4) to determine the standard deviation for each spectral point. These values were used as weights in the Gaussian fitting algorithm. The reported uncertainty in the integrated area $\mathcal{A}_{total}$ is derived directly from the covariance matrix of this weighted least-squares fit.
+    \item \textbf{Geometric Uncertainty:} The uncertainty in the vapor cell length $L$.
+\end{enumerate}
+
+Assuming these sources are uncorrelated, the combined relative standard uncertainty is given by the quadrature sum:
+
+\begin{equation}
+    \frac{\delta n}{n} = \sqrt{ \left( \frac{\delta \mathcal{A}_{total}}{\mathcal{A}_{total}} \right)^2 + \left( \frac{\delta L}{L} \right)^2 }
+\end{equation}
+
+The final result is reported as $n \pm \delta n$, where $\delta n$ corresponds to one standard deviation ($1\sigma$).
