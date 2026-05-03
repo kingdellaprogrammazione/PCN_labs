@@ -1,0 +1,45 @@
+% =========================================================
+% NANO-experience — Materials and Methods
+% =========================================================
+%
+% TODO – Starting material
+%   - Si3N4 support membrane, 100 nm thick (TEM membrane)
+%   - S1813 photoresist spun on top (standard positive resist used here as FIB resist)
+%   - Mention substrate dimensions if known (< 15 µm window area)
+%
+% TODO – FIB technique: basics
+%   - Focused Ion Beam (FIB): gallium (Ga+) ion source
+%   - Beam parameters used: Energy = 30 keV, Spot size = 50 nm
+%   - Two simultaneous effects when Ga+ hits resist:
+%       1. Sputtering / piercing of the resist → creates hole
+%       2. Cross-linking (reticulation) of resist in a thin shell around the hole
+%          (due to secondary electron dose deposited laterally)
+%   - Explain why FIB achieves much smaller features than UV photolithography:
+%     ion wavelength << UV wavelength → diffraction limit not the constraint;
+%     resolution limited by beam spot size (~50 nm here vs. µm-scale in MICRO)
+%
+% TODO – Process flow
+%   1. FIB patterning: Ga+ beam scanned over desired hole positions
+%      → resist pierced + cross-linked shell formed around each hole
+%   2. Development in acetone solvent:
+%      → un-cross-linked (unexposed) resist dissolved and removed
+%      → cross-linked pillars / walls remain as mask
+%   3. (Continued in DRIE experience) ICP-DRIE pattern transfer into Si
+%   4. (Continued in DRIE experience) SEM imaging to inspect pillar verticality and angle
+%
+% TODO – Target structure
+%   - Array of nano-holes / nanopillars in resist → transferred to Si → PILLAR STRUCTURE
+%   - Pillar diameter target: ~150 nm (refer to SEM image in slides)
+%   - Pitch of array: a few µm (to be confirmed from your sample)
+%
+% TODO – Why this structure? (motivation — brief, 2–3 sentences)
+%   - Plasmonic application: metallised pillars → vertical nanoantenna, engineerable
+%     photonic resonance (reflectance tunable by pitch p and height h)
+%   - Nanobiotechnology: nano-biosensors on microfluidic platforms for drug delivery,
+%     electrical recording, biochemical sensing
+%   - Quantum Tech: Purcell effect — nano-antenna as optical cavity in active material
+%     (quantum wells), tailors spontaneous emission rate
+%
+% TODO – Equipment
+%   - FIB system (model if known, e.g. FEI Helios or similar dual-beam SEM/FIB)
+%   - Acetone development bath

@@ -1,0 +1,54 @@
+% =========================================================
+% DRIE + SEM Imaging — Materials and Methods
+% =========================================================
+%
+% TODO – Samples processed
+%   - MICRO sample: Si wafer patterned with AZ5214E resist (TRENCH structures, µm-scale)
+%   - NANO sample: Si3N4 membrane with FIB-patterned cross-linked resist (PILLAR structures, nm-scale)
+%   - Both samples prepared in the previous two experiences
+%
+% TODO – ICP-DRIE technique: basics
+%   - ICP = Inductively Coupled Plasma: high-density plasma source (coil around chamber)
+%   - DRIE = Deep Reactive Ion Etch: combines physical (ion bombardment) and chemical (radical) etching
+%   - Purpose: anisotropic etch of Si with high aspect ratio and vertical sidewalls
+%
+% TODO – Standard Bosch process (for context / comparison)
+%   - Cyclic process: 3 alternating steps per cycle
+%       1. Passivation: C4F8 plasma deposits fluorocarbon (CF_x) film on all surfaces
+%       2. Anisotropic bottom etch: SF6 + bias — ions remove passivation at bottom
+%       3. Isotropic Si etch: SF6 plasma — F radicals etch exposed Si at bottom
+%   - Result: deep trenches with vertical walls; sidewall scallops (hundreds of nm)
+%     from the cyclic nature → not suitable for nano-scale features
+%
+% TODO – Pseudo-Bosch process (what was actually used)
+%   - C4F8 and SF6 sent SIMULTANEOUSLY (not alternating)
+%   - Competition between deposition (C4F8) and etching (SF6) gives continuous
+%     but smoother etch → no scallop formation
+%   - Essential for nano-scale structures where scallops would destroy the pattern
+%   - Trade-off: slightly lower etch rate and potentially less vertical profile vs. Bosch
+%
+% TODO – Process parameters (from the slides, table on slide 24)
+%   Tchiller = 5 °C
+%   ┌─────────────┬────────────┬──────────┬────────────┐
+%   │             │ Deposition │  Break   │    Etch    │  ← these are Bosch steps shown for
+%   │ Time        │    2 s     │  1.9 s   │    5 s     │     reference; pseudo-Bosch runs
+%   │ Pressure    │  35 mTorr  │ 25 mTorr │  50 mTorr  │     C4F8+SF6 simultaneously
+%   │ Table RF    │    Off     │   50 W   │    Off     │
+%   │ ICP RF      │  2500 W    │  2000 W  │  2500 W    │
+%   │ C4F8 flow   │  150 sccm  │  10 sccm │     —      │
+%   │ SF6 flow    │   10 sccm  │ 200 sccm │  200 sccm  │
+%   └─────────────┴────────────┴──────────┴────────────┘
+%   - Etch rate: ~1 µm/cycle → ~6 µm/min; estimated time for 1 mm Si: ~2 h
+%   - Selectivity with photoresist and SiO2: lower than expected (claimed ~1:100 — verify)
+%
+% TODO – SEM imaging
+%   - SEM used: Quanta 3D FEG (FEI/Thermo Fisher dual-beam)
+%   - Imaging parameters: 20 kV HV, various magnifications (125×, 650×, 8000×, etc.)
+%   - Tilt: 52° for cross-section / sidewall viewing
+%   - What was imaged: trench sidewalls, pillar geometry, scallop size (Bosch reference),
+%     sidewall angle measurement
+%
+% TODO – KOH wet polishing (reference, if discussed)
+%   - After Bosch etch: KOH 45 wt%, 55 °C, 25 min → lateral wall smoothing
+%   - Not necessarily applied to your sample — confirm with Erik/Mario
+%   - Mention as a comparison to show scallop removal
