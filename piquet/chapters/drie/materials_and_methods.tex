@@ -52,3 +52,210 @@
 %   - After Bosch etch: KOH 45 wt%, 55 °C, 25 min → lateral wall smoothing
 %   - Not necessarily applied to your sample — confirm with Erik/Mario
 %   - Mention as a comparison to show scallop removal
+
+% OBJECTIVE
+\subsubsection{Objective}
+In this section a discussion of the final treatment the wafers' micro
+and nanostructures
+developed during the previous experiences will be held. In particular,
+a Pseudo-Bosch process will be acted on the structures, allowing a
+cost-effective way to
+obtain high aspect ratios geometries preserving also precision.
+After that, a complete inspection with the single electron microscope
+(SEM) will be carried out
+to ensure the effectiveness of the treatment.
+
+% SETUP DESCRIPTION AND LIST OF COMPONENTS
+\subsubsection{Setup description and list of components}
+TODO
+Below, a complete list of machines and instruments used to carry the
+activities is presented.
+\begin{itemize}
+  \item Box cutter (TODO I do not remember if it was special or not,
+    like with diamonds stones.);
+  \item  \SI{2}{\micro \meter} of \ce{SiO2} to create a substrate for
+    etching (TODO check ??);
+  \item A wax that become hard with heating (at \SI{70}{\degreeCelsius});
+  \item MAchnie for etching?? TODO put photo.
+\end{itemize}
+
+% PROCESS FLOW DESCRIPTION
+\subsubsection{Process flow description}
+
+\begin{itemize}
+  \item \textbf{Wafer cutting}: Firstly, both the wafers were cut (TODO
+    we sure were both?) with a box cutter.
+    Notice that the nanostr ??
+
+  \item \textbf{Wafer gluing}: After, the cutted structures were
+    glued on a bigger one, with a diameter of
+    4 inches. (TODO: was this what the wax was for?).
+
+  \item \textbf{DRIE machine cleaning}: The main chamber of the DRIE
+    machine needs to
+    be cleaned at the beginning of each day, to ensure minimal contamination
+    for extraneous gases residuals. To do that a special cleaning
+    recipe is used.
+    TODO: specify the cleaning recipe.
+
+  \item \textbf{Pseudo Bosch process}: Then the Pseudo Bosch deep reactive
+    ion etching (DRIE)
+    process can start.
+    This is a common method of dry etching, that encompasses all the
+    etching-ways that involve ion bombardment, usually from a plasma of
+    reactive-element gaseous compositions.
+    Before diving into the Pseudo Bosch process, let's analyze in
+    general DRIE process and
+    its wider belonging class made by the reactive ion
+    etching (RIE) processes.
+
+    RIE process' aim is
+    the precision etching of structures without undercuts,
+    that would not be possible using wet etching (so using liquid chemicals).
+    Usually RIE is used to excavate shallow features mantaining a
+    good verticality along the walls and at the same time a optimal
+    depth control at
+    a fast etching speed (TODO:picture).
+    The first step involves the creation of a plasma. Let's recall
+    that a plasma is a state of matter
+    originated from a locally electrically neutral gas that has been
+    ionized (partly or entirely). This is made possible by the employment of
+    a \SI{13.53}{\mega \hertz} (TODO check 13.56 or 13.53) radio
+    frequency (RF) electromagnetic field, that
+    with its continuous stimulus manages to ionize, effectively using
+    the cascade effect, a neutral gas. Notice that the gas and the
+    wafer are collocated in this little cavity between the two RF electrodes.
+    The free electrons can than be captured either by an electrode,
+    or by the wafer standing over the other one. The first ones are fed to
+    ground, while the second ones causes the wafer to become charged negatively.
+    The ionized gas, in contrast, loses electrons and become slightly
+    positive-charged. Indeed, notice that the RF field can accelerate
+    in a meaningful
+    way only the electrons, not the gas ions, because of their
+    bigger mass. This configurations results in a net acceleration experimented
+    by the ions towards the fixed wafer, that experiences the "bombardment"
+    cited before. The bombardment can affect the exposed wafer
+    surface in two ways,
+    both chemically and mechanically. Indeed the wafer can experience both
+    chemical processes with the highly reactive gas molecules and sputtering
+    (that is the detachment of molecules associated by a transfer of
+    kinetic energy)
+    due to the speed of the ions.
+    From this description the anisotropic characteristics of RIE
+    can be understood, since the ions have almost normal trajectories
+    with respect
+    to the wafer plane. In this regard, notice that plasma density affects the
+    degree of anisotropy.
+
+    The only difference between this and the DRIE process is that in the DRIE
+    the excavation depth is way bigger, leading to structures that
+    potentially have
+    really high aspect ratios, like 1:100 (e.g. pillars).
+
+    The Bosch process is a common DRIE process that involves a repetition of two
+    essential steps:
+    \begin{itemize}
+      \item an etching process, analogue to the one cited for RIE;
+      \item a passivation step, where the exposed surfaces are
+        covered with a thin strate
+        of protecting material.
+    \end{itemize}
+    Notice that the passivation step could appear superfluous, since the
+    RIE etching is already highly directional, and the interaction
+    with the walls
+    are highly reduced. Still, there are two main problems:
+    \begin{itemize}
+      \item Chemical etching relevance: when the plasma is generated,
+        a lot of neutral reactive gases
+        are generated. These one are not guided by the RF field and
+        freely interact with all
+        the exposed surfaces, even the walls;
+      \item Ion sputtering: the sputtered particles could scatter
+        with a non normal trajectory w.r.t. the
+        wafer plane. This could cause walls geometry disruptions if
+        the trajectory is
+        sufficiently angled.
+    \end{itemize}
+    With these points cleared, an example recipe for a Bosch process
+    is provided in \cref{tab:bosch_process}. Notice that all of the step cited
+    are performed while the RF field is active, sustaining the plasma
+    (TODO vero?).
+    The first step is to introduce \ce{C4F8}, octafluorocyclobutane, in the
+    chamber. This is made into a plasma and during this step a bond
+    breaks, making the molecule linear.
+    This polymer deposits for \SI{3}{\second} on every exposed
+    surface of the wafer, protecting it.
+    Then, the chamber is evacuated and \ce{SF6}, sulfur hexafluoride,
+    is introduced.
+    Plasma is created and an additional DC bias is applied, allowing
+    an highly effective
+    anisotropic etching of the passivated bottom of the wafer.
+    The last step comes with DC turned off and a less directional
+    plasma etch, caused
+    by highly reactive flourine radicals that interact in a more
+    isotropic way with the silicon.
+    causing curved deformations on the walls. TODO put photo. TODO
+    cite temperature
+    importance?
+
+    A problem with the Bosch process, especially if the fabrication consists in
+    nanometer-level geometries, are the big scallops, so the "waves"
+    that form along the walls (TODO figure).
+    For example, following the recipe of \cref{tab:bosch_process}, a scallop
+    extends for hundreds of \si{\nano \meter}. To avoid this problem,
+    a hybrid approach is used; this is called Pseudo Bosch process.
+    It consists in sending both the \ce{SF6} and \ce{C4F8} at the
+    same time into the chamber, adding \ce{CHF3} and tuning down the
+    RF power to \SI{8}{\watt}. (TODO i'm not sure it is effectively less)
+    The fact that these three gases are added at the same times helps with
+    the comtinuous passivation of the walls, that aren't attacked
+    chemically like in the
+    step 3 in \cref{tab:bosch_process}. The \ce{CHF3} helps in
+    coating more uniformly the walls,
+    adding to their smoothness. The relevant etch part is the RF kinetic one, so
+    the slow and directional bombardment of the plasma, driven by the
+    \SI{8}{\watt} RF.
+    This price of the precision achieved here is the time needed for
+    excavation; in roughly the same time
+    a depth of \SI{1}{\micro \meter} is reached against the
+    \SI{6}{\micro \meter} of the true Bosch process. (TODO we sure in
+    the same time?)
+
+    An important point here is the etching selectivity for what
+    concerns the \ce{Si} and the photoresist mask used.
+    This ratio indicate how much silicon is removed (in the depth
+    direction) per unit of photoresist. In the case of this
+    experience the selectivity appears to be (1:10), so 10 units of
+    silicon are removed perr unit of photoresist.
+
+    \begin{table}[h]
+      \centering
+      \label{tab:bosch_process}
+      \begin{tabular}{p{1cm}p{2.5cm}p{4cm}p{1.5cm}}
+        \toprule
+        Step & Process & Chemicals & Duration \\
+        \midrule
+        1 & Passivation &\ce{C4F8} linear polymer  & \SI{4}{\second} \\
+        \midrule
+        2 & Bottom etch & \ce{SF6} + DC bias & \SI{3}{\second} \\
+        \midrule
+        3 & Isotropic etch & \ce{F} radicals & TODO?? s \\
+        \bottomrule
+      \end{tabular}
+      \caption{A cycle of the Bosch Process considering an example
+        recipe. This is then
+      repeated hundreds of times.}
+
+    \end{table}
+  \item \textbf{Wax removal}: To detach our glued pieces, water is
+    needed to dissolve
+    the wax that connects them to the bigger wafer. An important
+    point here is that
+    the water shouldn't go above the pieces, into the structures.
+    Then the correct approach involve
+    depositing a droplet of water near the wax, on the side of the
+    pieces, and then try to slide them around to detachment.
+
+\end{itemize}
+
+TODO: i dont think we did the KOH polishing in our case.
