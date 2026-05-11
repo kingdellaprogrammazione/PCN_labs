@@ -1,4 +1,4 @@
-Photolithography in the context of micro- and nano-technology it is a \emph{selection} processes where instead of adding or removing material of the wafer (like in deposition or ethcing) we are selecting which regions of the wafer to be exposed to the subsequent steps.
+Photolithography in the context of micro- and nano-technology is a \emph{selection} process where instead of adding or removing material of the wafer (like in deposition or etching) we are selecting which regions of the wafer to be exposed to the subsequent steps.
 
 It originates from the words Photo (with light) and Lithography, from the Greek \textit{lithos} (stone) and \textit{graphein} (to write). Where instead of using stone and ink we use light in order to transfer the logic of a certain geometry into our silicon wafer.
 
@@ -12,7 +12,7 @@ A photomask is a high-purity, amorphous SiO$_2$ (quartz) slab on which an absorb
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\textwidth]{piquet/images/mask_transmission.png}
+  \includegraphics[width=0.6\textwidth]{mask_transmission.png}
   \caption{Transmission curves for quartz glass and soda-lime glass as a function of wavelength.
            Quartz maintains $\sim$90\,\% transmission down to wavelengths below 200\,nm, whereas
            soda-lime glass cuts off around 300\,nm, making quartz the required substrate for
@@ -21,6 +21,25 @@ A photomask is a high-purity, amorphous SiO$_2$ (quartz) slab on which an absorb
 \end{figure} 
 
 Because a single device requires many sequential patterning steps, precise alignment of each new mask to the previously printed features on the wafer is critical; misalignment can arise from X--Y displacement or rotational error, and is corrected by superimposing dedicated alignment marks using a split-field microscope.
+
+Two alignment strategies are employed in practice, selected according to whether the substrate transmits infrared (IR) radiation. For substrates that are opaque to IR, \emph{optical alignment} is used: a BSA split-field microscope simultaneously images the mask alignment marks and the corresponding marks on the previously patterned wafer layer in visible light; the stage is then adjusted in X, Y, and rotation until the two sets of marks are superimposed (Figure~\ref{fig:optical_alignment}). This approach is applicable to any substrate but is limited to an alignment resolution of 5--20\,$\mu$m, primarily by the diffraction limit of the visible-light optics and the constraint that both mark sets must lie in the same focal plane. For substrates transparent to IR radiation (e.g. silicon, which is opaque to visible light but transmits wavelengths above $\sim$1\,$\mu$m), \emph{IR alignment} offers a significantly better resolution of 1--5\,$\mu$m (Figure~\ref{fig:IR_alignment}): IR illumination passes through the entire wafer stack and is detected by a photodetector placed beneath the substrate, allowing the alignment marks on both the mask and the wafer to be imaged simultaneously without requiring a top-side reference layer.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[t]{0.46\textwidth}
+    \centering
+    \includegraphics[width=0.72\textwidth]{IR_mask_alignment.png}
+    \caption{IR alignment for substrates transparent to infrared radiation, such as silicon. IR illumination transmitted through the wafer stack is captured by a photodetector below, simultaneously imaging both mask and wafer marks; the achievable accuracy is 1--5\,$\mu$m \cite{FundTechProc2024}.}
+    \label{fig:IR_alignment}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.46\textwidth}
+    \centering
+    \includegraphics[width=0.82\textwidth]{optical_mask_alignment.png}
+    \caption{Optical alignment using a BSA split-field microscope, applicable to substrates opaque to IR. The microscope successively focuses on the mask and wafer alignment marks and the stage is adjusted until they coincide; the achievable alignment accuracy is 5--20\,$\mu$m \cite{FundTechProc2024}.}
+    \label{fig:optical_alignment}
+  \end{minipage}
+\end{figure}
 
 \subsubsection*{Photoresists}
 
@@ -43,13 +62,13 @@ Photoresists are classified by their \emph{polarity}:
   \centering
   \begin{minipage}[t]{0.46\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{piquet/images/pos_lithography.png}
+    \includegraphics[width=\textwidth]{pos_lithography.png}
     \label{fig:pos_resist}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.46\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{piquet/images/neg_lithography.png}
+    \includegraphics[width=\textwidth]{neg_lithography.png}
     \label{fig:neg_resist}
   \end{minipage}
   \caption{Comparison of positive and negative photoresist behaviour after UV exposure and development \cite{FundTechProc2024}.}
@@ -65,7 +84,14 @@ Positive resists generally offer better resolution because the chain-scission fr
 \paragraph*{Image Reversal resist}
 
 A special sub-class of positive resist is the \emph{image-reversal} (IR) resist. By inserting a post-exposure bake (PEB) step before a flood exposure (without a mask), the initially exposed regions are thermally cross-linked and rendered insoluble, while the unexposed regions become sensitised.
-negative-tone and producing a characteristic negative-slope (undercut) sidewall profile (i.e., the resist profile is wider at the base than at the top, facilitating clean lift-off; see Figure~\ref{fig:litho_flow}). This undercut geometry is particularly valuable for metal lift-off processes, where deposited material must be cleanly separated along the resist edges.
+This results in a negative-tone image and a characteristic negative-slope (undercut) sidewall profile (i.e., the resist profile is wider at the base than at the top, facilitating clean lift-off; see Figure~\ref{fig:lift_off}). This undercut geometry is particularly valuable for metal lift-off processes, where deposited material must be cleanly separated along the resist edges.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{lift_off.png}
+  \caption{Schematic of the undercut profile characteristic of image-reversal resists, which is essential for a successful lift-off process.}
+  \label{fig:lift_off}
+\end{figure}
 
 \subsubsection*{Exposure sources and tools}
 
@@ -81,11 +107,26 @@ Three geometries of exposure tool exist: (i) \emph{contact} printing, where the 
 directly on the resist-coated wafer; (ii) \emph{proximity} printing, where a small gap
 ($s \approx 10$--$25\,\mu$m) is maintained; and (iii) \emph{projection} printing, where an
 optical system images the mask onto the wafer at a de-magnification of typically $4\times$ or
-$5\times$. Contact and proximity systems are 1:1 and are preferred in R\&D settings for their
-simplicity and throughput, while projection steppers dominate industrial production due to their
-superior resolution and low defect density. The minimum resolvable half-pitch for contact printing
-is $b_{\min} = \tfrac{3}{2}\sqrt{\lambda z/2}$, where $z$ is the resist thickness; for proximity
-printing an additional gap term enters as $b_{\min} = \tfrac{3}{2}\sqrt{\lambda(s + z/2)}$.
+$5\times$ (Figure~\ref{fig:exposure_tools}). Contact and proximity systems are 1:1 and are
+preferred in R\&D settings for their simplicity and throughput, while projection steppers dominate
+industrial production due to their superior resolution and low defect density, at the cost of
+equipment exceeding 50\,M\$ and affordable only for mass production. The minimum resolvable
+half-pitch for contact printing is $b_{\min} = \tfrac{3}{2}\sqrt{\lambda z/2}$, where $z$ is the
+resist thickness; for proximity printing an additional gap term enters as
+$b_{\min} = \tfrac{3}{2}\sqrt{\lambda(s + z/2)}$. In this experience, a 1:1 mask aligner
+was used, which offers the simplest setup and is well suited to the micron-scale feature sizes
+targeted here.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{exposure_tools.png}
+  \caption{Schematic comparison of the three exposure tool geometries: contact, proximity, and
+           projection printing. Contact and proximity systems operate at 1:1 magnification and are
+           the standard choice for R\&D; projection steppers provide superior resolution through
+           optical de-magnification ($4\times$ or $5\times$) but require equipment costing
+           upwards of 50\,M\$ \cite{FundTechProc2024}.}
+  \label{fig:exposure_tools}
+\end{figure}
 
 \subsubsection*{Pattern-transfer strategies}
 
@@ -102,14 +143,6 @@ underlying material:
           thickness, and a negative-slope (undercut) profile ensures physical discontinuity of the
           film at the resist edge.
 \end{itemize}
-
-% --- Figure placeholder ---
-% \begin{figure}[htbp]
-%   \centering
-%   \includegraphics[width=0.85\textwidth]{figures/micro/litho_process_flow.png}
-%   \caption{Typical photolithography process flow, from wafer priming to pattern inspection.}
-%   \label{fig:litho_flow}
-% \end{figure}
 
 \subsection{Materials and Methods}
 \input{piquet/chapters/micro/materials_and_methods.tex}
