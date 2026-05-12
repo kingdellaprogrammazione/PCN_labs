@@ -13,6 +13,24 @@
 \usepackage{cleveref}
 \usepackage{mhchem}
 \usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  language=bash,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  backgroundcolor=\color{black!5},
+  frame=single,
+  numbers=left,
+  breaklines=true,
+  showstringspaces=false
+}
+
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
 
 \title{Minimal LaTeX Document}
 \author{Your Name}
@@ -27,6 +45,8 @@
 \input{qkd/chapters/intro.tex}
 \section{Implementation of a BB84 demonstration device}
 
+\label{sec:bb84}
+
 \subsection{Objective}
 \input{qkd/chapters/implementation_bb84_objective.tex}
 
@@ -37,6 +57,8 @@
 \input{qkd/chapters/implementation_bb84_results.tex}
 
 \section{Implementation of the OTP protocol}
+
+\input{qkd/chapters/implementation_otp_protocol.tex}
 
 \section{Characterization of QKD components}
 
