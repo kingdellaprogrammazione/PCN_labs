@@ -43,3 +43,40 @@
 % TODO – Equipment
 %   - FIB system (model if known, e.g. FEI Helios or similar dual-beam SEM/FIB)
 %   - Acetone development bath
+
+\textbf{Starting Material and Resist Setup} \\
+The fabrication process was performed on a silicon substrate. Polymethyl methacrylate (PMMA) 
+was utilized as the lithographic mask. PMMA is a high-resolution, positive-tone resist specifically 
+optimized for highly energetic Electron Beam Lithography (EBL). The resist was spun onto the silicon 
+to a thickness of approximately $300\text{ nm}$. Under electron bombardment, 
+the long polymer chains of the PMMA are broken into smaller, soluble molecules, 
+allowing for selective removal during the development stage.
+
+\textbf{Design and Proximity Effect Correction} \\
+The target structures fabricated were split ring resonators, 
+designed to function as nanoscale optical antennas with critical feature gaps of $100\text{ nm}$. 
+The initial layout was generated as a CAD file (.gds format) including other structures useful to estimate the 
+maximum resolution achievable.
+To account for electron scattering and diffusion within the resist (the proximity effect), the design was 
+imported into \textit{Beamer} software. The software executed Monte Carlo simulations to calculate and correct the 
+localized electron doses, ensuring uniform pattern transfer across areas of varying feature density.
+
+\textbf{EBL Exposure and Dose Calibration} \\
+Patterning was executed using an EBL system operating at an acceleration voltage of $50\text{ kV}$. 
+Prior to writing, the electron beam current was measured and calibrated to $1.08 \pm 0.01\text{ nA}$ using a Faraday cup. 
+To empirically determine the optimal energy threshold for resist clearance, a dose array was patterned. 
+The test grid varied the electron dose from $400$ to $800\text{ }\mu\text{C/cm}^2$ in increments of 
+$50\text{ }\mu\text{C/cm}^2$. The total execution time is around $35\text{ minutes}$, utilizing a writing speed of $23\text{ mm/s}$.
+
+\textbf{Development} \\
+Following exposure, the sample underwent development to remove the fragmented polymer regions. 
+The substrate was immersed in a developer solution comprising MIBK (Methyl isobutyl ketone) and Isopropanol in 
+a $1:3$ ratio for exactly $50\text{ seconds}$. Immediately after, the sample was rinsed with pure isopropanol to 
+halt the chemical development and dried using a steady stream of nitrogen ($N_2$).
+
+\textbf{Metallization and Lift-off} \\
+Once the PMMA mask was successfully developed, a $50\text{nm}$ ($0.5\text{ k\AA}$) layer of Gold was deposited over the entire sample. 
+The thickness of the deposited metal was precisely monitored using an oscillating crystal thickness monitor. 
+Finally, the split ring structures were isolated via a lift-off procedure. 
+The sample was submerged in an acetone bath, which dissolved the remaining unexposed PMMA. 
+This action "lifted off" the unwanted overlying metal, leaving only the desired gold plated pattern firmly adhered to the silicon substrate.

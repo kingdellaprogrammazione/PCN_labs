@@ -41,7 +41,7 @@ CENTRAL_FREQ = 335.116048807 * 10**12 # (41) Hz
 
 CENTRAL_FREQ_UNC = 0.000000041 * 10**12  # (41) Hz
 
-PATH_DIFFERENCE = 0.188
+PATH_DIFFERENCE = 0.185
 
 RED_PLANCK_CONSTANT = 1.054571817e-34  # J·s
 
@@ -881,7 +881,7 @@ def main():
     
     n = (2 * ( 2 * np.pi * CENTRAL_FREQ)**2 * amp_int) / (np.pi * SPEED_OF_LIGHT**2 * CELL_LENGTH * DECAY_RATE)
     
-    n_unc = 2 * n * np.sqrt(((( 2 * np.pi * CENTRAL_FREQ)**2 * amp_int_unc) / (( 2 * np.pi * CENTRAL_FREQ)**2 * amp_int))**2 + (((np.pi * SPEED_OF_LIGHT**2 * CELL_LENGTH * DECAY_RATE)*np.sqrt((CELL_LENGTH_UNC/CELL_LENGTH)**2+(DECAY_RATE_UNC/DECAY_RATE)**2))/((np.pi * SPEED_OF_LIGHT**2 * CELL_LENGTH * DECAY_RATE)))**2)
+    n_unc =  n * np.sqrt(((( 2 * np.pi * CENTRAL_FREQ)**2 * amp_int_unc) / (( 2 * np.pi * CENTRAL_FREQ)**2 * amp_int))**2 + (((np.pi * SPEED_OF_LIGHT**2 * CELL_LENGTH * DECAY_RATE)*np.sqrt((CELL_LENGTH_UNC/CELL_LENGTH)**2+(DECAY_RATE_UNC/DECAY_RATE)**2))/((np.pi * SPEED_OF_LIGHT**2 * CELL_LENGTH * DECAY_RATE)))**2)
     
     print(f"calculated density: {n:.6e} m^-3")
     
