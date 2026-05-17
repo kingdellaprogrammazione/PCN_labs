@@ -23,24 +23,59 @@ and the data to encrypt,
 chosen to be \lstinline[language=Python]|"INR"|, as an INRiM
 truncation, was executed as in
 \cref{lst:key_data}.
-\begin{lstlisting}[language=python, caption=Cell with the initial data. , label=lst:key_data, float=h ]
-token=0b111100011111000000010110010110
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption=Cell with the initial data. , label=lst:key_data, float=h ]
+token="111100011111000000010110010110"
 data="INR"
 \end{lstlisting}
 Notice that for the text, common ASCII encoding was used, resulting
 in a byte of information per each character.
 That is the reason why only three chars (so \SI{24}{\bit}) could be
 encrypted with the given  \SI{29}{\bit} key.
-Moreover, to make python understand well that the variable
-\lstinline[language=Python]|token| is
-a binary value, and so that the underlying information should be
-understood as raw bits (s?),
-the prefix \lstinline[language=Python]|0b| was used.
 
-Then, \lstinline[language=Python]|data| was encoded using the
-\lstinline[language=Python]|encode()| method,
+The key, contained in \lstinline[language=python]|token|, was provided
+as a string containing zeroes and ones, to
+facilitate manipulations.
+
+To begin, a \lstinline[language=Python]|check_key(mess:str, key:str)|
+function was defined, as in \cref{lst:cut_key}. This function
+contains simply an assert
+that checks that the key is longer than the message, raising an error otherwise.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,language=python, caption=The function that checks that the key is longer than the message bits. , label=lst:cut_key ,float=h ]
+def check_key (mess:str, key:str):
+    """
+    Raises an error if the key is shorter than the message .
+    """
+    assert len(key) >= len(mess)*8, " Keylen < messlen "
+
+\end{lstlisting}
+
+Then, \lstinline[language=Python]|encrypt(data:str, token:str)|
+function was defined,
+as in \cref{lst:encrypt}.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption=Encryption function. , label=lst:encrypt, float=h]
+def encrypt(data:str, token:str):
+
+    byte_encoded_data = data.encode("utf-8")
+    data_len_bits = len(byte_encoded_data)*8
+    int_encoded_data = int.from_bytes(byte_encoded_data)
+
+    encrypted_mess_int = int_encoded_data ^ int(token, 2)
+
+    # Transform the message back in bits, padding it to match the key.
+    encrypted_mess_str = format(encrypted_mess_int, f'0{data_len_bits}b')
+
+    # Output a str
+    return(encrypted_mess_str)
+\end{lstlisting}
+
+This function firstly encode the input string according to
+the
+\lstinline[language=Python]|encode()|
+method,
 specifying \lstinline[language=Python]|"utf-8"|,
-a variable length encoding that has as a subset the ASCII encoding. This means
+a variable length encoding that has ASCII as a subset encoding. This means
 that python associates to the new encoded variable a now raw bit sequence. In
 particular, the data associated to the data string is associated to
 bytes according to \cref{tab:ascii}.
@@ -58,50 +93,59 @@ bytes according to \cref{tab:ascii}.
   \caption{ASCII values for relevant characters.}
   \label{tab:ascii}
 \end{table}
-Python doesn't provide a way to perform logical computations like XOR
-directly on encoded objects,
-but requires another step firstly.
-That consists in converting that binary stream into an integer number
-and then display it
-in the binary system. To do that,
+
+Then, \lstinline[language=Python]|data_len_bits|, so the
+length of the data bit stream, was registered for later padding.
+
+Since Python doesn't provide a way to perform logical computations like XOR
+directly on encoded objects, there is the need to convert the
+binary stream into an integer number.
+To do that,
 \lstinline[language=Python]|int.from_bytes()| function
-was used, followed by the \lstinline[language=Python]|format()|, with the
-\lstinline[language=Python]|"b"| option, to indicate how should
-python process the data. All this is shown compactly in \cref{lst:key_data}
-\begin{lstlisting}[language=python, caption=Cell with the initial data. , label=lst:key_data , float=h ]
-byte_encoded_data = data.encode("utf-8")
-binary_encoded_data = int.from_bytes(byte_encoded_data)
-binary_stream = format(binary_encoded_data, 'b')
-\end{lstlisting}
-\lstinline[language=Python]|binary_stream| is a variable that can be
-XORed with the key, using
-the \lstinline[language=Python]|^| operator. Before doing this, the
-function \lstinline[language=Python]|cut_key()|, detailed in
-\cref{lst:cut_key}, ensures that the key
-has a bit length bigger than
-the message one, raising an
-\lstinline[language=Python]|AssertionError| if that is not the case.
+was used. Now both the key and the data can be XORed, using
+the \lstinline[language=Python]|^| operator. The key is transformed with
+\lstinline[language=Python]|int(token, 2)| to an integer object,
+before the operation.
+Finally, before sending the message, to allow for an easy detection
+of the message length,
+and assuming no adversarial loss of information,
+\lstinline[language=Python]|encrypted_mess_int|
+is padded with the \lstinline[language=Python]|format()| function in a string
+of zeroes and ones, reaching a length of
+\lstinline[language=Python]|data_len_bits|.
 
-\begin{lstlisting}[language=python, caption=The function that cuts the key making it compatible with the message. , label=lst:cut_key ,float=h ]
-def cut_key(message, key):
-    """
-    Raises an error if the key is shorter than the message.
-    """
-    assert len(key) >= len(message), "Keylen < messlen"
-    return key[:len(message)]
-\end{lstlisting}
+To decrypt the word, the receiver, in possession of the relevant
+symmetric key, must
+XOR again the received message with the key. He does so using the function
+\lstinline[language=python]|decrypt(ciphertext:str, token:str)|,
+defined in \cref{lst:bob_dec}.
 
-The final encryption step are shown in \cref{lst:final_enc}.
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption=Decryption function. , label=lst:bob_dec, float=h]
+def decrypt(ciphertext:str, token:str):
 
-\begin{lstlisting}[language=python, caption=Final step. , label=lst:final_enc, float=h]
-encrypted_mess = binary_stream ^ cut_key(binary_stream , token)
+    data_len_bits = len(ciphertext)
+    int_ciphertext = int(ciphertext, 2)
+    decrypted_mess_int = int_ciphertext ^ int(token, 2)
+
+    decrypted_word = decrypted_mess_int.to_bytes(data_len_bits // 8).decode('utf-8')
+
+    return(decrypted_word)
 \end{lstlisting}
 
-TODO: say how do Bob decrypt the thing.
+Here, firstly, the length of the eventually padded message is extracted.
+Then the message is immediately transformed to an integer.
+The integer XORing is performed and later the integer is transformed into a
+\lstinline[language=Python]|byte| variable, padding it again using
+the length cited before and
+and then decoded to ASCII characters, finalizing the decryption.
 
 \subsubsection{Encrypted communication}
 
-A \texttt{keys} folder containing 2226 \texttt{.key} files, that are
+This section involves the exchange of encrypted messages between a
+client and a server computers through the same local network. In this
+case, no keys from the previous
+experience were used, but
+a \texttt{keys} folder containing 2226 \texttt{.key} files, that are
 files containing the
 binary keys generated by the INRiM quantum key generator, was provided by
 the researchers. The files were named with univoque hashed strings (TODO:true??)
@@ -110,10 +154,297 @@ and contained each \SI{32}{\byte} of data. For instance, running
 \texttt{0a7431cf-6f5c-42ab-a3c5-d58b462cf963.key} produces the key
 shown in \cref{lst:hexdump}.
 
-\begin{lstlisting}[language=bash, caption=Output of \texttt{hexdump} command., label=lst:hexdump]
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,language=bash, caption=Output of \texttt{hexdump} command on a given key file., label=lst:hexdump, float=h]
 0000000 d7ce acc0 d082 1a22 8d1f b42c 1cb2 4509
 0000010 ddbe 6478 9e5a 7dd4 16c7 b42c 5dc1 9dd6
 0000020
 \end{lstlisting}
 
-TODO: finish
+Let's start analyzing the client, split between
+\cref{lst:client_main_1,lst:client_main_2,lst:client_main_3}.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption=Client script (part 1)., label=lst:client_main_1, float=h]
+import os
+import socket
+
+HOST = '172.16.0.50'   # change to server ip
+
+PORT = 8080            # change to your server port
+KEYS_DIR = 'keys'      # directory containing key files
+MESSAGE = "INR"        # the plaintext message to encrypt and send
+\end{lstlisting}
+In \cref{lst:client_main_1} the main libraries are imported and the important
+variables are set up, like the
+server ip address, the port used for the communication, the folder
+containing the keys and the
+message waiting to be encrypted.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption= Client script (part 2)., label=lst:client_main_2, float=h]
+label=get_key_labels()[0]         # select the first key
+
+try:
+    key_bytes = read_key_file(label)
+except Exception as e:
+    print("Error loading key:", e)
+    return
+
+label_msg = label.encode('utf-8')
+
+plaintext = MESSAGE.encode('utf-8')
+encrypted = xor_bytes(plaintext, key_bytes)
+print('Encrypted message:', encrypted)
+\end{lstlisting}
+
+In \cref{lst:client_main_2}, a careful read attempt is made to gather
+the key, in this case
+from the first file present in the \lstinline[language=python]|keys| folder.
+The function
+\lstinline[language=python]|get_key_labels(keys_dir='keys')|, as shown
+in \cref{lst:get_key_labels},
+first checks that the \lstinline[language=python]|keys| folder exists, and then
+gathers all the key files' names.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption= Function to read file names., label=lst:get_key_labels, float=h]
+def get_key_labels(keys_dir='keys'):
+    if not os.path.exists(keys_dir):
+        raise FileNotFoundError(f"Keys directory not found: {keys_dir}")
+
+    labels = []
+    for entry in os.listdir(keys_dir):
+        path = os.path.join(keys_dir, entry)
+        # include only files
+        if os.path.isfile(path) and not entry.startswith('.'):
+            labels.append(entry)
+
+    return labels
+\end{lstlisting}
+
+Then the \lstinline[language=Python]|read_key_file(label: str)| function is
+used. It is defined in \cref{lst:read_key_files}. It basically extracts the file
+raw bit content.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption= Function to read key bytes., label=lst:read_key_files, float=h]
+def read_key_file(label: str) -> bytes:
+    """Load key data from keys/<label>. Assume raw bits."""
+    path = os.path.join(KEYS_DIR, label)
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"Key file not found: {path}")
+
+    # open in binary to preserve bytes for raw keys
+    with open(path, 'rb') as f:
+        content = f.read()
+    return content
+\end{lstlisting}
+
+Later, always referring to \cref{lst:client_main_2}, there is the
+encoding part, this time
+associated to a label, not to a message, since the client needs also
+to send to the server
+the name of the file used as a key. It does that encoding the file's name,
+not its contents.
+Immediately after, the plaintext is also encoded and then encrypted using
+\lstinline[language=python]|xor_bytes(data:bytes, key:bytes)|
+function, defined in
+\cref{lst:xor_bytes}.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption= command on a given key file., label=lst:xor_bytes, float=h]
+def xor_bytes(data: bytes, key: bytes) -> bytes:
+    """XOR data with key."""
+    if len(key) == 0:
+        raise ValueError("Key is empty")
+    if len(key) < len(data):
+        raise ValueError("Key shorter than message: UNSAFE")
+    return bytes(b ^ key[i] for i, b in enumerate(data))
+\end{lstlisting}
+
+Now, \cref{lst:client_main_3} can be analyzed. This is the portion of
+the main where the
+communication is established.
+Here the \lstinline[language=python]|socket| library is used. The
+\lstinline[language=python]|connect()| method allows to try the connection, then
+\lstinline[language=python]|send_framed(sock: socket.socket, payload:bytes)|
+function sends, using the
+socket, the label of the key file used, and then the encrypted
+message. The function is
+shown in \cref{lst:send_framed}.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption=Client script (part 3)., label=lst:client_main_3, float=h]
+try:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((HOST, PORT))
+        # send label first
+        send_framed(s, label_msg)
+        print(f"Sent label ({len(label_msg)} bytes): {label!r}")
+        # send encrypted message second
+        send_framed(s, encrypted)
+        print(f"Sent encrypted message ({len(encrypted)} bytes)")
+        # optionally read server reply
+        # read 4-byte length then payload
+        s.settimeout(5.0)
+        try:
+            answer = recv_framed(s).decode()
+            print("Server reply :", answer)
+        except socket.timeout:
+            print("No response received (socket timeout).")
+except Exception as e:
+    print("Socket error:", e)
+\end{lstlisting}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption= command on a given key file., label=lst:send_framed, float=h]
+  def send_framed(sock: socket.socket, payload: bytes):
+    """Send a 4-byte big-endian length prefix followed by payload."""
+    length_prefix = len(payload).to_bytes(4, 'big')
+    sock.sendall(length_prefix + payload)
+\end{lstlisting}
+
+Basically \lstinline[language=python]|send_framed()|, as the name suggests,
+allows for the building of a custom protocol, on top of the IP's one.
+In this case, the IP payload created
+contains 4 bytes at the beginning to inform the receiver on the
+length of the incoming packet,
+allowing for an easy information reception.
+
+The complementary action, meaning the reading of a payload composed 4
+bytes of length indication plus
+the actual informations, is performed by \newline
+\lstinline[language=python]|recv_framed (sock: socket.socket)| and by
+the function
+\lstinline[language=python]|recv_exact(sock: socket.socket, n: int)|
+functions, shown
+respectively in the \cref{lst:recv_framed,lst:recv_exact}.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,language=python, caption= command on a given key file., label=lst:recv_framed, float=h]
+def recv_framed(sock: socket.socket):
+    length_bytes = recv_exact(sock, 4)
+    length = int.from_bytes(length_bytes, "big")
+    payload = recv_exact(sock, length)
+    return payload
+\end{lstlisting}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption= command on a given key file., label=lst:recv_exact, float=h]
+def recv_exact(sock: socket.socket, n: int):
+    data = b""
+    while len(data) < n:
+        chunk = sock.recv(n - len(data))
+        if not chunk:
+            raise ConnectionError("Socket closed")
+        data += chunk
+    return data
+\end{lstlisting}
+
+The only peculiarity is represented by the fact that in
+\lstinline[language=python]|recv_exact()|, the case in which the
+payload is bigger than the
+standard IP payload is handled using a
+\lstinline[language=python]|while| structure.
+This allows to keep an open connection, and so continue receiving ip
+packets until the
+actual message length is reached.
+
+Continuing with \cref{lst:client_main_3}, an answer is expected in
+\SI{5}{\second}, if sent, and eventually
+printed to screen. Here \lstinline[language=python]|recv_framed()|
+function is used to get the messages from the server.
+
+The server's program is shown in \cref{lst:server_main}.
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, language=python, caption=Server's script., label=lst:server_main, float=h]
+import socket
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind(('127.0.0.1', 8080))
+server_socket.listen(1)
+print("Server is listening on port 8080...")
+client_socket, client_address = server_socket.accept()
+print(f"Connection established with {client_address}")
+key_id = recv_framed(client_socket).decode()
+encrypted_message = recv_framed(client_socket)
+handle_client(client_socket, key_id, encrypted_message)
+client_socket.close()
+server_socket.close()
+\end{lstlisting}
+
+The script starts with the setup of
+\lstinline[language=python]|server_socket|, with the
+options \lstinline[language=python]|AF_INET| and
+\lstinline[language=python]|SOCK_STREAM| indicating
+respectively that the socket will use the ip addresses of version 4
+(with its 32 bit address space, going from
+0.0.0.0 to 255.255.255.255) and that
+the messages will follow the rules of the TCP protocol, so a type of
+protocol that
+handles carefully the delivery of the messages checking whether or
+not they reach the
+receiver.
+
+The server later starts listening on for communications incoming on ip
+127.0.0.1, on port 8080.
+Then the incoming requests are piped to
+\lstinline[language=python]|client_socket| and the
+client's ip is stored in \lstinline[language=python]|client_address|.
+
+Then the function, already discussed,
+\lstinline[language=python]|recv_framed()|, to
+receive the first piece of information, decoding it to obtain the
+index of the key file to use.
+
+Immediately after, \lstinline[language=python]|encrypted_message|
+stores the actual payload with the encrypted message.
+
+The message is then processed by the function
+\lstinline[language=python]|handle_client()|, shown in
+\cref{lst:handle_client}, that itself uses
+\lstinline[language=python]|get_key_from_file()| of \cref{lst:get_key_of_files}
+and \lstinline[language=python]|decrypt()|, of \cref{lst:decrypt}.
+\begin{lstlisting}[language=python, caption= command on a given key file., label=lst:get_key_of_files, float=h]
+def get_key_from_file(key_id):
+    with open(f'keys/{key_id}', 'rb') as f:
+        key = f.read()
+        return key
+\end{lstlisting}
+
+The \lstinline[language=python]|get_key_from_files| simply access the
+file specified
+by the aprticular \lstinline[language=python]|key_id| name and
+returns its raw bits content.
+
+\begin{lstlisting}[language=python, caption= command on a given key file., label=lst:decrypt, float=h]
+def decrypt(ciphertext: bytes, key: bytes) -> str:
+    if len(key) == 0:
+        raise ValueError("Key is empty")
+    # XOR each byte of ciphertext with key
+    if len(key) < len(ciphertext):
+        raise ValueError("Key shorter than message: UNSAFE")
+    plaintext_bytes = bytes(c ^ key[i] for i, c in enumerate(ciphertext))
+    print("Message decrypted.")
+    return plaintext_bytes.decode()
+\end{lstlisting}
+The \lstinline[language=python]|decrypt()| function instead, does a
+similar action with respect to
+\lstinline[language=python]|xor_bytes()|; it performs a XOR between the
+key bytes and ciphertext, returning errors if the key is shorter than
+the message or
+if the keyfile was empty. Then it interprets the raw bytes as ASCII characters.
+
+\begin{lstlisting}[language=python, caption= command on a given key file., label=lst:handle_client, float=h]
+def handle_client(client_socket, key_id, encrypted_message):
+    print(f"Received key id: {key_id}")
+    # get key from file keys depending on the variable name key_id
+    key = get_key_from_file(key_id)
+    decrypted_data = decrypt(encrypted_message, key)
+    response = f"Hello {decrypted_data}"
+    print("Sending answer to client :", response)
+    send_framed(client_socket, response.encode())
+\end{lstlisting}
+Finally, in \cref{lst:handle_client}, the previous functions are used and the
+decrypted message is sent back to the client to show the success of
+the protocol.
+Obviously this never happens in a real-world scenario, since the encrypted
+information never travels in the clear.
+
+To conclude, going back to the server's script in \cref{lst:server_main},
+the socket are closed.
+
+TODO: CHECK THE DIMENSIONS AND NAMES. ADD THE FACT THAT THE CODE CAN
+BE CHECKED LOCALLY
+AND SHOW THE OUTPUTS.
