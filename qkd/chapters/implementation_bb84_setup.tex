@@ -1,3 +1,5 @@
+% !TEX root = ../../report.tex
+
 \begin{comment}
 Students should list the materials and instruments used in the experiment, as well as provide a
 description of the overall experimental setup. It is recommended that you include a simple schematic
@@ -6,65 +8,156 @@ drawing of the setup (no photos of the setup).
 TODO: maybe put a list of the materials here
 
 In this section a brief illustration of the experimental setup is provided.
-Before starting let's state clearly that all the operations necessary to align the elements, like 
-lasers and beam splitters, are performed live during the construction of the setup. These actions are 
-always carried out with the help of rulers, to check for the height of the 
-different entities, and with a simple cardboard piece to align the laser beam without having to 
-rely only on geometrics considerations. 
-Another important disclaimer regards the fact that during the whole experience all the laser paths were terminated either by a detector or by a beam stopper, to avoid uncontrolled free beams inside the room.
-Those two operation will be assumed done at all times, and so they will not be cited consistently during the following discussion.
+Before starting let's state clearly that all the operations necessary
+to align the elements, like
+lasers and beam splitters, are performed live during the construction
+of the setup. These actions are
+always carried out with the help of rulers, to check for the height of the
+different entities, and with a simple cardboard piece to align the
+laser beam without having to
+rely only on geometrics considerations.
+Another important disclaimer regards the fact that during the whole
+experience all the laser paths were terminated either by a detector
+or by a beam stopper, to avoid uncontrolled free beams inside the room.
+Those two operation will be assumed done at all times, and so they
+will not be cited consistently during the following discussion.
 
-The first operation involved the understanding of the laser's emitted radiation polarization with respect 
+The first operation involved the understanding of the laser's emitted
+radiation polarization with respect
 to the laboratory's frame of reference.
-To do that, the laser and its post were assembled and fixed to the optical table. A beam splitter was then put in front of it to intercept the light.  
-As said previously, before turning on the laser, stopper are placed to limit light propagation. Then the laser was turned on and a mobile ruler was used to control the propagation direction with respect to the optical table plane. The setup was then fixed with the laser beam parallel to that plane.
+To do that, the laser and its post were assembled and fixed to the
+optical table. A beam splitter was then put in front of it to
+intercept the light.
+As said previously, before turning on the laser, stopper are placed
+to limit light propagation. Then the laser was turned on and a mobile
+ruler was used to control the propagation direction with respect to
+the optical table plane. The setup was then fixed with the laser beam
+parallel to that plane.
 
-The physical situation obtained is depicted schematically in \cref{fig:qkd_beam_real}. 
-At this point, the polarization of the light is not known to the experimenters. The only clear information is that the laser effectivly emit a linearly polarized light. 
-To fix the polarization, the laser (TODO put somewhere the 3d drawings of the laser and put a reference here) was rotated around its longitudinal symmetry axis.   
-Since the beam splitter is a polarizing one (TODO: put an image for that), it separates the incoming light depending on its polarization. In particular, as seen in picture TODO, the splitter used let through light with horizontal polarization, while reflecting the vertically polarized one.
+The physical situation obtained is depicted schematically in
+\cref{fig:qkd_beam_real}.
+At this point, the polarization of the light is not known to the
+experimenters. The only clear information is that the laser
+effectivly emit a linearly polarized light.
+To fix the polarization, the laser (TODO put somewhere the 3d
+drawings of the laser and put a reference here) was rotated around
+its longitudinal symmetry axis.
+Since the beam splitter is a polarizing one (TODO: put an image for
+that), it separates the incoming light depending on its polarization.
+In particular, as seen in picture TODO, the splitter used let through
+light with horizontal polarization, while reflecting the vertically
+polarized one.
 Since the starting beam was choosen to be a vertically polarized one,
-the laser underwent a rotation until all the light went through the reflected arm, like in fig TODO. 
-Notice that, during this procedure, since the human eye can discriminate better low light intensity (TODO put reference) , the transmitted beam's intensity was monitored and minimized. 
-In the end, after removing the beam splitter the light can be confidently assumed to be vertically polarized with respect to the optical table's plane; that means that the plane where the electromagnetic field oscillates is the one perpendicular to the optical table's plane. 
-Notice that the word confidently was used: that is referred to the fact that the carried minimization didn't allow to completely dim the transmitted beam, indicating possible defects either in the PBS light splitting or a big uncertainty in the laser's claimed linear polarization. 
+the laser underwent a rotation until all the light went through the
+reflected arm, like in fig TODO.
+Notice that, during this procedure, since the human eye can
+discriminate better low light intensity (TODO put reference) , the
+transmitted beam's intensity was monitored and minimized.
+In the end, after removing the beam splitter the light can be
+confidently assumed to be vertically polarized with respect to the
+optical table's plane; that means that the plane where the
+electromagnetic field oscillates is the one perpendicular to the
+optical table's plane.
+Notice that the word confidently was used: that is referred to the
+fact that the carried minimization didn't allow to completely dim the
+transmitted beam, indicating possible defects either in the PBS light
+splitting or a big uncertainty in the laser's claimed linear polarization.
 \begin{figure}
-        \centering
-\includegraphics[height=2cm]{./qkd/bb84/images/laser_polarization_calibration_real.pdf}
-\caption{Example of a starting position for laser calibration.}
-\label{fig:qkd_beam_real}
+  \centering
+  \includegraphics[height=2cm]{./qkd/bb84/images/laser_polarization_calibration_real.pdf}
+  \caption{Example of a starting position for laser calibration.}
+  \label{fig:qkd_beam_real}
 \end{figure}
 \begin{figure}
-    \centering
-    \includegraphics[height=2cm]{./qkd/bb84/images/laser_polarization_calibration_ideal.pdf}
-    \caption{Target setup scheme for laser calibration.}
-    \label{fig:qkd_beam_perfect}
+  \centering
+  \includegraphics[height=2cm]{./qkd/bb84/images/laser_polarization_calibration_ideal.pdf}
+  \caption{Target setup scheme for laser calibration.}
+  \label{fig:qkd_beam_perfect}
 \end{figure}
 
-After this procedure the real experiment could begin. 
-The demonstration is divided in two main parts: a general illustration of the protocol without any external attackers, and a depiction of the simple "intercept and resend" threat.
+After this procedure the real experiment could begin.
+The demonstration is divided in two main parts: a general
+illustration of the protocol without any external attackers, and a
+depiction of the simple "intercept and resend" threat.
 
 \subsubsection{2-parties experiment}
+Let's define, as usually done in literature, the two parties as Alice
+and Bob, where Alice is sending the bits and Bob is receiving them.
+Before diving into the setup details a theoretical discussion is
+needed to clarify the protocol.
+The protocol follows the original BB84 (TODO put references) idea,
+assuming the presence of a
+public unprotected and unidirectional quantum channel and a
+public bidirectional authenticated classical channel:
+\begin{itemize}
+  \item Alice and Bob agree on the use of a particular two
+    dimensional quantum system, that is the smallest system able to
+    express quantum behaviour, a qubit;
+  \item Alice and Bob agree on two orthonormal basis of this system.
+    They choose them in a way to maximize the disturbance made by an
+    eventual attacker (ref TODO); practically in this case they are
+    chosen in such a way to introduce an angle of \SI{45}{\degree}
+    between the correspondent basis vector (TODO pic).
+    Alice and Bob associate a classical bit (e.g. 0 or 1) to each one
+    of the two basis vector, as shown again in TODO:pic;
+  \item For each bit that Alice wants to send:
+    \begin{itemize}
+      \item Alice chooses randomly one between the two basis, for
+        example using a random number generator (better if quantum);
+      \item Alice generates another random bit and send the
+        corresponding quantum basis state to Bob;
+      \item Bob receives the quantum state, chooses a random basis
+        between the two and applies a projective measurement
+        according to that basis. Then he record the couple (basis, result);
+    \end{itemize}
+  \item After receiving all the bits, Alice streams to the public
+    channel the used basis, per each sent bit;
+  \item Bob tells back on the public channel which bits he measured
+    using the same basis as Alice;
+  \item Both keep only the bits tagged by Bob for the key sythesis.
+    This step is usually referred to as the "sifting" step.
+  \item The final steps will be introduced in the paragraph related
+    to the eavesdropper.
+\end{itemize}
 
+Speaking about practical implementation, the two level quantum system
+used here is the Hilbert space of the possible polarization of a
+photon (or in this case the bunch of photons constituting the actual light).
+
+Here other objects needs to be used to practically manipulating the
+polarization, in
+particular two half-wave plates, its posts and supports.
+The half-wave plate is an optical lens that has the ability to rotate
+linar polarizations by an angle determined by the orientation of the
+lens itself. A schematic is presented in TODO figure...
+https://www.simphoton.com/optics/waveplate1.jpg
+As can be seen, given the angle formed between the linear
+polarization plane and the optical axis of the lens as $\theta$, the
+output radiation is rotated by an angle $2 \theta$.
+
+Before starting to rotate polarizations, the waveplate, shown in fig
+TODO, needs to be calibrated, meaning that the optical axis needs to
+be determined. Since the sent ray has an (approximately) vertical
+polarization w.r.t. the optical table's plane, a polarizing beam
+splitter is put after the half-wave plate and a procedure similar to
+the one indicated before (TODO put a sort of scheme indicating this
+repeating procedure and refer to it here) is carried out. Also in
+this case the minimized ray was the transmitted one, since the
+optical axis needed to be aligned to the incoming polarization, and
+the origin of the angle fixed on the lens rotation mount (as shown in
+TODO figure ...).
+
+Another half-wave plate is then put spatially after the first and the
+same procedure is repeated TODO(REF).
+
+These two lenses allow respectively Alice and Bob's basis choices.
 
 \subsubsection{Intercept and resend attack}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 TODO: outline:
--- laser situation with alice and bob (so the half-wave plate) and the two detector + drawing;
+-- laser situation with alice and bob (so the half-wave plate) and
+the two detector + drawing;
 -- conceptual situation as i drawn it on the paper;
--- laser situation with eve + drawing 
+-- laser situation with eve + drawing
 -- laser situation w
+
