@@ -115,7 +115,7 @@ Each caption should describe what the respective function does.
 
 ### §3.1 MICRO Experience: Photolithography
 
-- "Photolithography became **fundemental** due to batch fabrication" (p.32) — typo, should be "**fundamental**".
+👍- "Photolithography became **fundemental** due to batch fabrication" (p.32) — typo, should be "**fundamental**".
 - Figure 3.1 includes embedded annotation text from the original manufacturer figure; the caption style does not match the rest of the report.
 - The profilometer step-height measurement is mentioned in §3.1.2 ("Resist thickness and step height were subsequently measured with a **profilometer**") but no numerical result is ever reported. The data is missing.
 
