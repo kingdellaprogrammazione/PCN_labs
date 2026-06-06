@@ -4,9 +4,9 @@
 
 ## Global / Structural Issues
 
-- **Title page**: Title reads "Minimal LaTeX Document" and author reads "Your Name" — both are unfilled placeholders.
+- 👍**Title page**: Title reads "Minimal LaTeX Document" and author reads "Your Name" — both are unfilled placeholders.
 - **No abstract** anywhere in the document.
-- **No table of contents**.
+- 👍**No table of contents**.
 - **No conclusion chapter** — none of the three main chapters have a concluding summary section (Ch.1 has §1.4.5, but Ch.2 ends abruptly after the comparison paragraph and Ch.3 has no conclusion at all).
 
 ---
