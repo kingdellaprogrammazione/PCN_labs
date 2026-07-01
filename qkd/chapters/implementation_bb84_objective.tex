@@ -3,14 +3,14 @@
 This part of the experience has the aim of showing the conceptual and
 physical realization
 of a system able to execute a schematic version of the BB84 protocol
-TODO reference,
+\cite{Bennett_2014},
 with some caveats.
 Briefly, BB84 allows two parties to agree on a random binary string
 (that can then be used as a key), detecting eavesdropping attemps
 with reasonably high probability thanks to quantum mechanical laws.
 It is important to notice that BB84 does not allow to generate a
 secret key in any instance; for example, assuming a permanent
-eavesdropper, a key will be generated, but the presence of the
+eavesdropper, a key can still be generated, but the presence of the
 attacker will be detected and the key thus discarded.
 
 What is shown in this particular work
@@ -18,16 +18,16 @@ is a simple BB84 demonstration without the use of single photons (not
   produced nor
 measured) due to the complexity and cost of the
 required setup.
-Much bigger light signals are used; nevertheless, the key
-establishment setup is exactly the same as a simple free-space qkd
+Much bigger (meaning more intense) light signals are used; nevertheless, the key
+establishment setup is exactly the same as a simple free-space QKD
 scheme, with polarizing beam splitters and half-wave plates. The
 difference  lies in the fact that the detectors employed are designed
 to detect macroscopic signals
 and are calibrated to simulate the behaviour of single photon
 detectors, meaning that:
 \begin{itemize}
-  \item if the light reaching the two receiving detectors is of
-    approximately equal intensity an electronic system will make them
+  \item if the light reaching the two receiving detectors is
+    approximately equal in intensity an electronic system will make them
     emit a random "click", to simulate the random collapse of a
     single photon's wavefunction on one detector when it is in a
     superposition of paths;
@@ -39,8 +39,8 @@ detectors, meaning that:
 \end{itemize}
 Notice that since the BB84 protocol's security relies on the quantum
 nature of the physical particles involved, this demonstration miss
-this property. For example, a photon splitting attack (PNS) (TODO:
-put the ref) could be carried out easily, tapping the free-space line
+this property. For example, a photon splitting attack (PNS) \cite{PNS_2023}
+could be carried out easily, tapping the free-space line
 and extracting a group of photons that make possible to know the
 final synthethised key by a third party.
 
@@ -48,4 +48,3 @@ This experience allows to understand so both the theoretical
 framework and the physical setup needed, giving to the experimenters
 the possibility to get familiar with the typical issues that can
 arise on an optical table.
-
