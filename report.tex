@@ -9,11 +9,13 @@
 \usepackage{xfrac}
 \usepackage{comment}
 \usepackage{graphicx}
+\usepackage[table]{xcolor}
 \graphicspath{{spectroscopy/images/}{qkd/bb84/images/}{qkd/spd_efficiency/}{piquet/images/}}
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{cleveref}
 \usepackage{mhchem}
+\usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -32,6 +34,43 @@
   breaklines=true,
   rulecolor=\color{black},
   showstringspaces=false
+}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing, arrows.meta}
+
+% Icon for a quantum state being sent
+\newcommand{\quantsent}{%
+  \tikz[baseline=-0.5ex, x=1em, y=1em]{
+    % Bloch sphere
+    \draw[thick] (0,0) circle (0.6);
+    \fill (0,0) circle (0.05);
+    % State vector (pointing to a point on the sphere)
+    \draw[->, thick] (0,0) -- (30:0.6);
+    % Wavy transmission arrow
+    \draw[decorate,
+      decoration={snake, amplitude=0.15em, segment length=0.6em},
+      -{Stealth[length=0.5em, width=0.3em]},
+    thick] (0.65,0) -- (2.2,0);
+  }%
+}
+
+% Wave‑packet icon: a wiggly line modulated by a Gaussian envelope
+\newcommand{\wpacket}{%
+  \tikz[baseline=-0.5ex, x=0.5em, y=1em]{
+    \draw[thick,
+      domain=-1.2:1.2,
+      samples=100,
+      smooth,
+    variable=\x]
+    plot (\x, {0.25 * exp(-(\x)^2 / 0.3) * sin(deg(10*\x))});
+  }%
+}
+
+\newcommand{\colorboxlegend}[1]{%
+  \raisebox{0.6ex}{%
+    \fcolorbox{black}{#1}{\rule{0pt}{0.3ex}\rule{1ex}{0pt}}%
+  }%
 }
 
 \crefname{lstlisting}{listing}{listings}
