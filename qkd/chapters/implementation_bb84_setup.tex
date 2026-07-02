@@ -10,8 +10,7 @@ Before, a list of the materials used follows:
 \begin{enumerate}[label=\alph*)]
 \item \label{item:breadboard} aluminum optical breadboards;
 \item posts, mounts and supports for the optical elements;
-\item \label{item:half_wave} mounts for wave plates and 4 $\lambda
-  /2$ wave plates, with
+\item \label{item:half_wave} mounts for wave plates and 4 half-wave plates, with
   indication of the angles;
 \item \label{item:pbs} 2 polarizing beam splitters (PBS);
 \item \label{item:laser} 2 \SI{635}{\nano \meter} laser diodes;
@@ -140,7 +139,7 @@ public bidirectional authenticated classical channel:
   express quantum behaviour, a qubit;
 \item Alice and Bob agree on two orthonormal basis of this system.
   They choose them in a way to maximize the disturbance made by an
-  eventual attacker \cite{goldstein2014sensation}; practically in
+  eventual attacker \cite{Loepp_Wootters_2006}; practically in
   this case they are
   chosen in such a way to introduce an angle of \SI{45}{\degree}
   between the correspondent basis vector like in \cref{fig:basis}.
@@ -151,7 +150,11 @@ public bidirectional authenticated classical channel:
     \centering
     \includegraphics[height=2cm]{./qkd/bb84/images/basis.png}
     \caption{Basis choice. \textit{B1} is the one composed by the polarization
-      $\ket{0°}, \ket{90°}$ and \textit{B2} by $\ket{-45°}, \ket{45°}$.
+      $\ket{\SI{0}{\degree}}, \ket{\SI{90}{\degree}}$ and \textit{B2}
+      by $\ket{\SI{-45}{\degree}}, \ket{\SI{45}{\degree}}$.
+      Floor is assumed parallel to the  $\ket{\SI{90}{\degree}}$
+      polarization, and the radiation
+      is propagating inside this paper-sheet.
     Image taken from \href{https://www.thorlabs.com}{Thorlabs}.}
     \label{fig:basis}
   \end{figure}
@@ -162,10 +165,13 @@ public bidirectional authenticated classical channel:
       \toprule
       Polarization State & Bit & Basis \\
       \midrule
-      Horizontal ($\ket{90°}$)            & 0 & Rectilinear ($+$) \\
-      Vertical ($\ket{0°}$)             & 1 & Rectilinear ($+$) \\
-      $\ket{45°}$ (diagonal)            & 0 & Diagonal ($\times$) \\
-      $\ket{-45°}$ (anti‑diagonal)       & 1 & Diagonal ($\times$) \\
+      Horizontal ($\ket{\SI{90}{\degree}}$)            & 0 &
+      Rectilinear ($+$) \\
+      Vertical ($\ket{\SI{0}{\degree}}$)             & 1 & Rectilinear ($+$) \\
+      $\ket{\SI{45}{\degree}}$ (diagonal)            & 0 & Diagonal
+      ($\times$) \\
+      $\ket{\SI{-45}{\degree}}$ (anti‑diagonal)       & 1 & Diagonal
+      ($\times$) \\
       \bottomrule
     \end{tabular}
     \caption{Correspondance table between the quantum states and the
@@ -181,12 +187,13 @@ public bidirectional authenticated classical channel:
       corresponding quantum basis state to Bob;
     \item Bob receives the quantum state, chooses a random basis
       between the two and applies a projective measurement
-      according to that basis. Then he record the couple (basis, result);
+      according to that basis. Then he records the couple (basis, result);
   \end{itemize}
 \item After receiving all the bits, Alice streams to the public
   channel the used basis, per each sent bit;
 \item Bob tells back on the public channel which bits he measured
-  using the same basis as Alice;
+  using the same basis as Alice, since in all the other cases his
+  result is random (uncorrelated w.r.t. the one of Alice);
 \item Both keep only the bits tagged by Bob for the key sythesis.
   This step is usually referred to as the "sifting" step.
 \item The final steps will be introduced in the paragraph related
@@ -194,7 +201,7 @@ public bidirectional authenticated classical channel:
 \end{itemize}
 
 Speaking about practical implementation, the two level quantum system
-used here is the Hilbert space of the possible polarization of a
+used now is the quantum state of the possible polarization of a
 photon (or in this case the bunch of photons constituting the actual light).
 
 Here other objects needs to be used to practically manipulate the
@@ -207,58 +214,172 @@ lens itself. A schematic is presented in \cref{fig:half_wave}.
 \begin{figure}[h]
 \centering
 \includegraphics[height=3cm]{./qkd/bb84/images/half_wave.png}
-\caption{An example of the effect of a $\lambda /2$ wave plate. Image
+\caption{An example of the effect of a half-wave plate. Image
 taken from \href{https://www.thorlabs.com}{Thorlabs}.}
 \label{fig:half_wave}
 \end{figure}
 As can be seen, given the angle formed between the linear
 polarization plane and the optical axis of the lens as $\theta$, the
 output radiation's polarization is rotated by an angle $2 \theta$.
-
-Before starting to rotate polarizations, the waveplate, shown in fig
-TODO, needs to be calibrated, meaning that the optical axis needs to
-be determined. Since the sent ray has an (approximately) vertical
+Before starting to rotate polarizations, the waveplate needs to be
+calibrated, meaning that the optical axis needs to
+be determined.
+\begin{figure}[h]
+\centering
+\includegraphics[height=3cm]{./qkd/bb84/images/halfwaveplate_polarization_calibration_ideal.pdf}
+\caption{An example of alignment of the optical axis of the half-wave
+  plate (the rectangle in the middle) to the
+  polarization of the incoming radiation. Image
+taken from \href{https://www.thorlabs.com}{Thorlabs}.}
+\label{fig:half_wave_calibration}
+\end{figure}
+Since the sent ray has an (approximately) vertical
 polarization w.r.t. the optical table's plane, a polarizing beam
 splitter is put after the half-wave plate and a procedure similar to
-the one indicated before (TODO put a sort of scheme indicating this
-repeating procedure and refer to it here) is carried out. Also in
+the one indicated before is carried out, like in
+\cref{fig:half_wave_calibration}. Also in
 this case the minimized ray was the transmitted one, since the
 optical axis needed to be aligned to the incoming polarization, and
-the origin of the angle fixed on the lens rotation mount (as shown in
-TODO figure ...).
+the vertical
+polarization is the reflected one.
+Then the bezel is aligned in such a way to have the \SI{0}{\degree} aligned with
+the optical axis and the direction of the incoming polarization.
 
 Another half-wave plate is then put spatially after the first and the
-same procedure is repeated TODO(REF).
+same procedure descripted above is performed.
 
-These two lenses allow respectively Alice and Bob's basis choices.
+These two lenses allow respectively Alice and Bob's basis choices,
+rotating them of an angle that is exactly half of the desired
+polarization state,
+as indicated in \cref{tab:bitsassociation}.
+Notice that Alice has a bezel with all the four choices, while Bob, having to
+extract only a single bit, has only two, corresponding to
+\SI{0}{\degree} and \SI{22.5}{\degree}. Notice that the rotation
+will
+be respectively of
+\SI{0}{\degree} and \SI{45}{\degree} due to the properties of the
+half-wave plate. The numbers on the bezel show the polarization rotation angle,
+not the actual optical axis's rotation angle. The effect of the
+rotation is shown in
+\cref{tab:bob_evolution}.
 
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+  \toprule
+  Alice State & Bob Basis & Rotation Applied & Measured Bob State \\
+  \midrule
+  $\ket{\SI{90}{\degree}}$            & $+$ & $\SI{0}{\degree}$ &
+  $\ket{\SI{90}{\degree}}$  \\
+  $\ket{\SI{0}{\degree}}$             & $+$ & $\SI{0}{\degree}$ &
+  $\ket{\SI{0}{\degree}}$  \\
+  $\ket{\SI{45}{\degree}}$            & $\times$ & $\SI{45}{\degree}$
+  & $\ket{\SI{90}{\degree}}$   \\
+  $\ket{\SI{-45}{\degree}}$       &  $\times$ & $\SI{45}{\degree}$ &
+  $\ket{\SI{0}{\degree}}$  \\
+  \bottomrule
+\end{tabular}
+\caption{Evolution of Alice's states depending on the choice of Bob basis,
+  through a clockwise rotation of the half-wave plate, looking from the
+radiation source.}
+\label{tab:bob_evolution}
+
+\end{table}
+
+The effect of what happens if Bob measures with the "wrong" basis is shown in
+\cref{tab:bob_evolution_wrong}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+  \toprule
+  Alice State & Bob Basis & Rotation Applied & Measured Bob State \\
+  \midrule
+  $\ket{\SI{90}{\degree}}$            & $\times$ & $\SI{45}{\degree}$ &
+  $\ket{\SI{-45}{\degree}}$  \\
+  $\ket{\SI{0}{\degree}}$             & $\times$ & $\SI{45}{\degree}$ &
+  $\ket{\SI{45}{\degree}}$  \\
+  $\ket{\SI{45}{\degree}}$            & $+$ & $\SI{0}{\degree}$
+  & $\ket{\SI{45}{\degree}}$   \\
+  $\ket{\SI{-45}{\degree}}$       &  $+$ & $\SI{0}{\degree}$ &
+  $\ket{\SI{-45}{\degree}}$  \\
+  \bottomrule
+\end{tabular}
+\caption{Evolution of Alice's states depending on the choice of Bob basis,
+  through a clockwise rotation of the half-wave plate, looking from the
+radiation source.}
+\label{tab:bob_evolution_wrong}
+\end{table}
+
+To measure the incoming states a PBS is placed at Bob's side, aligned
+with the beam in
+such a way to transmit the state $\SI{90}{\degree}$  and reflect the
+$\SI{0}{\degree}$.
+These mode of propagation are monitored by two detector
+\ref{item:detectors}.
+Notice that when Bob measures in the "wrong" basis, the detectors will
+click randomly since the states  $\ket{\SI{-45}{\degree}},
+\ket{\SI{-45}{\degree}}$ or
+their normalized multiples have components of
+$\braket{\SI{0}{\degree}|\SI{\pm45}{\degree}} = \frac{1}{\sqrt{2}}$ and
+$\braket{\SI{90}{\degree}| \SI{\pm45}{\degree}} = \frac{1}{\sqrt{2}}$
+that leads to a probability of click of $\frac{1}{2}$ for each
+detector, as expected.
 \subsubsection{Intercept and resend attack}
 
 In this part of the experiment, a specific example of attack is
 carried out supposing
-that there is a third party, called Eve (for eavesdropper), trying to
+that there is a third party, called Eve (that stands for
+eavesdropper), trying to
 gain information
-on the information sent from Alice to Bob.
+on the message sent from Alice to Bob.
 After choosing randomly a
 basis \textit{B} between the two public ones Alice and Bob agreed on,
 Eve phisically
 interrupts their link (in this case a free space link, because photons
 are not sent inside
 the fiber) and measures
-incoming light quanta performing a projective measurement on the
+incoming light quanta performing a projective measurement with the
 basis \textit{B}.
-Immediately after Eve generate a state identical with respect to the
+Immediately after Eve generates a state identical with respect to the
 one measured and
 sends it to Bob.
 
-Notice that thanks to the no-cloning theorem [TODO:ref] Eve introduces
-some disturbances to the state sent by Alice. This happens since Eve
-tries to measures
-a equi-weighted statistical mixture of 4 quantum states, represented
-by this density matrix:
-TODO:dmatrix.
-that contains non orthogonal quantum states. Eve so cannot
-discriminate reliably between all of them [TODO:ref].
+Notice that thanks to the no-cloning theorem \cite{Wootters1982ASQ},
+Eve necessarily introduces disturbances to the state sent by Alice.
+This arises because, in each run, she receives one of four possible
+non-orthogonal pure polarization states, each chosen with equal probability,
+\begin{equation*}
+\ket{\psi} \in \left\{
+  \ket{\SI{-45}{\degree}},
+  \ket{\SI{0}{\degree}},
+  \ket{\SI{45}{\degree}},
+  \ket{\SI{90}{\degree}}
+\right\}.
+\end{equation*}
+
+Since Eve does not know which state has been prepared in a given run,
+any measurement she performs must attempt to distinguish between
+these non-orthogonal states. However, no orthonormal measurement
+basis can perfectly discriminate among all four states, and therefore
+her measurement outcome is inherently uncertain
+\cite{Nielsen_Chuang_2010}. As a consequence,
+her interaction with the system generally disturbs the state that is
+resent toward Bob.
+
+From Bob’s point of view, each successfully sifted event corresponds
+to a single incoming pure state
+\begin{equation*}
+\ket{\psi}, \quad \psi \in \{ \SI{-45}{\degree}, \SI{0}{\degree},
+\SI{45}{\degree}, \SI{90}{\degree} \}.
+\end{equation*}
+
+In the absence of eavesdropping, perfect distinguishability is
+achieved whenever Bob measures in the correct orthonormal basis
+corresponding to the preparation basis. In the presence of Eve’s
+intervention, however, the state arriving at Bob’s detector may have
+been altered due to her measurement attempt, which leads to an
+increased error rate after sifting.
 
 The disturbances introduced by Eve can be detected by Alice and Bob in the
 "parameter estimation" step of the protocol, where, after sifting,
@@ -273,18 +394,23 @@ tries to apply the
 prepare and measure strategy on all the quantum states instead produces a
 error rate of $25 \%$ of the sifted bits. So, taking an appropriate
 sample of the sifted bits
-the communicating parties can infer reasonably the presence of an attacker.
-They will then abort the protocol, deeming the quantum channel unsafe
+the communicating parties can infer reasonably the presence of an attacker if
+the QBER, so the bit error rate of the sifted key, is approximately 0.25.
+If this is the case, Alice and Bob will then abort the protocol,
+deeming the quantum channel unsafe
 to be used.
 
 Notice that this is only one of the various strategy that can be
 employed to attack the
-communication channel. Moreover, a formal security proof needs to be
+communication channel.
+Eve could intercept only a part of the photons, or she can keep them
+all and entangle
+them with other systems before resending, etc. A formal
+security proof needs to be
 carried out for more general attacker
-interactions. [TODO found in ramona book].
+interactions \cite{wolf2021quantum}.
 
-Practically the states used here are still the polarization states
-used in section
-[TODO put reference of the previous section]. Eve to measure the
-states uses a duplicate of the
+As has been shown, the states used here are still the polarization states
+used in the previous subsection. To measure the
+states Eve uses a duplicate of the
 receiver apparatus of Bob and a duplicate of the sending apparatus of Alice.

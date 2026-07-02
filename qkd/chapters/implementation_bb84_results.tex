@@ -1,8 +1,314 @@
 QKD test without Eve
-Here, the data related to the direct key exchange between Alice and Bob will be reported,
-including: the tables of the bases used and the bits exchanged for both users, the key, and the
+Here, the data related to the direct key exchange between Alice and
+Bob will be reported,
+including: the tables of the bases used and the bits exchanged for
+both users, the key, and the
 key comparison with the corresponding QBER measurement.
 o QKD test with Eve
-Here, the data related to the key exchange between Alice and Bob, with the presence of Eve, will
-be reported, including: the tables of the bases used and the bits exchanged for both users, the
+Here, the data related to the key exchange between Alice and Bob,
+with the presence of Eve, will
+be reported, including: the tables of the bases used and the bits
+exchanged for both users, the
 key, and the key comparison with the corresponding QBER measurement.
+\begin{longtable}{c|cc|ccc}
+  \caption{This table sums up the result of 52 runs of the BB84
+    "inspired" protocol. The symbol $\perp$ refers to the basis used,
+    the symbol \protect\wpacket\ to the sent state, in this case from Alice.
+    In green are shown the sifted runs, so the runs where Alice and Bob
+  chose the same basis.}
+  \label{tab:results_without_eve} \\
+
+  \toprule
+  Run & Alice $\perp$ & Alice Bit & \wpacket\
+  & Bob $\perp$ & Bob Bit \\
+  \midrule
+  \endfirsthead
+
+  \toprule
+  Run & Alice $\perp$ & Alice Bit & \wpacket\
+  & Bob $\perp$ & Bob Bit \\
+  \midrule
+  \endhead
+
+  \midrule
+  \multicolumn{6}{r}{\textit{Continued on next page}} \\
+  \midrule
+  \endfoot
+
+  \bottomrule
+  \endlastfoot
+
+  1  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $+$      & 0 \\
+  \rowcolor{green!20}
+  2  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$ & $\times$ & 1 \\
+  3  & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{green!20}
+  4  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$ & $\times$ & 1 \\
+  \rowcolor{green!20}
+  5  & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  6  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $+$      & 0 \\
+  \rowcolor{green!20}
+
+  7  & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{green!20}
+
+  8  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $\times$ & 0 \\
+  9  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$ & $+$      & 1 \\
+  10 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$ & $+$      & 0 \\
+  11 & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{green!20}
+
+  12 & $+$      & 0 & $\ket{\SI{0}{\degree}}$   & $+$      & 0 \\
+  13 & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{green!20}
+
+  14 & $+$      & 0 & $\ket{\SI{0}{\degree}}$   & $+$      & 0 \\
+  \rowcolor{green!20}
+
+  15 & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  16 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $+$      & 1 \\
+  \rowcolor{green!20}
+
+  17 & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{green!20}
+  18 & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{green!20}
+  19 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$   & $\times$ & 1 \\
+  \rowcolor{green!20}
+  20 & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{green!20}
+  21 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $\times$ & 0 \\
+  \rowcolor{green!20}
+  22 & $+$      & 0 & $\ket{\SI{0}{\degree}}$    & $+$      & 0 \\
+  \rowcolor{green!20}
+
+  23 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $\times$ & 0 \\
+  \rowcolor{green!20}
+
+  24 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $\times$ & 0 \\
+  25 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $+$      & 1 \\
+  26 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $+$      & 0 \\
+  \rowcolor{green!20}
+
+  27 & $+$      & 0 & $\ket{\SI{0}{\degree}}$    & $+$      & 0 \\
+  \rowcolor{green!20}
+
+  28 & $+$      & 0 & $\ket{\SI{0}{\degree}}$    & $+$      & 0 \\
+  29 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$   & $+$      & 1 \\
+  \rowcolor{green!20}
+
+  30 & $\times$      & 0 & $\ket{\SI{-45}{\degree}}$    & $\times$ & 0 \\
+  31 & $+$ & 1 & $\ket{\SI{90}{\degree}}$   & $\times$ & 0 \\
+  \rowcolor{green!20}
+
+  32 & $\times$      & 1 & $\ket{\SI{+45}{\degree}}$  & $\times$ & 1 \\
+  33 & $+$      & 0 & $\ket{\SI{0}{\degree}}$    & $\times$ & 0 \\
+  \rowcolor{green!20}
+
+  34 & $+$ & 0 & $\ket{\SI{0}{\degree}}$   & $+$      & 0 \\
+  \rowcolor{green!20}
+
+  35 & $\times$      & 1 & $\ket{\SI{+45}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{green!20}
+
+  36 & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{green!20}
+
+  37 & $+$ & 0 & $\ket{\SI{0}{\degree}}$    & $+$ & 0 \\
+  \rowcolor{green!20}
+
+  38 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$ & $\times$ & 0 \\
+  39 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$  & $+$ & 1 \\
+  \rowcolor{green!20}
+
+  40 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$   & $\times$ & 1 \\
+  \rowcolor{green!20}
+
+  41 & $+$ & 0 & $\ket{\SI{0}{\degree}}$ & $+$ & 0 \\
+  42 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$ & $+$ & 1 \\
+  43 & $\times$ & 1 & $\ket{\SI{+45}{\degree}}$   & $+$ & 0 \\
+  44 & $+$ & 1 & $\ket{\SI{90}{\degree}}$   & $\times$ & 0 \\
+  \rowcolor{green!20}
+
+  45 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{green!20}
+
+  46 & $+$ & 1 & $\ket{\SI{90}{\degree}}$   & $+$ & 1 \\
+  \rowcolor{green!20}
+
+  47 & $+$ & 0 & $\ket{\SI{0}{\degree}}$    & $+$ & 0 \\
+  48 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$ & $+$ & 0 \\
+  49 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$  & $+$ & 0 \\
+  50 & $+$ & 1 & $\ket{\SI{90}{\degree}}$   & $\times$ & 1 \\
+  51 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$  & $+$ & 0 \\
+  52 & $+$ & 1 & $\ket{\SI{90}{\degree}}$   & $\times$ & 1 \\
+
+\end{longtable}
+
+WRITE BOB KEY AND ALICE
+
+\begin{longtable}{c|ccc|ccc|cc}
+  \caption{This table sums up the result of 52 runs of the BB84
+    "inspired" protocol with the presence of an attacker implementing the
+    measure and resend strategy. The symbol $\perp$ refers to the basis used,
+    the symbol \protect\wpacket\ to the sent state.
+    In blue (\colorboxlegend{blue!20}) are shown the sifted runs, so
+    the runs where Alice and Bob
+    and Eve chose the same basis and so Eve doesn't disturb the measurement; in
+    orange (\colorboxlegend{orange!20}) the sifted runs where Eve
+    chose a different basis
+    but luckily the bit of Alice turns out equal to Bob's one; in red
+    (\colorboxlegend{red!20})
+    the sifted runs where instead the wrong Eve's basis cause a bit
+  flip at Bob's side.}
+  \label{tab:results_with_eve} \\
+
+  \toprule
+  Run & A $\perp$ & A Bit & \wpacket(A) & E $\perp$ & E Bit &
+  \wpacket(E) & B $\perp$ & B Bit \\
+  \midrule
+  \endfirsthead
+
+  \toprule
+
+  Run & A $\perp$ & A Bit & \wpacket(A) & E $\perp$ & E Bit &
+  \wpacket(E) & B $\perp$ & B Bit \\
+  \midrule
+  \endhead
+
+  \midrule
+  \multicolumn{9}{r}{\textit{Continued on next page}} \\
+  \midrule
+  \endfoot
+
+  \bottomrule
+  \endlastfoot
+  1                                       & $\times$ & 0 &
+  $\ket{\SI{-45}{\degree}}$ & $+$      & - & -
+  & $+$      & - \\
+  \rowcolor{orange!20} 2  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$
+  & $+$      & 0 & $\ket{\SI{0}{\degree}}$        & $\times$ & 1 \\
+  3                                       & $+$      & 1 &
+  $\ket{\SI{90}{\degree}}$  & $+$      & - & -
+  & $\times$ & - \\
+  \rowcolor{blue!20} 4  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$
+  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{blue!20} 5  & $+$      & 1 & $\ket{\SI{90}{\degree}}$
+  & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  6                                       & $\times$ & 0 &
+  $\ket{\SI{-45}{\degree}}$ & $+$      & - & -
+  & $+$      & - \\
+  \rowcolor{blue!20} 7  & $+$      & 1 & $\ket{\SI{90}{\degree}}$
+  & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{blue!20} 8  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$ & $\times$ & 0 \\
+  9                                       & $\times$ & 1 &
+  $\ket{\SI{45}{\degree}}$  & $+$      & - & -
+  & $+$      & - \\
+  10                                      & $\times$ & 1 &
+  $\ket{\SI{45}{\degree}}$  & $+$      & - & -
+  & $+$      & - \\
+  11                                      & $+$      & 1 &
+  $\ket{\SI{90}{\degree}}$  & $+$      & - & -
+  & $\times$ & - \\
+  \rowcolor{red!20} 12 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $\times$      & 0 & $\ket{\SI{-45}{\degree}}$   & $+$      & 1 \\
+  13                                      & $+$      & 1 &
+  $\ket{\SI{90}{\degree}}$  & $+$      & - & -
+  & $\times$ & - \\
+  \rowcolor{blue!20} 14 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $+$      & 0 & $\ket{\SI{0}{\degree}}$   & $+$      & 0 \\
+  \rowcolor{blue!20} 15 & $+$      & 1 & $\ket{\SI{90}{\degree}}$
+  & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  16                                      & $\times$ & 0 &
+  $\ket{\SI{-45}{\degree}}$ & $\times$ & - & -
+  & $+$      & - \\
+  \rowcolor{blue!20} 17 & $+$      & 1 & $\ket{\SI{90}{\degree}}$
+  & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{orange!20} 18 & $+$      & 1 & $\ket{\SI{90}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{blue!20} 19 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$
+  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{red!20} 20 & $+$      & 1 & $\ket{\SI{90}{\degree}}$
+  & $\times$ & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 0 \\
+  \rowcolor{blue!20} 21 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$ & $\times$ & 0 \\
+  \rowcolor{blue!20} 22 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $+$      & 0 & $\ket{\SI{0}{\degree}}$   & $+$      & 0 \\
+  \rowcolor{orange!20} 23 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$
+  & $+$      & 1 & $\ket{\SI{-45}{\degree}}$ & $\times$ & 0 \\
+  \rowcolor{orange!20} 24 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$
+  & $+$      & 0 & $\ket{\SI{-45}{\degree}}$ & $\times$ & 0 \\
+  25                                      & $\times$ & 0 &
+  $\ket{\SI{-45}{\degree}}$ & $+$      & - & -
+  & $+$      & - \\
+  26                                      & $\times$ & 0 &
+  $\ket{\SI{-45}{\degree}}$ & $+$      & - & -
+  & $+$      & - \\
+  \rowcolor{red!20} 27 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $+$      & 1 \\
+  \rowcolor{orange!20} 28 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{0}{\degree}}$   & $+$      & 0 \\
+  29                                      & $\times$ & 1 &
+  $\ket{\SI{45}{\degree}}$  & $+$      & - & -
+  & $+$      & - \\
+  \rowcolor{blue!20} 30 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$ & $\times$ & 0 \\
+  31                                      & $+$      & 1 &
+  $\ket{\SI{90}{\degree}}$  & $\times$ & - & -
+  & $\times$ & - \\
+  \rowcolor{orange!20} 32 & $\times$ & 1 & $\ket{\SI{+45}{\degree}}$
+  & $+$      & 0 & $\ket{\SI{+45}{\degree}}$ & $\times$ & 1 \\
+  33                                      & $+$      & 0 &
+  $\ket{\SI{0}{\degree}}$   & $+$      & - & -
+  & $\times$ & - \\
+  \rowcolor{blue!20} 34 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $+$      & 0 & $\ket{\SI{0}{\degree}}$   & $+$      & 0 \\
+  \rowcolor{blue!20} 35 & $\times$ & 1 & $\ket{\SI{+45}{\degree}}$
+  & $\times$ & 1 & $\ket{\SI{+45}{\degree}}$ & $\times$ & 1 \\
+  \rowcolor{red!20} 36 & $+$      & 1 & $\ket{\SI{90}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$  & $+$      & 0 \\
+  \rowcolor{red!20} 37 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$   & $+$      & 1 \\
+  \rowcolor{red!20} 38 & $\times$ & 0 & $\ket{\SI{-45}{\degree}}$
+  & $+$      & 0 & $\ket{\SI{0}{\degree}}$ & $\times$ & 1 \\
+  39                                      & $\times$ & 1 &
+  $\ket{\SI{45}{\degree}}$  & $+$      & - & -
+  & $+$      & - \\
+  \rowcolor{blue!20} 40 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$
+  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{orange!20} 41 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $\times$ & 0 & $\ket{\SI{0}{\degree}}$   & $+$      & 0 \\
+  42                                      & $\times$ & 0 &
+  $\ket{\SI{-45}{\degree}}$ & $\times$ & - & -
+  & $+$      & - \\
+  43                                      & $\times$ & 1 &
+  $\ket{\SI{+45}{\degree}}$ & $+$      & - & -
+  & $+$      & - \\
+  44                                      & $+$      & 1 &
+  $\ket{\SI{90}{\degree}}$  & $+$      & - & -
+  & $\times$ & - \\
+  \rowcolor{blue!20} 45 & $\times$ & 1 & $\ket{\SI{45}{\degree}}$
+  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$  & $\times$ & 1 \\
+  \rowcolor{blue!20} 46 & $+$      & 1 & $\ket{\SI{90}{\degree}}$
+  & $+$      & 1 & $\ket{\SI{90}{\degree}}$  & $+$      & 1 \\
+  \rowcolor{red!20} 47 & $+$      & 0 & $\ket{\SI{0}{\degree}}$
+  & $\times$ & 1 & $\ket{\SI{45}{\degree}}$   & $+$      & 1 \\
+  48                                      & $\times$ & 0 &
+  $\ket{\SI{-45}{\degree}}$ & $+$      & - & -
+  & $+$      & - \\
+  49                                      & $\times$ & 1 &
+  $\ket{\SI{45}{\degree}}$  & $+$      & - & -
+  & $+$      & - \\
+  50                                      & $+$      & 1 &
+  $\ket{\SI{90}{\degree}}$  & $+$      & - & -
+  & $\times$ & - \\
+  51                                      & $\times$ & 1 &
+  $\ket{\SI{45}{\degree}}$  & $\times$ & - & -
+  & $+$      & - \\
+  52                                      & $+$      & 1 &
+  $\ket{\SI{90}{\degree}}$  & $\times$ & - & -
+  & $\times$ & -
+\end{longtable}
+
+WRITE BOB KEY AND ALICE
