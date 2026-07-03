@@ -1,20 +1,14 @@
-QKD test without Eve
-Here, the data related to the direct key exchange between Alice and
-Bob will be reported,
-including: the tables of the bases used and the bits exchanged for
-both users, the key, and the
-key comparison with the corresponding QBER measurement.
-o QKD test with Eve
-Here, the data related to the key exchange between Alice and Bob,
-with the presence of Eve, will
-be reported, including: the tables of the bases used and the bits
-exchanged for both users, the
-key, and the key comparison with the corresponding QBER measurement.
+
+In this section the results of the runs of the experiments are presented.
+Let's start with the data related to the absence of Eve, depicted
+in \cref{fig:qkd_scheme_alice_bob}. The results for 52 runs are
+reported in \cref{tab:results_without_eve}.
 \begin{longtable}{c|cc|ccc}
   \caption{This table sums up the result of 52 runs of the BB84
     "inspired" protocol. The symbol $\perp$ refers to the basis used,
     the symbol \protect\wpacket\ to the sent state, in this case from Alice.
-    In green are shown the sifted runs, so the runs where Alice and Bob
+    In green (\colorboxlegend{green!20}) are shown the sifted runs,
+    so the runs where Alice and Bob
   chose the same basis.}
   \label{tab:results_without_eve} \\
 
@@ -145,8 +139,20 @@ key, and the key comparison with the corresponding QBER measurement.
 
 \end{longtable}
 
-WRITE BOB KEY AND ALICE
+In \cref{tab:results_without_eve} have been highlighted in green
+(\colorboxlegend{green!20})
+the cases where Alice and Bob chose the same basis, so the sifted bits. Notice
+that in these cases the bits are perfectly correlated (so the QBER is
+0 \%). Those will go
+on to become the key, that in this case is
+\begin{equation}
+  K = 1111 \,\,  0001 \,\, 1111 \,\, 0000 \,\, 0001 \,\, 0110 \,\,
+  0101 \,\, 10 \, .
+  \label{eq:key}
+\end{equation}
 
+In table \cref{tab:results_with_eve} are instead presented the results
+with an intercept-resend strategy from Eve executed for each run.
 \begin{longtable}{c|ccc|ccc|cc}
   \caption{This table sums up the result of 52 runs of the BB84
     "inspired" protocol with the presence of an attacker implementing the
@@ -311,4 +317,34 @@ WRITE BOB KEY AND ALICE
   & $\times$ & -
 \end{longtable}
 
-WRITE BOB KEY AND ALICE
+In this case one can notice that the sifted key will be composed by both the
+blue   (\colorboxlegend{blue!20}), the orange
+(\colorboxlegend{orange!20}) and the red   (\colorboxlegend{red!20})
+highlighted rows.
+Observe that just because of lack of time the same choices of
+\cref{tab:results_without_eve} were used for
+Alices bits and basis; while this is useful in this case, it is a
+strategy that must be
+not followed in a real world scenario, where Alice must employ only
+non-deterministic
+bit generators.
+
+Different colors were used to indicate (with red (\colorboxlegend{red!20}))
+the runs where Eve is introducing a measurable disturbance: if Alice and Bob
+pick out (and statistically a portion of them will be picked)
+some of those bits they will reveal hints of an attacker's presence.
+
+The other two colors are used instead to indicate all the cases where Eve didn't
+disturb, by luck of chosen basis (in blue (\colorboxlegend{blue!20}))
+or by luck of Bob's measurement (in orange (\colorboxlegend{orange!20}))
+the sifted bits.
+
+If one calculates the total QBER, given that there are 7 errors, it
+will amount to:
+\begin{equation*}
+  \mathrm{QBER} = \frac{7}{30} \approx 23 \% \, ,
+\end{equation*}
+that approaches the expected $25 \%$ neglecting statistical finite size effects.
+Sampling a part of the sifted key randomly, Alice and Bob will obtain again (
+  assuming a long enough sequence
+) the same result, and so infer the presence of an attacker.
