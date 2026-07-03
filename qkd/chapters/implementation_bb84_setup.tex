@@ -325,6 +325,16 @@ $\braket{\SI{0}{\degree}|\SI{\pm45}{\degree}} = \frac{1}{\sqrt{2}}$ and
 $\braket{\SI{90}{\degree}| \SI{\pm45}{\degree}} = \frac{1}{\sqrt{2}}$
 that leads to a probability of click of $\frac{1}{2}$ for each
 detector, as expected.
+A scheme of the whole experimental setup is shown in
+\cref{fig:qkd_scheme_alice_bob}.
+\begin{figure}[h]
+\centering
+\includegraphics[height=3.5cm]{./qkd/bb84/images/qkd_scheme_alice_bob.png}
+\caption{Representation of the experimental scheme that allows Alice
+  and Bob to run BB84.
+Image taken from \href{https://www.thorlabs.com}{Thorlabs}.}
+\label{fig:qkd_scheme_alice_bob}
+\end{figure}
 \subsubsection{Intercept and resend attack}
 
 In this part of the experiment, a specific example of attack is
@@ -392,7 +402,55 @@ since the kept bits are the ones where Alice and Bob respectively produced and
 measured states in the same basis. An eavesdropping attempt where Eve
 tries to apply the
 prepare and measure strategy on all the quantum states instead produces a
-error rate of $25 \%$ of the sifted bits. So, taking an appropriate
+error rate of $25 \%$ of the sifted bits.
+To understand why, let's consider now the sifted key, i.e., the
+events for which Alice and
+Bob have chosen the same basis. Since Eve does not know Alice's
+preparation basis, she must guess it at random. Therefore, the
+probability that Eve measures in the wrong basis is
+\[
+P(E_{\mathrm{wrong}})=\frac{1}{2} \, ,
+\]
+while the probability that she measures in the correct basis is
+\[
+P(E_{\mathrm{correct}})=\frac{1}{2} \, .
+\]
+
+If Eve measures in the correct basis, she identifies the state
+without disturbing it and resends the correct state to Bob. Hence,
+conditioned on this event,
+\[
+P(\mathrm{error}\mid E_{\mathrm{correct}})=0 \, .
+\]
+
+On the other hand, if Eve measures in the wrong basis, her
+measurement outcome is completely random. She therefore resends one
+of the two states of the incorrect basis with equal probability. When
+Bob subsequently measures in the correct basis (the same basis used
+by Alice), the state resent by Eve has equal overlap with Alice's
+original state and its orthogonal state. Consequently,
+\[
+P(\mathrm{correct}\mid E_{\mathrm{wrong}})=\frac{1}{2} \, ,
+\qquad
+P(\mathrm{error}\mid E_{\mathrm{wrong}})=\frac{1}{2} \, .
+\]
+
+Using the law of total probability, the quantum bit error rate (QBER) is
+\[
+\begin{aligned}
+  \mathrm{QBER}
+  &= P(E_{\mathrm{correct}})
+  P(\mathrm{error}\mid E_{\mathrm{correct}})
+  + P(E_{\mathrm{wrong}})
+  P(\mathrm{error}\mid E_{\mathrm{wrong}}) \\
+  &= \frac{1}{2}\cdot 0
+  + \frac{1}{2}\cdot\frac{1}{2}
+  = \frac{1}{4}
+  = 25\% \, .
+\end{aligned}
+\]
+
+So, taking an appropriate
 sample of the sifted bits
 the communicating parties can infer reasonably the presence of an attacker if
 the QBER, so the bit error rate of the sifted key, is approximately 0.25.
@@ -410,7 +468,20 @@ security proof needs to be
 carried out for more general attacker
 interactions \cite{wolf2021quantum}.
 
-As has been shown, the states used here are still the polarization states
-used in the previous subsection. To measure the
-states Eve uses a duplicate of the
+For what concerns the experimental setup for this part, the quantum states used
+are the same of the previous subsection. Notice that Eve, to measure the
+states, uses a duplicate of the
 receiver apparatus of Bob and a duplicate of the sending apparatus of Alice.
+In the end the global setup is equivalent to two copies of the
+previous subsection's setup
+ordered serially. A reference scheme is shown in \cref{fig:qkd_scheme_eve}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=3.5cm]{./qkd/bb84/images/qkd_scheme_eve.png}
+\caption{Representation of the additional Eve's experimental setup.
+  This image needs
+  to be understood in relation to \cref{fig:qkd_scheme_alice_bob}.
+Image taken from \href{https://www.thorlabs.com}{Thorlabs}.}
+\label{fig:qkd_scheme_eve}
+\end{figure}
