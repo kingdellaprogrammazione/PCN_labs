@@ -1,30 +1,29 @@
 % =========================================================
-% NANO-experience — Results
+% NANO-experience -- Results
 % =========================================================
-%
-% TODO – FIB patterning result (before DRIE)
-%   - Describe the resist pattern obtained after development (ask Mario for images)
-%   - Were the holes well-defined? Any proximity effects or column milling artefacts?
-%
-% TODO – Size comparison: NANO vs. MICRO
-%   - MICRO features: µm-scale (limited by UV wavelength ~365–405 nm and diffraction)
-%   - NANO features: ~50–150 nm (limited by Ga+ spot size, no diffraction issue)
-%   - Key point: FIB uses ions not photons → no diffraction limit in the classical sense
-%   - Discuss: ion straggle / scattering in resist vs. optical proximity effects in lithography
-%
-% TODO – SEM results (from DRIE experience, connected here)
-%   - After ICP-DRIE: SEM images of the Si nanopillars
-%   - Measure and report: pillar diameter, height, pitch
-%   - Verticality: measure sidewall angle from vertical (ideally 90°)
-%   - Angulation: any tilt of the pillar axis? Cause: beam tilt or non-uniform etch
-%   - Compare observed geometry with target (150 nm diameter nanopillar)
-%
-% TODO – Discussion points required by the slides
-%   1. Detailed description of FIB process + parameters (refer to M&M section)
-%      Special focus on resist reticulation mechanism (cross-linking by Ga+ secondary e-)
-%   2. Why smaller features than MICRO: wavelength/beam size argument
-%   3. Verticality and angulation values from SEM — are they within spec?
-%      Comment on what causes deviation (etch selectivity, mask erosion, DRIE loading)
-%
-% NOTE: Full structural characterisation (SEM images, angle measurements) comes from
-% the DRIE experience. Cross-reference that section here.
+
+\subsubsection*{Dose array optical inspection}
+
+After development, the dose array was inspected under an optical microscope in both bright-field (BF) and dark-field (DF) illumination. In bright-field mode, underdeveloped areas appear brown, owing to residual PMMA absorbing in that colour range; in dark-field mode, scattered light from the partially defined nano-structures provides higher contrast and better sensitivity to partial resist removal. Table~\ref{tab:dose_array} summarises the observations across the dose sweep from 400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$ in steps of 50\,$\mu$C/cm$^2$.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{rp{9.5cm}}
+    \toprule
+    \textbf{Dose ($\mu$C/cm$^2$)} & \textbf{Observation} \\
+    \midrule
+    400       & Underdeveloped: ring/halo artefact visible under dark field; resist not cleared in the exposed region. \\
+    450--550  & Insufficient dose: partial development, PMMA residue still present inside the split-ring features. \\
+    600       & Optimal dose: complete development confirmed; proximity correction applied by Beamer is visible as expected dose gradient across the array. \\
+    650--800  & Over-dose: proximity backscatter broadens the exposed regions; split-ring gaps partially or fully closed at the highest doses. \\
+    \bottomrule
+  \end{tabular}
+  \caption{Dose array inspection results for the EBL dose sweep (400--800\,$\mu$C/cm$^2$, step 50\,$\mu$C/cm$^2$). The dose of 600\,$\mu$C/cm$^2$ was identified as the process optimum.}
+  \label{tab:dose_array}
+\end{table}
+
+The dose of 600\,$\mu$C/cm$^2$ was identified as the process optimum: the split-ring features were fully developed with clean, open gaps, and the proximity correction was evident in the uniformity of feature sizes across regions of differing pattern density. Too low a dose leaves intact PMMA (chain scission incomplete); too high a dose widens the written features through the backscattered dose deposited over a radius of several micrometres around the primary beam footprint.
+
+\subsubsection*{Lift-off and post-lift-off observation}
+
+Following the identification of the optimal dose, 50\,nm of gold was deposited by thermal evaporation and lift-off in acetone was performed on the 600\,$\mu$C/cm$^2$ dose region. At optical microscope inspection after lift-off, the split-ring array at the 600\,$\mu$C/cm$^2$ dose appeared correctly patterned; however, residual PMMA was observed over the sample surface at the microscale, indicating incomplete lift-off in some areas. This residue most likely arises from regions that were only partially sensitised by the electron beam and were therefore not fully dissolved during the 50\,s MIBK:IPA development step; any remaining PMMA acts as a dielectric spacer between the gold nanostructure and the silicon substrate, modifying the local refractive index and thereby altering the plasmonic resonance frequency of the split rings. The lift-off results at multiple EBL doses were subsequently characterised by scanning electron microscopy (SEM) during the third session (Section~\ref{sec:DRIE_mat_met}).

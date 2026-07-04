@@ -10,7 +10,7 @@ The purpose of photolithography is to transfer a desired two-dimensional pattern
 
 A photomask is a high-purity, amorphous SiO$_2$ (quartz) slab on which an absorbing chromium layer has been patterned by laser or electron-beam lithography. Quartz is chosen because it maintains high optical transmission even at ultraviolet wavelengths (below 300\,nm) where soda-lime glass becomes opaque, as shown in Figure~\ref{fig:mask_transmission} \cite{MitaniMicroMask}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{mask_transmission.png}
   \caption{Transmission curves for quartz glass and soda-lime glass as a function of wavelength.
@@ -24,7 +24,7 @@ Because a single device requires many sequential patterning steps, precise align
 
 Two alignment strategies are employed in practice, selected according to whether the substrate transmits infrared (IR) radiation. For substrates that are opaque to IR, \emph{optical alignment} is used: a BSA split-field microscope simultaneously images the mask alignment marks and the corresponding marks on the previously patterned wafer layer in visible light; the stage is then adjusted in X, Y, and rotation until the two sets of marks are superimposed (Figure~\ref{fig:optical_alignment}). This approach is applicable to any substrate but is limited to an alignment resolution of 5--20\,$\mu$m, primarily by the diffraction limit of the visible-light optics and the constraint that both mark sets must lie in the same focal plane. For substrates transparent to IR radiation (e.g. silicon, which is opaque to visible light but transmits wavelengths above $\sim$1\,$\mu$m), \emph{IR alignment} offers a significantly better resolution of 1--5\,$\mu$m (Figure~\ref{fig:IR_alignment}): IR illumination passes through the entire wafer stack and is detected by a photodetector placed beneath the substrate, allowing the alignment marks on both the mask and the wafer to be imaged simultaneously without requiring a top-side reference layer.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{minipage}[t]{0.46\textwidth}
     \centering
@@ -58,7 +58,7 @@ Photoresists are classified by their \emph{polarity}:
     \item \textbf{Negative resists.} Exposure induces cross-linking of the polymer chains, making the illuminated regions \emph{less} soluble. After development, the unexposed areas are dissolved and the exposed areas remain, producing the inverse (negative-tone) of the mask.
 \end{itemize}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{minipage}[t]{0.46\textwidth}
     \centering
@@ -86,7 +86,7 @@ Positive resists generally offer better resolution because the chain-scission fr
 A special sub-class of positive resist is the \emph{image-reversal} (IR) resist. By inserting a post-exposure bake (PEB) step before a flood exposure (without a mask), the initially exposed regions are thermally cross-linked and rendered insoluble, while the unexposed regions become sensitised.
 This results in a negative-tone image and a characteristic negative-slope (undercut) sidewall profile (i.e., the resist profile is wider at the base than at the top, facilitating clean lift-off; see Figure~\ref{fig:lift_off}). This undercut geometry is particularly valuable for metal lift-off processes, where deposited material must be cleanly separated along the resist edges.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{lift_off.png}
   \caption{Schematic of the undercut profile characteristic of image-reversal resists, which is essential for a successful lift-off process.}
@@ -117,7 +117,7 @@ $b_{\min} = \tfrac{3}{2}\sqrt{\lambda(s + z/2)}$. In this experience, a 1:1 mask
 was used, which offers the simplest setup and is well suited to the micron-scale feature sizes
 targeted here.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\textwidth]{exposure_tools.png}
   \caption{Schematic comparison of the three exposure tool geometries: contact, proximity, and

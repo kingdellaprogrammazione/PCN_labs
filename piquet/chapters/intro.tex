@@ -9,13 +9,13 @@ The Cleanroom Experiences provide an introduction for multiple sub-experiences i
 
 It is a 500\,m$^2$ cleanroom consisting of multiple cleanrooms varying in ISO class from ISO~5 to ISO~7.
 
-According to ISO 14644-1 \cite{ISO14644_1}, cleanroom classes are defined by the maximum allowable concentration of airborne particles per cubic meter as a function of particle size. And this is maintainable by:
+According to ISO 14644-1 \cite{ISO14644_1}, cleanroom classes are defined by the maximum allowable concentration of airborne particles per cubic meter as a function of particle size (Table~\ref{tab:iso_classes}). And this is maintainable by:
 \begin{itemize}
     \item filtration system and environmental control systems
     \item overpressure compared to the external environment
     \item good rules of behaviour
 \end{itemize}
-\begin{table}[h]
+\begin{table}[H]
   \centering
   \begin{tabular}{lccc}
     \hline
@@ -38,6 +38,12 @@ In the PiQuET cleanroom the cleanest zone (ISO~5) is used for photolithography a
 The Cleanroom Experience consists of three main sub-experiences we are interested in:
 \begin{itemize}
     \item MICRO Experience: photolithography
-    \item NANO Experience: Focused Ion Beam
+    \item NANO Experience: Electron Beam Lithography (EBL)
     \item Dry-Etch and SEM Imaging
 \end{itemize}
+
+\subsection*{Why a Cleanroom?}
+
+All fabrication steps described in this report were performed inside the PiQuET cleanroom. Particle contamination is the primary threat to micro- and nano-fabrication: a single dust particle deposited on a wafer can bridge two conductors, block an etch, or destroy a nanostructure entirely. To prevent this, the cleanroom maintains a controlled environment through continuous HEPA/ULPA filtration, regulated temperature and humidity, positive overpressure relative to the external environment, and strict behavioural protocols. Every person entering must wear a full cleanroom suit (hair net, cap, mask, gloves, overshoes) to minimise particle contamination from biological sources; the human body is the dominant source of contaminating particles in a semiconductor processing environment. The two fundamental requirements of any nano-fabrication process, defect avoidance and process reproducibility, can only be reliably met under these conditions.
+
+Each session builds on the previous one: the patterns defined in the MICRO and NANO experiences are transferred into silicon in the third session, and the SEM imaging in that final session reveals how every prior choice (resist, dose, mask, and etch parameters) propagates through to the quality of the finished device.

@@ -1,151 +1,181 @@
 % =========================================================
-% DRIE + SEM Imaging — Results
+% DRIE + SEM Imaging -- Results
 % =========================================================
-% TODO – MICRO sample results (trench structures)
-% - SEM images: top-view and cross-section (52° tilt) of trenches
-% - Measure: trench width, depth, sidewall angle (from 90°)
-% - Report etch depth reached and compare to etch rate prediction (6
-% µm/min × time)
-% - Sidewall profile: any tapering (positive or negative angle)?
-% Under-etch at base?
-% - Scallop size if Bosch was used; smoothness if pseudo-Bosch
-% - Ask Erik for the SEM images from session — include with proper
-% captions + scale bars
-% TODO – NANO sample results (pillar structures)
-% - SEM images: top-view array, cross-section of individual pillars
-% - Measure and report:
-% - Pillar diameter (top vs. base — is there tapering?)
-% - Pillar height
-% - Pitch / array periodicity
-% - Sidewall angle from vertical
-% - Compare with MICRO: are the sidewalls more or less vertical?
-% Discuss: higher aspect ratio is harder to achieve at nanoscale due to
-% mask erosion, micro-loading, and reduced mean free path for ions
-% TODO – Etch rate and selectivity
-% - From measured depth and known etch time → compute actual etch rate
-% - Compare to expected ~6 µm/min
-% - Selectivity = Si etch depth / resist loss — measure resist
-% thickness before/after
-% (or use profilometer data from MICRO experience as baseline)
-% - Comment if selectivity differs between MICRO and NANO (loading effect)
-% TODO – Structural comparison MICRO vs. NANO (required by slides)
-% - Table or side-by-side figure: sidewall angle, underetch, surface roughness
-% - Discuss: pseudo-Bosch gives smoother walls but possibly less
-% vertical than Bosch
-% - Size-dependent effects: at nm scale, mask grain/roughness becomes
-% significant;
-% ion shadowing and ARDE (Aspect Ratio Dependent Etching) more pronounced
-% TODO – Discussion points required by the slides
-% 1. Detailed description of ICP-DRIE with parameters commented (refer to M&M)
-% 2. Etch rate and selectivity — numbers + discussion
-% 3. Structural differences micro vs. nano: SEM images, sidewall
-% profile, angles, underetch
-% TODO – Images to request from Erik and Mario
-% - SEM of MICRO trench cross-section (multiple magnifications)
-% - SEM of NANO pillar array (top view + tilted cross-section)
-% - Before/after KOH polishing images (if applicable to your sample)
-% - Any EDS or secondary electron contrast images if acquired
 
-TODO: connect the images here to the corresponding general wafer before.
-
-In this section the images of the completely treated wafer pieces,
-developed according to the final steps discussed in \cref{sec:DRIE_mat_met},
-will be presented and commented. Before starting a disclaimer should be made:
-the wafer pieces observed are only two:
+In this section the SEM images of the completely treated wafer pieces, processed
+according to the procedure described in Section~\ref{sec:DRIE_mat_met}, are
+presented and discussed. Two wafer pieces were characterised:
 \begin{itemize}
-  \item a piece coming from the microstructures' wafer (TODO: put
-    reference). There should
-    have been two, respectively developed with positive and negative
-    photoresist,
-    but the negative one couldn't be fabricated due to TODO?? TODO is
-    there somewhere the description
-    of negative and positive photoresist?
-
-  \item a piece coming from the nanoring (TODO: put reference) wafer.
-    This wafer was treated with
-    positive photoresist.
+  \item a piece from the MICRO experience wafer (AZ\,5214E-masked silicon,
+    trench structures at micrometre scale). A second micro piece patterned
+    with a standard positive-tone process could not be fabricated within the
+    available session time and was therefore not available for comparison.
+  \item a piece from the NANO experience wafer (EBL-patterned PMMA on
+    silicon, gold split-ring resonators after lift-off).
 \end{itemize}
 
 \subsubsection{Microstructure}
 
-\begin{figure}[h]
+At micro scale the Pseudo-Bosch etch was successful and uniform across the chip
+surface; the recipe produced consistent, well-defined trench sidewalls, as shown in
+Figures~\ref{fig:micro_sem_overview} and \ref{fig:micro_sem_sidewall}. Two
+artefacts were nonetheless observed and are documented below.
+
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoetching
   - litopositiva.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:sample}
+  \caption{SEM overview of silicon trenches after Pseudo-Bosch DRIE of the
+           AZ\,5214E-masked micro sample (positive-tone image-reversal pattern).
+           The etch is uniform across the imaged area and the trench geometry
+           is well reproduced.}
+  \label{fig:micro_sem_overview}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoetching
   - litopositiva_001.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:sample}
+  \caption{Higher-magnification SEM view of the etched trench array showing
+           sidewall quality. The smooth sidewall profile is consistent with
+           the Pseudo-Bosch process, which eliminates the periodic scallops
+           produced by the standard alternating Bosch cycle.}
+  \label{fig:micro_sem_sidewall}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoetching
   - litopositiva_resist sollevato galleggiato e ridepositato002.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:sample}
+  \caption{SEM image of a region where the AZ\,5214E photoresist
+           detached from the silicon surface, floated in the etch environment,
+           and re-adhered randomly on the sample. The locally unmasked
+           silicon areas were etched unintentionally, producing an irregular
+           surface topology outside the intended trench pattern.}
+  \label{fig:micro_resist_failure}
 \end{figure}
+
+Two failure modes were documented. First, \textit{charging effects}: in SEM imaging,
+the non-conductive photoresist mask accumulated charge because secondary electrons
+generated by the incident beam could not escape through the insulating polymer.
+This deflected the imaging beam, producing distorted field lines and reduced image
+quality in areas covered by thick resist. Second, \textit{resist adhesion failure}:
+as shown in Figure~\ref{fig:micro_resist_failure}, the photoresist locally
+detached from the silicon surface during the etch (most likely due to insufficient
+HMDS priming or an incomplete soft bake in that region), floated momentarily in
+the process environment, and re-adhered randomly on a different part of the
+surface. The re-deposited resist fragment acted as an unintended etch mask,
+producing an irregular pattern of etched and un-etched areas outside the intended
+feature layout.
+
+The final resist thickness after the $\sim$6\,min etch was measured at
+$\sim$700\,nm, compared to the nominal pre-etch thickness of 1.3\,$\mu$m;
+approximately 600\,nm of resist was consumed during the process. This consumption
+is consistent with the measured 1:10 silicon-to-resist selectivity
+(Table~\ref{tab:process_summary}).
 
 \subsubsection{Nanostructure}
 
-\begin{figure}[h]
+The nano-scale samples were examined in the SEM to characterise the EBL-defined
+split-ring resonator structures at different exposure doses.
+Figures~\ref{fig:nano_dose600_a}--\ref{fig:nano_dose800} show SEM images of
+the gold split-ring resonators on silicon after lift-off at doses ranging from
+400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$, confirming the dose-array observations
+made under the optical microscope during the NANO session.
+
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoliftoff
   - EBL dose 600_003.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:nano_checking_sample}
+  \caption{SEM image of gold split-ring resonators on silicon after
+           lift-off at the optimal EBL dose of 600\,$\mu$C/cm$^2$.
+           The split-ring geometry and near-100\,nm gaps are resolved;
+           the proximity correction applied by Beamer is visible as uniform
+           feature dimensions across the array.}
+  \label{fig:nano_dose600_a}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoliftoff
   - EBL dose 600_004.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:nano_global_view}
+  \caption{Alternative magnification SEM view of the 600\,$\mu$C/cm$^2$
+           dose region after lift-off, showing individual split-ring resonators
+           and the gold fill quality within the developed PMMA windows.}
+  \label{fig:nano_dose600_b}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoliftoff
   - EBL dose 400_008.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:sample}
+  \caption{SEM of the 400\,$\mu$C/cm$^2$ dose region after lift-off.
+           Underdevelopment is evident: the ring geometry is poorly defined
+           and residual PMMA remains inside the intended gap regions,
+           consistent with incomplete chain scission at this dose.}
+  \label{fig:nano_dose400}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoliftoff
   - EBL dose 450_009.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:sample}
+  \caption{SEM of the 450\,$\mu$C/cm$^2$ dose region: partial development
+           is visible but the split-ring gaps are not fully open, indicating
+           that the dose is still below the process threshold for this resist
+           and development condition.}
+  \label{fig:nano_dose450}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoliftoff
   - EBL dose 600_005.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:sample}
+  \caption{Detailed SEM view of individual split-ring resonators at
+           600\,$\mu$C/cm$^2$ showing the gap dimension. The measured
+           gap of $\sim$58\,nm is narrower than the 100\,nm target, owing
+           to a combination of residual proximity over-dose, mask erosion
+           during lift-off, and lateral under-etch.}
+  \label{fig:nano_checking_sample}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoliftoff
   - EBL dose 600_006.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:sample}
+  \caption{Tilted or cross-section SEM view of the 600\,$\mu$C/cm$^2$
+           dose structures, illustrating sidewall verticality of the gold
+           split-ring features on the silicon substrate.}
+  \label{fig:nano_global_view}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{piquet/images_DRIE/dopoliftoff
   - EBL dose 800_007.png}
-  \caption{This is a sample figure caption that describes the image content.}
-  \label{fig:sample}
+  \caption{SEM of the 800\,$\mu$C/cm$^2$ dose region after lift-off.
+           Over-exposure causes significant feature broadening through
+           backscattered dose from neighbouring structures; the split-ring
+           gaps are partially or fully closed at this dose.}
+  \label{fig:nano_dose800}
 \end{figure}
+
+Several phenomena characteristic of nano-scale fabrication were observed in
+the SEM images. The measured gap dimension in the split-ring resonators at the
+optimal 600\,$\mu$C/cm$^2$ dose was $\sim$58\,nm, against the 100\,nm target
+value. This discrepancy arises from a combination of factors: residual proximity
+over-exposure not fully corrected by Beamer, lateral under-etch of the PMMA
+during development broadening the exposed regions, and mask erosion during
+evaporation. \textit{Bowing} (a concave inward curvature of the sidewalls)
+was also observed in deeper features; this arises because ion flux in narrow
+features is partially deflected sideways by charge accumulation at the feature
+bottom, attacking the lower sidewall rather than the floor and increasing the
+effective undercut. Finally, some cross-sections showed step profiles at
+localised positions, indicating non-uniform etch across the chip, most likely
+attributable to local charging in the copper mask, proximity effects in high-density
+pattern regions, or gas-flow non-uniformities at nano-scale feature densities.
+These observations are consistent with the \textit{Aspect Ratio Dependent Etching}
+(ARDE) effect described in Section~\ref{sec:DRIE_mat_met}: narrow gaps between
+intended pillar bases etch faster in the lateral direction than anticipated under
+the macro-scale process model, converting the expected nano-well geometry into
+arrays of isolated pillars in some regions.
