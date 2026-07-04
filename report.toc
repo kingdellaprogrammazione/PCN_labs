@@ -54,32 +54,32 @@
 \contentsline {section}{\numberline {3.1}MICRO Experience: Photolithography}{37}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Materials and Methods}{42}{subsection.3.1.1}%
 \contentsline {subsubsection}{Substrate}{42}{section*.39}%
-\contentsline {subsubsection}{Adhesion Promoter (HMDS)}{42}{section*.40}%
-\contentsline {subsubsection}{Photoresist (AZ\,5214E)}{42}{section*.41}%
-\contentsline {subsubsection}{Process Flow}{43}{section*.42}%
+\contentsline {subsubsection}{Adhesion Promoter (HMDS)}{43}{section*.40}%
+\contentsline {subsubsection}{Photoresist (AZ\,5214E)}{43}{section*.41}%
+\contentsline {subsubsection}{Process Flow}{44}{section*.42}%
 \contentsline {paragraph}{Step 1: Dehydration bake and HMDS spin coating.}{44}{section*.43}%
 \contentsline {paragraph}{Step 2: Spin coating of AZ\,5214E.}{44}{section*.44}%
-\contentsline {paragraph}{Step 3: Soft bake.}{44}{section*.45}%
-\contentsline {paragraph}{Step 4: Mask alignment and UV exposure.}{44}{section*.46}%
+\contentsline {paragraph}{Step 3: Soft bake.}{45}{section*.45}%
+\contentsline {paragraph}{Step 4: Mask alignment and UV exposure.}{45}{section*.46}%
 \contentsline {paragraph}{Step 5: Post-exposure bake (PEB).}{45}{section*.47}%
-\contentsline {paragraph}{Step 6: Flood exposure.}{45}{section*.48}%
-\contentsline {paragraph}{Step 7: Development.}{45}{section*.49}%
-\contentsline {paragraph}{Step 8: Optical inspection.}{45}{section*.50}%
-\contentsline {subsubsection}{Equipment}{46}{section*.51}%
-\contentsline {subsection}{\numberline {3.1.2}Results}{46}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}NANO Experience: Electron Beam Lithography (EBL)}{50}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Materials and Methods}{50}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Results}{51}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Dry-Etch and SEM Imaging}{53}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Materials and Methods}{53}{subsection.3.3.1}%
-\contentsline {subsubsection}{Objective}{53}{section*.57}%
-\contentsline {subsubsection}{Setup description and list of components}{53}{section*.58}%
-\contentsline {subsubsection}{Process flow description}{53}{section*.59}%
-\contentsline {subsection}{\numberline {3.3.2}Results}{58}{subsection.3.3.2}%
-\contentsline {subsubsection}{Microstructure}{58}{section*.61}%
-\contentsline {subsubsection}{Nanostructure}{61}{section*.62}%
-\contentsline {section}{\numberline {3.4}Applications in Quantum Technology}{69}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Micro Atomic Clocks}{69}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Plasmonic Nano-antennas}{69}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Nano-biosensors}{69}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Conclusions}{70}{section.3.5}%
+\contentsline {paragraph}{Step 6: Flood exposure.}{46}{section*.48}%
+\contentsline {paragraph}{Step 7: Development.}{46}{section*.49}%
+\contentsline {paragraph}{Step 8: Optical inspection.}{46}{section*.50}%
+\contentsline {subsubsection}{Equipment}{47}{section*.51}%
+\contentsline {subsection}{\numberline {3.1.2}Results}{47}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}NANO Experience: Electron Beam Lithography (EBL)}{51}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Materials and Methods}{51}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Results}{53}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Dry-Etch and SEM Imaging}{55}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Materials and Methods}{55}{subsection.3.3.1}%
+\contentsline {subsubsection}{Objective}{55}{section*.57}%
+\contentsline {subsubsection}{Setup description and list of components}{55}{section*.58}%
+\contentsline {subsubsection}{Process flow description}{56}{section*.60}%
+\contentsline {subsection}{\numberline {3.3.2}Results}{60}{subsection.3.3.2}%
+\contentsline {subsubsection}{Microstructure}{61}{section*.62}%
+\contentsline {subsubsection}{Nanostructure}{63}{section*.63}%
+\contentsline {section}{\numberline {3.4}Applications in Quantum Technology}{71}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Micro Atomic Clocks}{71}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Plasmonic Nano-antennas}{71}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Nano-biosensors}{71}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Conclusions}{72}{section.3.5}%

@@ -8,7 +8,7 @@ Photolithography became fundamental due to batch fabrication where growing/depos
 
 The purpose of photolithography is to transfer a desired two-dimensional pattern from a master copy (the \emph{mask}) into a photosensitive polymer layer called the \emph{photoresist}, coated onto the wafer surface. After pattern transfer the patterned resist acts as a stencil, protecting or exposing specific areas during etching, deposition, or ion implantation \cite{FundTechProc2024}.
 
-A photomask is a high-purity, amorphous SiO$_2$ (quartz) slab on which an absorbing chromium layer has been patterned by laser or electron-beam lithography. Quartz is chosen because it maintains high optical transmission even at ultraviolet wavelengths (below 300\,nm) where soda-lime glass becomes opaque, as shown in Figure~\ref{fig:mask_transmission} \cite{MitaniMicroMask}.
+A photomask is a high-purity, amorphous SiO$_2$ (quartz) slab on which an absorbing chromium layer has been patterned by laser or electron-beam lithography. Quartz is required as the mask substrate for deep-UV lithography (wavelengths below $\sim$300\,nm, e.g.\ KrF/ArF excimer sources), because soda-lime glass becomes opaque in that range, as shown in Figure~\ref{fig:mask_transmission} \cite{MitaniMicroMask}. For the I-line (365\,nm) exposure used in this experiment, soda-lime glass masks remain fully transmissive and are standard practice; quartz becomes necessary only when moving to shorter wavelengths.
 
 \begin{figure}[H]
   \centering
@@ -16,9 +16,12 @@ A photomask is a high-purity, amorphous SiO$_2$ (quartz) slab on which an absorb
   \caption{Transmission curves for quartz glass and soda-lime glass as a function of wavelength.
            Quartz maintains $\sim$90\,\% transmission down to wavelengths below 200\,nm, whereas
            soda-lime glass cuts off around 300\,nm, making quartz the required substrate for
-           UV photomasks \cite{MitaniMicroMask}.}
+           deep-UV photomasks (below $\sim$300\,nm); at I-line (365\,nm) soda-lime glass
+           remains fully transmissive \cite{MitaniMicroMask}.}
   \label{fig:mask_transmission}
-\end{figure} 
+\end{figure}
+
+The photomask employed in this experience consists of a \textbf{soda-lime glass} substrate with a patterned chromium absorber layer \cite{MitaniMicroMask}. Soda-lime glass is the standard mask substrate for I-line (365\,nm) contact lithography: at 365\,nm it is fully transmissive, as shown by the transmission curves in Figure~\ref{fig:mask_transmission}, so it imposes no UV-absorbing cutoff under the NXQ4006 aligner's operating conditions.
 
 Because a single device requires many sequential patterning steps, precise alignment of each new mask to the previously printed features on the wafer is critical; misalignment can arise from X--Y displacement or rotational error, and is corrected by superimposing dedicated alignment marks using a split-field microscope.
 
@@ -63,19 +66,17 @@ Photoresists are classified by their \emph{polarity}:
   \begin{minipage}[t]{0.46\textwidth}
     \centering
     \includegraphics[width=\textwidth]{pos_lithography.png}
-    \label{fig:pos_resist}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.46\textwidth}
     \centering
     \includegraphics[width=\textwidth]{neg_lithography.png}
-    \label{fig:neg_resist}
   \end{minipage}
   \caption{Comparison of positive and negative photoresist behaviour after UV exposure and development \cite{FundTechProc2024}.}
   \label{fig:pos_neg_resist}
 \end{figure}
 
-Positive resists generally offer better resolution because the chain-scission fragments are smaller than the cross-linked network formed in negative resists. Smaller fragments dissolve more cleanly and precisely during development, allowing for finer pattern definition and less edge roughness.
+Positive resists generally offer better resolution than negative resists for several compounding reasons: chain-scission fragments are smaller and dissolve more cleanly during development; cross-linked (negative) resists additionally tend to swell in the developer, which degrades edge definition; and cross-linked networks generally exhibit lower development contrast than chain-scission systems. Together these effects make sub-micron pattern definition more difficult to achieve reliably with negative-tone resists.
 
 
 % $\gamma = 1 / \log_{10}(E_f / E_i)$ quantifies how sharply the development rate changes with dose, where $E_f$ and $E_i$ are the exposure doses required to fully develop and just begin to develop the resist, respectively; a high contrast produces near-vertical resist sidewalls and tight linewidth control
@@ -121,10 +122,7 @@ targeted here.
   \centering
   \includegraphics[width=0.75\textwidth]{exposure_tools.png}
   \caption{Schematic comparison of the three exposure tool geometries: contact, proximity, and
-           projection printing. Contact and proximity systems operate at 1:1 magnification and are
-           the standard choice for R\&D; projection steppers provide superior resolution through
-           optical de-magnification ($4\times$ or $5\times$) but require equipment costing
-           upwards of 50\,M\$ \cite{FundTechProc2024}.}
+           projection printing. \cite{FundTechProc2024}.}
   \label{fig:exposure_tools}
 \end{figure}
 

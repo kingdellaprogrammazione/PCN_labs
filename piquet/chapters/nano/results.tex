@@ -18,12 +18,23 @@ After development, the dose array was inspected under an optical microscope in b
     650--800  & Over-dose: proximity backscatter broadens the exposed regions; split-ring gaps partially or fully closed at the highest doses. \\
     \bottomrule
   \end{tabular}
-  \caption{Dose array inspection results for the EBL dose sweep (400--800\,$\mu$C/cm$^2$, step 50\,$\mu$C/cm$^2$). The dose of 600\,$\mu$C/cm$^2$ was identified as the process optimum.}
+  \caption{Dose array inspection results for the EBL dose sweep (400--800\,$\mu$C/cm$^2$, step 50\,$\mu$C/cm$^2$).}
   \label{tab:dose_array}
 \end{table}
+
+The qualitative classification in Table~\ref{tab:dose_array} can be complemented by a quantitative method: for each dose step, a consistent geometric proxy is measured on the developed sample -- for example, the width of the smallest fully-resolved feature, or the diameter of any residual halo surrounding a radial test pattern -- and the result is plotted against dose to identify the true optimum as a minimum or inflection point in the measured dimension rather than by visual category alone. This approach removes observer subjectivity from the threshold determination and yields a continuously-varying dose-response curve that can be compared between sessions and resist batches.
+% TODO: If radial test patterns, resolution gratings, or graded features are
+% present in this group's own dose-array layout (beyond the split-ring arrays),
+% measure a consistent CD or halo width at each dose step from the optical or
+% SEM images and tabulate the results here, replacing the qualitative-only
+% Table~\ref{tab:dose_array} with a quantitative dose-response curve.
+% If no dedicated test structures were included in the layout, note this
+% explicitly as a limitation of the dose-array design and recommend adding
+% a radial resolution test pattern (e.g. a Siemens star or van der Pauw
+% cross) to future EBL layouts to enable quantitative dose optimisation.
 
 The dose of 600\,$\mu$C/cm$^2$ was identified as the process optimum: the split-ring features were fully developed with clean, open gaps, and the proximity correction was evident in the uniformity of feature sizes across regions of differing pattern density. Too low a dose leaves intact PMMA (chain scission incomplete); too high a dose widens the written features through the backscattered dose deposited over a radius of several micrometres around the primary beam footprint.
 
 \subsubsection*{Lift-off and post-lift-off observation}
 
-Following the identification of the optimal dose, 50\,nm of gold was deposited by thermal evaporation and lift-off in acetone was performed on the 600\,$\mu$C/cm$^2$ dose region. At optical microscope inspection after lift-off, the split-ring array at the 600\,$\mu$C/cm$^2$ dose appeared correctly patterned; however, residual PMMA was observed over the sample surface at the microscale, indicating incomplete lift-off in some areas. This residue most likely arises from regions that were only partially sensitised by the electron beam and were therefore not fully dissolved during the 50\,s MIBK:IPA development step; any remaining PMMA acts as a dielectric spacer between the gold nanostructure and the silicon substrate, modifying the local refractive index and thereby altering the plasmonic resonance frequency of the split rings. The lift-off results at multiple EBL doses were subsequently characterised by scanning electron microscopy (SEM) during the third session (Section~\ref{sec:DRIE_mat_met}).
+Following the identification of the optimal dose, 50\,nm of gold was deposited by thermal evaporation and lift-off in acetone was performed on the 600\,$\mu$C/cm$^2$ dose region. At optical microscope inspection after lift-off, the split-ring array at the 600\,$\mu$C/cm$^2$ dose appeared correctly patterned; however, residual PMMA was observed over the sample surface at the microscale, indicating incomplete lift-off in some areas. This residue most likely arises from regions that were only partially sensitised by the electron beam and were therefore not fully dissolved during the 50\,s MIBK:IPA development step; any remaining PMMA acts as a dielectric spacer between the gold nanostructure and the silicon substrate, modifying the local refractive index and thereby altering the plasmonic resonance frequency of the split rings. The narrow gap regions of the split-ring geometry are topologically the most enclosed areas of the pattern -- solvent can approach the resist boundary at a gap from only a limited perimeter -- which makes these regions the most susceptible to slow lateral undercutting and therefore to the type of localised incomplete lift-off observed here (the underlying mechanism is described in the Metallization and Lift-off subsection of the NANO Materials and Methods). The lift-off results at multiple EBL doses were subsequently characterised by scanning electron microscopy (SEM) during the third session (Section~\ref{sec:DRIE_mat_met}).

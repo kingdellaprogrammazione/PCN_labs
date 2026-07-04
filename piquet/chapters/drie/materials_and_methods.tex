@@ -84,9 +84,13 @@ the activities is presented.
     wafer, providing improved etch selectivity;
   \item Thermoplastic mounting wax (hardens at \SI{70}{\degreeCelsius}),
     used to bond chip fragments to the carrier wafer;
-  \item ICP-DRIE reactor (Pseudo-Bosch process for both micro and nano
-    samples).
+  \item \textbf{ICP-DRIE system}: PlasmaPro~100 Cobra (Oxford Instruments) \cite{PlasmaProCobra}; inductively coupled plasma reactor used for the Pseudo-Bosch etch of both micro and nano samples;
+  \item \textbf{Dual-beam SEM/FIB}: FEI Quanta~3D FEG \cite{QuantaFEG} (Thermo Fisher Scientific); integrates a field-emission SEM column with a gallium-ion FIB column, a positively-biased Everhart--Thornley secondary-electron detector (ETD), and a Peltier-cooled stage. Used at 20\,kV for post-etch cross-section imaging in this experience (electron column only; the FIB column was not operated during the SEM imaging session).
 \end{itemize}
+
+\subsubsection*{SEM imaging principle}
+
+The scanning electron microscope (SEM) used for post-etch characterisation is a \textit{field-emission gun} (FEG) instrument. In a FEG-SEM, electrons are extracted from a sharp tungsten tip by a high electric field; the resulting beam has a very small energy spread and can be focused to a spot smaller than 5\,nm, giving the high spatial resolution required to resolve sub-100\,nm features. The focused beam is raster-scanned across the sample surface by electromagnetic deflection coils, and at each pixel the number of \textit{secondary electrons} (SE) -- low-energy electrons knocked out of the sample surface by the primary beam -- is detected by an Everhart--Thornley or equivalent detector. Because secondary-electron yield depends strongly on the local surface inclination and material composition, the collected SE signal maps the surface topography with high contrast: steep sidewalls appear bright, flat horizontal surfaces appear darker. This secondary-electron contrast mechanism is what gives SEM images their characteristic three-dimensional, shadowed appearance and makes it possible to measure trench depth, sidewall angle, and surface roughness directly from the micrographs. For the cross-section imaging used in this experience, the sample was first cleaved perpendicular to the trench direction (as described in the process flow below) to expose a fresh, uncontaminated sidewall surface; the chip was then mounted at a 52$^\circ$ stage tilt to bring the cleaved cross-section into the field of view of the column.
 
 % PROCESS FLOW DESCRIPTION
 \subsubsection{Process flow description}
@@ -123,9 +127,7 @@ the activities is presented.
     its wider belonging class made by the reactive ion
     etching (RIE) processes.
 
-    RIE process' aim is
-    the precision etching of structures without undercuts,
-    that would not be possible using wet etching (so using liquid chemicals).
+    RIE process' aim is the precision etching of structures without undercuts, which isotropic wet etching cannot achieve because it removes material at a similar rate in all directions. Anisotropic (crystallographic) wet etches such as KOH or TMAH on specific silicon planes can produce directional sidewalls, but they are constrained to the fixed geometric angles imposed by the crystal lattice and cannot produce the arbitrary range of geometries that RIE supports.
     Usually RIE is used to excavate shallow features mantaining a
     good verticality along the walls and at the same time a optimal
     depth control at
@@ -315,16 +317,13 @@ the activities is presented.
     samples use different mask materials reflecting their different scale
     requirements. For the MICRO sample, an AZ\,5214E photoresist mask
     (organic polymer) was used directly, with a 2\,\si{\micro\meter} \ce{SiO2}
-    hard-mask layer underneath to improve selectivity beyond what photoresist
-    alone provides; the combined selectivity is approximately 1:10
-    (10\,\si{\micro\meter} of silicon per 1\,\si{\micro\meter} of mask
-    consumed), which is adequate for shallow micro-scale etches. For the NANO
-    sample, a 50\,nm copper (Cu) hard mask deposited and patterned by EBL
-    lift-off was used; its selectivity is $\sim$1:100, providing the durability
-    required for deep, high-aspect-ratio nano-scale etches. Small chip
-    fragments from both samples were mounted on a 4-inch carrier wafer using
-    a wax that hardens at \SI{70}{\degreeCelsius}, enabling the fragments to
-    be handled in a reactor designed for full wafers.
+    hard-mask layer underneath to improve selectivity, adequate for shallow
+    micro-scale etches. For the NANO sample, a 50\,nm copper (Cu) hard mask
+    deposited and patterned by EBL lift-off was used, providing the durability
+    required for deep, high-aspect-ratio nano-scale etches (selectivity values
+    are given above). Small chip fragments from both samples were mounted on a
+    4-inch carrier wafer using a wax that hardens at \SI{70}{\degreeCelsius},
+    enabling the fragments to be handled in a reactor designed for full wafers.
 
   \item \textbf{Wax removal}: After etching, the chip fragments were
     detached from the carrier wafer by dissolving the mounting wax with

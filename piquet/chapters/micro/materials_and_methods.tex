@@ -9,9 +9,8 @@ The substrate used throughout this experience was a 4-inch (100\,mm) P-doped
 
 Prior to any coating step, the wafer surface must be free of adsorbed water, since
 water molecules compete with the photoresist for adhesion sites on the SiO$_2$
-native oxide. A \emph{dehydration bake} at 200\,$^\circ$C for 20\,s on a calibrated
-hot plate drives off physisorbed water and leaves the surface in a hydrophobic state
-suitable for HMDS priming \cite{FundTechProc2024}.
+native oxide. A \emph{dehydration bake} on a calibrated hot plate drives off physisorbed water and
+leaves the surface in a hydrophobic state suitable for HMDS priming \cite{FundTechProc2024}.
 
 \subsubsection{Adhesion Promoter (HMDS)}
 
@@ -31,7 +30,7 @@ diazonaphthoquinone (DNQ)--novolak system dissolved in propylene glycol monometh
 ether acetate (PGMEA), with a solids content of 28.3\,\% and a viscosity of
 24.0\,cSt at 25\,$^\circ$C \cite{AZ5214E_TDS}. The resist is spectrally sensitive
 in the range 310--420\,nm, covering both the broadband H-line (405\,nm) and I-line
-(365\,nm) of mercury lamps \cite{AZ5214E_TDS}. AZ\,5214E is important in that it
+(365\,nm) of mercury lamps \cite{AZ5214E_TDS}. Additional material properties relevant to process control are: an absorptivity of 0.76\,L/(g\,$\cdot$\,cm) at 377\,nm, a maximum water content of 0.50\,\%, a striation-free coating characteristic, and filtration to 0.1\,\si{\micro\meter} absolute \cite{AZ5214E_TDS}. AZ\,5214E is important in that it
 can be operated in two different modes, depending on the baking sequence applied after
 exposure:
 
@@ -39,17 +38,13 @@ exposure:
     \item \textbf{Positive mode.} A standard exposure followed directly by
           development yields a positive-tone result: the exposed areas are dissolved
           by the developer, replicating the mask pattern directly onto the wafer.
-    \item \textbf{Image-reversal mode.} A post-exposure bake (PEB) at high
-          temperature (115--125\,$^\circ$C) before development activates a special
-          crosslinking agent present in the formulation, which renders the exposed
-          regions insoluble and no longer photosensitive \cite{AZ5214E_TDS}. This
-          reversal bake is the most critical step of the process: the temperature
-          must be controlled to within $\pm 1\,^\circ$C, as exceeding 130\,$^\circ$C
-          causes thermal crosslinking of the unexposed areas as well, destroying the
-          pattern \cite{AZ5214E_TDS}. A subsequent blanket flood exposure
-          ($>200$\,mJ/cm$^2$) then sensitises the originally unexposed regions, which
-          are dissolved by the developer; the result is a \emph{negative-tone} pattern
-          with a characteristic undercut (re-entrant) sidewall profile \cite{AZ5214E_TDS}.
+    \item \textbf{Image-reversal mode.} A post-exposure bake (PEB) at
+          115--125\,$^\circ$C activates a crosslinking agent in the formulation.
+          Temperature control to $\pm 1\,^\circ$C is critical: exceeding
+          130\,$^\circ$C crosslinks the unexposed areas as well, destroying the
+          pattern \cite{AZ5214E_TDS}. A subsequent blanket flood exposure of
+          $>200$\,mJ/cm$^2$ then sensitises the originally unexposed regions
+          \cite{AZ5214E_TDS}.
 \end{itemize}
 
 Image-reversal mode was selected for this experience because the resulting undercut
@@ -59,6 +54,8 @@ the resist wall edge ensures clean separation upon solvent dissolution of the re
 According to the manufacturer's spin curve, AZ\,5214E yields a film thickness of
 1.40\,$\mu$m at 4000\,rpm \cite{AZ5214E_TDS}, which is well matched to the
 micron-scale features of the mask used.
+
+This experience focused exclusively on the image-reversal mode; positive-tone processing of AZ\,5214E was not performed in this session. In positive mode, no PEB or flood exposure is applied: development follows directly after the main exposure, and the irradiated regions dissolve to yield a directly-replicated, positive-tone image with near-vertical sidewalls. That profile is better matched to etch-and-strip pattern transfer, where a vertical resist wall acts as a selective etch barrier without requiring physical film discontinuity at the sidewall. The image-reversal choice in this session therefore reflects the intended downstream process: the gold lift-off step used in the NANO experience (Section~\ref{sec:DRIE_mat_met}) demands an undercut profile for clean film separation, whereas etch-and-strip benefits from vertical walls. Running both modes on parallel wafers in the same session would have provided a direct sidewall profile comparison; the absence of a positive-tone companion wafer is a noted scope limitation, discussed further in Section~\ref{sec:DRIE_mat_met}.
 
 \subsubsection{Process Flow}
 
@@ -106,14 +103,11 @@ regard, as it heats the wafer from below, preventing the surface skinning that t
 solvent when the top surface solidifies first.
 
 \paragraph{Step 4: Mask alignment and UV exposure.}
-Exposure was performed on a \textbf{contact mask aligner}
-(Figure~\ref{fig:exposure_tools}) operating in \emph{hard-contact}
-(vacuum contact) mode. In this geometry, the mask is brought into direct physical
+Exposure was performed on a \textbf{contact mask aligner} (NXQ4006, NxQ; \cite{NXQ4006})
+operating in \emph{hard-contact} (vacuum contact) mode via the integrated IDONUS UV-EXP150R-SYS exposure unit \cite{IDONUS_UV}. In this geometry, the mask is brought into direct physical
 contact with the resist surface under vacuum, minimising the air gap and thereby
-reducing diffraction-limited broadening of the aerial image. The minimum resolvable
-period in contact mode is $2b_{\min} = 3\sqrt{\lambda z / 2}$, where $z$ is the
-resist thickness; for $\lambda = 365$\,nm (I-line) and $z = 1.3\,\mu$m this gives
-$2b_{\min} \approx 1.4\,\mu$m.
+reducing diffraction-limited broadening of the aerial image. For $\lambda = 365$\,nm (I-line) and $z = 1.3\,\mu$m this gives a
+minimum resolvable period of ${\approx}1.4\,\mu$m.
 
 Prior to exposure, the mask was aligned to the wafer using the alignment marks
 printed on both the mask and the previously patterned layer on the wafer. The
@@ -211,13 +205,11 @@ The following instruments were used:
           respectively, to avoid cross-contamination of temperature programmes);
     \item \textbf{Spin coater} with vacuum chuck and programmable
           speed/acceleration profiles;
-    \item \textbf{Contact mask aligner} with I-line (365\,nm) illumination,
-          vacuum contact mode, and split-field optical microscope for alignment;
+    \item \textbf{Contact mask aligner} (NXQ4006, NxQ; \cite{NXQ4006}) with integrated IDONUS UV-EXP150R-SYS exposure unit \cite{IDONUS_UV}: semi-automatic aligner supporting soft, hard/vacuum contact, and manual proximity printing; resolution $\approx$0.6\,\si{\micro\meter} in vacuum contact mode; accepts wafers up to 6\,inches; manual joystick and micrometer X/Y/rotation controls; Wedge Error Compensation (WEC); UV optics operating across 350--450\,nm at 350/500\,W;
     \item \textbf{UV-LED flood exposure lamp} (peak emission $\approx 365$\,nm)
           for the blanket flood step;
     \item \textbf{Developer bath} with timer and DI-water rinse station;
-    \item \textbf{Optical microscope}, bright-field, used for post-development
-          inspection;
+    \item \textbf{Optical microscope} (Olympus DSX-1000; \cite{OlympusDSX1000}): fixed-stage, moving-head digital microscope; 20$\times$ and 50$\times$ objectives; digital zoom up to $\times$7000; used in bright-field mode for post-development inspection;
     \item \textbf{Contact profilometer} for step-height measurement of the
           patterned resist.
 \end{itemize}

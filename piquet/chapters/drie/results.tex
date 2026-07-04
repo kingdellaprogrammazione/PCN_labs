@@ -9,7 +9,7 @@ presented and discussed. Two wafer pieces were characterised:
   \item a piece from the MICRO experience wafer (AZ\,5214E-masked silicon,
     trench structures at micrometre scale). A second micro piece patterned
     with a standard positive-tone process could not be fabricated within the
-    available session time and was therefore not available for comparison.
+    available session time and was therefore not available for comparison. A future run including a positive-tone sample would provide a direct sidewall profile comparison between the image-reversal undercut geometry shown in Figures~\ref{fig:micro_sem_overview}--\ref{fig:micro_sem_sidewall} and the more nearly-vertical positive-mode profile, which is the relevant reference for etch-and-strip applications where an undercut is not desired.
   \item a piece from the NANO experience wafer (EBL-patterned PMMA on
     silicon, gold split-ring resonators after lift-off).
 \end{itemize}
@@ -67,9 +67,7 @@ feature layout.
 
 The final resist thickness after the $\sim$6\,min etch was measured at
 $\sim$700\,nm, compared to the nominal pre-etch thickness of 1.3\,$\mu$m;
-approximately 600\,nm of resist was consumed during the process. This consumption
-is consistent with the measured 1:10 silicon-to-resist selectivity
-(Table~\ref{tab:process_summary}).
+approximately 600\,nm of resist was consumed during the process. This consumption is of the expected order of magnitude given the $\sim$1:10 silicon-to-resist selectivity typically reported for photoresist masks in this process (Table~\ref{tab:process_summary}); the corresponding silicon etch depth was not independently recorded for this sample, so this comparison serves as a plausibility check rather than a direct verification of the selectivity figure.
 
 \subsubsection{Nanostructure}
 
@@ -153,17 +151,11 @@ made under the optical microscope during the NANO session.
 Several phenomena characteristic of nano-scale fabrication were observed in
 the SEM images. The measured gap dimension in the split-ring resonators at the
 optimal 600\,$\mu$C/cm$^2$ dose was $\sim$58\,nm, against the 100\,nm target
-value. This discrepancy arises from a combination of factors: residual proximity
-over-exposure not fully corrected by Beamer, lateral under-etch of the PMMA
-during development broadening the exposed regions, and mask erosion during
-evaporation. \textit{Bowing} (a concave inward curvature of the sidewalls)
+value. Several contributing factors are plausible, though the data collected in this experience do not allow them to be individually disentangled: residual proximity over-exposure not fully corrected by Beamer, lateral under-etch of the PMMA during development broadening the exposed regions, and mask erosion during evaporation. Distinguishing their relative contributions would require additional controls -- for example, repeating the dose array with a finer Beamer correction mesh, or measuring gap dimensions before and after evaporation separately to isolate the mask-erosion contribution. \textit{Bowing} (a concave inward curvature of the sidewalls)
 was also observed in deeper features; this arises because ion flux in narrow
 features is partially deflected sideways by charge accumulation at the feature
 bottom, attacking the lower sidewall rather than the floor and increasing the
-effective undercut. Finally, some cross-sections showed step profiles at
-localised positions, indicating non-uniform etch across the chip, most likely
-attributable to local charging in the copper mask, proximity effects in high-density
-pattern regions, or gas-flow non-uniformities at nano-scale feature densities.
+effective undercut. Finally, some cross-sections showed step profiles at localised positions, indicating non-uniform etch across the chip. Several hypotheses are consistent with this observation -- local charging in the copper mask, proximity effects in high-density pattern regions, and gas-flow non-uniformities at nano-scale feature densities -- but the available data do not allow their relative contributions to be ranked or separated without dedicated control experiments.
 These observations are consistent with the \textit{Aspect Ratio Dependent Etching}
 (ARDE) effect described in Section~\ref{sec:DRIE_mat_met}: narrow gaps between
 intended pillar bases etch faster in the lateral direction than anticipated under
