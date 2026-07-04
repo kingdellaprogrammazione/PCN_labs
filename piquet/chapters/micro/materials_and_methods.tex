@@ -14,13 +14,23 @@ leaves the surface in a hydrophobic state suitable for HMDS priming \cite{FundTe
 
 \subsubsection{Adhesion Promoter (HMDS)}
 
-Immediately after the dehydration bake, hexamethyldisilazane (HMDS,
-$[\text{(CH}_3)_3\text{Si}]_2\text{NH}$) was applied as an adhesion promoter by
-spin coating at 4000\,rpm. HMDS reacts with the residual surface hydroxyl groups
-(Si--OH) present on the native oxide, replacing them with trimethylsilyl groups
-(Si--OSi(CH$_3$)$_3$). This modification
-substantially improves the adhesion of organic photoresists, which
-are themselves largely non-polar.
+Silicon and silicon dioxide substrates naturally develop a high surface density of hydroxyl groups (Si--OH) upon prolonged exposure to atmospheric humidity. These silanol groups make the SiO$_2$ surface hydrophilic, which is chemically incompatible with the photoresist resin, an organic, largely non-polar material. Without surface treatment, the poor affinity between the resist and the substrate leads to delamination, cracking, or premature lift-off of the resist film during wet-processing steps, degrading pattern fidelity and process yield \cite{FundTechProc2024}.
+
+Hexamethyldisilazane (HMDS, $[\text{(CH}_3)_3\text{Si}]_2\text{NH}$) resolves this incompatibility by chemically substituting the surface Si--OH groups with hydrophobic trimethylsilyl groups (Si--OSi(CH$_3$)$_3$) through the condensation reaction:
+\begin{equation*}
+  (\text{CH}_3)_3\text{Si}\!-\!\text{NH}\!-\!\text{Si}(\text{CH}_3)_3
+  \;+\; \text{Si}_{\text{surf}}\text{-OH}
+  \;\longrightarrow\;
+  \text{Si}_{\text{surf}}\text{-O-Si}(\text{CH}_3)_3
+  \;+\; \text{NH}_3 \uparrow
+\end{equation*}
+The volatile byproduct ammonia (NH$_3$) escapes from the surface. The resulting monolayer is hydrophobic and organophilic, providing strong covalent bonding between substrate and resist \cite{FundTechProc2024}.
+
+Four application methods exist: \emph{(a) vapour prime}: the most common, most effective, and most reproducible method, in which the substrate is heated to 120--150\,$^\circ$C and exposed to HMDS vapour for 1--2\,min in a dedicated oven or vacuum chamber; \emph{(b) liquid spin coating}: HMDS is dispensed directly onto the wafer and spread by spinning, the method used in this experience; \emph{(c) spray application}: a dilute HMDS solution in an inert solvent is sprayed on the substrate and annealed at $\sim$120\,$^\circ$C, used industrially for large-area or high-throughput treatments; \emph{(d) immersion (dip-coating)}: the substrate is dipped in an anhydrous HMDS solution (e.g.\ toluene or dry isopropanol), extracted, and dried under N$_2$, preferred for non-planar or three-dimensional structures but difficult to keep the bath anhydrous, increasing the risk of HMDS reacting with moisture in solution rather than with the substrate surface.
+
+The benefits of HMDS priming are: (i) markedly improved resist adhesion; (ii) reduced risk of resist defects (peeling, cracking, and premature lift-off) during wet processing; and (iii) more uniform resist coverage and better edge definition during lithography.
+
+\textbf{Practical considerations.} HMDS is toxic and volatile and must be handled inside a fume hood. The treated surface progressively re-adsorbs atmospheric moisture and loses its hydrophobic character over time; the photoresist must therefore be applied immediately after HMDS treatment. The overall effectiveness of the priming step also depends critically on substrate cleanliness and completeness of drying before application: residual contamination or moisture reduces the density of available Si--OH reaction sites and degrades adhesion quality.
 
 \subsubsection{Photoresist (AZ\,5214E)}
 
@@ -69,28 +79,22 @@ This experience focused exclusively on the image-reversal mode; positive-tone pr
 The complete photolithography sequence is illustrated in Figure~\ref{fig:litho_flow} and described below. All baking steps were carried out on calibrated hot plates.
 
 \paragraph{Step 1: Dehydration bake and HMDS spin coating.}
-The wafer was first placed on a calibrated hot plate at 200\,$^\circ$C for 20\,s to
-drive off all water from the surface. Then HMDS was
-dispensed onto the stationary wafer and spin-coated at 4000\,rpm, forming a thin,
-conformal adhesion layer before the resist was applied.
+The wafer was placed on a calibrated hot plate at 200\,$^\circ$C for 20\,s to thermally desorb physisorbed water from the SiO$_2$ surface; this temperature is well above the boiling point of water and sufficient to remove adsorbed moisture rapidly without thermally altering the substrate. HMDS was then dispensed immediately onto the still-warm, stationary wafer and spin-coated at 4000\,rpm, depositing a thin covalent trimethylsilyl monolayer across the surface. The photoresist was applied in the immediately following step without delay, since the hydrophobic character of the HMDS-treated surface degrades as atmospheric moisture is progressively re-adsorbed.
 
 \paragraph{Step 2: Spin coating of AZ\,5214E.}
-AZ\,5214E was dispensed in static mode onto the centre of the wafer and spin-coated
-according to the following programme:
+The wafer was placed flat on the spin coater chuck, centred by eye, and the vacuum was activated to clamp it in place; correct seating was confirmed by checking that the wafer did not rock or shift when lightly pressed at the rim. With the wafer secured, AZ\,5214E was dispensed in \emph{static} mode (a few millilitres onto the centre of the stationary wafer), as opposed to \emph{dynamic} mode, in which the resist is dispensed onto an already-rotating substrate ($\sim$1000\,rpm). Static dispensing ensures complete initial surface coverage before centrifugal spreading begins. The wafer was then spin-coated according to the following programme:
 \begin{itemize}
-    \item Spread step: 500\,rpm for 5\,s, allowing the resist to spread radially
-          before high-speed thinning;
-    \item Final spin: 4000\,rpm at an acceleration of 500\,rpm/s, held for 30\,s.
+    \item \textbf{Spread step}: 500\,rpm for 5\,s, initiating radial spreading of the resist pool across the surface;
+    \item \textbf{Final spin}: 4000\,rpm at an acceleration of 500\,rpm/s, held for 30\,s to thin the film to the target thickness.
 \end{itemize}
-This programme yields a nominal film thickness of $\sim$1.3\,$\mu$m, in agreement
-with the manufacturer's spin curve for AZ\,5214E. The resulting thickness is
-governed primarily by the solid content and viscosity of the resist formulation and
-by the final spin speed, according to $t = K \cdot S \cdot (\nu / \omega^2
-R^2)^{1/3}$, where $S$ is the solid fraction, $\nu$ the kinematic viscosity,
-$\omega$ the angular velocity, and $R$ the wafer radius \cite{FundTechProc2024}.
-Edgebeads (resist accumulations at the wafer rim arising from surface tension) are
-removed after spinning by a manual edge-bead removal (EBR) solvent rinse when
-necessary.
+
+\textbf{Physical mechanism.} During the high-speed spin, centrifugal force spreads the resist radially and expels the excess from the substrate edges, leaving a film whose thickness is set by the competition between centrifugal thinning and the progressive increase in viscosity caused by solvent evaporation. As the PGMEA solvent evaporates from the free surface of the film during spinning, the resist dries and stiffens, arresting further thinning and producing a film that is sufficiently stable to handle without sagging. The process is inherently high-waste: typically more than 95\,\% of the dispensed resist volume is expelled during spinning, with only a few percent remaining on the wafer as the final film.
+
+\textbf{Factors governing film thickness.} The dominant factor is \emph{rotation speed}: thickness scales as $T \propto 1/\sqrt{\omega}$, so doubling the spin speed reduces the film thickness by a factor of $\sim$1.4 (the ``golden rule'' for spin-coated resists). The AZ resist naming convention reflects this: the last two digits of the product name encode the nominal thickness in units of 100\,nm at 4000\,rpm; AZ\,5214E therefore targets $\sim$1.4\,\si{\micro\meter} at 4000\,rpm, consistent with the observation in this session \cite{AZ5214E_TDS}. A secondary factor is \emph{spin time}: if spinning is deliberately interrupted during the resist-expulsion phase, the instantaneous film thickness at that moment is arrested and can be used for time-based thickness control; this window is wider (and control easier) for more viscous resists at lower speeds. A third factor is \emph{residual solvent content}: immediately after spin-coating, a significant solvent fraction remains in the film: approximately 35\,\% for thick films and $\sim$10\,\% for thin films; the subsequent soft-bake step reduces this to 3--5\,\%, contributing an additional thinning that is primarily a function of bake temperature rather than spin parameters. Finally, \emph{ambient temperature} influences both the solvent evaporation rate and the resist viscosity in competing directions; under normal laboratory conditions, variations of a few degrees Celsius produce negligible change in final thickness. For reproducible results, spin recipes that reach the target thickness within a conventional parameter window (3000--4000\,rpm, 20--30\,s) are preferred over recipes that rely on precisely timed interruption of an ongoing spin. The general thickness model for viscosity- and speed-dominated thinning is $t = K \cdot S \cdot (\nu / \omega^2 R^2)^{1/3}$, where $S$ is the solid fraction, $\nu$ the kinematic viscosity, $\omega$ the angular velocity, and $R$ the wafer radius \cite{FundTechProc2024}.
+
+This programme yields a nominal film thickness of $\sim$1.3\,\si{\micro\meter}, in agreement with the manufacturer's spin curve for AZ\,5214E \cite{AZ5214E_TDS}.
+
+\textbf{Advantages and limitations.} Spin coating produces a very smooth, highly homogeneous film in 10--20\,s and allows accurate, reproducible thickness control on circular substrates, making it the standard photoresist deposition method in semiconductor processing. Its primary limitations are: \emph{(i)} on square or rectangular substrates (and at the rim of circular substrates with thick films), air turbulence at sharp corners causes accelerated local drying that prevents complete resist spin-off, forming pronounced edge beads and a non-uniform film near the edges; \emph{(ii)} on textured substrates, homogeneity is compromised because the resist pools in recesses and thins excessively over raised features. The circular silicon wafer used in this experience is well matched to spin coating. Residual edge beads were removed after spinning by a manual edge-bead removal (EBR) solvent rinse where necessary.
 
 \paragraph{Step 3: Soft bake.}
 The coated wafer was placed on a hot plate at 112\,$^\circ$C for 60\,s. The soft
