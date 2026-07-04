@@ -2,10 +2,37 @@
 
 In this section a symmetric key obtained from the execution
 of BB84 qkd protocol in \cref{sec:bb84} is used to encrypt a word,
-using the OTP protocol.
+using the OTP protocol \cite{OTPShannon}.
 Later, an encrypted message is exchanged between two computers connected to the
 same network, assuming their mutual authentication. Notice that the
 key used in the
 second step was not obtained using the setup of
 \cref{sec:bb84}, but using a
 real industry-grade setup present in INRiM headquarters.
+
+\subsection{One Time Pad}
+
+The One-Time Pad (OTP) is a symmetric encryption scheme that provides
+perfect secrecy, provided that the encryption key is truly random, at
+least as long as the plaintext, kept secret, and used only once. Let
+$P \in \{0,1\}^n$ denote the plaintext and $K \in \{0,1\}^n$ the random key.
+Encryption is performed by computing the bitwise exclusive OR (XOR):
+
+\[
+  C = P \oplus K,
+\]
+
+where $C$ is the resulting ciphertext. Decryption uses the same key and the
+same operation:
+
+\[
+  P = C \oplus K.
+\]
+
+Since XOR is its own inverse, applying the key a second time recovers the
+original plaintext. Under the OTP assumptions, every possible plaintext is
+equally likely for a given ciphertext, making the scheme
+information-theoretically
+secure. However, the practical use of OTP is limited by the difficulty of
+securely generating, distributing, and storing one-time random keys of the same
+length as the messages they protect.

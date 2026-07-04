@@ -14,14 +14,12 @@ Key file parsing supports:
 
 import os
 import socket
-import base64
-import binascii
 
 HOST = '127.0.0.1'   # change to your server
 
 PORT = 8080        # change to your server port
 KEYS_DIR = 'keys'    # directory containing key files
-MESSAGE = "Ball_"  # the plaintext message to encrypt and send
+MESSAGE = "INR"  # the plaintext message to encrypt and send
 
 
 # Handmade functions to allow the framed communication
