@@ -17,9 +17,9 @@ where the resist has been fully removed by the developer. The wafer showed a
 well-resolved pattern consisting of regular arrays of square and circular windows,
 parallel line trenches at nominal feature sizes of 2\,$\mu$m, 3\,$\mu$m, and
 5\,$\mu$m, together with alignment marks and contact-pad structures, all consistent
-with the expected mask layout \cite{FundTechProc2024}.
+with the expected mask layout \cite{FundTechProc2024}; representative micrographs of the 2\,$\mu$m and 3\,$\mu$m window arrays are shown in Figures~\ref{fig:2um_mask} and \ref{fig:3um_mask}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{minipage}[t]{0.48\textwidth}
     \centering
@@ -48,7 +48,7 @@ developed windows at three nominal feature sizes using calibrated distance marke
 placed across feature edges in the optical microscope software. The results are
 summarised in Table~\ref{tab:cd_bias}.
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
   \begin{tabular}{rrrr}
     \toprule
@@ -74,10 +74,7 @@ not a perfectly sharp optical boundary: diffraction of the UV illumination
 extending slightly beyond the nominal aperture edge. In \emph{image-reversal} mode
 this fringe effect acts to narrow the cross-linked (insoluble) zone, leaving a
 correspondingly wider region sensitised by the flood exposure and subsequently
-dissolved by the developer. The theoretical minimum resolvable period in hard-contact
-mode, $2b_{\min} = 3\sqrt{\lambda z/2} \approx 1.4\,\mu$m for
-$\lambda = 365$\,nm and $z = 1.3\,\mu$m, sets a lower bound consistent with the
-magnitude of the observed bias \cite{FundTechProc2024}. A secondary contribution may
+dissolved by the developer. The ${\approx}1.4\,\mu$m minimum resolvable period $2b_\mathrm{min}$ characterises the global resolution limit of the contact-printing geometry, not the magnitude of the CD bias itself; the positive bias is more directly related to the width of the diffraction-broadened edge transition at the mask aperture, which corresponds to a fraction of $2b_\mathrm{min}$ and is therefore qualitatively consistent with sub-micron edge broadening, even though the full resolution limit exceeds the $+0.10$--$+0.30$\,$\mu$m biases observed by more than an order of magnitude \cite{FundTechProc2024}. A secondary contribution may
 arise from slight over-development: extending the immersion time in the AZ\,400K
 developer beyond the dose-to-clear point attacks the cross-linked resist sidewalls
 laterally, broadening the windows at the expense of sidewall verticality.
@@ -87,7 +84,7 @@ laterally, broadening the windows at the expense of sidewall verticality.
 Not all wafers processed during the session yielded acceptable results; two failure
 modes were observed and are documented below.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{minipage}[t]{0.48\textwidth}
     \centering
@@ -138,3 +135,5 @@ the patterned area in the defect zone unsuitable for subsequent processing. To
 prevent this failure mode, wafers and all handling surfaces must be thoroughly
 cleaned and inspected under cleanroom lighting before spin coating, and the spin
 coater bowl should be purged of any debris between runs.
+
+The two failure modes documented above are not exhaustive; photolithography is susceptible to a wider range of defect types that were not observed in this group's micrographs but are worth noting for context. \textit{Photomask-inherent defects} (such as pinholes in the chrome absorber, extra-chrome spots, or scratches on the mask surface introduced during handling or storage) print directly into the resist pattern and propagate to every wafer processed with that mask without correction. \textit{Localised solvent damage} (e.g.\ a droplet of PGMEA or developer contacting the spun film before the soft bake) can dissolve the resist in a concentrated spot, creating a clearing surrounded by a ring of re-deposited thickened material. \textit{Thin-film interference artefacts} arise when the resist deviates locally from its nominal thickness: the reflectance colour viewed under bright-field illumination shifts, and the local exposure dose is altered because the effective optical path through the resist changes, leading to regions of systematic under- or over-development within an otherwise correctly exposed wafer. These failure modes are well documented in the photolithography literature \cite{FundTechProc2024} and are included here as contextual completeness; they were not present in the micrographs collected by this group during this session.

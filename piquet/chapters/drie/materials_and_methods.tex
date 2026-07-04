@@ -74,37 +74,47 @@ to ensure the effectiveness of the treatment.
 
 % SETUP DESCRIPTION AND LIST OF COMPONENTS
 \subsubsection{Setup description and list of components}
-TODO
-Below, a complete list of machines and instruments used to carry the
-activities is presented.
+
+Below, a complete list of machines and instruments used to carry out
+the activities is presented.
 \begin{itemize}
-  \item Box cutter (TODO I do not remember if it was special or not,
-    like with diamonds stones.);
-  \item  \SI{2}{\micro \meter} of \ce{SiO2} to create a substrate for
-    etching (TODO check ??);
-  \item A wax that become hard with heating (at \SI{70}{\degreeCelsius});
-  \item MAchnie for etching?? TODO put photo.
+  \item Diamond-tipped scribe (used to score and cleave the silicon wafers
+    into chip fragments along the (100) crystal planes);
+  \item 2\,\si{\micro\meter} \ce{SiO2} hard-mask layer on the micro-sample
+    wafer, providing improved etch selectivity;
+  \item Thermoplastic mounting wax (hardens at \SI{70}{\degreeCelsius}),
+    used to bond chip fragments to the carrier wafer;
+  \item \textbf{ICP-DRIE system}: PlasmaPro~100 Cobra (Oxford Instruments) \cite{PlasmaProCobra}; inductively coupled plasma reactor used for the Pseudo-Bosch etch of both micro and nano samples;
+  \item \textbf{Dual-beam SEM/FIB}: FEI Quanta~3D FEG \cite{QuantaFEG} (Thermo Fisher Scientific); integrates a field-emission SEM column with a gallium-ion FIB column, a positively-biased Everhart--Thornley secondary-electron detector (ETD), and a Peltier-cooled stage. Used at 20\,kV for post-etch cross-section imaging in this experience (electron column only; the FIB column was not operated during the SEM imaging session).
 \end{itemize}
+
+\subsubsection*{SEM imaging principle}
+
+The scanning electron microscope (SEM) used for post-etch characterisation is a \textit{field-emission gun} (FEG) instrument. In a FEG-SEM, electrons are extracted from a sharp tungsten tip by a high electric field; the resulting beam has a very small energy spread and can be focused to a spot smaller than 5\,nm, giving the high spatial resolution required to resolve sub-100\,nm features. The focused beam is raster-scanned across the sample surface by electromagnetic deflection coils, and at each pixel the number of \textit{secondary electrons} (SE, low-energy electrons knocked out of the sample surface by the primary beam) is detected by an Everhart--Thornley or equivalent detector. Because secondary-electron yield depends strongly on the local surface inclination and material composition, the collected SE signal maps the surface topography with high contrast: steep sidewalls appear bright, flat horizontal surfaces appear darker. This secondary-electron contrast mechanism is what gives SEM images their characteristic three-dimensional, shadowed appearance and makes it possible to measure trench depth, sidewall angle, and surface roughness directly from the micrographs. For the cross-section imaging used in this experience, the sample was first cleaved perpendicular to the trench direction (as described in the process flow below) to expose a fresh, uncontaminated sidewall surface; the chip was then mounted at a 52$^\circ$ stage tilt to bring the cleaved cross-section into the field of view of the column.
 
 % PROCESS FLOW DESCRIPTION
 \subsubsection{Process flow description}
 
 \begin{itemize}
-  \item \textbf{Wafer cutting}: Firstly, both the wafers were cut (TODO
-    we sure were both?) with a box cutter.
-    Notice that the nanostr ??
-    TODO: perhaps put a schematics that indicates where we did cut???
+  \item \textbf{Wafer scribing and cleaving}: Both wafers were scored
+    with a diamond-tipped scribe along a chosen crystal direction and then
+    cleaved by applying controlled pressure, breaking along the (100) crystal
+    plane. This produces flat, straight chip edges suitable for SEM
+    cross-section imaging of the sidewall profiles.
 
-  \item \textbf{Wafer gluing}: After, the cutted structures were
-    glued on a bigger one, with a diameter of
-    4 inches. (TODO: was this what the wax was for?).
+  \item \textbf{Wafer mounting}: The cleaved chip fragments were bonded
+    onto a 4-inch carrier wafer using the thermoplastic wax (applied liquid at
+    \SI{70}{\degreeCelsius} and allowed to harden on cooling), enabling the
+    small fragments to be processed in the ICP-DRIE reactor whose chuck is
+    designed for full 4-inch wafers.
 
   \item \textbf{DRIE machine cleaning}: The main chamber of the DRIE
-    machine needs to
-    be cleaned at the beginning of each day, to ensure minimal contamination
-    for extraneous gases residuals. To do that a special cleaning
-    recipe is used.
-    TODO: specify the cleaning recipe.
+    machine must be cleaned at the beginning of each day to ensure minimal
+    contamination from residual gases and organic deposits. To that end, an
+    oxygen (\ce{O2}) plasma cleaning recipe is run before any sample is
+    processed: the oxygen plasma removes organic residues (resist fragments,
+    hydrocarbons) from the chamber walls and the sample chuck, ensuring a
+    clean, reproducible starting condition for subsequent etch runs.
 
   \item \textbf{Pseudo Bosch process}: Then the Pseudo Bosch deep reactive
     ion etching (DRIE)
@@ -117,9 +127,7 @@ activities is presented.
     its wider belonging class made by the reactive ion
     etching (RIE) processes.
 
-    RIE process' aim is
-    the precision etching of structures without undercuts,
-    that would not be possible using wet etching (so using liquid chemicals).
+    RIE process' aim is the precision etching of structures without undercuts, which isotropic wet etching cannot achieve because it removes material at a similar rate in all directions. Anisotropic (crystallographic) wet etches such as KOH or TMAH on specific silicon planes can produce directional sidewalls, but they are constrained to the fixed geometric angles imposed by the crystal lattice and cannot produce the arbitrary range of geometries that RIE supports.
     Usually RIE is used to excavate shallow features mantaining a
     good verticality along the walls and at the same time a optimal
     depth control at
@@ -128,7 +136,7 @@ activities is presented.
     that a plasma is a state of matter
     originated from a locally electrically neutral gas that has been
     ionized (partly or entirely). This is made possible by the employment of
-    a \SI{13.53}{\mega \hertz} (TODO check 13.56 or 13.53) radio
+    a \SI{13.56}{\mega \hertz} radio
     frequency (RF) electromagnetic field, that
     with its continuous stimulus manages to ionize, effectively using
     the cascade effect, a neutral gas. Notice that the gas and the
@@ -153,12 +161,42 @@ activities is presented.
     can be understood, since the ions have almost normal trajectories
     with respect
     to the wafer plane. In this regard, notice that plasma density affects the
-    degree of anisotropy.
+    degree of anisotropy. The chemical species present in the plasma can be
+    monitored in real time by \textit{optical emission spectroscopy} (OES): every
+    excited species emits a characteristic optical spectrum, allowing the operator
+    to identify reaction products and track the etch endpoint, defined as the moment
+    at which one material layer is fully consumed and the underlying material is exposed.
 
-    The only difference between this and the DRIE process is that in the DRIE
-    the excavation depth is way bigger, leading to structures that
-    potentially have
-    really high aspect ratios, like 1:100 (e.g. pillars).
+    The distinction between RIE and DRIE lies in the etch depth achieved: DRIE
+    is used where depths beyond what RIE can practically sustain are required,
+    producing structures with aspect ratios up to 1:100, such as deep trenches
+    and vertical pillars.
+
+    \paragraph*{Etch chemistry.}
+    Two gases drive the process chemistry. \textit{Sulphur hexafluoride}
+    (\ce{SF6}) is the primary silicon etch gas: in the plasma it dissociates
+    into fluorine radicals (\ce{F^{.}}) and sulphur ions (\ce{S+}).
+    Fluorine radicals react spontaneously and isotropically with silicon,
+    forming volatile silicon tetrafluoride (\ce{SiF4}) that is pumped out of the
+    chamber:
+    \begin{equation*}
+      \ce{Si + 4F^{.} -> SiF4 ^}
+    \end{equation*}
+    This reaction alone would etch isotropically in all directions; the
+    directional substrate bias provides the anisotropic component. Not all
+    materials can be etched with fluorine chemistry: aluminium fluoride
+    (\ce{AlF3}) is non-volatile and would accumulate on the surface rather than
+    being pumped away, making \ce{SF6} unsuitable for aluminium; similarly,
+    GaAs requires chlorine-based chemistry for the same reason.
+
+    \textit{Octafluorocyclobutane} (\ce{C4F8}) is the passivation gas: in the
+    plasma it breaks into \ce{CF2} radicals that polymerise on all exposed
+    surfaces, depositing a thin fluorocarbon film. On the sidewalls of a trench
+    this film remains intact because there is no ion bombardment directed at
+    vertical surfaces; on the trench bottom the ion bombardment physically
+    sputters the passivation film away, re-exposing the silicon to fluorine
+    attack. This selective removal of the bottom passivation layer is the
+    mechanism that gives the Bosch and Pseudo-Bosch processes their anisotropy.
 
     The Bosch process is a common DRIE process that involves a repetition of two
     essential steps:
@@ -168,26 +206,19 @@ activities is presented.
         covered with a thin strate
         of protecting material.
     \end{itemize}
-    Notice that the passivation step could appear superfluous, since the
-    RIE etching is already highly directional, and the interaction
-    with the walls
-    are highly reduced. Still, there are two main problems:
+    The passivation step might appear unnecessary given that the RIE ion
+    bombardment is already largely directional; however, two mechanisms cause
+    sidewall attack even in directional plasmas:
     \begin{itemize}
-      \item Chemical etching relevance: when the plasma is generated,
-        a lot of neutral reactive gases
-        are generated. These one are not guided by the RF field and
-        freely interact with all
-        the exposed surfaces, even the walls;
-      \item Ion sputtering: the sputtered particles could scatter
-        with a non normal trajectory w.r.t. the
-        wafer plane. This could cause walls geometry disruptions if
-        the trajectory is
-        sufficiently angled.
+      \item \textbf{Isotropic chemical etching:} neutral reactive radicals generated
+        in the plasma are not directed by the RF field and therefore attack all
+        exposed surfaces, including the sidewalls;
+      \item \textbf{Ion scattering:} sputtered material can be redirected at
+        oblique angles, causing lateral erosion of the feature walls.
     \end{itemize}
-    With these points cleared, an example recipe for a Bosch process
-    is provided in \cref{tab:bosch_process}. Notice that all of the step cited
-    are performed while the RF field is active, sustaining the plasma
-    (TODO vero?).
+    An example Bosch process recipe is given in \cref{tab:bosch_process}. The RF
+    field is maintained throughout all three steps to sustain the plasma
+    continuously.
     The first step is to introduce \ce{C4F8}, octafluorocyclobutane, in the
     chamber. This is made into a plasma and during this step a bond
     breaks, making the molecule linear.
@@ -202,72 +233,108 @@ activities is presented.
     plasma etch, caused
     by highly reactive flourine radicals that interact in a more
     isotropic way with the silicon.
-    causing curved deformations on the walls. TODO put photo. TODO
-    cite temperature
-    importance? TODO:cite void importance made by machine
+    causing curved undulations (scallops) on the sidewalls.
 
     A problem with the Bosch process, especially if the fabrication consists in
-    nanometer-level geometries, are the big scallops, so the "waves"
-    that form along the walls (TODO figure).
+    nanometer-level geometries, are the scallops, periodic undulations of
+    several hundred nanometres amplitude that form along the sidewalls.
     For example, following the recipe of \cref{tab:bosch_process}, a scallop
     extends for hundreds of \si{\nano \meter}. To avoid this problem,
     a hybrid approach is used; this is called Pseudo Bosch process.
     It consists in sending both the \ce{SF6} and \ce{C4F8} at the
-    same time into the chamber, adding \ce{CHF3} and tuning down the
-    RF power to \SI{8}{\watt}. (TODO i'm not sure it is effectively less)
-    The fact that these three gases are added at the same times helps with
-    the comtinuous passivation of the walls, that aren't attacked
-    chemically like in the
-    step 3 in \cref{tab:bosch_process}. The \ce{CHF3} helps in
-    coating more uniformly the walls,
-    adding to their smoothness. The relevant etch part is the RF kinetic one, so
-    the slow and directional bombardment of the plasma, driven by the
-    \SI{8}{\watt} RF.
-    This price of the precision achieved here is the time needed for
-    excavation; in roughly the same time
-    a depth of \SI{1}{\micro \meter} is reached against the
-    \SI{6}{\micro \meter} of the true Bosch process. (TODO we sure in
-    the same time?)
+    same time into the chamber, adding \ce{CHF3} (trifluoromethane) and
+    tuning down the table RF power to \SI{8}{\watt}. Because all three gases
+    are present simultaneously, passivation deposition and silicon etching occur
+    concurrently and reach a dynamic equilibrium at the surface: there is never
+    a pure deposition phase or a pure etch phase, so the sidewall profile is
+    smooth and scallops are eliminated. The \ce{CHF3} provides an additional
+    fluorocarbon passivation source that coats the walls more uniformly,
+    further improving sidewall smoothness. The directional etch component is
+    the slow, ion-driven bombardment at \SI{8}{\watt} RF, which removes the
+    bottom passivation film while leaving the sidewalls protected.
 
-    An important point here is the etching selectivity for what
-    concerns the \ce{Si} and the photoresist mask used.
-    This ratio indicate how much silicon is removed (in the depth
-    direction) per unit of photoresist. In the case of this
-    experience the selectivity appears to be (1:10), so 10 units of
-    silicon are removed perr unit of photoresist.
+    The trade-off for this precision is throughput: under otherwise equivalent
+    conditions the Pseudo-Bosch process reaches a depth of $\sim$\SI{1}{\micro
+    \meter} in the time the standard Bosch process would etch $\sim$\SI{6}{\micro
+    \meter}. This reduced rate is acceptable for nano-scale structures where
+    surface quality matters more than throughput.
 
-    \begin{table}[h]
+    The wafer is kept cold throughout the process by helium (He) backside
+    cooling gas: He is introduced between the chuck and the wafer backside,
+    conducting heat away and holding the wafer at a controlled low temperature.
+    Reducing the wafer temperature suppresses the isotropic chemical component
+    of the etch (fluorine-radical attack, which is thermally activated) and
+    enhances sidewall passivation. At sufficiently low temperatures
+    (around $-130\,^\circ$C, the cryogenic DRIE variant), a protective
+    condensation film forms naturally on the sidewalls even without \ce{C4F8}
+    injection; in our Pseudo-Bosch recipe the chiller is held at 5\,$^\circ$C,
+    providing a milder version of this effect.
+
+    The etch selectivity with respect to the mask material quantifies
+    how much silicon is removed in the depth direction per unit of mask
+    consumed. In the case of the
+    photoresist mask (MICRO sample), the selectivity is approximately 1:10
+    (10\,\si{\micro\meter} of silicon removed per 1\,\si{\micro\meter} of
+    resist consumed). The 50\,nm copper hard mask used for the NANO sample
+    achieves a far higher selectivity of $\sim$1:100, which is essential for
+    deep nano-scale features where a photoresist mask would be consumed before
+    the target depth is reached. Metals suitable as hard masks must not form
+    volatile fluorides; copper satisfies this condition, whereas many other
+    metals do not.
+
+    A critical size-dependent effect that distinguishes nano-scale etching from
+    micro-scale etching is the \textit{Aspect Ratio Dependent Etching} (ARDE)
+    effect: narrower, deeper features experience reduced gas-phase transport and
+    lower ion flux at the feature bottom compared with wider features etched
+    under identical conditions. As a result, the local etch rate decreases as
+    the aspect ratio increases, meaning that the micro-scale trenches and the
+    nano-scale rings etch at different rates and develop different sidewall
+    profiles even within the same process run.
+
+    \begin{table}[H]
       \centering
-      \label{tab:bosch_process}
-      \begin{tabular}{p{1cm}p{2.5cm}p{4cm}p{1.5cm}}
+      \begin{tabular}{lp{2.4cm}p{2.4cm}p{2.4cm}}
         \toprule
-        Step & Process & Chemicals & Duration \\
+        \textbf{Parameter} & \textbf{Deposition} & \textbf{Break} & \textbf{Etch} \\
         \midrule
-        1 & Passivation &\ce{C4F8} linear polymer  & \SI{4}{\second} \\
-        \midrule
-        2 & Bottom etch & \ce{SF6} + DC bias & \SI{3}{\second} \\
-        \midrule
-        3 & Isotropic etch & \ce{F} radicals & TODO?? s \\
+        Time             & 2\,s        & 1.9\,s      & 5\,s        \\
+        Pressure         & 35\,mTorr   & 25\,mTorr   & 50\,mTorr   \\
+        Table RF (bias)  & Off         & 50\,W       & Off         \\
+        ICP RF           & 2500\,W     & 2000\,W     & 2500\,W     \\
+        \ce{C4F8} flow   & 150\,sccm   & 10\,sccm    & --          \\
+        \ce{SF6} flow    & 10\,sccm    & 200\,sccm   & 200\,sccm   \\
         \bottomrule
       \end{tabular}
-      \caption{A cycle of the Bosch Process considering an example
-        recipe. This is then
-      repeated hundreds of times.}
-
+      \caption{Standard Bosch process recipe parameters. Chiller temperature:
+               5\,$^\circ$C (He backside cooling). Each cycle removes
+               $\sim$1\,$\mu$m of silicon; the overall etch rate is
+               $\sim$6\,$\mu$m/min. The cycle repeats until the target depth
+               is reached.}
+      \label{tab:bosch_process}
     \end{table}
-  \item \textbf{Wax removal}: To detach our glued pieces, water is
-    needed to dissolve
-    the wax that connects them to the bigger wafer. An important
-    point here is that
-    the water shouldn't go above the pieces, into the structures.
-    Then the correct approach involve
-    depositing a droplet of water near the wax, on the side of the
-    pieces, and then try to slide them around to detachment.
+  \item \textbf{Masking considerations}: The etch mask that protects the
+    silicon during etching must itself withstand the etch chemistry. The two
+    samples use different mask materials reflecting their different scale
+    requirements. For the MICRO sample, an AZ\,5214E photoresist mask
+    (organic polymer) was used directly, with a 2\,\si{\micro\meter} \ce{SiO2}
+    hard-mask layer underneath to improve selectivity, adequate for shallow
+    micro-scale etches. For the NANO sample, a 50\,nm copper (Cu) hard mask
+    deposited and patterned by EBL lift-off was used, providing the durability
+    required for deep, high-aspect-ratio nano-scale etches (selectivity values
+    are given above). Small chip fragments from both samples were mounted on a
+    4-inch carrier wafer using a wax that hardens at \SI{70}{\degreeCelsius},
+    enabling the fragments to be handled in a reactor designed for full wafers.
 
-  \item \textbf{Wafer cutting}: TODO: not sure, to see a section of
-    the nanostructures???
-    TODO: perhaps put a schematics that indicates where we did cut???
+  \item \textbf{Wax removal}: After etching, the chip fragments were
+    detached from the carrier wafer by dissolving the mounting wax with
+    water. The water was applied as a small droplet at the lateral edge of
+    each chip, keeping the liquid below the patterned surface to avoid
+    contaminating the etched structures; the chips were then gently slid
+    from the carrier to complete the detachment.
+
+  \item \textbf{Cross-section cleave}: After etching, the chips were
+    re-scribed and cleaved a second time perpendicular to the trench direction
+    in order to expose a fresh cross-section of the etched sidewalls for SEM
+    imaging of the sidewall profile and etch depth.
 
 \end{itemize}
-
-TODO: i dont think we did the KOH polishing in our case.

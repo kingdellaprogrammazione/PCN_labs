@@ -44,39 +44,50 @@
 %   - FIB system (model if known, e.g. FEI Helios or similar dual-beam SEM/FIB)
 %   - Acetone development bath
 
+\textbf{Scope note: FIB processing} \\
+The course outline for the NANO experience lists focused ion beam (FIB) reticulation as a planned topic, in which a gallium-ion beam both pierces the resist and cross-links a thin shell around each hole, serving as an alternative nano-patterning mechanism alongside EBL. In this group's session, nanopatterning was carried out exclusively by EBL; FIB-assisted resist processing was not performed.
+% TODO: Confirm the specific reason FIB was not performed in this session.
+% Possible reasons include equipment unavailability, scheduling constraints,
+% or assigned sub-experience rotation. Replace this placeholder with the
+% actual reason so the scope deviation is documented rather than silently omitted.
+
 \textbf{Starting Material and Resist Setup} \\
-The fabrication process was performed on a silicon substrate. Polymethyl methacrylate (PMMA) 
-was utilized as the lithographic mask. PMMA is a high-resolution, positive-tone resist specifically 
-optimized for highly energetic Electron Beam Lithography (EBL). The resist was spun onto the silicon 
-to a thickness of approximately $300\text{ nm}$. Under electron bombardment, 
-the long polymer chains of the PMMA are broken into smaller, soluble molecules, 
-allowing for selective removal during the development stage.
+The fabrication process was performed on a silicon substrate. Polymethyl methacrylate (PMMA~A4, 950\,kDa, diluted in anisole) was used as the lithographic resist. PMMA is a positive-tone, high-resolution resist suited to
+electron beam exposure: under electron bombardment, the high-energy electrons break the long
+polymer chains into shorter, soluble fragments, allowing selective dissolution of the irradiated
+regions during development. The resist was spun onto the silicon to a thickness of 300\,nm.
 
 \textbf{Design and Proximity Effect Correction} \\
-The target structures fabricated were split ring resonators, 
-designed to function as nanoscale optical antennas with critical feature gaps of $100\text{ nm}$. 
-The initial layout was generated as a CAD file (.gds format) including other structures useful to estimate the 
-maximum resolution achievable.
+The target structures were split-ring resonators designed to function as nanoscale optical antennas
+with feature gaps of 100\,nm. The pattern layout was generated as a CAD file (.gds format) and
+included auxiliary structures to assess the achievable resolution.
 To account for electron scattering and diffusion within the resist (the proximity effect), the design was 
-imported into \textit{Beamer} software. The software executed Monte Carlo simulations to calculate and correct the 
-localized electron doses, ensuring uniform pattern transfer across areas of varying feature density.
+imported into \textit{Beamer} software. The software performs Monte Carlo simulations of the electron trajectories in the specific resist/substrate stack (300\,nm PMMA, 50\,keV, 50\,kV emission), computing the spatial dose distribution for every shape in the layout and then adjusting the dose assigned to each sub-region so that the total received dose is uniform across all features. Corners and isolated features receive a higher dose correction factor ($\times$1.5), while dense central regions receive a lower factor ($\times$0.7), compensating for the additional backscatter contribution from neighbouring structures. The corrected layout was exported in \texttt{.CAN} format for the EBL machine.
+
+\textbf{EBL Machine Preparation} \\
+Patterning was carried out on an \textbf{Elionix ELS-BODEN-50F} \cite{ElionixELS50F} electron beam lithography system, a modified SEM-column instrument with a cold field-emission gun (FEG) source operating at 50\,kV accelerating voltage. Prior to writing, the sample was mounted and the beam was calibrated to ensure accurate pattern transfer. The PMMA-coated silicon chip was fixed upside-down on a silicon carrier wafer using conducting adhesive tape; electrical grounding is essential because charge accumulation on an insulating surface during exposure deflects the incoming electron beam, distorting the written pattern. The carrier wafer was loaded into the EBL load-lock chamber, vented to atmosphere for loading; once sealed, the load-lock was evacuated and the sample was transferred into the main column chamber maintained at high vacuum ($\sim$10$^{-6}$\,mbar).
+
+The beam current was measured using a \textit{Faraday cup} (integrated aperture diameter $\sim$100\,\si{\micro\meter}), a metallic cavity that captures every incident electron and converts the accumulated charge to a measurable current; the measured current in this session was $1.08 \pm 0.01$\,nA at 50\,kV accelerating voltage. This value is essential for calculating the exact dose delivered to the resist (dose = current $\times$ dwell time / pixel area). An auto-calibration routine was then run to correct for beam drift and to confirm the correct aperture pinhole.
+
+Focus and astigmatism were corrected using a reference sample carrying gold nanospheres ($\sim$10\,nm diameter) deposited on silicon. The nanospheres act as high-contrast point scatterers that reveal the true beam shape: the objective lens current was adjusted until the nanosphere images were minimised to a point (focus), and the stigmator coils were tuned until the beam cross-section was perfectly circular (astigmatism correction). An astigmatic beam produces elliptical rather than round features, which would break the rotational symmetry of the split-ring gaps and shift the plasmonic resonance frequency. Finally, a \textit{plunge} correction compensated for height variations across the sample surface, and a \textit{stitching} correction aligned adjacent write fields by writing test marks at field boundaries on a calibration chip and measuring their positional error.
 
 \textbf{EBL Exposure and Dose Calibration} \\
-Patterning was executed using an EBL system operating at an acceleration voltage of $50\text{ kV}$. 
-Prior to writing, the electron beam current was measured and calibrated to $1.08 \pm 0.01\text{ nA}$ using a Faraday cup. 
-To empirically determine the optimal energy threshold for resist clearance, a dose array was patterned. 
-The test grid varied the electron dose from $400$ to $800\text{ }\mu\text{C/cm}^2$ in increments of 
-$50\text{ }\mu\text{C/cm}^2$. The total execution time is around $35\text{ minutes}$, utilizing a writing speed of $23\text{ mm/s}$.
+Patterning was performed using the EBL system at an accelerating voltage of 50\,kV. To determine
+the optimal dose for this PMMA batch and development condition, a dose array was exposed: nine
+identical split-ring resonator arrays were written sequentially, with the electron dose stepped
+from 400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$ in increments of 50\,$\mu$C/cm$^2$. The total
+exposure time was approximately 35\,min at a writing speed of 23\,mm/s.
 
 \textbf{Development} \\
-Following exposure, the sample underwent development to remove the fragmented polymer regions. 
-The substrate was immersed in a developer solution comprising MIBK (Methyl isobutyl ketone) and Isopropanol in 
-a $1:3$ ratio for exactly $50\text{ seconds}$. Immediately after, the sample was rinsed with pure isopropanol to 
-halt the chemical development and dried using a steady stream of nitrogen ($N_2$).
+Following exposure, the sample was developed to dissolve the chain-scission fragments. The substrate
+was immersed in a 1:3 (v/v) solution of MIBK (methyl isobutyl ketone) and isopropanol for exactly
+50\,s; the sample was then immediately rinsed in pure isopropanol to halt development and dried
+under a gentle stream of nitrogen (\ce{N2}).
 
 \textbf{Metallization and Lift-off} \\
-Once the PMMA mask was successfully developed, a $50\text{nm}$ ($0.5\text{ k\AA}$) layer of Gold was deposited over the entire sample. 
-The thickness of the deposited metal was precisely monitored using an oscillating crystal thickness monitor. 
-Finally, the split ring structures were isolated via a lift-off procedure. 
-The sample was submerged in an acetone bath, which dissolved the remaining unexposed PMMA. 
-This action "lifted off" the unwanted overlying metal, leaving only the desired gold plated pattern firmly adhered to the silicon substrate.
+Once the PMMA pattern was developed, 50\,nm (0.5\,k\AA) of gold was deposited over the entire sample surface by thermal evaporation in a two-chamber e-beam evaporator. The system consists of an upper loading/process chamber (vented with dry N$_2$) and a lower evaporation chamber maintained under continuous high vacuum ($\sim$2$\times$10$^{-6}$\,mbar base pressure) by a cryogenic pump operating at $\sim$13\,K. A rotating multi-crucible holder allows selection of different target materials (including titanium, aluminium oxide, copper, silver, gold, and aluminium) without breaking vacuum. The sample was mounted upside-down on a rotating dome holder above the source (rotating at $\sim$30\,rpm during deposition) to ensure uniform film coverage; the deposited thickness was monitored in real time using a quartz crystal microbalance (QCM). Lift-off was then performed by immersing the sample in an acetone
+bath, which dissolved the remaining PMMA and detached the gold film deposited on top of it. Only
+the gold deposited directly inside the open PMMA windows remained adhered to the silicon,
+yielding the free-standing split-ring resonator array.
+
+Lift-off is not a purely chemical process: the acetone solvent must penetrate laterally \emph{underneath} the deposited gold film, since the metal layer is itself impermeable to the solvent. Undercutting therefore starts from the exposed edges of the open PMMA windows and propagates inward. The rate and completeness of lift-off depend on both immersion time and feature topology. Features that are topologically open (where the resist edge is accessible to solvent from multiple sides simultaneously) undercut rapidly and lift off cleanly. Enclosed or narrow shapes, where solvent can approach the resist boundary from only a limited perimeter, require a proportionally longer path of lateral penetration and are correspondingly more prone to incomplete removal. The split-ring resonator geometry used in this experience includes both open arc sections and narrow enclosed gaps; the gap regions are topologically the most constrained and therefore the most susceptible to slow or incomplete lift-off, as discussed further in the results (Section~\ref{sec:DRIE_mat_met}).

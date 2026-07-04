@@ -19,3 +19,5 @@ wheels/
 *.bbl
 *.blg
 *.out
+
+references/

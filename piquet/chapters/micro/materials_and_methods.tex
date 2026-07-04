@@ -9,19 +9,28 @@ The substrate used throughout this experience was a 4-inch (100\,mm) P-doped
 
 Prior to any coating step, the wafer surface must be free of adsorbed water, since
 water molecules compete with the photoresist for adhesion sites on the SiO$_2$
-native oxide. A \emph{dehydration bake} at 200\,$^\circ$C for 20\,s on a calibrated
-hot plate drives off physisorbed water and leaves the surface in a hydrophobic state
-suitable for HMDS priming \cite{FundTechProc2024}.
+native oxide. A \emph{dehydration bake} on a calibrated hot plate drives off physisorbed water and
+leaves the surface in a hydrophobic state suitable for HMDS priming \cite{FundTechProc2024}.
 
 \subsubsection{Adhesion Promoter (HMDS)}
 
-Immediately after the dehydration bake, hexamethyldisilazane (HMDS,
-$[\text{(CH}_3)_3\text{Si}]_2\text{NH}$) was applied as an adhesion promoter by
-spin coating at 4000\,rpm. HMDS reacts with the residual surface hydroxyl groups
-(Si--OH) present on the native oxide, replacing them with trimethylsilyl groups
-(Si--OSi(CH$_3$)$_3$). This modification
-substantially improves the adhesion of organic photoresists, which
-are themselves largely non-polar.
+Silicon and silicon dioxide substrates naturally develop a high surface density of hydroxyl groups (Si--OH) upon prolonged exposure to atmospheric humidity. These silanol groups make the SiO$_2$ surface hydrophilic, which is chemically incompatible with the photoresist resin, an organic, largely non-polar material. Without surface treatment, the poor affinity between the resist and the substrate leads to delamination, cracking, or premature lift-off of the resist film during wet-processing steps, degrading pattern fidelity and process yield \cite{FundTechProc2024}.
+
+Hexamethyldisilazane (HMDS, $[\text{(CH}_3)_3\text{Si}]_2\text{NH}$) resolves this incompatibility by chemically substituting the surface Si--OH groups with hydrophobic trimethylsilyl groups (Si--OSi(CH$_3$)$_3$) through the condensation reaction:
+\begin{equation*}
+  (\text{CH}_3)_3\text{Si}\!-\!\text{NH}\!-\!\text{Si}(\text{CH}_3)_3
+  \;+\; \text{Si}_{\text{surf}}\text{-OH}
+  \;\longrightarrow\;
+  \text{Si}_{\text{surf}}\text{-O-Si}(\text{CH}_3)_3
+  \;+\; \text{NH}_3 \uparrow
+\end{equation*}
+The volatile byproduct ammonia (NH$_3$) escapes from the surface. The resulting monolayer is hydrophobic and organophilic, providing strong covalent bonding between substrate and resist \cite{FundTechProc2024}.
+
+Four application methods exist: \emph{(a) vapour prime}: the most common, most effective, and most reproducible method, in which the substrate is heated to 120--150\,$^\circ$C and exposed to HMDS vapour for 1--2\,min in a dedicated oven or vacuum chamber; \emph{(b) liquid spin coating}: HMDS is dispensed directly onto the wafer and spread by spinning, the method used in this experience; \emph{(c) spray application}: a dilute HMDS solution in an inert solvent is sprayed on the substrate and annealed at $\sim$120\,$^\circ$C, used industrially for large-area or high-throughput treatments; \emph{(d) immersion (dip-coating)}: the substrate is dipped in an anhydrous HMDS solution (e.g.\ toluene or dry isopropanol), extracted, and dried under N$_2$, preferred for non-planar or three-dimensional structures but difficult to keep the bath anhydrous, increasing the risk of HMDS reacting with moisture in solution rather than with the substrate surface.
+
+The benefits of HMDS priming are: (i) markedly improved resist adhesion; (ii) reduced risk of resist defects (peeling, cracking, and premature lift-off) during wet processing; and (iii) more uniform resist coverage and better edge definition during lithography.
+
+\textbf{Practical considerations.} HMDS is toxic and volatile and must be handled inside a fume hood. The treated surface progressively re-adsorbs atmospheric moisture and loses its hydrophobic character over time; the photoresist must therefore be applied immediately after HMDS treatment. The overall effectiveness of the priming step also depends critically on substrate cleanliness and completeness of drying before application: residual contamination or moisture reduces the density of available Si--OH reaction sites and degrades adhesion quality.
 
 \subsubsection{Photoresist (AZ\,5214E)}
 
@@ -31,7 +40,7 @@ diazonaphthoquinone (DNQ)--novolak system dissolved in propylene glycol monometh
 ether acetate (PGMEA), with a solids content of 28.3\,\% and a viscosity of
 24.0\,cSt at 25\,$^\circ$C \cite{AZ5214E_TDS}. The resist is spectrally sensitive
 in the range 310--420\,nm, covering both the broadband H-line (405\,nm) and I-line
-(365\,nm) of mercury lamps \cite{AZ5214E_TDS}. AZ\,5214E is important in that it
+(365\,nm) of mercury lamps \cite{AZ5214E_TDS}. Additional material properties relevant to process control are: an absorptivity of 0.76\,L/(g\,$\cdot$\,cm) at 377\,nm, a maximum water content of 0.50\,\%, a striation-free coating characteristic, and filtration to 0.1\,\si{\micro\meter} absolute \cite{AZ5214E_TDS}. AZ\,5214E is important in that it
 can be operated in two different modes, depending on the baking sequence applied after
 exposure:
 
@@ -39,17 +48,13 @@ exposure:
     \item \textbf{Positive mode.} A standard exposure followed directly by
           development yields a positive-tone result: the exposed areas are dissolved
           by the developer, replicating the mask pattern directly onto the wafer.
-    \item \textbf{Image-reversal mode.} A post-exposure bake (PEB) at high
-          temperature (115--125\,$^\circ$C) before development activates a special
-          crosslinking agent present in the formulation, which renders the exposed
-          regions insoluble and no longer photosensitive \cite{AZ5214E_TDS}. This
-          reversal bake is the most critical step of the process: the temperature
-          must be controlled to within $\pm 1\,^\circ$C, as exceeding 130\,$^\circ$C
-          causes thermal crosslinking of the unexposed areas as well, destroying the
-          pattern \cite{AZ5214E_TDS}. A subsequent blanket flood exposure
-          ($>200$\,mJ/cm$^2$) then sensitises the originally unexposed regions, which
-          are dissolved by the developer; the result is a \emph{negative-tone} pattern
-          with a characteristic undercut (re-entrant) sidewall profile \cite{AZ5214E_TDS}.
+    \item \textbf{Image-reversal mode.} A post-exposure bake (PEB) at
+          115--125\,$^\circ$C activates a crosslinking agent in the formulation.
+          Temperature control to $\pm 1\,^\circ$C is critical: exceeding
+          130\,$^\circ$C crosslinks the unexposed areas as well, destroying the
+          pattern \cite{AZ5214E_TDS}. A subsequent blanket flood exposure of
+          $>200$\,mJ/cm$^2$ then sensitises the originally unexposed regions
+          \cite{AZ5214E_TDS}.
 \end{itemize}
 
 Image-reversal mode was selected for this experience because the resulting undercut
@@ -60,41 +65,36 @@ According to the manufacturer's spin curve, AZ\,5214E yields a film thickness of
 1.40\,$\mu$m at 4000\,rpm \cite{AZ5214E_TDS}, which is well matched to the
 micron-scale features of the mask used.
 
+This experience focused exclusively on the image-reversal mode; positive-tone processing of AZ\,5214E was not performed in this session. In positive mode, no PEB or flood exposure is applied: development follows directly after the main exposure, and the irradiated regions dissolve to yield a directly-replicated, positive-tone image with near-vertical sidewalls. That profile is better matched to etch-and-strip pattern transfer, where a vertical resist wall acts as a selective etch barrier without requiring physical film discontinuity at the sidewall. The image-reversal choice in this session therefore reflects the intended downstream process: the gold lift-off step used in the NANO experience (Section~\ref{sec:DRIE_mat_met}) demands an undercut profile for clean film separation, whereas etch-and-strip benefits from vertical walls. Running both modes on parallel wafers in the same session would have provided a direct sidewall profile comparison; the absence of a positive-tone companion wafer is a noted scope limitation, discussed further in Section~\ref{sec:DRIE_mat_met}.
+
 \subsubsection{Process Flow}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{process_flow.png}
   \caption{Typical photolithography process flow, from wafer priming to pattern inspection.}
   \label{fig:litho_flow}
 \end{figure}
 
-The complete photolithography sequence is described below. All baking steps were
-carried out on calibrated hot plates.
+The complete photolithography sequence is illustrated in Figure~\ref{fig:litho_flow} and described below. All baking steps were carried out on calibrated hot plates.
 
 \paragraph{Step 1: Dehydration bake and HMDS spin coating.}
-The wafer was first placed on a calibrated hot plate at 200\,$^\circ$C for 20\,s to
-drive off all water from the surface. Then HMDS was
-dispensed onto the stationary wafer and spin-coated at 4000\,rpm, forming a thin,
-conformal adhesion layer before the resist was applied.
+The wafer was placed on a calibrated hot plate at 200\,$^\circ$C for 20\,s to thermally desorb physisorbed water from the SiO$_2$ surface; this temperature is well above the boiling point of water and sufficient to remove adsorbed moisture rapidly without thermally altering the substrate. HMDS was then dispensed immediately onto the still-warm, stationary wafer and spin-coated at 4000\,rpm, depositing a thin covalent trimethylsilyl monolayer across the surface. The photoresist was applied in the immediately following step without delay, since the hydrophobic character of the HMDS-treated surface degrades as atmospheric moisture is progressively re-adsorbed.
 
 \paragraph{Step 2: Spin coating of AZ\,5214E.}
-AZ\,5214E was dispensed in static mode onto the centre of the wafer and spin-coated
-according to the following programme:
+The wafer was placed flat on the spin coater chuck, centred by eye, and the vacuum was activated to clamp it in place; correct seating was confirmed by checking that the wafer did not rock or shift when lightly pressed at the rim. With the wafer secured, AZ\,5214E was dispensed in \emph{static} mode (a few millilitres onto the centre of the stationary wafer), as opposed to \emph{dynamic} mode, in which the resist is dispensed onto an already-rotating substrate ($\sim$1000\,rpm). Static dispensing ensures complete initial surface coverage before centrifugal spreading begins. The wafer was then spin-coated according to the following programme:
 \begin{itemize}
-    \item Spread step: 500\,rpm for 5\,s, allowing the resist to spread radially
-          before high-speed thinning;
-    \item Final spin: 4000\,rpm at an acceleration of 500\,rpm/s, held for 30\,s.
+    \item \textbf{Spread step}: 500\,rpm for 5\,s, initiating radial spreading of the resist pool across the surface;
+    \item \textbf{Final spin}: 4000\,rpm at an acceleration of 500\,rpm/s, held for 30\,s to thin the film to the target thickness.
 \end{itemize}
-This programme yields a nominal film thickness of $\sim$1.3\,$\mu$m, in agreement
-with the manufacturer's spin curve for AZ\,5214E. The resulting thickness is
-governed primarily by the solid content and viscosity of the resist formulation and
-by the final spin speed, according to $t = K \cdot S \cdot (\nu / \omega^2
-R^2)^{1/3}$, where $S$ is the solid fraction, $\nu$ the kinematic viscosity,
-$\omega$ the angular velocity, and $R$ the wafer radius \cite{FundTechProc2024}.
-Edgebeads (resist accumulations at the wafer rim arising from surface tension) are
-removed after spinning by a manual edge-bead removal (EBR) solvent rinse when
-necessary.
+
+\textbf{Physical mechanism.} During the high-speed spin, centrifugal force spreads the resist radially and expels the excess from the substrate edges, leaving a film whose thickness is set by the competition between centrifugal thinning and the progressive increase in viscosity caused by solvent evaporation. As the PGMEA solvent evaporates from the free surface of the film during spinning, the resist dries and stiffens, arresting further thinning and producing a film that is sufficiently stable to handle without sagging. The process is inherently high-waste: typically more than 95\,\% of the dispensed resist volume is expelled during spinning, with only a few percent remaining on the wafer as the final film.
+
+\textbf{Factors governing film thickness.} The dominant factor is \emph{rotation speed}: thickness scales as $T \propto 1/\sqrt{\omega}$, so doubling the spin speed reduces the film thickness by a factor of $\sim$1.4 (the ``golden rule'' for spin-coated resists). The AZ resist naming convention reflects this: the last two digits of the product name encode the nominal thickness in units of 100\,nm at 4000\,rpm; AZ\,5214E therefore targets $\sim$1.4\,\si{\micro\meter} at 4000\,rpm, consistent with the observation in this session \cite{AZ5214E_TDS}. A secondary factor is \emph{spin time}: if spinning is deliberately interrupted during the resist-expulsion phase, the instantaneous film thickness at that moment is arrested and can be used for time-based thickness control; this window is wider (and control easier) for more viscous resists at lower speeds. A third factor is \emph{residual solvent content}: immediately after spin-coating, a significant solvent fraction remains in the film: approximately 35\,\% for thick films and $\sim$10\,\% for thin films; the subsequent soft-bake step reduces this to 3--5\,\%, contributing an additional thinning that is primarily a function of bake temperature rather than spin parameters. Finally, \emph{ambient temperature} influences both the solvent evaporation rate and the resist viscosity in competing directions; under normal laboratory conditions, variations of a few degrees Celsius produce negligible change in final thickness. For reproducible results, spin recipes that reach the target thickness within a conventional parameter window (3000--4000\,rpm, 20--30\,s) are preferred over recipes that rely on precisely timed interruption of an ongoing spin. The general thickness model for viscosity- and speed-dominated thinning is $t = K \cdot S \cdot (\nu / \omega^2 R^2)^{1/3}$, where $S$ is the solid fraction, $\nu$ the kinematic viscosity, $\omega$ the angular velocity, and $R$ the wafer radius \cite{FundTechProc2024}.
+
+This programme yields a nominal film thickness of $\sim$1.3\,\si{\micro\meter}, in agreement with the manufacturer's spin curve for AZ\,5214E \cite{AZ5214E_TDS}.
+
+\textbf{Advantages and limitations.} Spin coating produces a very smooth, highly homogeneous film in 10--20\,s and allows accurate, reproducible thickness control on circular substrates, making it the standard photoresist deposition method in semiconductor processing. Its primary limitations are: \emph{(i)} on square or rectangular substrates (and at the rim of circular substrates with thick films), air turbulence at sharp corners causes accelerated local drying that prevents complete resist spin-off, forming pronounced edge beads and a non-uniform film near the edges; \emph{(ii)} on textured substrates, homogeneity is compromised because the resist pools in recesses and thins excessively over raised features. The circular silicon wafer used in this experience is well matched to spin coating. Residual edge beads were removed after spinning by a manual edge-bead removal (EBR) solvent rinse where necessary.
 
 \paragraph{Step 3: Soft bake.}
 The coated wafer was placed on a hot plate at 112\,$^\circ$C for 60\,s. The soft
@@ -107,14 +107,11 @@ regard, as it heats the wafer from below, preventing the surface skinning that t
 solvent when the top surface solidifies first.
 
 \paragraph{Step 4: Mask alignment and UV exposure.}
-Exposure was performed on a \textbf{contact mask aligner}
-(Figure~\ref{fig:exposure_tools}) operating in \emph{hard-contact}
-(vacuum contact) mode. In this geometry, the mask is brought into direct physical
+Exposure was performed on a \textbf{contact mask aligner} (NXQ4006, NxQ; \cite{NXQ4006})
+operating in \emph{hard-contact} (vacuum contact) mode via the integrated IDONUS UV-EXP150R-SYS exposure unit \cite{IDONUS_UV}. In this geometry, the mask is brought into direct physical
 contact with the resist surface under vacuum, minimising the air gap and thereby
-reducing diffraction-limited broadening of the aerial image. The minimum resolvable
-period in contact mode is $2b_{\min} = 3\sqrt{\lambda z / 2}$, where $z$ is the
-resist thickness; for $\lambda = 365$\,nm (I-line) and $z = 1.3\,\mu$m this gives
-$2b_{\min} \approx 1.4\,\mu$m.
+reducing diffraction-limited broadening of the aerial image. For $\lambda = 365$\,nm (I-line) and $z = 1.3\,\mu$m this gives a
+minimum resolvable period of ${\approx}1.4\,\mu$m.
 
 Prior to exposure, the mask was aligned to the wafer using the alignment marks
 printed on both the mask and the previously patterned layer on the wafer. The
@@ -128,7 +125,7 @@ PAC in the resist that resists the developer, while overexposure broadens featur
 through lateral scattering and diffraction \cite{FundTechProc2024}.
 
 % --- Figure placeholder ---
-% \begin{figure}[htbp]
+% \begin{figure}[H]
 %   \centering
 %   \includegraphics[width=0.6\textwidth]{figures/micro/mask_aligner.jpg}
 %   \caption{Contact mask aligner used for UV exposure (I-line, 365\,nm).}
@@ -182,7 +179,7 @@ step height and to detect any resist reflow or edge roughness.
 
 A summary of all process parameters is given in Table~\ref{tab:micro_process}.
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
   \small
   \begin{tabular}{p{2.8cm}p{2.8cm}p{3.2cm}p{4.0cm}}
@@ -212,13 +209,11 @@ The following instruments were used:
           respectively, to avoid cross-contamination of temperature programmes);
     \item \textbf{Spin coater} with vacuum chuck and programmable
           speed/acceleration profiles;
-    \item \textbf{Contact mask aligner} with I-line (365\,nm) illumination,
-          vacuum contact mode, and split-field optical microscope for alignment;
+    \item \textbf{Contact mask aligner} (NXQ4006, NxQ; \cite{NXQ4006}) with integrated IDONUS UV-EXP150R-SYS exposure unit \cite{IDONUS_UV}: semi-automatic aligner supporting soft, hard/vacuum contact, and manual proximity printing; resolution $\approx$0.6\,\si{\micro\meter} in vacuum contact mode; accepts wafers up to 6\,inches; manual joystick and micrometer X/Y/rotation controls; Wedge Error Compensation (WEC); UV optics operating across 350--450\,nm at 350/500\,W;
     \item \textbf{UV-LED flood exposure lamp} (peak emission $\approx 365$\,nm)
           for the blanket flood step;
     \item \textbf{Developer bath} with timer and DI-water rinse station;
-    \item \textbf{Optical microscope}, bright-field, used for post-development
-          inspection;
+    \item \textbf{Optical microscope} (Olympus DSX-1000; \cite{OlympusDSX1000}): fixed-stage, moving-head digital microscope; 20$\times$ and 50$\times$ objectives; digital zoom up to $\times$7000; used in bright-field mode for post-development inspection;
     \item \textbf{Contact profilometer} for step-height measurement of the
           patterned resist.
 \end{itemize}
