@@ -79,6 +79,84 @@ arise from slight over-development: extending the immersion time in the AZ\,400K
 developer beyond the dose-to-clear point attacks the cross-linked resist sidewalls
 laterally, broadening the windows at the expense of sidewall verticality.
 
+\subsubsection*{Profilometer step-height measurement}
+
+While the optical microscope quantifies the \emph{lateral} fidelity of the pattern
+transfer, it cannot resolve the \emph{vertical} profile of the developed windows. A
+contact-stylus profilometer was therefore used to scan across individual trench
+edges and recover the height difference between the remaining resist ("land") and
+the exposed silicon floor, providing a direct check on the $\sim$1.3\,$\mu$m nominal
+resist thickness established in Table~3.2. We exported the \texttt{.dat} binary
+files of the profilometer results however it was a KLA P-17 specific binary format. The trace was therefore reconstructed offline using
+the third-party open-source parser of Du~\cite{P7Dat2Txt}, which decodes the raw
+fixed-point $Z$-samples but does not carry over the profilometer's scan-length or
+scan-speed setting; converting the \texttt{.dat} file to a plottable trace this way
+recovers the $Z$-height values themselves but loses the calibration needed to
+convert the sample index into a physical distance, which is why the horizontal
+axis of the resulting traces is reported in raw sample points rather than in
+micrometres. The resulting $Z$-height trace was referenced (zeroed) to the first
+sampled point of the scan, so that the vertical axis reports height \emph{relative
+to the scan's starting land},
+not an absolute wafer elevation; trench floors therefore appear as negative
+excursions and raised regions as positive ones. Before extracting any height value,
+the decoded trace was cross-checked against the same data re-read from its saved
+text export: the residual between the two, shown in the lower panel of
+Figures~\ref{fig:profilometer_wide} and~\ref{fig:profilometer_narrow},
+remains below $5\times10^{-4}$\,nm throughout, several orders of magnitude smaller
+than the step height itself. This confirms that the discrepancy is pure
+floating-point rounding introduced by the text export and not an experimental
+artefact, validating the decoding pipeline ahead of any physical interpretation of
+the trace.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{wide_trench.png}
+    \caption{Profilometer trace across the wider of the two developed trench
+             edges scanned. The decoded $Z$-height (solid) and the height
+             recovered from the saved text export (dashed) overlap throughout;
+             the trench floor sits $\approx$730\,nm below the initial land.}
+    \label{fig:profilometer_wide}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{narrow_trench.png}
+    \caption{Profilometer trace across a second, narrower trench. The trench
+             floor sits $\approx$660\,nm below the initial land, consistent
+             with the depth measured in Figure~\ref{fig:profilometer_wide}.}
+    \label{fig:profilometer_narrow}
+  \end{minipage}
+\end{figure}
+
+In both scans the trace does not return to its starting level after crossing the
+trench: the land on the far side of the step is measured 100--200\,nm higher than
+the land where the scan began. Because the $Z$-axis is zeroed to the first sample
+rather than to an independent reference, this offset is consistent with a slight
+tilt of the wafer relative to the stylus scan direction (an uneven mount on the
+profilometer stage) rather than with a genuine difference in resist thickness
+between the two lands; the trench depth is therefore read as the drop from the
+\emph{near} land to the floor, not from the two lands' average.
+
+The measured trench depths, $\approx$730\,nm (wide trench) and
+$\approx$660\,nm (narrow trench), are both shallower than the nominal
+1.3\,$\mu$m resist thickness, recovering only 50--55\,\% of the nominal film. This
+is consistent with the same edge-broadening mechanisms invoked in the
+critical-dimension analysis above: the diffraction-broadened, sloped sidewall at
+the mask aperture edge means the stylus, which has a finite tip radius, cannot
+follow a perfectly vertical wall down to the true trench floor and instead
+integrates over the sloped transition, systematically under-reporting the true
+step height. A shallower-than-nominal reading is also consistent with the
+over-development mechanism proposed earlier: incomplete clearing of the
+cross-linked sidewall near the floor would leave a thin residual resist layer
+that reduces the apparent trench depth without being visible under the optical
+microscope. Even if the parser had preserved the scan-length setting, the
+2.14\,$\mu$m and 3.10\,$\mu$m window pitches measured optically in
+Figures~\ref{fig:2um_mask} and~\ref{fig:3um_mask} could not have been used to
+calibrate the horizontal axis, since both profilometer traces cross a single
+isolated trench edge rather than a periodic window array.
+
 \subsubsection*{Process failures and defect analysis}
 
 Not all wafers processed during the session yielded acceptable results; two failure

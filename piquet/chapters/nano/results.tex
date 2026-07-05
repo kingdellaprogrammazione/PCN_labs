@@ -64,6 +64,66 @@ The complementarity of the two illumination modes is most evident at intermediat
   \label{tab:dose_array}
 \end{table}
 
+For completeness, Figure~\ref{fig:nano_dose_full_sweep} shows the six intermediate
+dose steps omitted from the representative selection of
+Figure~\ref{fig:nano_dose_overview}. The progression is gradual rather than
+step-like: the "0.5" dot category first appears as a faint chequerboard texture
+at 500\,$\mu$C/cm$^2$, becomes progressively more sharply defined through
+550\,$\mu$C/cm$^2$, and is already fully resolved by 600\,$\mu$C/cm$^2$ (Figure~%
+\ref{fig:nano_dose_overview}), consistent with the ${\ge}600\,\mu$C/cm$^2$
+threshold identified in Table~\ref{tab:dose_array}. No qualitative difference is
+visible by eye between 650, 700 and 750\,$\mu$C/cm$^2$ at this magnification; the
+over-dose broadening reported in Table~\ref{tab:dose_array} for this range
+becomes apparent only in the high-magnification, post-lift-off measurements
+discussed further below. A repeat capture of the 750\,$\mu$C/cm$^2$
+field was also acquired and is visually indistinguishable from the one shown
+here, confirming that the imaging itself is reproducible.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_450_overview.png}
+    \caption*{450\,$\mu$C/cm$^2$}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_500_overview.png}
+    \caption*{500\,$\mu$C/cm$^2$}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_550_overview.png}
+    \caption*{550\,$\mu$C/cm$^2$}
+  \end{minipage}
+
+  \vspace{0.5em}
+
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_650_overview.png}
+    \caption*{650\,$\mu$C/cm$^2$}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_700_overview.png}
+    \caption*{700\,$\mu$C/cm$^2$}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_750_overview.png}
+    \caption*{750\,$\mu$C/cm$^2$}
+  \end{minipage}
+  \caption{Bright-field optical micrographs of the same written field at the six
+           intermediate dose steps of the sweep, complementing the 400, 600 and
+           800\,$\mu$C/cm$^2$ conditions shown in Figure~\ref{fig:nano_dose_overview}.}
+  \label{fig:nano_dose_full_sweep}
+\end{figure}
+
 The qualitative classification in Table~\ref{tab:dose_array} can be complemented by a quantitative method: for each dose step, a consistent geometric proxy is measured on the developed sample: for example, the width of the smallest fully-resolved feature, or the diameter of any residual halo surrounding a radial test pattern; the result is plotted against dose to identify the true optimum as a minimum or inflection point in the measured dimension rather than by visual category alone. This approach removes observer subjectivity from the threshold determination and yields a continuously-varying dose-response curve that can be compared between sessions and resist batches. The radial resolution test pattern included in this group's own layout, in which triangular sectors converge toward a common centre, is precisely the type of structure suited to this analysis: the radius of the region where the individual sectors can no longer be distinguished shrinks as the dose approaches the optimum and grows again once proximity broadening sets in, so that a plot of this radius against dose has a minimum at the optimal dose. Figures~\ref{fig:nano_radial_600} and~\ref{fig:nano_radial_800} show the pattern at 600 and 800\,$\mu$C/cm$^2$; a systematic measurement of the unresolved radius across the full dose sweep was not carried out in this session, and is left as a natural extension of the present qualitative comparison.
 
 \begin{figure}[H]
@@ -83,20 +143,118 @@ The qualitative classification in Table~\ref{tab:dose_array} can be complemented
   \end{minipage}
 \end{figure}
 
+The same test pattern at the lowest dose of the sweep, 400\,$\mu$C/cm$^2$, is shown
+in Figure~\ref{fig:nano_radial_400} for contrast with the two fully-developed cases
+above. Unlike the clean, sharply-bounded sectors seen at 600 and
+800\,$\mu$C/cm$^2$, the sectors here retain a visible speckled texture, consistent
+with the "underdeveloped" classification of Table~\ref{tab:dose_array}: the
+chain-scission dose delivered to the PMMA was insufficient to fully clear the
+exposed regions, leaving a granular residue that scatters light non-uniformly
+under bright-field illumination.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{PMMA/highmag_400_radial.png}
+  \caption{Radial resolution test pattern at 400\,$\mu$C/cm$^2$. The sectors show
+           a granular, incompletely-cleared texture, in contrast with the sharp
+           edges resolved at 600 and 800\,$\mu$C/cm$^2$ (Figures~\ref{fig:nano_radial_600}
+           and~\ref{fig:nano_radial_800}).}
+  \label{fig:nano_radial_400}
+\end{figure}
+
 The dose of 600\,$\mu$C/cm$^2$ was identified as the process optimum: the split-ring features were fully developed with clean, open gaps, and the proximity correction was evident in the uniformity of feature sizes across regions of differing pattern density. Too low a dose leaves intact PMMA (chain scission incomplete); too high a dose widens the written features through the backscattered dose deposited over a radius of several micrometres around the primary beam footprint.
+
+Figures~\ref{fig:nano_splitring_600} and~\ref{fig:nano_splitring_800} show the split-ring resonator array itself
+(rather than the auxiliary proxy structures used above) directly at high
+magnification, together with part of the density-graded dot lattice, before
+metallisation. At 600\,$\mu$C/cm$^2$ the individual copper-to-be split-ring gaps and
+the finer dot rows are both crisply defined with uniform linewidth across the
+field. At 800\,$\mu$C/cm$^2$ the same structures remain individually resolved,
+consistent with the "partially affected" over-dose regime of
+Table~\ref{tab:dose_array} rather than a fully-closed failure mode; a
+systematic narrowing of the split-ring gap width between the two doses is
+visually plausible in this pair of micrographs but was not quantified here.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/highmag_600_splitring.png}
+    \caption{Split-ring resonator array and part of the dot lattice, imaged
+             directly (pre-lift-off) at 600\,$\mu$C/cm$^2$.}
+    \label{fig:nano_splitring_600}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/highmag_800_splitring.png}
+    \caption{Same structures at 800\,$\mu$C/cm$^2$. The rings and dots remain
+             individually resolved.}
+    \label{fig:nano_splitring_800}
+  \end{minipage}
+\end{figure}
+
+Figure~\ref{fig:nano_dotlattice_600} shows a further high-magnification detail of
+the coarser dot-lattice category at 600\,$\mu$C/cm$^2$: the individual square
+openings are uniformly sized and regularly spaced, confirming that the
+proximity correction applied by \textit{Beamer} succeeds in equalising the
+effective dose across a region of much higher pattern density than the
+isolated split-ring gaps.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{PMMA/highmag_600_dotlattice.png}
+  \caption{Detail of the density-graded dot lattice at 600\,$\mu$C/cm$^2$,
+           adjacent to the radial pattern of Figure~\ref{fig:nano_radial_600}.
+           The individual square openings are uniform in size and pitch.}
+  \label{fig:nano_dotlattice_600}
+\end{figure}
 
 \subsubsection*{Lift-off and post-lift-off observation}
 
-Following the identification of the optimal dose, 50\,nm of gold was deposited by thermal evaporation and lift-off in acetone was performed across the dose sweep, from 400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$, allowing the same regions inspected before metallisation to be re-examined after pattern transfer. At the lowest dose of the sweep, optical inspection after lift-off revealed a diffuse, cloudy haze covering a large fraction of the field, overlaying the numbered dot array, the radial pattern and the alignment structures alike, as shown in Figure~\ref{fig:nano_postliftoff_400}. This haze is attributed to PMMA that was only partially sensitised by the electron beam and was therefore not fully dissolved during the 50\,s MIBK:IPA development step: any remaining PMMA acts as a dielectric spacer between the gold nanostructure and the silicon substrate, modifying the local refractive index and thereby altering the plasmonic resonance frequency of the split rings, and here further prevented the acetone bath from fully lifting off the overlying gold, leaving the residue visible under the optical microscope.
+Following the identification of the optimal dose, 50\,nm of copper was deposited by thermal evaporation and lift-off in acetone was performed across the dose sweep, from 400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$, allowing the same regions inspected before metallisation to be re-examined after pattern transfer. Low-magnification micrographs of the corner alignment marks used for stage navigation between written fields were also collected at each dose but are not reproduced here, as they carry no additional information on pattern quality. At the lowest dose of the sweep, optical inspection after lift-off revealed a diffuse, cloudy haze covering a large fraction of the field, overlaying the numbered dot array, the radial pattern and the alignment structures alike, as shown in Figure~\ref{fig:nano_postliftoff_400}. This haze is attributed to PMMA that was only partially sensitised by the electron beam and was therefore not fully dissolved during the 50\,s MIBK:IPA development step: any remaining PMMA acts as a dielectric spacer between the copper nanostructure and the silicon substrate, modifying the local refractive index and thereby altering the plasmonic resonance frequency of the split rings, and here further prevented the acetone bath from fully lifting off the overlying copper, leaving the residue visible under the optical microscope.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.65\textwidth]{post_liftoff/postliftoff_400_overview.png}
-  \caption{Optical micrograph of the written field after gold deposition and lift-off at 400\,$\mu$C/cm$^2$. A diffuse haze of residual, incompletely-developed PMMA covers a large fraction of the field, consistent with incomplete lift-off at this underdosed condition.}
+  \caption{Optical micrograph of the written field after copper deposition and lift-off at 400\,$\mu$C/cm$^2$. A diffuse haze of residual, incompletely-developed PMMA covers a large fraction of the field, consistent with incomplete lift-off at this underdosed condition.}
   \label{fig:nano_postliftoff_400}
 \end{figure}
 
-At the optimal dose of 600\,$\mu$C/cm$^2$, the split-ring array appeared correctly patterned after lift-off, with individually resolved, open gold rings and no visible haze. Figures~\ref{fig:nano_postliftoff_600} and~\ref{fig:nano_postliftoff_800} compare this region with the equivalent field at 800\,$\mu$C/cm$^2$: in both frames the split-ring gaps themselves remain open, so that the closing of the gaps anticipated from the pre-lift-off dose array (Table~\ref{tab:dose_array}) is not obviously reproduced in this particular pair of fields. The narrow gap regions of the split-ring geometry are nonetheless the topologically most enclosed areas of the pattern, since the acetone can approach the resist boundary at a gap from only a limited perimeter; this makes these regions the most susceptible to slow lateral undercutting and to the type of localised incomplete lift-off documented above at 400\,$\mu$C/cm$^2$ (the underlying mechanism is described in the Metallization and Lift-off subsection of the NANO Materials and Methods).
+Figures~\ref{fig:nano_postliftoff_500} and~\ref{fig:nano_postliftoff_700} show the
+intermediate 500 and 700\,$\mu$C/cm$^2$ conditions after lift-off. At
+500\,$\mu$C/cm$^2$, despite the "insufficient dose" classification assigned to
+this condition prior to lift-off (Table~\ref{tab:dose_array}), the split-ring
+gaps and the graded dot lattice are both already well resolved after
+metallisation, with no haze comparable to the 400\,$\mu$C/cm$^2$ case; this
+indicates that the pre-lift-off development threshold identified qualitatively
+under the optical microscope is conservative with respect to the dose actually
+required for successful pattern transfer. At 700\,$\mu$C/cm$^2$ the split-ring
+linewidth appears visibly thicker than at 500\,$\mu$C/cm$^2$, consistent with
+the onset of the proximity-broadening regime reported for 650--800\,$\mu$C/cm$^2$
+in Table~\ref{tab:dose_array}.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_500_array.png}
+    \caption{Split-ring resonator and dot arrays after lift-off at
+             500\,$\mu$C/cm$^2$. The rings are already cleanly resolved despite
+             the marginal pre-lift-off development classification at this dose.}
+    \label{fig:nano_postliftoff_500}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_700_array.png}
+    \caption{Same arrays after lift-off at 700\,$\mu$C/cm$^2$. The ring linewidth
+             appears visibly thicker than at 500\,$\mu$C/cm$^2$.}
+    \label{fig:nano_postliftoff_700}
+  \end{minipage}
+\end{figure}
+
+At the optimal dose of 600\,$\mu$C/cm$^2$, the split-ring array appeared correctly patterned after lift-off, with individually resolved, open copper rings and no visible haze. Figures~\ref{fig:nano_postliftoff_600} and~\ref{fig:nano_postliftoff_800} compare this region with the equivalent field at 800\,$\mu$C/cm$^2$: in both frames the split-ring gaps themselves remain open, so that the closing of the gaps anticipated from the pre-lift-off dose array (Table~\ref{tab:dose_array}) is not obviously reproduced in this particular pair of fields. The narrow gap regions of the split-ring geometry are nonetheless the topologically most enclosed areas of the pattern, since the acetone can approach the resist boundary at a gap from only a limited perimeter; this makes these regions the most susceptible to slow lateral undercutting and to the type of localised incomplete lift-off documented above at 400\,$\mu$C/cm$^2$ (the underlying mechanism is described in the Metallization and Lift-off subsection of the NANO Materials and Methods).
 
 \begin{figure}[H]
   \centering
@@ -115,7 +273,26 @@ At the optimal dose of 600\,$\mu$C/cm$^2$, the split-ring array appeared correct
   \end{minipage}
 \end{figure}
 
-The effect of over-dose is instead more clearly visible in the finest line-and-space category of the auxiliary array, where the calibrated distance tool of the microscope software was used to measure feature dimensions directly on the gold pattern, in the same spirit as the critical-dimension measurements reported for the MICRO experience. Figures~\ref{fig:nano_cd800_resolved} and~\ref{fig:nano_cd800_merged} compare two fields from the 800\,$\mu$C/cm$^2$ region at the same magnification: in one, the lines and spaces are cleanly resolved, with a measured line width of 2.20\,$\mu$m and pitch of 3.66\,$\mu$m; in the other, taken from a denser part of the same category, the line edges show pronounced waviness and, in places, adjacent lines appear to touch, an incipient bridging that is consistent with the proximity backscatter broadening described for this dose range in Table~\ref{tab:dose_array}. This confirms, at the level of the metallised pattern, the same over-dose broadening mechanism identified qualitatively in the PMMA dose array prior to lift-off.
+The effect of over-dose is instead more clearly visible in the finest line-and-space category of the auxiliary array, where the calibrated distance tool of the microscope software was used to measure feature dimensions directly on the copper pattern, in the same spirit as the critical-dimension measurements reported for the MICRO experience. Rather than a single pair of fields, four progressively finer categories of the same 800\,$\mu$C/cm$^2$ region were measured this way, shown in Figures~\ref{fig:nano_cd800_r1}--\ref{fig:nano_cd800_merged}: the coarsest category has a line width of 10.78\,$\mu$m and a pitch of 27.6\,$\mu$m; the next has a line width of 8.08\,$\mu$m and a gap of 6.80\,$\mu$m; the next is the cleanly-resolved pair already noted, with a line width of 2.20\,$\mu$m and pitch of 3.66\,$\mu$m; and the finest category measured, with a gap of only 1.87--2.09\,$\mu$m between lines, begins to show the line-edge waviness and, in places, adjacent lines appear to touch, an incipient bridging that is consistent with the proximity backscatter broadening described for this dose range in Table~\ref{tab:dose_array}. This confirms, at the level of the metallised pattern, the same over-dose broadening mechanism identified qualitatively in the PMMA dose array prior to lift-off, and provides a quantitative counterpart to the qualitative dose classification of Table~\ref{tab:dose_array} for the 800\,$\mu$C/cm$^2$ condition specifically; the analogous measurement was not repeated at every dose step in the sweep, so a complete dose-response curve of the kind described above for the radial pattern remains a natural extension of this result.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_800_radial_r1.png}
+    \caption{Coarsest line-and-space category measured at 800\,$\mu$C/cm$^2$: line
+             width 10.78\,$\mu$m, pitch 27.6\,$\mu$m.}
+    \label{fig:nano_cd800_r1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_800_radial_r2.png}
+    \caption{Next category at 800\,$\mu$C/cm$^2$: line width 8.08\,$\mu$m, gap
+             6.80\,$\mu$m.}
+    \label{fig:nano_cd800_r2}
+  \end{minipage}
+\end{figure}
 
 \begin{figure}[H]
   \centering
@@ -128,10 +305,41 @@ The effect of over-dose is instead more clearly visible in the finest line-and-s
   \hfill
   \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_800_linewidth_merged.png}
-    \caption{Denser line-and-space feature from the same 800\,$\mu$C/cm$^2$ region. Line-edge waviness is pronounced and adjacent lines appear locally bridged, consistent with proximity over-exposure.}
-    \label{fig:nano_cd800_merged}
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_800_radial_r4.png}
+    \caption{Finer still: gaps of 1.87--2.09\,$\mu$m already show the onset of
+             line-edge waviness.}
+    \label{fig:nano_cd800_r4}
   \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{post_liftoff/postliftoff_800_linewidth_merged.png}
+  \caption{Denser line-and-space feature from the same 800\,$\mu$C/cm$^2$ region. Line-edge waviness is pronounced and adjacent lines appear locally bridged, consistent with proximity over-exposure.}
+  \label{fig:nano_cd800_merged}
+\end{figure}
+
+At the same dose, the finest category of the density-graded dot lattice was
+also measured directly after lift-off, shown in Figure~\ref{fig:nano_dotarray_detail}:
+the individual copper dots are annular rather than solid disks, with a
+measured outer diameter of 3.14\,$\mu$m and an enclosed area of
+7.74\,$\mu$m$^2$; a further calibrated distance measurement of 3.04\,$\mu$m,
+comparable to the dot diameter itself, was also recorded across several rows of
+the lattice. The annular, rim-like cross-section is consistent with an angled or otherwise
+non-collimated component in the thermal evaporation flux: copper deposited on
+the sloped inner sidewall of the small PMMA opening accumulates preferentially
+near the rim, producing a thicker copper ring at the edge of each dot and a
+thinner, more easily lifted-off deposit at its centre.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{post_liftoff/postliftoff_800_dotarray_detail.png}
+  \caption{Detail of the finest dot-lattice category after lift-off at
+           800\,$\mu$C/cm$^2$. The calibrated microscope software measures an
+           outer diameter of 3.14\,$\mu$m and an area of 7.74\,$\mu$m$^2$ for a
+           single dot; the annular cross-section of each dot is attributed to
+           non-normal incidence during thermal evaporation.}
+  \label{fig:nano_dotarray_detail}
 \end{figure}
 
 The lift-off results at multiple EBL doses were subsequently characterised by scanning electron microscopy (SEM) during the third session (Section~\ref{sec:DRIE_mat_met}), providing a nanometre-scale confirmation of the trends established here by optical microscopy.
