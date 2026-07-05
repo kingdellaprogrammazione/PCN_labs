@@ -5,340 +5,572 @@
 % - calculations
 % - Results
 \subsection{Objective of the experiment}
-Accurate photon detection is essential for ensuring the reliability and precision of a lot of quantum applications, thus the calibration of the detection efficiency of single-photon detectors is of paramount importance. Such an efficiency is defined as the probability of a SPD producing a measurable signal in response to one incident photon, depending on the wavelength and detection rate, with specific wavelength and count rate specifications.
+Accurate photon detection is essential for ensuring the reliability
+and precision of a lot of quantum applications, thus the calibration
+of the detection efficiency of single-photon detectors is of
+paramount importance. Such an efficiency is defined as the
+probability of a SPD producing a measurable signal in response to one
+incident photon, depending on the wavelength and detection rate, with
+specific wavelength and count rate specifications.
 
-In order to estimate the detection efficiency we use the \textit{Substitution Method}. Which is a radiometric measurement principle used to determine the detection efficiency by comparing two distinct measurements of a light source. Specifically, the method involves measuring the effective number of photons per second registered by the DUT device under test (in our case SPD) and comparing it to the incident mean optical power determined by a reference analogue detector.
-
+In order to estimate the detection efficiency we use the
+\textit{Substitution Method}. Which is a radiometric measurement
+principle used to determine the detection efficiency by comparing two
+distinct measurements of a light source. Specifically, the method
+involves measuring the effective number of photons per second
+registered by the DUT device under test (in our case SPD) and
+comparing it to the incident mean optical power determined by a
+reference analogue detector.
 
 \subsection{Setup description and list of components}
 \begin{figure}[h]
-	\centering
-	\includegraphics[width=1\textwidth]{qkd/spd_efficiency/spd_efficiency_setup.png}
-	\caption{Setup sketch for the estimation of the Single-Photon Detector Detection Efficiency.}
-	\label{fig:spd_efficiency_setup}
+  \centering
+  \includegraphics[width=1\textwidth]{qkd/spd_efficiency/spd_efficiency_setup.png}
+  \caption{Setup sketch for the estimation of the Single-Photon
+  Detector Detection Efficiency.}
+  \label{fig:spd_efficiency_setup}
 \end{figure}
-The setup used for the estimation is given by creating two different paths for the light emitted by a laser diode (LD). The first path is used to measure the incident mean optical power using a reference power meter (PM) while the second path is used to measure the effective number of photons per second registered by the single-photon detector (SPD).
+The setup used for the estimation is given by creating two different
+paths for the light emitted by a laser diode (LD) and it is shown in
+\cref{fig:spd_efficiency_setup}. The first path is
+used to measure the incident mean optical power using a reference
+power meter (PM) while the second path is used to measure the
+effective number of photons per second registered by the
+single-photon detector (SPD).
 
 \subsubsection{Components}
 
-The experimental setup is a fiber-based optical system operating at a wavelength of \SI{1550}{\nano\meter}.
+The experimental setup is a fiber-based optical system operating at a
+wavelength of \SI{1550}{\nano\meter}.
 
-A \textbf{laser diode} emits continuous-wave light at \SI{1550}{\nano\meter}. The laser output is delivered through an \textbf{APC connector} and is first attenuated using a \textbf{fixed optical attenuator (25 dB)} with \textbf{APC--APC interfaces}. The attenuated signal is then injected into a \textbf{1:99 fiber beam splitter}, whose input and output ports are also equipped with \textbf{APC connectors}.
+A \textbf{laser diode} emits continuous-wave light at
+\SI{1550}{\nano\meter}. The laser output is delivered through an
+\textbf{APC connector} and is first attenuated using a \textbf{fixed
+optical attenuator (25 dB)} with \textbf{APC--APC interfaces}. The
+attenuated signal is then injected into a \textbf{1:99 fiber beam
+splitter}, whose input and output ports are also equipped with
+\textbf{APC connectors}.
 
 The beam splitter divides the optical signal into two paths:
 \begin{itemize}
-    \item \textbf{Reference arm (99\%):} the high-power output of the beam splitter is routed via an \textbf{APC fiber connection} to a \textbf{power meter (PM)}. Since the PM input uses a \textbf{PC connector}, an \textbf{APC--PC interface} is employed at this stage to allow optical power measurements.
-    \item \textbf{Detection arm (1\%):} the low-power output is connected via \textbf{APC fiber} to a \textbf{variable optical attenuator} with \textbf{APC--APC interfaces}. A \textbf{fixed attenuator (25 dB)} is connected directly to the output of the variable attenuator, also using \textbf{APC--APC connectors}, in order to further reduce the optical power while minimizing the number of fiber connections. The attenuated signal is finally delivered to the \textbf{single-photon detector (SPD)} through an \textbf{APC--PC interface}, matching the detector input connector.
+  \item \textbf{Reference arm (99\%):} the high-power output of the
+    beam splitter is routed via an \textbf{APC fiber connection} to a
+    \textbf{power meter (PM)}. Since the PM input uses a \textbf{PC
+    connector}, an \textbf{APC--PC interface} is employed at this
+    stage to allow optical power measurements.
+  \item \textbf{Detection arm (1\%):} the low-power output is
+    connected via \textbf{APC fiber} to a \textbf{variable optical
+    attenuator} with \textbf{APC--APC interfaces}. A \textbf{fixed
+    attenuator (25 dB)} is connected directly to the output of the
+    variable attenuator, also using \textbf{APC--APC connectors}, in
+    order to further reduce the optical power while minimizing the
+    number of fiber connections. The attenuated signal is finally
+    delivered to the \textbf{single-photon detector (SPD)} through an
+    \textbf{APC--PC interface}, matching the detector input connector.
 \end{itemize}
 
-The electrical output pulses from the SPD are sent to a \textbf{time tagger}, which records the arrival times of detected photons with high temporal resolution and enables the extraction of photon count rates and timing statistics, which is controlled and displayed using a software interface on a connected computer.
+The electrical output pulses from the SPD are sent to a \textbf{time
+tagger}, which records the arrival times of detected photons with
+high temporal resolution and enables the extraction of photon count
+rates and timing statistics, which is controlled and displayed using
+a software interface on a connected computer.
 
-Connector types (APC or PC) are selected according to the interface requirements of each device.
+Connector types (APC or PC) are selected according to the interface
+requirements of each device.
+
+A summary of the components and their function is shown in
+\cref{tab:component_function},
+while their connector type are listed in \cref{tab:component_connector}.
 
 \begin{table}[h]
-\centering
-\begin{tabular}{lll}
-\hline
-\textbf{Component} & \textbf{Function} & \textbf{Connector Type} \\
-\hline
-Laser diode & Optical source at 1550 nm & APC (output) \\
-Fixed attenuator (25 dB) & Initial power attenuation & APC--APC \\
-1:99 beam splitter & Power splitting & APC--APC \\
-Power meter (PM) & Reference power measurement & PC (input) \\
-Variable attenuator & Fine power control & APC--APC \\
-Fixed attenuator (25 dB) & Additional attenuation & APC--APC \\
-Single-photon detector (SPD) & Photon counting & PC (input) \\
-Time tagger & Photon arrival time acquisition & Electrical (SPD output) \\
-\hline
-\end{tabular}
-\caption{Optical components and connector types used in the setup}
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Component} & \textbf{Function}  \\
+    \midrule
+    Laser diode & Optical source at 1550 nm  \\
+    Fixed attenuator (25 dB) & Initial power attenuation  \\
+    1:99 beam splitter & Power splitting  \\
+    Power meter (PM) & Reference power measurement  \\
+    Variable attenuator & Fine power control  \\
+    Fixed attenuator (25 dB) & Additional attenuation \\
+    Single-photon detector (SPD) & Photon counting  \\
+    Time tagger & Photon arrival time acquisition  \\
+    \bottomrule
+  \end{tabular}
+  \caption{Optical components used in the setup and their functions.}
+  \label{tab:component_function}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Component} & \textbf{Connector Type} \\
+    \midrule
+    Laser diode & APC (output) \\
+    Fixed attenuator (25 dB)  & APC--APC \\
+    1:99 beam splitter & APC--APC \\
+    Power meter (PM)  & PC (input) \\
+    Variable attenuator  & APC--APC \\
+    Fixed attenuator (25 dB)  & APC--APC \\
+    Single-photon detector (SPD)  & PC (input) \\
+    Time tagger  & Electrical (SPD output) \\
+    \bottomrule
+  \end{tabular}
+  \caption{Optical components and connector types used in the setup.}
+  \label{tab:component_connector}
 \end{table}
 
 \subsection{Experimental Procedure}
 
-Fiber propagation losses (approximately 0.2~dB/km) are neglected in this experiment, as the setup is implemented on a compact fiber-based prototype where the total fiber length is sufficiently small.
+Fiber propagation losses (approximately 0.2~dB/km) are neglected in
+this experiment, as the setup is implemented on a compact fiber-based
+prototype where the total fiber length is sufficiently small.
 
-The first step consists in identifying the output ports of the 1:99 beam splitter. This is performed by connecting the attenuated laser output to one input port of the beam splitter and measuring the optical power at each output using the power meter. During this characterization step, the laser output power is fixed at 1.84~mW. The output corresponding to 99\% of the input power is identified by a measured power on the order of a few microwatts, while the remaining output corresponds to the 1\% port.
+The first step consists in identifying the output ports of the 1:99
+beam splitter. This is performed by connecting the attenuated laser
+output to one input port of the beam splitter and measuring the
+optical power at each output using the power meter. During this
+characterization step, the laser output power is fixed at 1.84~mW.
+The output corresponding to 99\% of the input power is identified by
+a measured power on the order of a few microwatts, while the
+remaining output corresponds to the 1\% port.
 
-Once the beam splitter outputs are identified, the complete optical circuit is assembled according to the setup described in the Components section.
+Once the beam splitter outputs are identified, the complete optical
+circuit is assembled according to the setup described in the Components section.
 
-Before starting photon-counting measurements, the variable optical attenuator in the detection arm is set to its maximum attenuation value (60.02~dB) to prevent potential damage to the single-photon detector. The laser is then switched on, and the detector is connected to the time tagger, which is in turn interfaced with the control computer. During the initial phase of operation, the detector output signal is monitored while the device stabilizes and cools down. After this transient phase, the detector produces a stable digital output signal at 3.3~V.
+Before starting photon-counting measurements, the variable optical
+attenuator in the detection arm is set to its maximum attenuation
+value (60.02~dB) to prevent potential damage to the single-photon
+detector. The laser is then switched on, and the detector is
+connected to the time tagger, which is in turn interfaced with the
+control computer. During the initial phase of operation, the detector
+output signal is monitored while the device stabilizes and cools
+down. After this transient phase, the detector produces a stable
+digital output signal at 3.3~V.
 
-With the laser switched off, background measurements are performed to estimate the dark count rate of the detector. This measurement includes both intrinsic dark counts and environmental background contributions, resulting in an average background count rate of 94.6 counts per second. (measured 10 times and averaged)
+With the laser switched off, background measurements are performed to
+estimate the dark count rate of the detector. This measurement
+includes both intrinsic dark counts and environmental background
+contributions, resulting in an average background count rate of 94.6
+counts per second. (measured 10 times and averaged)
 
-Subsequently, the laser is switched on and photon-counting measurements are performed for different values of the variable optical attenuation. The measurement procedure is repeated for attenuation settings of 38~dB, 35~dB, 32~dB, 29~dB, 26~dB, and 23~dB, recording the corresponding photon detection rates at each attenuation value.
+Subsequently, the laser is switched on and photon-counting
+measurements are performed for different values of the variable
+optical attenuation. The measurement procedure is repeated for
+attenuation settings of 38~dB, 35~dB, 32~dB, 29~dB, 26~dB, and 23~dB,
+recording the corresponding photon detection rates at each attenuation value.
 
 The difference in the attenuation of the two paths is calculated as:
 
 \begin{itemize}
-	\item \textbf{1:99 beam splitter:} 20 dB
-	\item \textbf{Fixed attenuator:} 25 dB
-	\item \textbf{Variable attenuation:} $23, 26, 29, 32, 35, 38$ dB
-	\item \textbf{FC/PC connectors (3x):} 3 $\times$ 0.5 = 1.5 dB
-	\item \textbf{Total attenuation difference ($\tau_{\text{dB}}$):} 46.5 + $A_{\text{var}}$ dB
+  \item \textbf{1:99 beam splitter:} 20 dB
+  \item \textbf{Fixed attenuator:} 25 dB
+  \item \textbf{Variable attenuation:} $23, 26, 29, 32, 35, 38$ dB
+  \item \textbf{FC/PC connectors (3x):} 3 $\times$ 0.5 = 1.5 dB
+  \item \textbf{Total attenuation difference ($\tau_{\text{dB}}$):}
+    46.5 + $A_{\text{var}}$ dB
 \end{itemize}
 
-Where $A_{\text{var}}$ is the variable attenuation value set during the measurement.
+Where $A_{\text{var}}$ is the variable attenuation value set during
+the measurement. \Cref{tab:tau_values} sums up the relevant
+attenuations for different values of $A_{var}$, to the total one
+$\tau_{dB}$, ending with the
+correspondent fractional factor $\tau$, called also the optical transmissivity.
 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    {\bfseries\boldmath $A_{\mathrm{var}}$ (dB)} &
+    {\bfseries\boldmath $\tau_{\mathrm{dB}}$ (dB)} &
+    {\bfseries\boldmath $\tau$} \\
+    \midrule
+    38 & 84.5 & $3.55\times 10^{-9}$ \\
+    35 & 81.5 & $7.08\times 10^{-9}$ \\
+    32 & 78.5 & $1.41\times 10^{-8}$ \\
+    29 & 75.5 & $2.82\times 10^{-8}$ \\
+    26 & 72.5 & $5.62\times 10^{-8}$ \\
+    23 & 69.5 & $1.12\times 10^{-7}$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Optical transmissivity for different values of $A_{var}$,
+  computed as $\tau = 10^{-\tau_{\mathrm{dB}}/10}$.}
+  \label{tab:tau_values}
+\end{table}
 
 \subsection{Results}
 
-This section summarizes the measured quantities and fixed experimental parameters used for the characterization of the single-photon detector.
+This section summarizes the measured quantities and fixed
+experimental parameters used for the characterization of the
+single-photon detector.
 
 \subsubsection*{Fixed Parameters and Background Measurements}
 
 The optical wavelength was set to
 \[
-\lambda = 1.55~\mu\text{m},
+  \lambda = 1550.0~\text{nm},
 \]
 with an associated uncertainty of
 \[
-\sigma_{\lambda} = 0.1~\text{nm}.
+  \sigma_{\lambda} = 0.1~\text{nm}.
 \]
 
 The optical power measured on the reference arm was
 \[
-P = 4.4045~\mu\text{W},
+  P = 4404.5 ~\text{nW},
 \]
 with a standard uncertainty of
 \[
-\sigma_{P} = 1.72 \times 10^{-3}~\mu\text{W}.
+  \sigma_{P} = 1.7 ~\text{nW}.
 \]
 
 The environmental background optical power was measured as
+%\[
+%  P_{\mathrm{env}} = 1.4 \times 10^{-11}~\text{W},
+%\]
 \[
-P_{\mathrm{env}} = 1.4 \times 10^{-11}~\text{W},
+  P_{\mathrm{env}} = 14~\text{pW},
 \]
 with an uncertainty of
+%\[
+%  \sigma_{P_{\mathrm{env}}} = 7.0 \times 10^{-12}~\text{W}.
+%\]
 \[
-\sigma_{P_{\mathrm{env}}} = 7.0 \times 10^{-12}~\text{W}.
+  \sigma_{P_{\mathrm{env}}} = 7 ~\text{pW}.
 \]
 
 The coupling factor was assumed to be
 \[
-C = 1.0,
+  C = 1.000,
 \]
 with a relative uncertainty of 1.7\%, corresponding to
 \[
-\sigma_{C} = 0.017.
+  \sigma_{C} = 0.017.
 \]
 
 The integration time for photon-counting measurements was set to
 \[
-t = 1.0~\text{s},
+  t = 1000~\text{ms},
 \]
 with an uncertainty of
 \[
-\sigma_{t} = 1.0 \times 10^{-3}~\text{s}.
+  \sigma_{t} = 1~\text{ms}.
 \]
 
-With the laser switched off, the average background count rate was measured to be
+With the laser switched off, the average background count rate was
+measured to be
+%\[
+%  N_{\mathrm{env}} = 94.6 ~\text{counts/s},
+%\]
+%with a standard deviation of
+%\[
+%  \sigma_{N_{\mathrm{env}}} = 10.21~\text{counts/s}.
+%\]
 \[
-N_{\mathrm{env}} = 94.6~\text{counts/s},
+  N_{\mathrm{env}} = 95 ~\text{counts/s},
 \]
 with a standard deviation of
 \[
-\sigma_{N_{\mathrm{env}}} = 10.21~\text{counts/s}.
+  \sigma_{N_{\mathrm{env}}} = 10~\text{counts/s}.
 \]
 
 \subsubsection{Photon Count Measurements}
 
-Photon-counting measurements were performed for different values of the variable optical attenuation in the detection arm. For each attenuation setting, the mean photon count rate and its standard deviation were calculated by repeating the measurement 10 times. The results are summarized in Table~\ref{tab:count_results}.
+Photon-counting measurements were performed for different values of
+the variable optical attenuation in the detection arm. For each
+attenuation setting, the mean photon count rate and its standard
+deviation were calculated by repeating the measurement 10 times. The
+results are summarized in Table~\ref{tab:count_results}.
+
+% \begin{table}[h]
+%   \centering
+%   \begin{tabular}{ccc}
+%     \toprule
+%     \textbf{Attenuation (dB)} & \textbf{Avg Rate (counts/s)} &
+%     \textbf{Std. Dev. (counts/s)} \\
+%     \midrule
+%     38 & 493.1   & 25.32 \\
+%     35 & 901.7   & 32.05 \\
+%     32 & 1665.7  & 42.84 \\
+%     29 & 3151.1  & 60.44 \\
+%     26 & 5950.2  & 72.69 \\
+%     23 & 11022.1 & 92.66 \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{Measured photon count rates for different attenuation values.}
+%   \label{tab:count_results}
+% \end{table}
 
 \begin{table}[h]
-\centering
-\label{tab:count_results}
-\begin{tabular}{ccc}
-\hline
-\textbf{Attenuation (dB)} & \textbf{Mean Count Rate (counts/s)} & \textbf{Std. Dev. (counts/s)} \\
-\hline
-38 & 493.1   & 25.32 \\
-35 & 901.7   & 32.05 \\
-32 & 1665.7  & 42.84 \\
-29 & 3151.1  & 60.44 \\
-26 & 5950.2  & 72.69 \\
-23 & 11022.1 & 92.66 \\
-\hline
-\end{tabular}
-\caption{Measured photon count rates for different attenuation values}
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    \textbf{Attenuation (dB)} & \textbf{Avg Rate (counts/s)} &
+    \textbf{Std. Dev. (counts/s)} \\
+    \midrule
+    38 & 493   & 25 \\
+    35 & 902   & 32 \\
+    32 & 1666  & 43 \\
+    29 & 3151  & 60 \\
+    26 & 5950  & 73 \\
+    23 & 11022 & 93 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Measured photon count rates for different attenuation values.}
+  \label{tab:count_results}
 \end{table}
-
 
 \subsubsection{SPAD characterization}
 
-The detection efficiency of the single-photon avalanche diode (SPAD) was characterized using the \emph{substitution method}. This method allows estimating the detection efficiency $\eta$ by comparing the optical power measured with a calibrated power meter to the photon detection rate measured by the SPAD, under identical optical conditions and for different attenuation settings.
+The detection efficiency of the single-photon avalanche diode (SPAD)
+was characterized using the \emph{substitution method}. This method
+allows estimating the detection efficiency $\eta$ by comparing the
+optical power measured with a calibrated power meter to the photon
+detection rate measured by the SPAD, under identical optical
+conditions and for different attenuation settings.
 
-For each attenuation value, the detection efficiency is given by the substitution method \cite{bienfang2023spd,lopez2020ingaas}:
+For each attenuation value, the detection efficiency is given by the
+substitution method \cite{bienfang2023spd,lopez2020ingaas} through:
 \begin{equation}
-\eta\!\left(\lambda, \frac{N}{t}\right)
-=
-\frac{h c}{\lambda\, t}
-\,
-\frac{N - N_{\mathrm{env}}}
-{\tau\, C \, (P - P_{\mathrm{env}})} .
+  \eta\!\left(\lambda, \frac{N}{t}\right)
+  =
+  \frac{h c}{\lambda\, t}
+  \,
+  \frac{N - N_{\mathrm{env}}}
+  {\tau\, C \, (P - P_{\mathrm{env}})} .
+  \label{eq:detection_efficiency}
 \end{equation}
-where $h$ is Planck’s constant, $c$ is the speed of light in vacuum, $\lambda$ is the optical wavelength, $N$ is the number of detected counts in the acquisition time $t$, $N_{\mathrm{env}}$ represents dark and ambient counts, $\tau$ is the total optical transmissivity of the attenuation chain, $C$ is the calibration coefficient of the reference power meter, $P$ is the measured optical power, and $P_{\mathrm{env}}$ accounts for background optical power.
+where $h$ is Planck’s constant, $c$ is the speed of light in vacuum,
+$\lambda$ is the optical wavelength, $N$ is the number of detected
+counts in the acquisition time $t$, $N_{\mathrm{env}}$ represents
+dark and ambient counts, $\tau$ is the total optical transmissivity
+of the attenuation chain, $C$ is the calibration coefficient of the
+reference power meter, $P$ is the measured optical power, and
+$P_{\mathrm{env}}$ accounts for background optical power.
 
-The efficiency $\eta$ was evaluated for each attenuation setting, corresponding to different detected count rates $N/t$.
+The efficiency $\eta$ was evaluated for each attenuation setting
+listed in \cref{tab:tau_values},
+corresponding to different detected count rates $N/t$.
 
 \subsubsection{Uncertainty estimation and propagation}
 
-To quantify the uncertainty on the estimated detection efficiency, uncertainties on the measured and fixed parameters were propagated to $\eta$ assuming independent contributions and using first-order (Gaussian) error propagation.
+To quantify the uncertainty on the estimated detection efficiency,
+uncertainties on the measured and fixed parameters were propagated to
+$\eta$ assuming independent contributions and using first-order
+(Gaussian) error propagation.
 In practice, the following standard rules were used:
 \begin{itemize}
-    \item \textbf{Sum/difference:} if $z = x \pm y$, then $\sigma_{z} = \sqrt{\sigma_{x}^{2} + \sigma_{y}^{2}}$.
-    \item \textbf{Product/ratio:} if $z = x\,y$ or $z = x/y$, then
+  \item \textbf{Sum/difference:} if $z = x \pm y$, then $\sigma_{z} =
+    \sqrt{\sigma_{x}^{2} + \sigma_{y}^{2}}$.
+  \item \textbf{Product/ratio:} if $z = x\,y$ or $z = x/y$, then
     \[
-    \left(\frac{\sigma_{z}}{z}\right)^{2}
-    =
-    \left(\frac{\sigma_{x}}{x}\right)^{2}
-    +
-    \left(\frac{\sigma_{y}}{y}\right)^{2}.
+      \left(\frac{\sigma_{z}}{z}\right)^{2}
+      =
+      \left(\frac{\sigma_{x}}{x}\right)^{2}
+      +
+      \left(\frac{\sigma_{y}}{y}\right)^{2}.
     \]
-    \item \textbf{Power law:} if $z = x^{a}$, then $\sigma_{z}/|z| = |a|\,\sigma_{x}/|x|$.
+  \item \textbf{Power law:} if $z = x^{a}$, then $\sigma_{z}/|z| =
+    |a|\,\sigma_{x}/|x|$.
 \end{itemize}
 
-Starting from
-\[
-\eta
-=
-\frac{h c}{\lambda\, t}
-\,
-\frac{N - N_{\mathrm{env}}}
-{\tau\, C \, (P - P_{\mathrm{env}})} ,
-\]
+Starting from \cref{eq:detection_efficiency},
 the uncertainty budget was split into:
 \begin{itemize}
-    \item \textbf{Type A (statistical):} dominated by counting statistics, i.e. the repeatability of $N$ at each attenuation setting and the uncertainty on $N_{\mathrm{env}}$.
-    \item \textbf{Type B (systematic):} contributions from the calibration/fixed parameters $\lambda$, $P$, $P_{\mathrm{env}}$, $t$, $\tau$, and $C$.
+  \item \textbf{Type A (statistical):} dominated by counting
+    statistics, i.e. the repeatability of $N$ at each attenuation
+    setting and the uncertainty on $N_{\mathrm{env}}$.
+  \item \textbf{Type B (systematic):} contributions from the
+    calibration/fixed parameters $\lambda$, $P$, $P_{\mathrm{env}}$,
+    $t$, $\tau$, and $C$.
 \end{itemize}
 
 \paragraph{Type A uncertainty on $\eta$.}
-Considering only the uncertainty on the difference $(N - N_{\mathrm{env}})$, the propagated Type A uncertainty is
-\begin{equation}
-\sigma_{\eta,\mathrm{A}}
-=
-|\eta|\,
-\frac{\sqrt{\sigma_{N}^{2} + \sigma_{N_{\mathrm{env}}}^{2}}}{|N - N_{\mathrm{env}}|}.
-\end{equation}
+Considering only the uncertainty on the difference $(N -
+N_{\mathrm{env}})$, the propagated Type A uncertainty is
+\begin{equation*}
+  \sigma_{\eta,\mathrm{A}}
+  =
+  |\eta|\,
+  \frac{\sqrt{\sigma_{N}^{2} + \sigma_{N_{\mathrm{env}}}^{2}}}{|N -
+  N_{\mathrm{env}}|}.
+\end{equation*}
 
 \paragraph{Type B uncertainty on $\eta$.}
-Considering only the remaining (systematic) terms, the propagated Type B uncertainty is
-\begin{equation}
-\sigma_{\eta,\mathrm{B}}
-=
-|\eta|\,
-\sqrt{
-\left(\frac{\sigma_{P-P_{\mathrm{env}}}}{P - P_{\mathrm{env}}}\right)^{2}
-+
-\left(\frac{\sigma_{\lambda}}{\lambda}\right)^{2}
-+
-\left(\frac{\sigma_{t}}{t}\right)^{2}
-+
-\left(\frac{\sigma_{\tau}}{\tau}\right)^{2}
-+
-\left(\frac{\sigma_{C}}{C}\right)^{2}
-},
-\end{equation}
+Considering only the remaining (systematic) terms, the propagated
+Type B uncertainty is
+\begin{equation*}
+  \sigma_{\eta,\mathrm{B}}
+  =
+  |\eta|\,
+  \sqrt{
+    \left(\frac{\sigma_{P-P_{\mathrm{env}}}}{P - P_{\mathrm{env}}}\right)^{2}
+    +
+    \left(\frac{\sigma_{\lambda}}{\lambda}\right)^{2}
+    +
+    \left(\frac{\sigma_{t}}{t}\right)^{2}
+    +
+    \left(\frac{\sigma_{\tau}}{\tau}\right)^{2}
+    +
+    \left(\frac{\sigma_{C}}{C}\right)^{2}
+  },
+\end{equation*}
 with
 \[
-\sigma_{P-P_{\mathrm{env}}}=\sqrt{\sigma_{P}^{2}+\sigma_{P_{\mathrm{env}}}^{2}}.
+  \sigma_{P-P_{\mathrm{env}}}=\sqrt{\sigma_{P}^{2}+\sigma_{P_{\mathrm{env}}}^{2}}.
 \]
-In our analysis, a relative standard uncertainty of $2\%$ was assigned to the transmissivity, i.e. $\sigma_{\tau}/\tau = 0.02$ for all attenuation settings.
+In our analysis, a relative standard uncertainty of $2\%$ was
+assigned to the transmissivity, i.e. $\sigma_{\tau}/\tau = 0.02$ for
+all attenuation settings.
 
 \paragraph{Uncertainty budget.}
-Table~\ref{tab:eta_uncertainty_sources} summarizes the Type A and Type B uncertainty sources and their numerical values used in the propagation.
+\Cref{tab:eta_uncertainty_sources} summarizes the Type A and
+Type B uncertainty sources and their numerical values used in the propagation.
 
 \begin{table}[h]
-\centering
-\begin{tabular}{llll}
-\hline
-\textbf{Quantity} & \textbf{Value} & \textbf{Std. unc.} & \textbf{Type} \\
-\hline
-$\lambda$ & $1.55~\mu\text{m}$ & $0.1~\text{nm}$ & B \\
-$P$ & $4.4045~\mu\text{W}$ & $1.72\times10^{-3}~\mu\text{W}$ & B \\
-$P_{\mathrm{env}}$ & $1.4\times10^{-11}~\text{W}$ & $7.0\times10^{-12}~\text{W}$ & B \\
-$t$ & $1.0~\text{s}$ & $1.0\times10^{-3}~\text{s}$ & B \\
-$C$ & $1.0$ & $0.017$ & B \\
-$\tau$ & computed from $\tau_{\mathrm{dB}} = 46.5 + A_{\mathrm{var}}$ & $2\%$ (relative) & B \\
-\hline
-$N_{\mathrm{env}}$ & $94.6~\text{s}^{-1}$ & $10.21~\text{s}^{-1}$ & A \\
-$N/t$ (38 dB) & $493.1~\text{s}^{-1}$ & $25.32~\text{s}^{-1}$ & A \\
-$N/t$ (35 dB) & $901.7~\text{s}^{-1}$ & $32.05~\text{s}^{-1}$ & A \\
-$N/t$ (32 dB) & $1665.7~\text{s}^{-1}$ & $42.84~\text{s}^{-1}$ & A \\
-$N/t$ (29 dB) & $3151.1~\text{s}^{-1}$ & $60.44~\text{s}^{-1}$ & A \\
-$N/t$ (26 dB) & $5950.2~\text{s}^{-1}$ & $72.69~\text{s}^{-1}$ & A \\
-$N/t$ (23 dB) & $11022.1~\text{s}^{-1}$ & $92.66~\text{s}^{-1}$ & A \\
-\hline
-\end{tabular}
-\caption{Type A (statistical) and Type B (systematic) uncertainty sources used to propagate uncertainties to $\eta$.}
-\label{tab:eta_uncertainty_sources}
-\end{table}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    \textbf{Quantity} & \textbf{Value} & \textbf{Std. unc.} & \textbf{Type} \\
+    \midrule
+    $\lambda$ & $1550.0~\mu\text{m}$ & $0.1~\text{nm}$ & B \\
+    $P$ & $4404.5~\text{nW}$ & $1.7~\text{nW}$ & B \\
+    $P_{\mathrm{env}}$ & $14~\text{pW}$ &
+    $7~\text{pW}$ & B \\
+    $t$ & $1000~\text{ms}$ & $1~\text{ms}$ & B \\
+    $C$ & $1.000$ & $0.017$ & B \\
+    % $\tau$ & computed from $\tau_{\mathrm{dB}} = 46.5 +
+    % A_{\mathrm{var}}$ & $2\%$ (relative) & B \\
 
-\begin{table}[h]
-\centering
-\begin{tabular}{ccc}
-\hline
-\textbf{$A_{\mathrm{var}}$ (dB)} & \textbf{$\tau_{\mathrm{dB}}$ (dB)} & \textbf{$\tau$} \\
-\hline
-38 & 84.5 & $3.55\times 10^{-9}$ \\
-35 & 81.5 & $7.08\times 10^{-9}$ \\
-32 & 78.5 & $1.41\times 10^{-8}$ \\
-29 & 75.5 & $2.82\times 10^{-8}$ \\
-26 & 72.5 & $5.62\times 10^{-8}$ \\
-23 & 69.5 & $1.12\times 10^{-7}$ \\
-\hline
-\end{tabular}
-\caption{Optical transmissivity used in the substitution method for each attenuation setting, computed as $\tau = 10^{-\tau_{\mathrm{dB}}/10}$.}
-\label{tab:tau_values}
+    \multirow{6}{*}{$\tau$}
+    & $355\times 10^{-11}$  & $7 \times 10^{-11} $  & \multirow{6}{*}{B} \\
+    & $708\times 10^{-11}$ & $14 \times 10^{-11} $ & \\
+    & $141 \times 10^{-10}$  & $3 \times 10^{-10} $ & \\
+    & $282\times 10^{-10}$  & $6 \times 10^{-10} $ & \\
+    & $562\times 10^{-10}$  & $11 \times 10^{-10} $  & \\
+    & $112\times 10^{-9}$ & $2 \times 10^{-9} $ & \\
+
+    \midrule
+    $N_{\mathrm{env}}$ & $95~\text{s}^{-1}$ & $10~\text{s}^{-1}$ & A \\
+    $N/t$ (38 dB) & $493~\text{s}^{-1}$ & $25~\text{s}^{-1}$ & A \\
+    $N/t$ (35 dB) & $902~\text{s}^{-1}$ & $32~\text{s}^{-1}$ & A \\
+    $N/t$ (32 dB) & $1666~\text{s}^{-1}$ & $43~\text{s}^{-1}$ & A \\
+    $N/t$ (29 dB) & $3151~\text{s}^{-1}$ & $60~\text{s}^{-1}$ & A \\
+    $N/t$ (26 dB) & $5950~\text{s}^{-1}$ & $73~\text{s}^{-1}$ & A \\
+    $N/t$ (23 dB) & $11022~\text{s}^{-1}$ & $93~\text{s}^{-1}$ & A \\
+    \bottomrule
+  \end{tabular}
+  \caption{Type A (statistical) and Type B (systematic) uncertainty
+  sources used to propagate uncertainties to $\eta$.}
+  \label{tab:eta_uncertainty_sources}
 \end{table}
 
 \paragraph{Results.}
-The experimentally obtained detection efficiencies are reported here:
+The experimentally obtained detection efficiencies are reported in
+\cref{tab:experimental_efficiencies}.
 
-\begin{center}
-\begin{tabular}{cccccc}
-\hline
-\textbf{Atten. (dB)} & \textbf{$N/t$ (s$^{-1}$)} & \textbf{$\eta$} & \textbf{$\sigma_{\eta,A}$} & \textbf{$\sigma_{\eta,B}$} & \textbf{$\sigma_{\eta,\mathrm{tot}}$} \\
-\hline
-38 & 493.1  & 0.003268 & 0.000224 & 0.000086 & 0.000240 \\
-35 & 901.7  & 0.003317 & 0.000138 & 0.000087 & 0.000163 \\
-32 & 1665.7 & 0.003236 & 0.000091 & 0.000085 & 0.000124 \\
-29 & 3151.1 & 0.003156 & 0.000063 & 0.000083 & 0.000104 \\
-26 & 5950.2 & 0.003030 & 0.000038 & 0.000080 & 0.000088 \\
-23 & 11022.1 & 0.002834 & 0.000024 & 0.000074 & 0.000078 \\
-\hline
-\end{tabular}
-\end{center}
+% \begin{table}[h]
+%   \centering
+%   \begin{tabular}{cccccc}
+%     \toprule
+%     {\bfseries\boldmath $A_{var}$ (dB)} &
+%     {\bfseries\boldmath $N/t$ (s$^{-1}$)} &
+%     {\bfseries\boldmath $\eta$} &
+%     {\bfseries\boldmath $\sigma_{\eta,A}$} &
+%     {\bfseries\boldmath $\sigma_{\eta,B}$} &
+%     {\bfseries\boldmath $\sigma_{\eta,\mathrm{tot}}$} \\
+%     \midrule
+%     38 & 493  & 0.003268 & 0.000224 & 0.000086 & 0.000240 \\
+%     35 & 902  & 0.003317 & 0.000138 & 0.000087 & 0.000163 \\
+%     32 & 1666 & 0.003236 & 0.000091 & 0.000085 & 0.000124 \\
+%     29 & 3151 & 0.003156 & 0.000063 & 0.000083 & 0.000104 \\
+%     26 & 5950 & 0.003030 & 0.000038 & 0.000080 & 0.000088 \\
+%     23 & 11022 & 0.002834 & 0.000024 & 0.000074 & 0.000078 \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{Relevant measured detection efficiencies for different
+%   $A_{var}$ values, with correspondent uncertainty figures. }
+%   \label{tab:experimental_efficiencies}
+% \end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{cccccc}
+    \toprule
+    {\bfseries\boldmath $A_{var}$ (dB)} &
+    {\bfseries\boldmath $N/t$ (s$^{-1}$)} &
+    {\bfseries\boldmath $\eta$} &
+    {\bfseries\boldmath $\sigma_{\eta,A}$} &
+    {\bfseries\boldmath $\sigma_{\eta,B}$} &
+    {\bfseries\boldmath $\sigma_{\eta,\mathrm{tot}}$} \\
+    \midrule
+    38 & 493  & 0.0033 & 0.0002 & 0.00009 & 0.0002 \\
+    35 & 902  & 0.00332 & 0.00012 & 0.00009 & 0.00016 \\
+    32 & 1666 & 0.00324 & 0.00009 & 0.00009 & 0.00012 \\
+    29 & 3151 & 0.00316 & 0.00006 & 0.00008 & 0.00010 \\
+    26 & 5950 & 0.00303 & 0.00004 & 0.00008 & 0.00009 \\
+    23 & 11022 & 0.00283 & 0.00002 & 0.00007 & 0.00008 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Relevant measured detection efficiencies for different
+  $A_{var}$ values, with correspondent uncertainty figures. }
+  \label{tab:experimental_efficiencies}
+\end{table}
 
 \paragraph{Efficiency versus count rate.}
-To analyze the detector behavior in the linear-response regime, the detection efficiency was plotted as a function of the detected count rate $N/t$. 
-In the linear-response regime, the efficiency can be expressed as \cite{migdall2002intercomparison}:
+To analyze the detector behavior in the linear-response regime, the
+detection efficiency was plotted as a function of the detected
+count rate $N/t$.
+In the linear-response regime, the efficiency can be expressed as in
+\cite{migdall2002intercomparison}:
 \begin{equation}
-\eta\!\left(\lambda, \frac{N}{t}\right)
-=
-\eta^{\lambda}_{0}
-\left(1 - D\,\frac{N}{t}\right).
+  \eta\!\left(\lambda, \frac{N}{t}\right)
+  =
+  \eta^{\lambda}_{0}
+  \left(1 - D\,\frac{N}{t}\right).
+  \label{eq:fit_equation_efficiency}
 \end{equation}
-where $\eta^{\lambda}_{0}$ is the zero-flux detection efficiency and $D$ is the detector dead time.
+where $\eta^{\lambda}_{0}$ is the zero-flux detection efficiency and
+$D$ is the detector dead time.
 
-A linear fit of $\eta$ versus $N/t$ was performed in order to extract both $\eta^{\lambda}_{0}$ and the dead time $D$.
+A linear fit of $\eta$ versus $N/t$ through equation
+\cref{eq:fit_equation_efficiency} was performed in order to extract
+both $\eta^{\lambda}_{0}$ and the dead time $D$. It is shown in
+\cref{fig:spad_efficiency}.
 
 \begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{qkd/spd_efficiency/Dt_fit.png}
-\caption{Detection efficiency of the SPAD as a function of the detected count rate $N/t$. The solid line represents the linear fit used to estimate the zero-flux efficiency and the detector dead time.}
-\label{fig:spad_efficiency}
+  \centering
+  \includegraphics[width=0.85\textwidth]{qkd/spd_efficiency/Dt_fit.png}
+  \caption{Detection efficiency of the SPAD as a function of the
+    detected count rate $N/t$. The solid line represents the linear fit
+  used to estimate the zero-flux efficiency and the detector dead time.}
+  \label{fig:spad_efficiency}
 \end{figure}
 
-The extracted values of the zero-flux efficiency and the dead time are reported below:
+The extracted values of the zero-flux efficiency and the dead time
+are reported below:
 
 \begin{center}
-$\eta^{\lambda}_{0} = (3.29 \pm 0.10)\times 10^{-3}$, \quad
-$D = (1.27 \pm 0.15)\times 10^{-5}~\text{s}$.
+  $\eta^{\lambda}_{0} = (3.29 \pm 0.10)\times 10^{-3}$, \quad
+  $D = (1.27 \pm 0.15)\times 10^{-5}~\text{s}$.
 \end{center}
 
 \subsection{Conclusion}
-The extracted zero-flux detection efficiency, $\eta^{\lambda}_{0}\approx 3.3\times 10^{-3}$ (i.e., $\approx 0.33\%$), is about two orders of magnitude lower than typical SPAD efficiencies at \SI{1550}{\nano\meter} (often in the \SIrange{20}{30}{\percent} range).
-This large discrepancy indicates that the reference between the measured optical power and the photon flux at the detector input is not correctly accounted for in the substitution method as implemented here, most likely due to additional unaccounted attenuation (or coupling loss) in the SPAD arm.
-In contrast, the extracted dead time $D\approx 1.3\times 10^{-5}~\text{s}$ is consistent with the expected order of magnitude ($10^{-5}$~s) and remains reliable even in the presence of an overall attenuation mismatch, since $D$ is obtained from the relative dependence of $\eta$ on the count rate rather than the absolute scaling of $\eta$.
+The extracted zero-flux detection efficiency,
+$\eta^{\lambda}_{0}\approx 3.3\times 10^{-3}$ (i.e., $\approx
+0.33\%$), is about two orders of magnitude lower than typical SPAD
+efficiencies at \SI{1550}{\nano\meter} (often in the
+\SIrange{20}{30}{\percent} range).
+This large discrepancy indicates that the reference between the
+measured optical power and the photon flux at the detector input is
+not correctly accounted for in the substitution method as implemented
+here, most likely due to additional unaccounted attenuation (or
+coupling loss) in the SPAD arm.
+In contrast, the extracted dead time $D\approx 1.3\times
+10^{-5}~\text{s}$ is consistent with the expected order of magnitude
+($10^{-5}$~s) and remains reliable even in the presence of an overall
+attenuation mismatch, since $D$ is obtained from the relative
+dependence of $\eta$ on the count rate rather than the absolute
+scaling of $\eta$.
