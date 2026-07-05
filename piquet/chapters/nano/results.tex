@@ -4,7 +4,49 @@
 
 \subsubsection*{Dose array optical inspection}
 
-After development, the dose array was inspected under an optical microscope in both bright-field (BF) and dark-field (DF) illumination. In bright-field mode, underdeveloped areas appear brown, owing to residual PMMA absorbing in that colour range; in dark-field mode, scattered light from the partially defined nano-structures provides higher contrast and better sensitivity to partial resist removal. Table~\ref{tab:dose_array} summarises the observations across the dose sweep from 400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$ in steps of 50\,$\mu$C/cm$^2$.
+After development, the dose array was inspected under an optical microscope in both bright-field (BF) and dark-field (DF) illumination. In bright-field mode, underdeveloped areas appear brown, owing to residual PMMA absorbing in that colour range; in dark-field mode, scattered light from the partially defined nano-structures provides higher contrast and better sensitivity to partial resist removal. Each written field contains the split-ring resonator array together with a set of auxiliary test structures included in the same layout to assess the achievable resolution: a square array of dot patterns of graded density, numbered from 2 down to 0.1, a radial resolution test pattern in which triangular sectors converge toward a common centre, and a staircase array of decreasing square windows. These auxiliary structures, generated alongside the split-ring layout in the same \textit{Beamer}-corrected \texttt{.CAN} file, provide a continuous, easily recognisable indicator of the local development state and are therefore used throughout this section to compare doses. Representative low-magnification micrographs of the same written field at 400, 600 and 800\,$\mu$C/cm$^2$ are shown in Figure~\ref{fig:nano_dose_overview}, and Table~\ref{tab:dose_array} summarises the observations across the full dose sweep from 400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$ in steps of 50\,$\mu$C/cm$^2$.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_400_overview.png}
+    \caption*{400\,$\mu$C/cm$^2$}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_600_overview.png}
+    \caption*{600\,$\mu$C/cm$^2$}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/dose_800_overview.png}
+    \caption*{800\,$\mu$C/cm$^2$}
+  \end{minipage}
+  \caption{Bright-field optical micrographs of the same written field (density-graded dot array, radial resolution pattern and split-ring resonators) after development at 400, 600 and 800\,$\mu$C/cm$^2$. The 0.5 dot category appears as a plain, featureless dark square at 400\,$\mu$C/cm$^2$, indicating that the individual dots are not yet opened, and becomes clearly resolved into discrete windows from 600\,$\mu$C/cm$^2$ onward. The finer 0.3, 0.2 and 0.1 categories remain unresolved at every dose in the sweep, a limitation attributable to the diffraction limit of optical microscopy rather than to the exposure dose itself.}
+  \label{fig:nano_dose_overview}
+\end{figure}
+
+The complementarity of the two illumination modes is most evident at intermediate doses, where the state of development is not immediately obvious under a single illumination scheme. Figures~\ref{fig:nano_bf} and~\ref{fig:nano_df} compare the same dot-array field at 450\,$\mu$C/cm$^2$ under bright-field and dark-field illumination: in bright field, the individual dots are visible only as a faint, low-contrast texture against the surrounding resist; under dark field, the identical dots appear as bright, high-contrast spots, since light scattered by the partially developed sidewalls is collected directly by the objective instead of being reflected away as in the specular bright-field geometry. This confirms that dark-field imaging is the more sensitive tool for judging marginal development at doses close to the threshold, while bright-field imaging remains more informative for the larger, fully-developed features and for the overall colour contrast used to identify residual PMMA.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/highmag_450_BF.png}
+    \caption{Bright-field (BF) view of the dot array at 450\,$\mu$C/cm$^2$. The individual windows are only weakly distinguishable from the surrounding resist.}
+    \label{fig:nano_bf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/highmag_450_DF.png}
+    \caption{Dark-field (DF) view of the same field. Scattered light from the partially developed dots gives each window a bright, high-contrast appearance.}
+    \label{fig:nano_df}
+  \end{minipage}
+\end{figure}
 
 \begin{table}[H]
   \centering
@@ -22,19 +64,74 @@ After development, the dose array was inspected under an optical microscope in b
   \label{tab:dose_array}
 \end{table}
 
-The qualitative classification in Table~\ref{tab:dose_array} can be complemented by a quantitative method: for each dose step, a consistent geometric proxy is measured on the developed sample: for example, the width of the smallest fully-resolved feature, or the diameter of any residual halo surrounding a radial test pattern; the result is plotted against dose to identify the true optimum as a minimum or inflection point in the measured dimension rather than by visual category alone. This approach removes observer subjectivity from the threshold determination and yields a continuously-varying dose-response curve that can be compared between sessions and resist batches.
-% TODO: If radial test patterns, resolution gratings, or graded features are
-% present in this group's own dose-array layout (beyond the split-ring arrays),
-% measure a consistent CD or halo width at each dose step from the optical or
-% SEM images and tabulate the results here, replacing the qualitative-only
-% Table~\ref{tab:dose_array} with a quantitative dose-response curve.
-% If no dedicated test structures were included in the layout, note this
-% explicitly as a limitation of the dose-array design and recommend adding
-% a radial resolution test pattern (e.g. a Siemens star or van der Pauw
-% cross) to future EBL layouts to enable quantitative dose optimisation.
+The qualitative classification in Table~\ref{tab:dose_array} can be complemented by a quantitative method: for each dose step, a consistent geometric proxy is measured on the developed sample: for example, the width of the smallest fully-resolved feature, or the diameter of any residual halo surrounding a radial test pattern; the result is plotted against dose to identify the true optimum as a minimum or inflection point in the measured dimension rather than by visual category alone. This approach removes observer subjectivity from the threshold determination and yields a continuously-varying dose-response curve that can be compared between sessions and resist batches. The radial resolution test pattern included in this group's own layout, in which triangular sectors converge toward a common centre, is precisely the type of structure suited to this analysis: the radius of the region where the individual sectors can no longer be distinguished shrinks as the dose approaches the optimum and grows again once proximity broadening sets in, so that a plot of this radius against dose has a minimum at the optimal dose. Figures~\ref{fig:nano_radial_600} and~\ref{fig:nano_radial_800} show the pattern at 600 and 800\,$\mu$C/cm$^2$; a systematic measurement of the unresolved radius across the full dose sweep was not carried out in this session, and is left as a natural extension of the present qualitative comparison.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/highmag_600_radial.png}
+    \caption{Radial resolution test pattern at the optimal dose of 600\,$\mu$C/cm$^2$. The individual sectors are resolved as sharp, evenly spaced lines converging toward the centre.}
+    \label{fig:nano_radial_600}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{PMMA/highmag_800_radial.png}
+    \caption{Same test pattern at 800\,$\mu$C/cm$^2$. The sectors remain individually resolved at this magnification, in line with the split-ring gaps only being partially affected by proximity broadening in this dose range (Table~\ref{tab:dose_array}).}
+    \label{fig:nano_radial_800}
+  \end{minipage}
+\end{figure}
 
 The dose of 600\,$\mu$C/cm$^2$ was identified as the process optimum: the split-ring features were fully developed with clean, open gaps, and the proximity correction was evident in the uniformity of feature sizes across regions of differing pattern density. Too low a dose leaves intact PMMA (chain scission incomplete); too high a dose widens the written features through the backscattered dose deposited over a radius of several micrometres around the primary beam footprint.
 
 \subsubsection*{Lift-off and post-lift-off observation}
 
-Following the identification of the optimal dose, 50\,nm of gold was deposited by thermal evaporation and lift-off in acetone was performed on the 600\,$\mu$C/cm$^2$ dose region. At optical microscope inspection after lift-off, the split-ring array at the 600\,$\mu$C/cm$^2$ dose appeared correctly patterned; however, residual PMMA was observed over the sample surface at the microscale, indicating incomplete lift-off in some areas. This residue most likely arises from regions that were only partially sensitised by the electron beam and were therefore not fully dissolved during the 50\,s MIBK:IPA development step; any remaining PMMA acts as a dielectric spacer between the gold nanostructure and the silicon substrate, modifying the local refractive index and thereby altering the plasmonic resonance frequency of the split rings. The narrow gap regions of the split-ring geometry are topologically the most enclosed areas of the pattern (solvent can approach the resist boundary at a gap from only a limited perimeter), which makes these regions the most susceptible to slow lateral undercutting and therefore to the type of localised incomplete lift-off observed here (the underlying mechanism is described in the Metallization and Lift-off subsection of the NANO Materials and Methods). The lift-off results at multiple EBL doses were subsequently characterised by scanning electron microscopy (SEM) during the third session (Section~\ref{sec:DRIE_mat_met}).
+Following the identification of the optimal dose, 50\,nm of gold was deposited by thermal evaporation and lift-off in acetone was performed across the dose sweep, from 400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$, allowing the same regions inspected before metallisation to be re-examined after pattern transfer. At the lowest dose of the sweep, optical inspection after lift-off revealed a diffuse, cloudy haze covering a large fraction of the field, overlaying the numbered dot array, the radial pattern and the alignment structures alike, as shown in Figure~\ref{fig:nano_postliftoff_400}. This haze is attributed to PMMA that was only partially sensitised by the electron beam and was therefore not fully dissolved during the 50\,s MIBK:IPA development step: any remaining PMMA acts as a dielectric spacer between the gold nanostructure and the silicon substrate, modifying the local refractive index and thereby altering the plasmonic resonance frequency of the split rings, and here further prevented the acetone bath from fully lifting off the overlying gold, leaving the residue visible under the optical microscope.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{post_liftoff/postliftoff_400_overview.png}
+  \caption{Optical micrograph of the written field after gold deposition and lift-off at 400\,$\mu$C/cm$^2$. A diffuse haze of residual, incompletely-developed PMMA covers a large fraction of the field, consistent with incomplete lift-off at this underdosed condition.}
+  \label{fig:nano_postliftoff_400}
+\end{figure}
+
+At the optimal dose of 600\,$\mu$C/cm$^2$, the split-ring array appeared correctly patterned after lift-off, with individually resolved, open gold rings and no visible haze. Figures~\ref{fig:nano_postliftoff_600} and~\ref{fig:nano_postliftoff_800} compare this region with the equivalent field at 800\,$\mu$C/cm$^2$: in both frames the split-ring gaps themselves remain open, so that the closing of the gaps anticipated from the pre-lift-off dose array (Table~\ref{tab:dose_array}) is not obviously reproduced in this particular pair of fields. The narrow gap regions of the split-ring geometry are nonetheless the topologically most enclosed areas of the pattern, since the acetone can approach the resist boundary at a gap from only a limited perimeter; this makes these regions the most susceptible to slow lateral undercutting and to the type of localised incomplete lift-off documented above at 400\,$\mu$C/cm$^2$ (the underlying mechanism is described in the Metallization and Lift-off subsection of the NANO Materials and Methods).
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_600_array.png}
+    \caption{Split-ring resonator and dot arrays after lift-off at 600\,$\mu$C/cm$^2$. The rings are cleanly formed with open gaps.}
+    \label{fig:nano_postliftoff_600}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_800_array.png}
+    \caption{Same arrays after lift-off at 800\,$\mu$C/cm$^2$. At this magnification the rings remain comparably well defined.}
+    \label{fig:nano_postliftoff_800}
+  \end{minipage}
+\end{figure}
+
+The effect of over-dose is instead more clearly visible in the finest line-and-space category of the auxiliary array, where the calibrated distance tool of the microscope software was used to measure feature dimensions directly on the gold pattern, in the same spirit as the critical-dimension measurements reported for the MICRO experience. Figures~\ref{fig:nano_cd800_resolved} and~\ref{fig:nano_cd800_merged} compare two fields from the 800\,$\mu$C/cm$^2$ region at the same magnification: in one, the lines and spaces are cleanly resolved, with a measured line width of 2.20\,$\mu$m and pitch of 3.66\,$\mu$m; in the other, taken from a denser part of the same category, the line edges show pronounced waviness and, in places, adjacent lines appear to touch, an incipient bridging that is consistent with the proximity backscatter broadening described for this dose range in Table~\ref{tab:dose_array}. This confirms, at the level of the metallised pattern, the same over-dose broadening mechanism identified qualitatively in the PMMA dose array prior to lift-off.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_800_linewidth_resolved.png}
+    \caption{Line-and-space feature at 800\,$\mu$C/cm$^2$ with a cleanly resolved gap, measured at 2.20\,$\mu$m, and pitch, measured at 3.66\,$\mu$m, using the microscope's calibrated distance tool.}
+    \label{fig:nano_cd800_resolved}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{post_liftoff/postliftoff_800_linewidth_merged.png}
+    \caption{Denser line-and-space feature from the same 800\,$\mu$C/cm$^2$ region. Line-edge waviness is pronounced and adjacent lines appear locally bridged, consistent with proximity over-exposure.}
+    \label{fig:nano_cd800_merged}
+  \end{minipage}
+\end{figure}
+
+The lift-off results at multiple EBL doses were subsequently characterised by scanning electron microscopy (SEM) during the third session (Section~\ref{sec:DRIE_mat_met}), providing a nanometre-scale confirmation of the trends established here by optical microscopy.
