@@ -70,17 +70,13 @@
 \contentsline {subsection}{\numberline {3.1.2}Results}{59}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}NANO Experience: Electron Beam Lithography (EBL)}{64}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Materials and Methods}{64}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Results}{67}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Dry-Etch and SEM Imaging}{79}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Materials and Methods}{79}{subsection.3.3.1}%
-\contentsline {subsubsection}{Objective}{79}{section*.58}%
-\contentsline {subsubsection}{Setup description and list of components}{79}{section*.59}%
-\contentsline {subsubsection}{Process flow description}{80}{section*.61}%
-\contentsline {subsection}{\numberline {3.3.2}Results}{85}{subsection.3.3.2}%
-\contentsline {subsubsection}{Microstructure}{85}{section*.63}%
-\contentsline {subsubsection}{Nanostructure}{88}{section*.64}%
-\contentsline {section}{\numberline {3.4}Applications in Quantum Technology}{96}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Micro Atomic Clocks}{96}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Plasmonic Nano-antennas}{96}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Nano-biosensors}{96}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Conclusions}{97}{section.3.5}%
+\contentsline {subsection}{\numberline {3.2.2}Results}{69}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Dry-Etch and SEM Imaging}{82}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Materials and Methods}{82}{subsection.3.3.1}%
+\contentsline {subsubsection}{Objective}{82}{section*.58}%
+\contentsline {subsubsection}{Setup description and list of components}{82}{section*.59}%
+\contentsline {subsubsection}{Process flow description}{83}{section*.61}%
+\contentsline {subsection}{\numberline {3.3.2}Results}{88}{subsection.3.3.2}%
+\contentsline {subsubsection}{Microstructure}{89}{section*.63}%
+\contentsline {subsubsection}{Nanostructure}{91}{section*.64}%
+\contentsline {section}{\numberline {3.4}Conclusions}{96}{section.3.4}%

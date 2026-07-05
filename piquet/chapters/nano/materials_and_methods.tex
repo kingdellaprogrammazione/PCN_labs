@@ -57,8 +57,15 @@ regions during development. The resist was spun onto the silicon to a thickness 
 The target structures were split-ring resonators designed to function as nanoscale optical antennas
 with feature gaps of 100\,nm. The pattern layout was generated as a CAD file (.gds format) and
 included auxiliary structures to assess the achievable resolution.
-To account for electron scattering and diffusion within the resist (the proximity effect), the design was 
-imported into \textit{Beamer} software. The software performs Monte Carlo simulations of the electron trajectories in the specific resist/substrate stack (300\,nm PMMA, 50\,keV, 50\,kV emission), computing the spatial dose distribution for every shape in the layout and then adjusting the dose assigned to each sub-region so that the total received dose is uniform across all features. Corners and isolated features receive a higher dose correction factor ($\times$1.5), while dense central regions receive a lower factor ($\times$0.7), compensating for the additional backscatter contribution from neighbouring structures. The corrected layout was exported in \texttt{.CAN} format for the EBL machine.
+To account for electron scattering and diffusion within the resist (the proximity effect), the design was
+imported into \textit{Beamer} software. The software performs Monte Carlo simulations of the electron trajectories in the specific resist/substrate stack (300\,nm PMMA, 50\,keV, 50\,kV emission), computing the spatial dose distribution for every shape in the layout and then adjusting the dose assigned to each sub-region so that the total received dose is uniform across all features. Corners and isolated features receive a higher dose correction factor ($\times$1.5), while dense central regions receive a lower factor ($\times$0.7), compensating for the additional backscatter contribution from neighbouring structures. Figure~\ref{fig:nano_proximity_dose} illustrates the origin of this correction schematically: a point sitting at an inner corner of a written field, where exposed material is absent on one side, collects backscattered electrons from a narrower range of directions than a point on a fully exposed edge, and must therefore be assigned a higher direct dose to reach the same effective exposure once the missing backscatter contribution is accounted for. The corrected layout was exported in \texttt{.CAN} format for the EBL machine.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{difference_dose.pdf}
+  \caption{Schematic of the proximity-effect dose correction. Two reference points are marked within an L-shaped written field: the point near the inner corner receives backscattered-electron contributions from a narrower range of directions (fewer incoming arrows), and is therefore assigned the higher corner/isolated-feature correction factor ($\times$1.5); the point on the open edge, surrounded by exposed material on both sides, receives a more symmetric backscatter contribution and is assigned the lower dense-region factor ($\times$0.7).}
+  \label{fig:nano_proximity_dose}
+\end{figure}
 
 \textbf{EBL Machine Preparation} \\
 Patterning was carried out on an \textbf{Elionix ELS-BODEN-50F} \cite{ElionixELS50F} electron beam lithography system, a modified SEM-column instrument with a cold field-emission gun (FEG) source operating at 50\,kV accelerating voltage. Prior to writing, the sample was mounted and the beam was calibrated to ensure accurate pattern transfer. The PMMA-coated silicon chip was fixed upside-down on a silicon carrier wafer using conducting adhesive tape; electrical grounding is essential because charge accumulation on an insulating surface during exposure deflects the incoming electron beam, distorting the written pattern. The carrier wafer was loaded into the EBL load-lock chamber, vented to atmosphere for loading; once sealed, the load-lock was evacuated and the sample was transferred into the main column chamber maintained at high vacuum ($\sim$10$^{-6}$\,mbar).
@@ -68,11 +75,36 @@ The beam current was measured using a \textit{Faraday cup} (integrated aperture 
 Focus and astigmatism were corrected using a reference sample carrying gold nanospheres ($\sim$10\,nm diameter) deposited on silicon. The nanospheres act as high-contrast point scatterers that reveal the true beam shape: the objective lens current was adjusted until the nanosphere images were minimised to a point (focus), and the stigmator coils were tuned until the beam cross-section was perfectly circular (astigmatism correction). An astigmatic beam produces elliptical rather than round features, which would break the rotational symmetry of the split-ring gaps and shift the plasmonic resonance frequency. Finally, a \textit{plunge} correction compensated for height variations across the sample surface, and a \textit{stitching} correction aligned adjacent write fields by writing test marks at field boundaries on a calibration chip and measuring their positional error.
 
 \textbf{EBL Exposure and Dose Calibration} \\
+Within each shape of the corrected layout, the beam is filled by a meander (serpentine) scan of
+parallel line passes whose length follows the local boundary of the polygon rather than a fixed
+field width, as illustrated in Figure~\ref{fig:nano_ebl_patterning} for a C-shaped test element:
+the beam sweeps a full-width line across the wide sections of the shape and a correspondingly
+shorter line across the narrow section, so that no dose is delivered outside the intended pattern.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{EBL_patterning.pdf}
+  \caption{Schematic of the meander (raster) scan strategy used to fill an individual shape of the CAD layout. The beam is stepped through parallel horizontal passes (dotted lines) whose length adapts to the local width of the polygon, shown here for a C-shaped test element with a rectangular notch.}
+  \label{fig:nano_ebl_patterning}
+\end{figure}
+
 Patterning was performed using the EBL system at an accelerating voltage of 50\,kV. To determine
 the optimal dose for this PMMA batch and development condition, a dose array was exposed: nine
 identical split-ring resonator arrays were written sequentially, with the electron dose stepped
 from 400\,$\mu$C/cm$^2$ to 800\,$\mu$C/cm$^2$ in increments of 50\,$\mu$C/cm$^2$. The total
-exposure time was approximately 35\,min at a writing speed of 23\,mm/s.
+exposure time was approximately 35\,min at a writing speed of 23\,mm/s. The nine dose fields were
+arranged on the sample as shown in Figure~\ref{fig:nano_dose_ordering}: writing proceeded along
+the bottom row, left to right, from 400 to 500\,$\mu$C/cm$^2$, continued along the middle row,
+right to left, from 550 to 650\,$\mu$C/cm$^2$, and finished along the top row, left to right, from
+700 to 800\,$\mu$C/cm$^2$, so that the field sequence follows a boustrophedon (snake) path that
+minimises stage travel between consecutively written fields.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{EBL_ordering.pdf}
+  \caption{Physical layout of the nine-field dose array on the sample (400--800\,$\mu$C/cm$^2$ in 50\,$\mu$C/cm$^2$ steps). Fields were written in the boustrophedon sequence 400 $\rightarrow$ 500 (bottom row, left to right), 550 $\rightarrow$ 650 (middle row, right to left), 700 $\rightarrow$ 800 (top row, left to right), minimising travel between consecutive exposures.}
+  \label{fig:nano_dose_ordering}
+\end{figure}
 
 \textbf{Development} \\
 Following exposure, the sample was developed to dissolve the chain-scission fragments. The substrate
@@ -81,9 +113,16 @@ was immersed in a 1:3 (v/v) solution of MIBK (methyl isobutyl ketone) and isopro
 under a gentle stream of nitrogen (\ce{N2}).
 
 \textbf{Metallization and Lift-off} \\
-Once the PMMA pattern was developed, 50\,nm (0.5\,k\AA) of copper was deposited over the entire sample surface by e-beam evaporation in a two-chamber evaporator (Temescal/Ferrotec). The system consists of an upper loading/process chamber (vented with dry N$_2$) and a lower evaporation chamber maintained under continuous high vacuum ($\sim$2$\times$10$^{-6}$\,mbar base pressure) by a cryogenic pump operating at $\sim$13\,K. A rotating multi-crucible holder allows selection of different target materials (including titanium, aluminium oxide, copper, silver, gold, and aluminium) without breaking vacuum. The sample was mounted upside-down on a rotating dome holder above the source (rotating at $\sim$30\,rpm during deposition) to ensure uniform film coverage; the deposited thickness was monitored in real time using a quartz crystal microbalance (QCM). Lift-off was then performed by immersing the sample in an acetone
+Once the PMMA pattern was developed, 50\,nm (0.5\,k\AA) of copper was deposited over the entire sample surface by e-beam evaporation in a two-chamber evaporator (Temescal/Ferrotec). The system consists of an upper loading/process chamber (vented with dry N$_2$) and a lower evaporation chamber maintained under continuous high vacuum ($\sim$2$\times$10$^{-6}$\,mbar base pressure) by a cryogenic pump operating at $\sim$13\,K. A rotating multi-crucible holder allows selection of different target materials (including titanium, aluminium oxide, copper, silver, gold, and aluminium) without breaking vacuum. The sample was mounted upside-down on a rotating dome holder above the source (rotating at $\sim$30\,rpm during deposition) to ensure uniform film coverage; the deposited thickness was monitored in real time using a quartz crystal microbalance (QCM). Because evaporation is a line-of-sight, blanket process, the copper coats every exposed surface indiscriminately: the top of the remaining PMMA mesas and the floor of the developed windows alike, as shown schematically in Figure~\ref{fig:nano_wafer_before_liftoff}. Lift-off was then performed by immersing the sample in an acetone
 bath, which dissolved the remaining PMMA and detached the copper film deposited on top of it. Only
 the copper deposited directly inside the open PMMA windows remained adhered to the silicon,
 yielding the free-standing split-ring resonator array.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{EBL_wafer_before_liftoff.pdf}
+  \caption{Schematic cross-section of the sample immediately after blanket copper evaporation, before lift-off. Copper coats both the top of the remaining PMMA mesas and the floor of the developed windows in direct contact with the p-type Si substrate; only the copper resting on the substrate itself survives the subsequent acetone lift-off, once the PMMA and the copper it carries are dissolved away.}
+  \label{fig:nano_wafer_before_liftoff}
+\end{figure}
 
 Lift-off is not a purely chemical process: the acetone solvent must penetrate laterally \emph{underneath} the deposited copper film, since the metal layer is itself impermeable to the solvent. Undercutting therefore starts from the exposed edges of the open PMMA windows and propagates inward. The rate and completeness of lift-off depend on both immersion time and feature topology. Features that are topologically open (where the resist edge is accessible to solvent from multiple sides simultaneously) undercut rapidly and lift off cleanly. Enclosed or narrow shapes, where solvent can approach the resist boundary from only a limited perimeter, require a proportionally longer path of lateral penetration and are correspondingly more prone to incomplete removal. The split-ring resonator geometry used in this experience includes both open arc sections and narrow enclosed gaps; the gap regions are topologically the most constrained and therefore the most susceptible to slow or incomplete lift-off, as discussed further in the results (Section~\ref{sec:DRIE_mat_met}).
