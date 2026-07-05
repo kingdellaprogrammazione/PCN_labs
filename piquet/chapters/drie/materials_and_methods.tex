@@ -54,10 +54,6 @@
 % - What was imaged: trench sidewalls, pillar geometry, scallop size
 % (Bosch reference),
 % sidewall angle measurement
-% TODO – KOH wet polishing (reference, if discussed)
-% - After Bosch etch: KOH 45 wt%, 55 °C, 25 min → lateral wall smoothing
-% - Not necessarily applied to your sample — confirm with Erik/Mario
-% - Mention as a comparison to show scallop removal
 
 \label{sec:DRIE_mat_met}
 % OBJECTIVE
@@ -131,7 +127,27 @@ The scanning electron microscope (SEM) used for post-etch characterisation is a 
     Usually RIE is used to excavate shallow features mantaining a
     good verticality along the walls and at the same time a optimal
     depth control at
-    a fast etching speed (TODO:picture).
+    a fast etching speed.
+    This can be seen analytically by comparing the lateral and vertical
+    etch rates, $R_\text{lat}$ and $R_\text{vert}$. In a purely isotropic
+    wet etch, the reactive species attack the exposed silicon with equal
+    probability in every direction, so $R_\text{lat} = R_\text{vert}$: for
+    an etch depth $d$, the mask edge is undercut by a lateral distance
+    also equal to $d$, producing the characteristic rounded, undercut
+    sidewall profile. Both the achievable depth and the minimum feature
+    size are then coupled through this undercut, since etching deeper
+    unavoidably erodes the feature laterally by the same amount. In RIE,
+    the directional ion bombardment from the substrate bias suppresses
+    the lateral component while leaving the vertical component
+    essentially unaffected, so $R_\text{lat} \ll R_\text{vert}$: the
+    undercut per unit depth tends to zero and the sidewall remains
+    vertical regardless of how deep the etch proceeds. Because depth and
+    lateral erosion are effectively decoupled, the etch depth can be
+    increased simply by extending the process time, without the
+    corresponding loss of critical dimension that isotropic etching would
+    impose; this is what allows RIE to combine verticality, independent
+    depth control, and a comparatively fast etch rate in the same
+    process.
     The first step involves the creation of a plasma. Let's recall
     that a plasma is a state of matter
     originated from a locally electrically neutral gas that has been

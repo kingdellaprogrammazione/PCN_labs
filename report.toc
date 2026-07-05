@@ -20,67 +20,67 @@
 \contentsline {subsection}{\numberline {1.4.3}Experimental Procedure}{28}{subsection.1.4.3}%
 \contentsline {subsection}{\numberline {1.4.4}Results}{29}{subsection.1.4.4}%
 \contentsline {subsubsection}{Photon Count Measurements}{30}{section*.8}%
-\contentsline {subsubsection}{SPAD characterization}{30}{section*.9}%
+\contentsline {subsubsection}{SPAD characterization}{31}{section*.9}%
 \contentsline {subsubsection}{Uncertainty estimation and propagation}{31}{section*.10}%
-\contentsline {paragraph}{Type A uncertainty on $\eta $.}{31}{section*.11}%
-\contentsline {paragraph}{Type B uncertainty on $\eta $.}{31}{section*.12}%
-\contentsline {paragraph}{Uncertainty budget.}{31}{section*.13}%
+\contentsline {paragraph}{Type A uncertainty on $\eta $.}{32}{section*.11}%
+\contentsline {paragraph}{Type B uncertainty on $\eta $.}{32}{section*.12}%
+\contentsline {paragraph}{Uncertainty budget.}{32}{section*.13}%
 \contentsline {paragraph}{Results.}{32}{section*.14}%
 \contentsline {paragraph}{Efficiency versus count rate.}{32}{section*.15}%
 \contentsline {subsection}{\numberline {1.4.5}Conclusion}{33}{subsection.1.4.5}%
-\contentsline {chapter}{\numberline {2}Atomic Spectroscopy}{34}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction}{34}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Laser characterization}{34}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Laser Current/Power Characteristic}{34}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Atomic spectroscopy}{36}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Experimental setup}{36}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Experimental procedures and data analysis}{37}{subsection.2.3.2}%
-\contentsline {subsubsection}{Interferometer Data Acquisition}{37}{section*.18}%
-\contentsline {subsubsection}{Frequency Linearization}{38}{section*.19}%
-\contentsline {subsubsection}{Doppler and Sub-Doppler Spectroscopy}{38}{section*.20}%
-\contentsline {paragraph}{Interpretation of Hyperfine Transitions}{38}{section*.21}%
-\contentsline {paragraph}{Frequency Calibration}{39}{section*.22}%
-\contentsline {paragraph}{Data Processing and Absorbance Calculation}{39}{section*.23}%
-\contentsline {paragraph}{Gaussian Fitting}{40}{section*.24}%
-\contentsline {subsubsection}{Calculation of Atomic Density}{40}{section*.25}%
-\contentsline {paragraph}{Derivation of the Density Formula}{41}{section*.26}%
-\contentsline {paragraph}{Uncertainty Propagation}{42}{section*.27}%
-\contentsline {subsection}{\numberline {2.3.3}Results and discussion}{42}{subsection.2.3.3}%
-\contentsline {subsubsection}{Experimental Results}{42}{section*.28}%
-\contentsline {paragraph}{Integrated Absorbance}{42}{section*.29}%
-\contentsline {paragraph}{Calculation}{43}{section*.30}%
-\contentsline {subsubsection}{Theoretical Density Calculation}{43}{section*.31}%
-\contentsline {paragraph}{Comparison}{44}{section*.32}%
-\contentsline {chapter}{\numberline {3}Clean Room}{45}{chapter.3}%
-\contentsline {section}{\numberline {3.1}MICRO Experience: Photolithography}{46}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Materials and Methods}{51}{subsection.3.1.1}%
-\contentsline {subsubsection}{Substrate}{51}{section*.39}%
-\contentsline {subsubsection}{Adhesion Promoter (HMDS)}{52}{section*.40}%
-\contentsline {subsubsection}{Photoresist (AZ\,5214E)}{53}{section*.41}%
-\contentsline {subsubsection}{Process Flow}{54}{section*.42}%
-\contentsline {paragraph}{Step 1: Dehydration bake and HMDS spin coating.}{54}{section*.43}%
-\contentsline {paragraph}{Step 2: Spin coating of AZ\,5214E.}{54}{section*.44}%
-\contentsline {paragraph}{Step 3: Soft bake.}{56}{section*.45}%
-\contentsline {paragraph}{Step 4: Mask alignment and UV exposure.}{56}{section*.46}%
-\contentsline {paragraph}{Step 5: Post-exposure bake (PEB).}{56}{section*.47}%
-\contentsline {paragraph}{Step 6: Flood exposure.}{57}{section*.48}%
-\contentsline {paragraph}{Step 7: Development.}{57}{section*.49}%
-\contentsline {paragraph}{Step 8: Optical inspection.}{57}{section*.50}%
-\contentsline {subsubsection}{Equipment}{58}{section*.51}%
-\contentsline {subsection}{\numberline {3.1.2}Results}{58}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}NANO Experience: Electron Beam Lithography (EBL)}{63}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Materials and Methods}{63}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Results}{66}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Dry-Etch and SEM Imaging}{78}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Materials and Methods}{78}{subsection.3.3.1}%
-\contentsline {subsubsection}{Objective}{78}{section*.58}%
-\contentsline {subsubsection}{Setup description and list of components}{78}{section*.59}%
-\contentsline {subsubsection}{Process flow description}{79}{section*.61}%
-\contentsline {subsection}{\numberline {3.3.2}Results}{84}{subsection.3.3.2}%
-\contentsline {subsubsection}{Microstructure}{84}{section*.63}%
-\contentsline {subsubsection}{Nanostructure}{87}{section*.64}%
-\contentsline {section}{\numberline {3.4}Applications in Quantum Technology}{95}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Micro Atomic Clocks}{95}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Plasmonic Nano-antennas}{95}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Nano-biosensors}{95}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Conclusions}{96}{section.3.5}%
+\contentsline {chapter}{\numberline {2}Atomic Spectroscopy}{35}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{35}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Laser characterization}{35}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Laser Current/Power Characteristic}{35}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Atomic spectroscopy}{37}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Experimental setup}{37}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Experimental procedures and data analysis}{38}{subsection.2.3.2}%
+\contentsline {subsubsection}{Interferometer Data Acquisition}{38}{section*.18}%
+\contentsline {subsubsection}{Frequency Linearization}{39}{section*.19}%
+\contentsline {subsubsection}{Doppler and Sub-Doppler Spectroscopy}{39}{section*.20}%
+\contentsline {paragraph}{Interpretation of Hyperfine Transitions}{39}{section*.21}%
+\contentsline {paragraph}{Frequency Calibration}{40}{section*.22}%
+\contentsline {paragraph}{Data Processing and Absorbance Calculation}{40}{section*.23}%
+\contentsline {paragraph}{Gaussian Fitting}{41}{section*.24}%
+\contentsline {subsubsection}{Calculation of Atomic Density}{41}{section*.25}%
+\contentsline {paragraph}{Derivation of the Density Formula}{42}{section*.26}%
+\contentsline {paragraph}{Uncertainty Propagation}{43}{section*.27}%
+\contentsline {subsection}{\numberline {2.3.3}Results and discussion}{43}{subsection.2.3.3}%
+\contentsline {subsubsection}{Experimental Results}{43}{section*.28}%
+\contentsline {paragraph}{Integrated Absorbance}{43}{section*.29}%
+\contentsline {paragraph}{Calculation}{44}{section*.30}%
+\contentsline {subsubsection}{Theoretical Density Calculation}{44}{section*.31}%
+\contentsline {paragraph}{Comparison}{45}{section*.32}%
+\contentsline {chapter}{\numberline {3}Clean Room}{46}{chapter.3}%
+\contentsline {section}{\numberline {3.1}MICRO Experience: Photolithography}{47}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Materials and Methods}{52}{subsection.3.1.1}%
+\contentsline {subsubsection}{Substrate}{52}{section*.39}%
+\contentsline {subsubsection}{Adhesion Promoter (HMDS)}{53}{section*.40}%
+\contentsline {subsubsection}{Photoresist (AZ\,5214E)}{54}{section*.41}%
+\contentsline {subsubsection}{Process Flow}{55}{section*.42}%
+\contentsline {paragraph}{Step 1: Dehydration bake and HMDS spin coating.}{55}{section*.43}%
+\contentsline {paragraph}{Step 2: Spin coating of AZ\,5214E.}{55}{section*.44}%
+\contentsline {paragraph}{Step 3: Soft bake.}{57}{section*.45}%
+\contentsline {paragraph}{Step 4: Mask alignment and UV exposure.}{57}{section*.46}%
+\contentsline {paragraph}{Step 5: Post-exposure bake (PEB).}{57}{section*.47}%
+\contentsline {paragraph}{Step 6: Flood exposure.}{58}{section*.48}%
+\contentsline {paragraph}{Step 7: Development.}{58}{section*.49}%
+\contentsline {paragraph}{Step 8: Optical inspection.}{58}{section*.50}%
+\contentsline {subsubsection}{Equipment}{59}{section*.51}%
+\contentsline {subsection}{\numberline {3.1.2}Results}{59}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}NANO Experience: Electron Beam Lithography (EBL)}{64}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Materials and Methods}{64}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Results}{67}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Dry-Etch and SEM Imaging}{79}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Materials and Methods}{79}{subsection.3.3.1}%
+\contentsline {subsubsection}{Objective}{79}{section*.58}%
+\contentsline {subsubsection}{Setup description and list of components}{79}{section*.59}%
+\contentsline {subsubsection}{Process flow description}{80}{section*.61}%
+\contentsline {subsection}{\numberline {3.3.2}Results}{85}{subsection.3.3.2}%
+\contentsline {subsubsection}{Microstructure}{85}{section*.63}%
+\contentsline {subsubsection}{Nanostructure}{88}{section*.64}%
+\contentsline {section}{\numberline {3.4}Applications in Quantum Technology}{96}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Micro Atomic Clocks}{96}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Plasmonic Nano-antennas}{96}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Nano-biosensors}{96}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Conclusions}{97}{section.3.5}%
