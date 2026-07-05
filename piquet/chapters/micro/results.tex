@@ -8,16 +8,23 @@ measured using the microscope's built-in calibrated distance tool.
 
 \subsubsection*{Optical microscope inspection}
 
-In bright-field illumination, the image-reversal photoresist layer appears bright
+In bright-field illumination, the image-reversal photoresist layer
+appears bright
 (yellow--pink under the cleanroom sodium-vapour ambient illumination) owing to
 thin-film interference within the $\sim$1.3\,$\mu$m resist film, while the
-exposed silicon substrate in the developed windows appears dark; this colour contrast
-allows direct identification of the remaining resist regions and of the open windows
+exposed silicon substrate in the developed windows appears dark; this
+colour contrast
+allows direct identification of the remaining resist regions and of
+the open windows
 where the resist has been fully removed by the developer. The wafer showed a
-well-resolved pattern consisting of regular arrays of square and circular windows,
+well-resolved pattern consisting of regular arrays of square and
+circular windows,
 parallel line trenches at nominal feature sizes of 2\,$\mu$m, 3\,$\mu$m, and
-5\,$\mu$m, together with alignment marks and contact-pad structures, all consistent
-with the expected mask layout \cite{FundTechProc2024}; representative micrographs of the 2\,$\mu$m and 3\,$\mu$m window arrays are shown in Figures~\ref{fig:2um_mask} and \ref{fig:3um_mask}.
+5\,$\mu$m, together with alignment marks and contact-pad structures,
+all consistent
+with the expected mask layout \cite{FundTechProc2024}; representative
+micrographs of the 2\,$\mu$m and 3\,$\mu$m window arrays are shown in
+Figures~\ref{fig:2um_mask} and \ref{fig:3um_mask}.
 
 \begin{figure}[H]
   \centering
@@ -25,18 +32,19 @@ with the expected mask layout \cite{FundTechProc2024}; representative micrograph
     \centering
     \includegraphics[width=\textwidth]{2um_mask.jpeg}
     \caption{Optical micrograph of the 2\,$\mu$m square-window array after
-             image-reversal development. Bright areas: remaining AZ\,5214E resist.
-             Dark squares: silicon substrate exposed by development. The calibrated
-             measurement gives a window width of 2.14\,$\mu$m.}
+      image-reversal development. Bright areas: remaining AZ\,5214E resist.
+      Dark squares: silicon substrate exposed by development. The calibrated
+    measurement gives a window width of 2.14\,$\mu$m.}
     \label{fig:2um_mask}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{3um_2.jpeg}
-    \caption{Optical micrograph of the 3\,$\mu$m square-window array. The measured
-             window width is 3.10\,$\mu$m, giving a critical-dimension bias of
-             $+0.10\,\mu$m with respect to the nominal mask dimension.}
+    \caption{Optical micrograph of the 3\,$\mu$m square-window array.
+      The measured
+      window width is 3.10\,$\mu$m, giving a critical-dimension bias of
+    $+0.10\,\mu$m with respect to the nominal mask dimension.}
     \label{fig:3um_mask}
   \end{minipage}
 \end{figure}
@@ -44,16 +52,18 @@ with the expected mask layout \cite{FundTechProc2024}; representative micrograph
 \subsubsection*{Critical-dimension analysis}
 
 To quantify the fidelity of the pattern transfer we measured the width of the
-developed windows at three nominal feature sizes using calibrated distance markers
+developed windows at three nominal feature sizes using calibrated
+distance markers
 placed across feature edges in the optical microscope software. The results are
 summarised in Table~\ref{tab:cd_bias}.
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{rrrr}
+  \begin{tabular}{llll}
     \toprule
-    \textbf{Nominal width ($\mu$m)} & \textbf{Measured width ($\mu$m)}
-      & \textbf{CD bias ($\mu$m)} \\
+    \textbf{\boldmath Nominal width ($\mu$m)}
+    & \textbf{\boldmath Measured width ($\mu$m)}
+    & \textbf{\boldmath CD bias ($\mu$m)} \\
     \midrule
     2 & 2.14 & $+0.14$ \\
     3 & 3.10 & $+0.10$ \\
@@ -61,8 +71,8 @@ summarised in Table~\ref{tab:cd_bias}.
     \bottomrule
   \end{tabular}
   \caption{Nominal mask dimension, measured window width, and critical-dimension
-           (CD) bias for the three feature sizes inspected under the optical
-           microscope. CD bias is defined as measured width $-$ nominal width.}
+    (CD) bias for the three feature sizes inspected under the optical
+  microscope. CD bias is defined as measured width $-$ nominal width.}
   \label{tab:cd_bias}
 \end{table}
 
@@ -70,42 +80,65 @@ In all three cases the measured windows are wider than the corresponding mask
 apertures, yielding a consistently positive CD bias in the range
 $+0.10$\,$\mu$m to $+0.30$\,$\mu$m. In contact printing, the mask chrome edge is
 not a perfectly sharp optical boundary: diffraction of the UV illumination
-(I-line, 365\,nm) around the chrome features creates a fringe of partial exposure
-extending slightly beyond the nominal aperture edge. In \emph{image-reversal} mode
+(I-line, 365\,nm) around the chrome features creates a fringe of
+partial exposure
+extending slightly beyond the nominal aperture edge. In
+\emph{image-reversal} mode
 this fringe effect acts to narrow the cross-linked (insoluble) zone, leaving a
 correspondingly wider region sensitised by the flood exposure and subsequently
-dissolved by the developer. The ${\approx}1.4\,\mu$m minimum resolvable period $2b_\mathrm{min}$ characterises the global resolution limit of the contact-printing geometry, not the magnitude of the CD bias itself; the positive bias is more directly related to the width of the diffraction-broadened edge transition at the mask aperture, which corresponds to a fraction of $2b_\mathrm{min}$ and is therefore qualitatively consistent with sub-micron edge broadening, even though the full resolution limit exceeds the $+0.10$--$+0.30$\,$\mu$m biases observed by more than an order of magnitude \cite{FundTechProc2024}. A secondary contribution may
+dissolved by the developer. The ${\approx}1.4\,\mu$m minimum
+resolvable period $2b_\mathrm{min}$ characterises the global
+resolution limit of the contact-printing geometry, not the magnitude
+of the CD bias itself; the positive bias is more directly related to
+the width of the diffraction-broadened edge transition at the mask
+aperture, which corresponds to a fraction of $2b_\mathrm{min}$ and is
+therefore qualitatively consistent with sub-micron edge broadening,
+even though the full resolution limit exceeds the
+$+0.10$--$+0.30$\,$\mu$m biases observed by more than an order of
+magnitude \cite{FundTechProc2024}. A secondary contribution may
 arise from slight over-development: extending the immersion time in the AZ\,400K
-developer beyond the dose-to-clear point attacks the cross-linked resist sidewalls
+developer beyond the dose-to-clear point attacks the cross-linked
+resist sidewalls
 laterally, broadening the windows at the expense of sidewall verticality.
 
 \subsubsection*{Profilometer step-height measurement}
 
-While the optical microscope quantifies the \emph{lateral} fidelity of the pattern
-transfer, it cannot resolve the \emph{vertical} profile of the developed windows. A
+While the optical microscope quantifies the \emph{lateral} fidelity
+of the pattern
+transfer, it cannot resolve the \emph{vertical} profile of the
+developed windows. A
 contact-stylus profilometer was therefore used to scan across individual trench
-edges and recover the height difference between the remaining resist ("land") and
-the exposed silicon floor, providing a direct check on the $\sim$1.3\,$\mu$m nominal
+edges and recover the height difference between the remaining resist
+("land") and
+the exposed silicon floor, providing a direct check on the
+$\sim$1.3\,$\mu$m nominal
 resist thickness established in Table~3.2. We exported the \texttt{.dat} binary
-files of the profilometer results however it was a KLA P-17 specific binary format. The trace was therefore reconstructed offline using
+files of the profilometer results however it was a KLA P-17 specific
+binary format. The trace was therefore reconstructed offline using
 the third-party open-source parser of Du~\cite{P7Dat2Txt}, which decodes the raw
-fixed-point $Z$-samples but does not carry over the profilometer's scan-length or
-scan-speed setting; converting the \texttt{.dat} file to a plottable trace this way
+fixed-point $Z$-samples but does not carry over the profilometer's
+scan-length or
+scan-speed setting; converting the \texttt{.dat} file to a plottable
+trace this way
 recovers the $Z$-height values themselves but loses the calibration needed to
 convert the sample index into a physical distance, which is why the horizontal
 axis of the resulting traces is reported in raw sample points rather than in
 micrometres. The resulting $Z$-height trace was referenced (zeroed) to the first
-sampled point of the scan, so that the vertical axis reports height \emph{relative
+sampled point of the scan, so that the vertical axis reports height
+\emph{relative
 to the scan's starting land},
 not an absolute wafer elevation; trench floors therefore appear as negative
-excursions and raised regions as positive ones. Before extracting any height value,
+excursions and raised regions as positive ones. Before extracting any
+height value,
 the decoded trace was cross-checked against the same data re-read from its saved
 text export: the residual between the two, shown in the lower panel of
 Figures~\ref{fig:profilometer_wide} and~\ref{fig:profilometer_narrow},
-remains below $5\times10^{-4}$\,nm throughout, several orders of magnitude smaller
+remains below $5\times10^{-4}$\,nm throughout, several orders of
+magnitude smaller
 than the step height itself. This confirms that the discrepancy is pure
 floating-point rounding introduced by the text export and not an experimental
-artefact, validating the decoding pipeline ahead of any physical interpretation of
+artefact, validating the decoding pipeline ahead of any physical
+interpretation of
 the trace.
 
 \begin{figure}[H]
@@ -114,9 +147,9 @@ the trace.
     \centering
     \includegraphics[width=\textwidth]{wide_trench.png}
     \caption{Profilometer trace across the wider of the two developed trench
-             edges scanned. The decoded $Z$-height (solid) and the height
-             recovered from the saved text export (dashed) overlap throughout;
-             the trench floor sits $\approx$730\,nm below the initial land.}
+      edges scanned. The decoded $Z$-height (solid) and the height
+      recovered from the saved text export (dashed) overlap throughout;
+    the trench floor sits $\approx$730\,nm below the initial land.}
     \label{fig:profilometer_wide}
   \end{minipage}
   \hfill
@@ -124,15 +157,17 @@ the trace.
     \centering
     \includegraphics[width=\textwidth]{narrow_trench.png}
     \caption{Profilometer trace across a second, narrower trench. The trench
-             floor sits $\approx$660\,nm below the initial land, consistent
-             with the depth measured in Figure~\ref{fig:profilometer_wide}.}
+      floor sits $\approx$660\,nm below the initial land, consistent
+    with the depth measured in Figure~\ref{fig:profilometer_wide}.}
     \label{fig:profilometer_narrow}
   \end{minipage}
 \end{figure}
 
 In both scans the trace does not return to its starting level after crossing the
-trench: the land on the far side of the step is measured 100--200\,nm higher than
-the land where the scan began. Because the $Z$-axis is zeroed to the first sample
+trench: the land on the far side of the step is measured 100--200\,nm
+higher than
+the land where the scan began. Because the $Z$-axis is zeroed to the
+first sample
 rather than to an independent reference, this offset is consistent with a slight
 tilt of the wafer relative to the stylus scan direction (an uneven mount on the
 profilometer stage) rather than with a genuine difference in resist thickness
@@ -141,7 +176,8 @@ between the two lands; the trench depth is therefore read as the drop from the
 
 The measured trench depths, $\approx$730\,nm (wide trench) and
 $\approx$660\,nm (narrow trench), are both shallower than the nominal
-1.3\,$\mu$m resist thickness, recovering only 50--55\,\% of the nominal film. This
+1.3\,$\mu$m resist thickness, recovering only 50--55\,\% of the
+nominal film. This
 is consistent with the same edge-broadening mechanisms invoked in the
 critical-dimension analysis above: the diffraction-broadened, sloped sidewall at
 the mask aperture edge means the stylus, which has a finite tip radius, cannot
@@ -159,7 +195,8 @@ isolated trench edge rather than a periodic window array.
 
 \subsubsection*{Process failures and defect analysis}
 
-Not all wafers processed during the session yielded acceptable results; two failure
+Not all wafers processed during the session yielded acceptable
+results; two failure
 modes were observed and are documented below.
 
 \begin{figure}[H]
@@ -167,51 +204,86 @@ modes were observed and are documented below.
   \begin{minipage}[t]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{case_of_bad_lith_1.jpeg}
-    \caption{Wafer exhibiting incomplete pattern transfer: the patterned array of
-             square windows is visible only in the lower portion of the wafer, while
-             the upper region shows a uniformly intact resist film with no developed
-             features.}
+    \caption{Wafer exhibiting incomplete pattern transfer: the
+      patterned array of
+      square windows is visible only in the lower portion of the wafer, while
+      the upper region shows a uniformly intact resist film with no developed
+    features.}
     \label{fig:bad_lith_1}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{case_of_bad_lith_2.jpeg}
-    \caption{Wafer exhibiting spin-coating defects: radial comet streaks originate
-             from contaminating particles and extend across the resist film, together
-             with visible dust deposits that disrupt the local resist uniformity.}
+    \caption{Wafer exhibiting spin-coating defects: radial comet
+      streaks originate
+      from contaminating particles and extend across the resist film, together
+    with visible dust deposits that disrupt the local resist uniformity.}
     \label{fig:bad_lith_2}
   \end{minipage}
 \end{figure}
 
-Figure~\ref{fig:bad_lith_1} shows a wafer on which development occurred only in the
-lower portion: the square-window array is well resolved there, while the upper half
+Figure~\ref{fig:bad_lith_1} shows a wafer on which development
+occurred only in the
+lower portion: the square-window array is well resolved there, while
+the upper half
 of the wafer retains an intact, undeveloped resist film. The sharp horizontal
-boundary between the developed and undeveloped zones is inconsistent with a gradual
-developer-concentration gradient and instead points to an incomplete exposure: if the
-mercury-lamp illumination or the mask aperture did not cover the entire wafer during
+boundary between the developed and undeveloped zones is inconsistent
+with a gradual
+developer-concentration gradient and instead points to an incomplete
+exposure: if the
+mercury-lamp illumination or the mask aperture did not cover the
+entire wafer during
 the exposure step, only the illuminated portion would undergo the photochemical
 conversion required for image-reversal; the unexposed upper region would remain
-insoluble after PEB and flood exposure alike, preventing development. Ensuring full
+insoluble after PEB and flood exposure alike, preventing development.
+Ensuring full
 and uniform illumination across the wafer surface, and confirming mask-to-wafer
-contact over the entire area before triggering the exposure, is therefore critical
+contact over the entire area before triggering the exposure, is
+therefore critical
 to avoid this failure mode.
 
 Figure~\ref{fig:bad_lith_2} shows a second failure mode attributable to
 contamination during spin coating: radial streaks (\emph{comet} defects) extend
-across the resist film from the wafer centre, together with isolated dust deposits
+across the resist film from the wafer centre, together with isolated
+dust deposits
 visible as bright spots \cite{FundTechProc2024}. Comet defects arise when a
 contaminating particle is present on the wafer surface at the moment the liquid
-resist is dispensed; the centrifugal flow of the resist around the obstacle creates
-a local disruption in the otherwise radially symmetric film, producing a streak of
-non-uniform thickness that persists through the soft bake and exposure steps. The
+resist is dispensed; the centrifugal flow of the resist around the
+obstacle creates
+a local disruption in the otherwise radially symmetric film,
+producing a streak of
+non-uniform thickness that persists through the soft bake and
+exposure steps. The
 consequences for the final pattern are twofold: within the streak, the resist
-thickness deviates from the nominal 1.3\,$\mu$m and the local exposure dose is no
-longer optimised, leading to under- or over-development; beneath a dust particle the
+thickness deviates from the nominal 1.3\,$\mu$m and the local
+exposure dose is no
+longer optimised, leading to under- or over-development; beneath a
+dust particle the
 resist may be lifted during development, leaving a pinhole. Both effects render
 the patterned area in the defect zone unsuitable for subsequent processing. To
 prevent this failure mode, wafers and all handling surfaces must be thoroughly
 cleaned and inspected under cleanroom lighting before spin coating, and the spin
 coater bowl should be purged of any debris between runs.
 
-The two failure modes documented above are not exhaustive; photolithography is susceptible to a wider range of defect types that were not observed in this group's micrographs but are worth noting for context. \textit{Photomask-inherent defects} (such as pinholes in the chrome absorber, extra-chrome spots, or scratches on the mask surface introduced during handling or storage) print directly into the resist pattern and propagate to every wafer processed with that mask without correction. \textit{Localised solvent damage} (e.g.\ a droplet of PGMEA or developer contacting the spun film before the soft bake) can dissolve the resist in a concentrated spot, creating a clearing surrounded by a ring of re-deposited thickened material. \textit{Thin-film interference artefacts} arise when the resist deviates locally from its nominal thickness: the reflectance colour viewed under bright-field illumination shifts, and the local exposure dose is altered because the effective optical path through the resist changes, leading to regions of systematic under- or over-development within an otherwise correctly exposed wafer. These failure modes are well documented in the photolithography literature \cite{FundTechProc2024} and are included here as contextual completeness; they were not present in the micrographs collected by this group during this session.
+The two failure modes documented above are not exhaustive;
+photolithography is susceptible to a wider range of defect types that
+were not observed in this group's micrographs but are worth noting
+for context. \textit{Photomask-inherent defects} (such as pinholes in
+  the chrome absorber, extra-chrome spots, or scratches on the mask
+surface introduced during handling or storage) print directly into
+the resist pattern and propagate to every wafer processed with that
+mask without correction. \textit{Localised solvent damage} (e.g.\ a
+  droplet of PGMEA or developer contacting the spun film before the
+soft bake) can dissolve the resist in a concentrated spot, creating a
+clearing surrounded by a ring of re-deposited thickened material.
+\textit{Thin-film interference artefacts} arise when the resist
+deviates locally from its nominal thickness: the reflectance colour
+viewed under bright-field illumination shifts, and the local exposure
+dose is altered because the effective optical path through the resist
+changes, leading to regions of systematic under- or over-development
+within an otherwise correctly exposed wafer. These failure modes are
+well documented in the photolithography literature
+\cite{FundTechProc2024} and are included here as contextual
+completeness; they were not present in the micrographs collected by
+this group during this session.

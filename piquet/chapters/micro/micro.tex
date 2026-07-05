@@ -1,64 +1,138 @@
-Photolithography in the context of micro- and nano-technology is a \emph{selection} process where instead of adding or removing material of the wafer (like in deposition or etching) we are selecting which regions of the wafer to be exposed to the subsequent steps.
+Photolithography in the context of micro- and nano-technology is a
+\emph{selection} process where instead of adding or removing material
+of the wafer (like in deposition or etching) we are selecting which
+regions of the wafer to be exposed to the subsequent steps.
 
-It originates from the words Photo (with light) and Lithography, from the Greek \textit{lithos} (stone) and \textit{graphein} (to write). Where instead of using stone and ink we use light in order to transfer the logic of a certain geometry into our silicon wafer.
+It originates from the words Photo (with light) and Lithography, from
+the Greek \textit{lithos} (stone) and \textit{graphein} (to write),
+where instead of using stone and ink we use light in order to
+transfer the logic of a certain geometry into our silicon wafer.
 
-Photolithography became fundamental due to batch fabrication where growing/depositing or etching films only in certain areas (selectively) is hard and expensive. To simplify the process, these selective patterns are created once (on a mask) and then we can transfer these patterns to as many wafers as needed using light.
+Photolithography became fundamental due to batch fabrication where
+growing/depositing or etching films only in certain areas
+(selectively) is hard and expensive. To simplify the process, these
+selective patterns are created once (on a mask) and then we can
+transfer these patterns to as many wafers as needed using light.
 
 \subsubsection*{Principle of photolithography}
 
-The purpose of photolithography is to transfer a desired two-dimensional pattern from a master copy (the \emph{mask}) into a photosensitive polymer layer called the \emph{photoresist}, coated onto the wafer surface. After pattern transfer the patterned resist acts as a stencil, protecting or exposing specific areas during etching, deposition, or ion implantation \cite{FundTechProc2024}.
+The purpose of photolithography is to transfer a desired
+two-dimensional pattern from a master copy (the \emph{mask}) into a
+photosensitive polymer layer called the \emph{photoresist}, coated
+onto the wafer surface. After pattern transfer the patterned resist
+acts as a stencil, protecting or exposing specific areas during
+etching, deposition, or ion implantation \cite{FundTechProc2024}.
 
-A photomask is a high-purity, amorphous SiO$_2$ (quartz) slab on which an absorbing chromium layer has been patterned by laser or electron-beam lithography. Quartz is required as the mask substrate for deep-UV lithography (wavelengths below $\sim$300\,nm, e.g.\ KrF/ArF excimer sources), because soda-lime glass becomes opaque in that range, as shown in Figure~\ref{fig:mask_transmission} \cite{MitaniMicroMask}. For the I-line (365\,nm) exposure used in this experiment, soda-lime glass masks remain fully transmissive and are standard practice; quartz becomes necessary only when moving to shorter wavelengths.
+A photomask is a high-purity, amorphous SiO$_2$ (quartz) slab on
+which an absorbing chromium layer has been patterned by laser or
+electron-beam lithography. Quartz is required as the mask substrate
+for deep-UV lithography (wavelengths below $\sim$300\,nm,
+e.g.\ KrF/ArF excimer sources), because soda-lime glass becomes
+opaque in that range, as shown in Figure~\ref{fig:mask_transmission}
+\cite{MitaniMicroMask}. For the I-line (365\,nm) exposure used in
+this experiment, soda-lime glass masks remain fully transmissive and
+are standard practice; quartz becomes necessary only when moving to
+shorter wavelengths.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{mask_transmission.png}
-  \caption{Transmission curves for quartz glass and soda-lime glass as a function of wavelength.
-           Quartz maintains $\sim$90\,\% transmission down to wavelengths below 200\,nm, whereas
-           soda-lime glass cuts off around 300\,nm, making quartz the required substrate for
-           deep-UV photomasks (below $\sim$300\,nm); at I-line (365\,nm) soda-lime glass
-           remains fully transmissive \cite{MitaniMicroMask}.}
+  \caption{Transmission curves for quartz glass and soda-lime glass
+    as a function of wavelength.
+    Quartz maintains $\sim$90\,\% transmission down to wavelengths
+    below 200\,nm, whereas
+    soda-lime glass cuts off around 300\,nm, making quartz the
+    required substrate for
+    deep-UV photomasks (below $\sim$300\,nm); at I-line (365\,nm)
+    soda-lime glass
+  remains fully transmissive \cite{MitaniMicroMask}.}
   \label{fig:mask_transmission}
 \end{figure}
 
-The photomask employed in this experience consists of a \textbf{soda-lime glass} substrate with a patterned chromium absorber layer \cite{MitaniMicroMask}. Soda-lime glass is the standard mask substrate for I-line (365\,nm) contact lithography: at 365\,nm it is fully transmissive, as shown by the transmission curves in Figure~\ref{fig:mask_transmission}, so it imposes no UV-absorbing cutoff under the NXQ4006 aligner's operating conditions.
+The photomask employed in this experience consists of a
+\textbf{soda-lime glass} substrate with a patterned chromium absorber
+layer \cite{MitaniMicroMask}. Soda-lime glass is the standard mask
+substrate for I-line (365\,nm) contact lithography: at 365\,nm it is
+fully transmissive, as shown by the transmission curves in
+Figure~\ref{fig:mask_transmission}, so it imposes no UV-absorbing
+cutoff under the NXQ4006 aligner's operating conditions.
 
-Because a single device requires many sequential patterning steps, precise alignment of each new mask to the previously printed features on the wafer is critical; misalignment can arise from X--Y displacement or rotational error, and is corrected by superimposing dedicated alignment marks using a split-field microscope.
+Because a single device requires many sequential patterning steps,
+precise alignment of each new mask to the previously printed features
+on the wafer is critical; misalignment can arise from X--Y
+displacement or rotational error, and is corrected by superimposing
+dedicated alignment marks using a split-field microscope.
 
-Two alignment strategies are employed in practice, selected according to whether the substrate transmits infrared (IR) radiation. For substrates that are opaque to IR, \emph{optical alignment} is used: a BSA split-field microscope simultaneously images the mask alignment marks and the corresponding marks on the previously patterned wafer layer in visible light; the stage is then adjusted in X, Y, and rotation until the two sets of marks are superimposed (Figure~\ref{fig:optical_alignment}). This approach is applicable to any substrate but is limited to an alignment resolution of 5--20\,$\mu$m, primarily by the diffraction limit of the visible-light optics and the constraint that both mark sets must lie in the same focal plane. For substrates transparent to IR radiation (e.g. silicon, which is opaque to visible light but transmits wavelengths above $\sim$1\,$\mu$m), \emph{IR alignment} offers a significantly better resolution of 1--5\,$\mu$m (Figure~\ref{fig:IR_alignment}): IR illumination passes through the entire wafer stack and is detected by a photodetector placed beneath the substrate, allowing the alignment marks on both the mask and the wafer to be imaged simultaneously without requiring a top-side reference layer.
+Two alignment strategies are employed in practice, selected according
+to whether the substrate transmits infrared (IR) radiation. For
+substrates that are opaque to IR, \emph{optical alignment} is used: a
+BSA split-field microscope simultaneously images the mask alignment
+marks and the corresponding marks on the previously patterned wafer
+layer in visible light; the stage is then adjusted in X, Y, and
+rotation until the two sets of marks are superimposed
+(Figure~\ref{fig:optical_alignment}). This approach is applicable to
+any substrate but is limited to an alignment resolution of
+5--20\,$\mu$m, primarily by the diffraction limit of the
+visible-light optics and the constraint that both mark sets must lie
+in the same focal plane. For substrates transparent to IR radiation
+(e.g. silicon, which is opaque to visible light but transmits
+wavelengths above $\sim$1\,$\mu$m), \emph{IR alignment} offers a
+significantly better resolution of 1--5\,$\mu$m
+(Figure~\ref{fig:IR_alignment}): IR illumination passes through the
+entire wafer stack and is detected by a photodetector placed beneath
+the substrate, allowing the alignment marks on both the mask and the
+wafer to be imaged simultaneously without requiring a top-side reference layer.
 
 \begin{figure}[H]
   \centering
   \begin{minipage}[t]{0.46\textwidth}
     \centering
     \includegraphics[width=0.72\textwidth]{IR_mask_alignment.png}
-    \caption{IR alignment for substrates transparent to infrared radiation, such as silicon. IR illumination transmitted through the wafer stack is captured by a photodetector below, simultaneously imaging both mask and wafer marks; the achievable accuracy is 1--5\,$\mu$m \cite{FundTechProc2024}.}
+    \caption{IR alignment for substrates transparent to infrared
+      radiation, such as silicon. IR illumination transmitted through
+      the wafer stack is captured by a photodetector below,
+      simultaneously imaging both mask and wafer marks; the achievable
+    accuracy is 1--5\,$\mu$m \cite{FundTechProc2024}.}
     \label{fig:IR_alignment}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.46\textwidth}
     \centering
     \includegraphics[width=0.82\textwidth]{optical_mask_alignment.png}
-    \caption{Optical alignment using a BSA split-field microscope, applicable to substrates opaque to IR. The microscope successively focuses on the mask and wafer alignment marks and the stage is adjusted until they coincide; the achievable alignment accuracy is 5--20\,$\mu$m \cite{FundTechProc2024}.}
+    \caption{Optical alignment using a BSA split-field microscope,
+      applicable to substrates opaque to IR. The microscope
+      successively focuses on the mask and wafer alignment marks and
+      the stage is adjusted until they coincide; the achievable
+    alignment accuracy is 5--20\,$\mu$m \cite{FundTechProc2024}.}
     \label{fig:optical_alignment}
   \end{minipage}
 \end{figure}
 
 \subsubsection*{Photoresists}
 
-A photoresist is a photosensitive organic mixture composed of three main constituents:
-      
-(i) an inactive \emph{polymer resin} that provides mechanical rigidity, adhesion and chemical resistance.
+A photoresist is a photosensitive organic mixture composed of three
+main constituents:
 
-(ii) a \emph{PhotoActive Compound} (PAC) responsible for the photosensitive response.
+(i) an inactive \emph{polymer resin} that provides mechanical
+rigidity, adhesion and chemical resistance.
 
-(iii) a \emph{solvent} that keeps the mixture liquid for spin-coating and controls film thickness through its viscosity.
+(ii) a \emph{PhotoActive Compound} (PAC) responsible for the
+photosensitive response.
+
+(iii) a \emph{solvent} that keeps the mixture liquid for spin-coating
+and controls film thickness through its viscosity.
 
 Photoresists are classified by their \emph{polarity}:
 
 \begin{itemize}
-    \item \textbf{Positive resists.} Exposure to photons breaks polymer chains (chain scission), rendering the exposed areas more soluble in the developer solution. After development, windows open where the mask was transparent, replicating the mask pattern directly.
-    \item \textbf{Negative resists.} Exposure induces cross-linking of the polymer chains, making the illuminated regions \emph{less} soluble. After development, the unexposed areas are dissolved and the exposed areas remain, producing the inverse (negative-tone) of the mask.
+  \item \textbf{Positive resists.} Exposure to photons breaks polymer
+    chains (chain scission), rendering the exposed areas more soluble
+    in the developer solution. After development, windows open where
+    the mask was transparent, replicating the mask pattern directly.
+  \item \textbf{Negative resists.} Exposure induces cross-linking of
+    the polymer chains, making the illuminated regions \emph{less}
+    soluble. After development, the unexposed areas are dissolved and
+    the exposed areas remain, producing the inverse (negative-tone) of the mask.
 \end{itemize}
 
 \begin{figure}[H]
@@ -72,74 +146,121 @@ Photoresists are classified by their \emph{polarity}:
     \centering
     \includegraphics[width=\textwidth]{neg_lithography.png}
   \end{minipage}
-  \caption{Comparison of positive and negative photoresist behaviour after UV exposure and development \cite{FundTechProc2024}.}
+  \caption{Comparison of positive and negative photoresist behaviour
+  after UV exposure and development \cite{FundTechProc2024}.}
   \label{fig:pos_neg_resist}
 \end{figure}
 
-Positive resists generally offer better resolution than negative resists for several compounding reasons: chain-scission fragments are smaller and dissolve more cleanly during development; cross-linked (negative) resists additionally tend to swell in the developer, which degrades edge definition; and cross-linked networks generally exhibit lower development contrast than chain-scission systems. Together these effects make sub-micron pattern definition more difficult to achieve reliably with negative-tone resists.
+Positive resists generally offer better resolution than negative
+resists for several compounding reasons: chain-scission fragments are
+smaller and dissolve more cleanly during development; cross-linked
+(negative) resists additionally tend to swell in the developer, which
+degrades edge definition; and cross-linked networks generally exhibit
+lower development contrast than chain-scission systems. Together
+these effects make sub-micron pattern definition more difficult to
+achieve reliably with negative-tone resists.
 
-
-% $\gamma = 1 / \log_{10}(E_f / E_i)$ quantifies how sharply the development rate changes with dose, where $E_f$ and $E_i$ are the exposure doses required to fully develop and just begin to develop the resist, respectively; a high contrast produces near-vertical resist sidewalls and tight linewidth control
+% $\gamma = 1 / \log_{10}(E_f / E_i)$ quantifies how sharply the
+% development rate changes with dose, where $E_f$ and $E_i$ are the
+% exposure doses required to fully develop and just begin to develop
+% the resist, respectively; a high contrast produces near-vertical
+% resist sidewalls and tight linewidth control
 % \cite{FundTechProc2024}.
 
 \paragraph*{Image Reversal resist}
 
-A special sub-class of positive resist is the \emph{image-reversal} (IR) resist. By inserting a post-exposure bake (PEB) step before a flood exposure (without a mask), the initially exposed regions are thermally cross-linked and rendered insoluble, while the unexposed regions become sensitised.
-This results in a negative-tone image and a characteristic negative-slope (undercut) sidewall profile (i.e., the resist profile is wider at the base than at the top, facilitating clean lift-off; see Figure~\ref{fig:lift_off}). This undercut geometry is particularly valuable for metal lift-off processes, where deposited material must be cleanly separated along the resist edges.
+A special sub-class of positive resist is the \emph{image-reversal}
+(IR) resist. By inserting a post-exposure bake (PEB) step before a
+flood exposure (without a mask), the initially exposed regions are
+thermally cross-linked and rendered insoluble, while the unexposed
+regions become sensitised.
+This results in a negative-tone image and a characteristic
+negative-slope (undercut) sidewall profile (i.e., the resist profile
+  is wider at the base than at the top, facilitating clean lift-off;
+see Figure~\ref{fig:lift_off}). This undercut geometry is
+particularly valuable for metal lift-off processes, where deposited
+material must be cleanly separated along the resist edges.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{lift_off.png}
-  \caption{Schematic of the undercut profile characteristic of image-reversal resists, which is essential for a successful lift-off process.}
+  \caption{Schematic of the undercut profile characteristic of
+  image-reversal resists, which is essential for a successful lift-off process.}
   \label{fig:lift_off}
 \end{figure}
 
 \subsubsection*{Exposure sources and tools}
 
-The energy source for exposure has evolved from mercury (Hg) vapour arc lamps which emit
-characteristic spectral lines at 436\,nm (G-line), 405\,nm (H-line), 365\,nm (I-line),
-313\,nm (Mid-UV), and 254\,nm (Deep-UV) to UV-LED arrays and excimer lasers (KrF at 248\,nm,
-ArF at 193\,nm). Shorter wavelengths reduce the diffraction-limited minimum feature size,
-following the Rayleigh criterion. UV-LEDs have become an attractive alternative to Hg lamps
-because they require no warm-up time, no daily calibration, produce negligible heating, and have a
+The energy source for exposure has evolved from mercury (Hg) vapour
+arc lamps which emit
+characteristic spectral lines at 436\,nm (G-line), 405\,nm (H-line),
+365\,nm (I-line),
+313\,nm (Mid-UV), and 254\,nm (Deep-UV) to UV-LED arrays and excimer
+lasers (KrF at 248\,nm,
+ArF at 193\,nm). Shorter wavelengths reduce the diffraction-limited
+minimum feature size,
+following the Rayleigh criterion. UV-LEDs have become an attractive
+alternative to Hg lamps
+because they require no warm-up time, no daily calibration, produce
+negligible heating, and have a
 long operational lifetime.
 
-Three geometries of exposure tool exist: (i) \emph{contact} printing, where the mask is placed
-directly on the resist-coated wafer; (ii) \emph{proximity} printing, where a small gap
-($s \approx 10$--$25\,\mu$m) is maintained; and (iii) \emph{projection} printing, where an
-optical system images the mask onto the wafer at a de-magnification of typically $4\times$ or
-$5\times$ (Figure~\ref{fig:exposure_tools}). Contact and proximity systems are 1:1 and are
-preferred in R\&D settings for their simplicity and throughput, while projection steppers dominate
-industrial production due to their superior resolution and low defect density, at the cost of
-equipment exceeding 50\,M\$ and affordable only for mass production. The minimum resolvable
-half-pitch for contact printing is $b_{\min} = \tfrac{3}{2}\sqrt{\lambda z/2}$, where $z$ is the
+Three geometries of exposure tool exist: (i) \emph{contact} printing,
+where the mask is placed
+directly on the resist-coated wafer; (ii) \emph{proximity} printing,
+where a small gap
+($s \approx 10$--$25\,\mu$m) is maintained; and (iii)
+\emph{projection} printing, where an
+optical system images the mask onto the wafer at a de-magnification
+of typically $4\times$ or
+$5\times$ (Figure~\ref{fig:exposure_tools}). Contact and proximity
+systems are 1:1 and are
+preferred in R\&D settings for their simplicity and throughput, while
+projection steppers dominate
+industrial production due to their superior resolution and low defect
+density, at the cost of
+equipment exceeding 50\,M\$ and affordable only for mass production.
+The minimum resolvable
+half-pitch for contact printing is $b_{\min} =
+\tfrac{3}{2}\sqrt{\lambda z/2}$, where $z$ is the
 resist thickness; for proximity printing an additional gap term enters as
-$b_{\min} = \tfrac{3}{2}\sqrt{\lambda(s + z/2)}$. In this experience, a 1:1 mask aligner
-was used, which offers the simplest setup and is well suited to the micron-scale feature sizes
+$b_{\min} = \tfrac{3}{2}\sqrt{\lambda(s + z/2)}$. In this experience,
+a 1:1 mask aligner
+was used, which offers the simplest setup and is well suited to the
+micron-scale feature sizes
 targeted here.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.75\textwidth]{exposure_tools.png}
-  \caption{Schematic comparison of the three exposure tool geometries: contact, proximity, and
-           projection printing. \cite{FundTechProc2024}.}
+  \caption{Schematic comparison of the three exposure tool
+    geometries: contact, proximity, and
+  projection printing. \cite{FundTechProc2024}.}
   \label{fig:exposure_tools}
 \end{figure}
 
 \subsubsection*{Pattern-transfer strategies}
 
-Once the resist is developed, two broad strategies exist for transferring the pattern into the
+Once the resist is developed, two broad strategies exist for
+transferring the pattern into the
 underlying material:
 \begin{itemize}
-    \item \textbf{Etch-and-strip.} The patterned resist acts as an etch mask during wet or dry
-          etching of the layer underneath. After etching, the resist is stripped.
-    \item \textbf{Lift-off.} The photoresist is patterned \emph{before} deposition. Metal or
-          another thin film is then deposited over the entire wafer; the resist is subsequently
-          dissolved, lifting off the unwanted film and leaving it only in the open windows. This
-          avoids wet etching and is especially suited to materials that lack selective etchants.
-          For reliable lift-off, the deposited film must be thinner than one-third of the resist
-          thickness, and a negative-slope (undercut) profile ensures physical discontinuity of the
-          film at the resist edge.
+  \item \textbf{Etch-and-strip.} The patterned resist acts as an etch
+    mask during wet or dry
+    etching of the layer underneath. After etching, the resist is stripped.
+  \item \textbf{Lift-off.} The photoresist is patterned \emph{before}
+    deposition. Metal or
+    another thin film is then deposited over the entire wafer; the
+    resist is subsequently
+    dissolved, lifting off the unwanted film and leaving it only in
+    the open windows. This
+    avoids wet etching and is especially suited to materials that
+    lack selective etchants.
+    For reliable lift-off, the deposited film must be thinner than
+    one-third of the resist
+    thickness, and a negative-slope (undercut) profile ensures
+    physical discontinuity of the
+    film at the resist edge.
 \end{itemize}
 
 \subsection{Materials and Methods}

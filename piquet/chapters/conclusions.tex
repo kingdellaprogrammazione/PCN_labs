@@ -2,26 +2,38 @@
 % Summary of Process Parameters
 % =========================================================
 
-Table~\ref{tab:process_summary} summarises the key parameters of the three sub-experiences and provides a comparative overview of the technologies employed.
+Table~\ref{tab:process_summary} summarises the key parameters of the
+three sub-experiences and provides a comparative overview of the
+technologies employed.
 
 \begin{table}[H]
   \centering
   \small
-  \begin{tabular}{p{3.0cm}p{3.2cm}p{3.2cm}p{3.2cm}}
+  \begin{tabularx}{\textwidth}{lXXX}
     \toprule
-    \textbf{Parameter} & \textbf{MICRO (UV Litho.)} & \textbf{NANO (EBL)} & \textbf{DRY ETCH (DRIE)} \\
+    \textbf{Parameter} & \textbf{MICRO (UV Litho.)} & \textbf{NANO
+    (EBL)} & \textbf{DRY ETCH (DRIE)} \\
     \midrule
-    Resist / mask       & AZ\,5214E ($\sim$1.3\,$\mu$m)   & PMMA 300\,nm                    & Cu hard mask 50\,nm           \\
-    Exposure source     & UV lamp (broadband)               & 50\,keV e-beam                  & \ce{SF6} + \ce{C4F8} plasma   \\
-    Resolution limit    & $\sim$1\,$\mu$m                   & $<$100\,nm                      & Limited by mask               \\
-    Key step            & Image-reversal bake               & Proximity correction             & Pseudo-Bosch cycle            \\
-    Developer / etchant & AZ400K:H$_2$O 1:4                & MIBK:IPA 1:3                    & ICP, 13.56\,MHz               \\
-    Temperature         & Softbake 112\,$^\circ$C           & Room temperature                 & He cool, 5\,$^\circ$C chiller \\
-    Target structure    & Trenches ($\mu$m-scale)           & Split rings ($<$100\,nm gap)    & Nano-pillars in Si            \\
-    Inspection          & Opt.\ microscope + profilometer   & Opt.\ microscope (BF/DF)        & SEM (Quanta 3D FEG)           \\
+    Resist / mask       & AZ\,5214E ($\sim$1.3\,$\mu$m)   & PMMA
+    300\,nm                    & Cu hard mask 50\,nm           \\
+    Exposure source     & UV lamp (broadband)               & 50\,keV
+    e-beam                  & \ce{SF6} + \ce{C4F8} plasma   \\
+    Resolution limit    & $\sim$1\,$\mu$m                   &
+    $<$100\,nm                      & Limited by mask               \\
+    Key step            & Image-reversal bake               &
+    Proximity correction             & Pseudo-Bosch cycle            \\
+    Developer / etchant & AZ400K:H$_2$O 1:4                & MIBK:IPA
+    1:3                    & ICP, 13.56\,MHz               \\
+    Temperature         & Softbake 112\,$^\circ$C           & Room
+    temperature                 & He cool, 5\,$^\circ$C chiller \\
+    Target structure    & Trenches ($\mu$m-scale)           & Split
+    rings ($<$100\,nm gap)    & Nano-pillars in Si            \\
+    Inspection          & Opt.\ microscope + profilometer   &
+    Opt.\ microscope (BF/DF)        & SEM (Quanta 3D FEG)           \\
     \bottomrule
-  \end{tabular}
-  \caption{Summary of key process parameters for the three cleanroom sub-experiences.}
+  \end{tabularx}
+  \caption{Summary of key process parameters for the three cleanroom
+  sub-experiences.}
   \label{tab:process_summary}
 \end{table}
 
@@ -29,18 +41,43 @@ Table~\ref{tab:process_summary} summarises the key parameters of the three sub-e
 % Conclusions
 % =========================================================
 
-The three laboratory sessions provide a complete view of the micro- and nano-fabrication workflow from substrate to characterised device. Each session builds directly on the previous one: the patterns defined in the MICRO and NANO experiences are transferred into silicon in the DRIE session, and the SEM imaging reveals how the choices made at every prior step (resist type, exposure dose, mask material, and etch parameters) propagate through to the final structure quality.
+The three laboratory sessions provide a complete view of the micro-
+and nano-fabrication workflow from substrate to characterised device.
+Each session builds directly on the previous one: the patterns
+defined in the MICRO and NANO experiences are transferred into
+silicon in the DRIE session, and the SEM imaging reveals how the
+choices made at every prior step (resist type, exposure dose, mask
+material, and etch parameters) propagate through to the final structure quality.
 
 Several key principles emerge across the three experiences:
 
 \begin{itemize}
-    \item \textbf{Scale matters.} The same ICP-DRIE process behaves fundamentally differently at micro and nano scale. At micro scale the recipe is uniform and controllable; at nano scale, ARDE, bowing, proximity effects, and charging all emerge as significant perturbations that require dedicated correction strategies.
+  \item \textbf{Scale matters.} The same ICP-DRIE process behaves
+    fundamentally differently at micro and nano scale. At micro scale
+    the recipe is uniform and controllable; at nano scale, ARDE,
+    bowing, proximity effects, and charging all emerge as significant
+    perturbations that require dedicated correction strategies.
 
-    \item \textbf{Every step has a physical reason.} The HMDS adhesion promoter exists because of surface chemistry; the image-reversal bake exists because of polymer cross-linking kinetics; the proximity correction exists because of electron scattering physics; the He backside cooling exists because of reaction-rate temperature dependence. Understanding these reasons is essential for diagnosing and correcting process failures.
+  \item \textbf{Every step has a physical reason.} The HMDS adhesion
+    promoter exists because of surface chemistry; the image-reversal
+    bake exists because of polymer cross-linking kinetics; the
+    proximity correction exists because of electron scattering
+    physics; the He backside cooling exists because of reaction-rate
+    temperature dependence. Understanding these reasons is essential
+    for diagnosing and correcting process failures.
 
-    \item \textbf{Hard masks outperform soft masks at depth.} The 1:10 selectivity of photoresist limits it to shallow etches, while the 50\,nm copper hard mask provides the selectivity needed for deep nano-scale features.
+  \item \textbf{Hard masks outperform soft masks at depth.} The 1:10
+    selectivity of photoresist limits it to shallow etches, while the
+    50\,nm copper hard mask provides the selectivity needed for deep
+    nano-scale features.
 
-    \item \textbf{Measurement closes the loop.} Optical microscopy, profilometry, optical emission spectroscopy, and SEM are not optional additions to the process: they are the feedback that allows the process to be quantified, corrected, and reproduced.
+  \item \textbf{Measurement closes the loop.} Optical microscopy,
+    profilometry, optical emission spectroscopy, and SEM are not
+    optional additions to the process: they are the feedback that
+    allows the process to be quantified, corrected, and reproduced.
 \end{itemize}
 
-The fabrication skills and physical understanding developed in these sessions form the practical foundation of quantum device engineering, spanning applications from micro atomic clocks to plasmonic quantum emitters, at the frontier of the PiQuET research programme.
+The fabrication skills and physical understanding developed in these
+sessions form the practical foundation of quantum device engineering,
+spanning applications from micro atomic clocks to plasmonic quantum
+emitters, at the frontier of the PiQuET research programme.
