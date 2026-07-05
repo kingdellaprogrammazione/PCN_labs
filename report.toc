@@ -71,16 +71,16 @@
 \contentsline {section}{\numberline {3.2}NANO Experience: Electron Beam Lithography (EBL)}{62}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Materials and Methods}{62}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Results}{64}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Dry-Etch and SEM Imaging}{65}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Materials and Methods}{65}{subsection.3.3.1}%
-\contentsline {subsubsection}{Objective}{65}{section*.57}%
-\contentsline {subsubsection}{Setup description and list of components}{66}{section*.58}%
-\contentsline {subsubsection}{Process flow description}{67}{section*.60}%
-\contentsline {subsection}{\numberline {3.3.2}Results}{71}{subsection.3.3.2}%
-\contentsline {subsubsection}{Microstructure}{72}{section*.62}%
-\contentsline {subsubsection}{Nanostructure}{74}{section*.63}%
-\contentsline {section}{\numberline {3.4}Applications in Quantum Technology}{82}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Micro Atomic Clocks}{82}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Plasmonic Nano-antennas}{82}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Nano-biosensors}{82}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Conclusions}{83}{section.3.5}%
+\contentsline {section}{\numberline {3.3}Dry-Etch and SEM Imaging}{70}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Materials and Methods}{70}{subsection.3.3.1}%
+\contentsline {subsubsection}{Objective}{70}{section*.57}%
+\contentsline {subsubsection}{Setup description and list of components}{70}{section*.58}%
+\contentsline {subsubsection}{Process flow description}{71}{section*.60}%
+\contentsline {subsection}{\numberline {3.3.2}Results}{76}{subsection.3.3.2}%
+\contentsline {subsubsection}{Microstructure}{76}{section*.62}%
+\contentsline {subsubsection}{Nanostructure}{79}{section*.63}%
+\contentsline {section}{\numberline {3.4}Applications in Quantum Technology}{87}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Micro Atomic Clocks}{87}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Plasmonic Nano-antennas}{87}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Nano-biosensors}{87}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Conclusions}{88}{section.3.5}%
