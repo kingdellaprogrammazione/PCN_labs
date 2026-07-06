@@ -44,8 +44,7 @@
 %   - FIB system (model if known, e.g. FEI Helios or similar dual-beam SEM/FIB)
 %   - Acetone development bath
 
-\textbf{Scope note: FIB processing} \\
-The original experimental plan for the NANO experience included focused ion beam (FIB) processing, in which a gallium-ion beam would pierce the resist and cross-link a thin shell around each hole, serving as an alternative nano-patterning mechanism alongside EBL. However, the FIB system was not operational during this session. As a result, all nanopatterning was carried out exclusively by electron beam lithography, and the analysis below focuses on electron-matter interactions rather than ion-induced effects.
+Focused ion beam (FIB) processing was originally planned as part of the NANO experience, but the FIB system was not operational during this session, so nanopatterning was carried out exclusively by electron beam lithography.
 
 \textbf{Starting Material and Resist Setup} \\
 The fabrication process was performed on a silicon substrate. Polymethyl methacrylate (PMMA~A4, 950\,kDa, diluted in anisole) was used as the lithographic resist. PMMA is a positive-tone, high-resolution resist suited to
@@ -84,7 +83,7 @@ shorter line across the narrow section, so that no dose is delivered outside the
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{EBL_patterning.pdf}
-  \caption{Schematic of the meander (raster) scan strategy used to fill an individual shape of the CAD layout. The beam is stepped through parallel horizontal passes (dotted lines) whose length adapts to the local width of the polygon, shown here for a C-shaped test element with a rectangular notch.}
+  \caption{Schematic of the meander (raster) scan strategy used by the EBL system to expose a single shape of the layout, so that dose is delivered only within the intended pattern boundary.}
   \label{fig:nano_ebl_patterning}
 \end{figure}
 
@@ -102,7 +101,7 @@ minimises stage travel between consecutively written fields.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{EBL_ordering.pdf}
-  \caption{Physical layout of the nine-field dose array on the sample (400--800\,$\mu$C/cm$^2$ in 50\,$\mu$C/cm$^2$ steps). Fields were written in the boustrophedon sequence 400 $\rightarrow$ 500 (bottom row, left to right), 550 $\rightarrow$ 650 (middle row, right to left), 700 $\rightarrow$ 800 (top row, left to right), minimising travel between consecutive exposures.}
+  \caption{Physical layout of the nine-field dose array on the sample (400--800\,$\mu$C/cm$^2$ in 50\,$\mu$C/cm$^2$ steps).}
   \label{fig:nano_dose_ordering}
 \end{figure}
 
